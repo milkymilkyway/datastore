@@ -1,6 +1,6 @@
 function define(script)
 {
-    script.Name = "default";
+    script.Name = "spin";
     return 0;
 }
 
