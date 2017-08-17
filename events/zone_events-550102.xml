@@ -23,9 +23,6 @@
         <member name="messageIDs">
             <element>160321</element>
         </member>
-        <member name="unknown">
-            <element>170</element>
-        </member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z550102_PR005</member>
@@ -64,9 +61,6 @@
         <member name="next">Z550102_PR006</member>
         <member name="messageIDs">
             <element>160323</element>
-        </member>
-        <member name="unknown">
-            <element>170</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -111,9 +105,6 @@
         <member name="messageIDs">
             <element>133201</element>
         </member>
-        <member name="unknown">
-            <element>170</element>
-        </member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z550102_PR007</member>
@@ -142,9 +133,6 @@
         <member name="next">Z550102_PR007</member>
         <member name="messageIDs">
             <element>133206</element>
-        </member>
-        <member name="unknown">
-            <element>170</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -191,7 +179,6 @@
             <member name="ID">Z550102_SC002</member>
             <member name="conditionID">UNKNOWN</member>
             <member name="sceneID">54</member>
-            <member name="unknown">0</member>
         </object>
         <object name="EventGetItem">
             <member name="ID">Z550102_IT001</member>
@@ -217,14 +204,11 @@
             <member name="ID">Z550102_SC003</member>
             <member name="conditionID">UNKNOWN</member>
             <member name="sceneID">96</member>
-            <member name="unknown">0</member>
         </object>
         <object name="EventStageEffect">
             <member name="ID">Z550102_SE001</member>
             <member name="conditionID">UNKNOWN</member>
             <member name="messageID">160347</member>
-            <member name="effect1">0</member>
-            <member name="effect2">0</member>
         </object>
         <object name="EventMessage">
             <member name="ID">Z550102_MS001</member>
@@ -237,21 +221,78 @@
         <object name="EventStageEffect">
             <member name="ID">Z550102_SE002</member>
             <member name="messageID">164214</member>
-            <member name="effect1">0</member>
-            <member name="effect2">0</member>
         </object>
         <object name="EventStageEffect">
             <member name="ID">Z550102_SE003</member>
             <member name="next">Z550102_MS002</member>
             <member name="conditionID">UNKNOWN</member>
             <member name="messageID">164211</member>
-            <member name="effect1">0</member>
-            <member name="effect2">0</member>
+            <member name="branches">
+                <element>
+                    <object>
+                        <member name="next">Z550102_MS003</member>
+                        <member name="conditionID">unknown</member>
+                    </object>
+                </element>
+            </member>
         </object>
         <object name="EventMessage">
             <member name="ID">Z550102_MS002</member>
             <member name="messageIDs">
                 <element>164211</element>
+            </member>
+        </object>
+        <object name="EventMessage">
+            <member name="ID">Z550102_MS003</member>
+            <member name="next">Z550102_ML001</member>
+            <member name="messageIDs">
+                <element>164211</element>
+            </member>
+        </object>
+        <object name="EventMultitalk">
+            <member name="ID">Z550102_ML001</member>
+            <member name="next">Z550102_ML002</member>
+            <member name="messageID">5500102</member>
+        </object>
+        <object name="EventMultitalk">
+            <member name="ID">Z550102_ML002</member>
+            <member name="next">Z550102_PA001</member>
+            <member name="messageID">5500104</member>
+        </object>
+        <object name="EventPerformActions">
+            <member name="ID">Z550102_PA001</member>
+            <member name="next">Z550102_SE004</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">387</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+            </member>
+        </object>
+        <object name="EventStageEffect">
+            <member name="ID">Z550102_SE004</member>
+            <member name="next">Z550102_MS004</member>
+            <member name="messageID">164397</member>
+        </object>
+        <object name="EventMessage">
+            <member name="ID">Z550102_MS004</member>
+            <member name="next">Z550102_PA002</member>
+            <member name="messageIDs">
+                <element>164397</element>
+            </member>
+        </object>
+        <object name="EventPerformActions">
+            <member name="ID">Z550102_PA002</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionUpdateQuest">
+                        <member name="questID">325</member>
+                        <member name="phase">2</member>
+                    </object>
+                </element>
             </member>
         </object>
         <object name="EventPrompt">
@@ -261,7 +302,7 @@
             <member name="choices">
                 <element>
                     <object name="EventChoice">
-                        <member name="next">Z550102_PA001</member>
+                        <member name="next">Z550102_PA003</member>
                         <member name="messageID">164204</member>
                     </object>
                 </element>
@@ -290,8 +331,8 @@
             </member>
         </object>
         <object name="EventPerformActions">
-            <member name="ID">Z550102_PA001</member>
-            <member name="next">Z550102_ML001</member>
+            <member name="ID">Z550102_PA003</member>
+            <member name="next">Z550102_ML003</member>
             <member name="actions">
                 <element>
                     <object name="ActionUpdateFlag">
@@ -302,7 +343,7 @@
             </member>
         </object>
         <object name="EventMultitalk">
-            <member name="ID">Z550102_ML001</member>
+            <member name="ID">Z550102_ML003</member>
             <member name="messageID">5500101</member>
         </object>
         <object name="EventPrompt">
@@ -323,22 +364,20 @@
             </member>
         </object>
         <object name="EventStageEffect">
-            <member name="ID">Z550102_SE004</member>
-            <member name="next">Z550102_MS003</member>
+            <member name="ID">Z550102_SE005</member>
+            <member name="next">Z550102_MS005</member>
             <member name="conditionID">UNKNOWN</member>
             <member name="messageID">164399</member>
-            <member name="effect1">0</member>
-            <member name="effect2">0</member>
         </object>
         <object name="EventMessage">
-            <member name="ID">Z550102_MS003</member>
-            <member name="next">Z550102_PA002</member>
+            <member name="ID">Z550102_MS005</member>
+            <member name="next">Z550102_PA004</member>
             <member name="messageIDs">
                 <element>164399</element>
             </member>
         </object>
         <object name="EventPerformActions">
-            <member name="ID">Z550102_PA002</member>
+            <member name="ID">Z550102_PA004</member>
             <member name="actions">
                 <element>
                     <object name="ActionUpdateFlag">
