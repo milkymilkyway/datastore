@@ -4,7 +4,15 @@ function define(script)
     return 0;
 }
 
-function update(eState, now)
+function prepare(eState, manager)
+{
+	local aiState = eState.GetAIState();
+	aiState.OverrideAction("combat", "spin");
+	aiState.OverrideAction("idle", "spin");
+    return 0;
+}
+
+function spin(eState, manager, now)
 {
     // Rotate more whenever rotation completes
     if(!eState.IsRotating())
