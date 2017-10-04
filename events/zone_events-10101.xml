@@ -732,6 +732,98 @@
         <member name="branches">
             <element>
                 <object>
+                    <member name="next">Z10101_Q300_IF1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                            <member name="negate">true</member>
+                            <member name="compareMode">LT</member>
+                                <member name="data">
+                                    <object>
+                                        <member name="type">INVENTORY_FREE</member>
+                                        <member name="value1">4</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">QUEST_ACTIVE</member>
+                                        <member name="value1">300</member>
+                                        <member name="value2">0</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z10101_Q300_IF2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="negate">true</member>
+                                <member name="compareMode">LT</member>
+                                <member name="data">
+                                    <object>
+                                        <member name="type">INVENTORY_FREE</member>
+                                        <member name="value1">3</member> <!--Change this to 2 once gender is a condition-->
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">300</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z10101_Q300_CF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">COMP_FREE</member>
+                                        <member name="value1">0</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z10101_Q300_FIN_01a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_FLAGS</member>
+                                <member name="questID">300</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2001</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">Z10101_Q300_FIN_01</member>
                     <member name="conditions">
                         <element>
@@ -749,6 +841,23 @@
                     </member>
                 </object>
             </element>
+            <!--<element>
+                <object>
+                    <member name="next">Z10101_Q300_LD</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">DEMON_LOCKED</member>
+                                        <member name="value1">1</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>    -->
             <element>
                 <object>
                     <member name="next">Z10101_ML021</member>
@@ -819,6 +928,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z90105_Q300_P0_01a</member>
                     <member name="messageID">162117</member>
                 </object>
             </element>
@@ -836,6 +946,18 @@
             <element>162125</element>
         </member>
         <member name="unknown">
+            <element>171</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z90105_Q300_P0_01a</member>
+        <member name="next">Z90105_Q300_P0_02</member>
+        <member name="messageIDs">
+            <element>162119</element>
+            <element>162121</element>
+        </member>
+        <member name="unknown">
+            <element>169</element>
             <element>171</element>
         </member>
     </object>
@@ -1032,6 +1154,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z10101_NM034a</member>
                     <member name="messageID">162129</member>
                 </object>
             </element>
@@ -1041,6 +1164,67 @@
                     <member name="messageID">162131</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z10101_NM034a</member>
+        <member name="next">Z10101_EF024a</member>
+        <member name="messageIDs">
+            <element>162137</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
+        </member>
+    </object>
+    <object name="EventStageEffect">
+        <member name="ID">Z10101_EF024a</member>
+        <member name="next">Z10101_MS019a</member>
+        <member name="messageID">162153</member>
+    </object>
+    <object name="EventMessage">
+        <member name="ID">Z10101_MS019a</member>
+        <member name="next">Z10101_PA013a</member>
+        <member name="messageIDs">
+            <element>162138</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z10101_PA013a</member>
+        <member name="next">Z10101_EF025a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">300</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2001</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-200</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventStageEffect">
+        <member name="ID">Z10101_EF025a</member>
+        <member name="next">Z10101_MS020a</member>
+        <member name="messageID">162139</member>
+    </object>
+    <object name="EventMessage">
+        <member name="ID">Z10101_MS020a</member>
+        <member name="messageIDs">
+            <element>162139</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -1115,6 +1299,54 @@
         </member>
     </object>
     <object name="EventMultitalk">
+        <member name="ID">Z10101_Q300_LD</member>
+        <member name="messageID">162157</member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z10101_Q300_IF1</member>
+        <member name="messageIDs">
+            <element>162146</element>
+            <element>162150</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z10101_Q300_IF2</member>
+        <member name="messageIDs">
+            <element>162171</element>
+            <element>162172</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z10101_Q300_CF</member>
+        <member name="messageIDs">
+            <element>162144</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z10101_Q300_FIN_01a</member>
+        <member name="next">Z10101_Q300_FIN_02a</member>
+        <member name="messageID">100019</member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z10101_Q300_FIN_02a</member>
+        <member name="next">Z10101_Q300_FIN_03</member>
+        <member name="messageIDs">
+            <element>162154</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
         <member name="ID">Z10101_Q300_FIN_01</member>
         <member name="next">Z10101_Q300_FIN_02</member>
         <member name="messageID">100019</member>
@@ -1148,29 +1380,111 @@
         <member name="next">Z10101_Q300_FIN_06</member>
         <member name="messageID">162140</member>
     </object>
+    <!--Accounting for all possibilities.-->
     <object name="EventMessage">
         <member name="ID">Z10101_Q300_FIN_06</member>
-        <member name="next">Z10101_Q300_FIN_07</member>
+        <member name="next">Z10101_Q300_FIN_07a</member>
         <member name="messageIDs">
             <element>162140</element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z10101_Q300_FIN_07b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_FLAGS</member>
+                                <member name="questID">300</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2001</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventGetItem">
-        <member name="ID">Z10101_Q300_FIN_07</member>
-        <member name="next">Z10101_Q300_FIN_08</member>
+        <member name="ID">Z10101_Q300_FIN_07a</member>
+        <member name="next">Z10101_Q300_FIN_08a</member>
+        <member name="items">
+            <pair>
+                <key>799</key>
+                <value>1000</value>
+            </pair>
+        </member>
+        <!--<member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z10101_Q300_FIN_08b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">GENDER</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>-->
+    </object>
+    <object name="EventGetItem">
+        <member name="ID">Z10101_Q300_FIN_07b</member>
+        <member name="next">Z10101_Q300_FIN_08a</member>
+        <member name="items">
+            <pair>
+                <key>799</key>
+                <value>800</value>
+            </pair>
+        </member>
+        <!--<member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z10101_Q300_FIN_08b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">GENDER</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>-->
+    </object>
+    <object name="EventGetItem">
+        <member name="ID">Z10101_Q300_FIN_08a</member>
+        <member name="next">Z10101_Q300_FIN_09</member>
         <member name="items">
             <pair>
                 <key>4126</key>
                 <value>1</value>
             </pair>
             <pair>
-                <key>799</key>
-                <value>1000</value>
+                <key>4127</key><!--remove this once gender is an event condition-->
+                <value>1</value>
+            </pair>
+        </member>
+    </object>
+        <object name="EventGetItem">
+        <member name="ID">Z10101_Q300_FIN_08b</member>
+        <member name="next">Z10101_Q300_FIN_09</member>
+        <member name="items">
+            <pair>
+                <key>4127</key>
+                <value>1</value>
             </pair>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z10101_Q300_FIN_08</member>
+        <member name="ID">Z10101_Q300_FIN_09</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateCOMP">
@@ -3544,9 +3858,74 @@
         <member name="ID">Z10101_10001_01</member>
         <member name="next">Z10101_10001_02</member>
         <member name="branches">
-            <!-- todo: add conditions to stop player from leaving before act 1 -->
-            <!-- todo: add 20101_GUARD_NOT_SPOKEN_TO condition -->
+            <element>
+                <object>
+                    <member name="next">Z10101_101_ThirdHomeStop</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">QUEST_ACTIVE</member>
+                                        <member name="value1">300</member>
+                                        <member name="value2">0</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">QUEST_COMPLETE</member>
+                                        <member name="value1">299</member>
+                                        <member name="value2">1</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+                <object>
+                    <member name="next">Z10101_101_GuardQuestIncomplete</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">QUEST_COMPLETE</member>
+                                        <member name="value1">300</member>
+                                        <member name="value2">1</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">QUEST_COMPLETE</member>
+                                        <member name="value1">5</member>
+                                        <member name="value2">0</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
         </member>
+    </object>
+    <object name="EventStageEffect">
+        <member name="ID">Z10101_101_ThirdHomeStop</member>
+        <member name="messageID">162108</member>
+        <member name="effect1">3</member>
+    </object>
+    <object name="EventStageEffect">
+        <member name="next">Z10101_10001_02</member>
+        <member name="ID">Z10101_101_GuardQuestIncomplete</member>
+        <member name="messageID">100995</member>
+        <member name="effect1">3</member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z10101_10001_02</member>
