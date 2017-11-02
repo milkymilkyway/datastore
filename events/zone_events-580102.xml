@@ -33,6 +33,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z580102_TO_20101</member>
                     <member name="messageID">137002</member>
                 </object>
             </element>
@@ -43,18 +44,55 @@
             </element>
         </member>
     </object>
-    <unmapped>
-        <object name="EventStageEffect">
-            <member name="ID">Z580102_EF001</member>
-            <member name="next">Z580102_MS001</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">137000</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z580102_MS001</member>
-            <member name="messageIDs">
-                <element>137000</element>
-            </member>
-        </object>
-    </unmapped>
+    <object name="EventPerformActions">
+        <member name="ID">Z580102_TO_20101</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">20101</member>
+                    <member name="spotID">50010</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventStageEffect">
+        <member name="ID">Z580102_EF001</member>
+        <member name="next">Z580102_MS001</member>
+        <member name="messageID">137000</member>
+    </object>
+    <object name="EventMessage">
+        <member name="ID">Z580102_MS001</member>
+        <member name="next">Z580102_SN</member>
+        <member name="messageIDs">
+            <element>137000</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z580102_SN</member>
+        <member name="next">Z580102_SN2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">2</member>
+                    <member name="actorID">570171</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z580102_SN2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                    <member name="actorID">570171</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventStageEffect">
+        <member name="ID">Z580102_status</member>
+        <member name="conditionID">UNKNOWN</member><!--adds status effect.-->
+        <member name="messageID">137100</member>
+    </object>
 </objects>

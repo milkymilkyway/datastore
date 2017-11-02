@@ -12,37 +12,59 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50102_BUY_1</member>
                     <member name="messageID">40001</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50102_SELL</member>
                     <member name="messageID">40002</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50102_REPAIR</member>
                     <member name="messageID">40003</member>
                 </object>
             </element>
+            <!-- todo: Special Collection Needs Shop Verification
             <element>
                 <object name="EventChoice">
                     <member name="messageID">101800</member>
                 </object>
-            </element>
+            </element> -->
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50102_APPRAISE</member>
                     <member name="messageID">70501</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z50102_IF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="negate">true</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="data">
+                                                <object>
+                                                    <member name="type">INVENTORY_FREE</member>
+                                                    <member name="value1">1</member>
+                                                </object>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50102_TALK</member>
                     <member name="messageID">40004</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
                 </object>
             </element>
             <element>
@@ -50,6 +72,137 @@
                     <member name="messageID">40005</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z50102_BUY_1</member>
+        <member name="menuType">175</member>
+        <member name="shopID">11</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z50102_SELL</member>
+        <member name="menuType">176</member>
+        <member name="shopID">11</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z50102_REPAIR</member>
+        <member name="menuType">177</member>
+        <member name="shopID">11</member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50102_IF001</member>
+        <member name="messageIDs">
+            <element>70508</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50102_NF001</member>
+        <member name="next">Z50102_PR002</member>
+        <member name="messageIDs">
+            <element>70581</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50102_APPRAISE</member>
+        <member name="next">Z50102_PR002</member>
+        <member name="messageIDs">
+            <element>70504</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z50102_PR002</member>
+        <member name="messageID">70583</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">70511</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z50102_NF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="negate">true</member>
+                                            <member name="data">
+                                                <object>
+                                                    <member name="type">ITEM</member>
+                                                    <member name="value1">5241</member>
+                                                    <member name="value2">1</member>
+                                                </object>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">70531</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z50102_NF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="negate">true</member>
+                                            <member name="data">
+                                                <object>
+                                                    <member name="type">ITEM</member>
+                                                    <member name="value1">5242</member>
+                                                    <member name="value2">1</member>
+                                                </object>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">70554</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z50102_NF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="negate">true</member>
+                                            <member name="data">
+                                                <object>
+                                                    <member name="type">ITEM</member>
+                                                    <member name="value1">5243</member>
+                                                    <member name="value2">1</member>
+                                                </object>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">70503</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50102_TALK</member>
+        <member name="next">Z50102_PR001</member>
+        <member name="messageIDs">
+            <element>43011</element>
         </member>
     </object>
 </objects>
