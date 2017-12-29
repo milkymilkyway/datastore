@@ -1,14 +1,70 @@
 <objects>
+    <!--todo: There's a lot of dialogue left that needs to be inserted correctly.-->
     <object name="Event">
         <member name="ID">Z40111_593</member>
         <member name="next">Z40111_NM001</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z40111_FIX593</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z40111_NM001a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">VALUABLE</member>
+                                        <member name="value1">55</member>
+                                        <member name="value2">0</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
+            <element>
+                <object>
+                    <member name="next">Z40111_NM001a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">VALUABLE</member>
+                                        <member name="value1">138</member>
+                                        <member name="value2">0</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z40111_NM001a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="compareMode">LT</member>
+                                <member name="data">
+                                    <object>
+                                        <member name="type">LEVEL</member>
+                                        <member name="value1">70</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_NM001a</member>
+        <member name="next">Z40111_PR001</member>
+        <member name="messageIDs">
+            <element>1207041</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -16,41 +72,6 @@
         <member name="next">Z40111_PR001</member>
         <member name="messageIDs">
             <element>1207039</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_FIX593</member>
-        <member name="next">Z40111_R2_PR004</member>
-        <member name="messageIDs">
-            <element>1207039</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z40111_R2_PR004</member>
-        <member name="messageID">1207039</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z40111_R2_NM009</member>
-                    <member name="messageID">1207042</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z40111_R2_NM006</member>
-                    <member name="messageID">1207043</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">1207045</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -139,6 +160,76 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z40111_R2_NM014a</member>
+                    <member name="messageID">1207055</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z40111_IF1</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                        <member name="negate">true</member>
+                                        <member name="compareMode">LT</member>
+                                            <member name="data">
+                                                <object>
+                                                    <member name="type">INVENTORY_FREE</member>
+                                                    <member name="value1">1</member>
+                                                </object>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40111_R2_NM014</member>
+                    <member name="messageID">1207056</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_R2_NM014a</member>
+        <member name="next">Z40111_593_0001</member>
+        <member name="messageIDs">
+            <element>1207063</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
+        </member>
+    </object>
+    <object name="EventGetItem">
+        <member name="ID">Z40111_593_0001</member>
+        <member name="next">Z40111_R2_ST001</member>
+        <member name="items">
+            <pair>
+                <key>12980</key>
+                <value>1</value>
+            </pair>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_IF1</member>
+        <member name="next">Z40111_IF1_1</member>
+        <member name="messageIDs">
+            <element>1207058</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z40111_IF1_1</member>
+        <member name="messageID">1207059</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40111_IF1_2</member>
                     <member name="messageID">1207055</member>
                 </object>
             </element>
@@ -148,6 +239,15 @@
                     <member name="messageID">1207056</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_IF1_2</member>
+        <member name="messageIDs">
+            <element>1207060</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -228,7 +328,64 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z40111_R2_NM009</member>
                     <member name="messageID">1207042</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z40111_NM009a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="data">
+                                                <object>
+                                                    <member name="type">VALUABLE</member>
+                                                    <member name="value1">55</member>
+                                                    <member name="value2">0</member>
+                                                </object>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z40111_NM009a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="data">
+                                                <object>
+                                                    <member name="type">VALUABLE</member>
+                                                    <member name="value1">138</member>
+                                                    <member name="value2">0</member>
+                                                </object>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z40111_NM009a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="compareMode">LT</member>
+                                            <member name="data">
+                                                <object>
+                                                    <member name="type">LEVEL</member>
+                                                    <member name="value1">70</member>
+                                                </object>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -241,6 +398,19 @@
                 <object name="EventChoice">
                     <member name="next">Z40111_NM003</member>
                     <member name="messageID">1207044</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="data">
+                                    <object>
+                                        <member name="type">VALUABLE</member>
+                                        <member name="value1">530</member>
+                                        <member name="value2">1</member>
+                                    </object>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -248,6 +418,15 @@
                     <member name="messageID">1207045</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_NM009a</member>
+        <member name="messageIDs">
+            <element>1207048</element>
+        </member>
+        <member name="unknown">
+            <element>171</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -296,6 +475,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z40111_HP001</member>
                     <member name="messageID">97</member>
                 </object>
             </element>
@@ -305,5 +485,13 @@
                 </object>
             </element>
         </member>
+    </object>
+    <object name="EventHomepoint">
+        <member name="ID">Z40111_HP001</member>
+        <member name="next">Z40111_HP001a</member>
+    </object>
+    <object name="EventStageEffect">
+        <member name="ID">Z40111_HP001a</member>
+        <member name="messageID">99</member>
     </object>
 </objects>

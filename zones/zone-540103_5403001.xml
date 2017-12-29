@@ -45,6 +45,7 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">540004</member>
+                    <member name="ActorID">540004</member>
                     <member name="X">17790.90039</member>
                     <member name="Y">-3166.310059</member>
                     <member name="Rotation">0</member>
@@ -55,18 +56,12 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">540005</member>
+                    <member name="ActorID">540005</member>
                     <member name="X">15146.7002</member>
                     <member name="Y">-2292.939941</member>
                     <member name="Rotation">0</member>
                     <member name="State">1</member>
-                    <member name="Actions">
-                        <element>
-                            <object name="ActionSetNPCState">
-                                <member name="state">3</member>
-                            </object>
-                        </element>
-                    </member>
-                    <member name="ActorID">540005</member>
+                    <member name="Actions"/>
                 </object>
             </element>
             <element>
@@ -83,6 +78,7 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">540007</member>
+                    <member name="ActorID">540007</member>
                     <member name="X">18162.90039</member>
                     <member name="Y">-31.02750015</member>
                     <member name="Rotation">0</member>
@@ -104,6 +100,7 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">540009</member>
+                    <member name="ActorID">540009</member>
                     <member name="X">21898.69922</member>
                     <member name="Y">2163.709961</member>
                     <member name="Rotation">0</member>
@@ -114,6 +111,7 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">540010</member>
+                    <member name="ActorID">540010</member>
                     <member name="X">13480</member>
                     <member name="Y">-1379.819946</member>
                     <member name="Rotation">0</member>
@@ -135,6 +133,7 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">540012</member>
+                    <member name="ActorID">540012</member>
                     <member name="X">3846.01001</member>
                     <member name="Y">-2641.300049</member>
                     <member name="Rotation">0</member>
@@ -189,18 +188,12 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">540017</member>
+                    <member name="ActorID">540017</member>
                     <member name="X">1301.76001</member>
                     <member name="Y">26.42270088</member>
                     <member name="Rotation">0</member>
                     <member name="State">1</member>
-                    <member name="Actions">
-                        <element>
-                            <object name="ActionSetNPCState">
-                                <member name="state">3</member>
-                            </object>
-                        </element>
-                    </member>
-                    <member name="ActorID">540017</member>
+                    <member name="Actions"/>
                 </object>
             </element>
             <element>
@@ -2094,7 +2087,7 @@
                         <member name="Actions">
                             <element>
                                 <object name="ActionStartEvent">
-                                    <member name="eventID">debug_noEvent</member>
+                                    <member name="eventID">Z540103_5403001_540007</member>
                                 </object>
                             </element>
                         </member>
@@ -2126,7 +2119,7 @@
                         <member name="Actions">
                             <element>
                                 <object name="ActionStartEvent">
-                                    <member name="eventID">debug_noEvent</member>
+                                    <member name="eventID">Z540103_5403001_540009</member>
                                 </object>
                             </element>
                         </member>
@@ -2174,7 +2167,7 @@
                         <member name="Actions">
                             <element>
                                 <object name="ActionStartEvent">
-                                    <member name="eventID">debug_noEvent</member>
+                                    <member name="eventID">Z540103_5403001_540012</member>
                                 </object>
                             </element>
                         </member>
@@ -2329,8 +2322,9 @@
                                     <member name="conditions">ONE_TIME_RANDOM</member>
                                     <member name="defeatActions">
                                         <element>
-                                            <object name="ActionStartEvent">
-                                                <member name="eventID">debug_noEvent</member>
+                                            <object name="ActionSetNPCState">
+                                                <member name="actorID">540010</member>
+                                                <member name="state">3</member>
                                             </object>
                                         </element>
                                     </member>
@@ -2359,8 +2353,9 @@
                                     <member name="conditions">ONE_TIME_RANDOM</member>
                                     <member name="defeatActions">
                                         <element>
-                                            <object name="ActionStartEvent">
-                                                <member name="eventID">debug_noEvent</member>
+                                            <object name="ActionSetNPCState">
+                                                <member name="actorID">540004</member>
+                                                <member name="state">3</member>
                                             </object>
                                         </element>
                                     </member>
@@ -2672,7 +2667,7 @@
                         <member name="Actions">
                             <element>
                                 <object name="ActionStartEvent">
-                                    <member name="eventID">debug_noEvent</member>
+                                    <member name="eventID">Z540103_5403001_EXIT_01</member>
                                 </object>
                             </element>
                         </member>
@@ -2689,6 +2684,7 @@
                             <element>
                                 <object name="ActionZoneChange">
                                     <member name="zoneID">540108</member>
+                                    <member name="dynamicMapID">5403002</member>
                                     <member name="spotID">50000</member>
                                 </object>
                             </element>
@@ -2700,7 +2696,40 @@
         <member name="SetupActions">
             <element>
                 <object name="ActionCreateLoot">
+                    <!-- todo: Rates are made up -->
                     <member name="drops">
+                        <element>
+                            <object name="ItemDrop">
+                                <member name="ItemType">3729</member>
+                                <member name="Rate">2.04</member>
+                                <member name="MinStack">1</member>
+                                <member name="MaxStack">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ItemDrop">
+                                <member name="ItemType">3630</member>
+                                <member name="Rate">3.84</member>
+                                <member name="MinStack">1</member>
+                                <member name="MaxStack">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ItemDrop">
+                                <member name="ItemType">1638</member>
+                                <member name="Rate">3.84</member>
+                                <member name="MinStack">1</member>
+                                <member name="MaxStack">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ItemDrop">
+                                <member name="ItemType">2015</member>
+                                <member name="Rate">2.04</member>
+                                <member name="MinStack">1</member>
+                                <member name="MaxStack">1</member>
+                            </object>
+                        </element>
                         <element>
                             <object name="ItemDrop">
                                 <member name="ItemType">40127</member>
@@ -2717,41 +2746,98 @@
                                 <member name="MaxStack">1</member>
                             </object>
                         </element>
+                        <element>
+                            <object name="ItemDrop">
+                                <member name="ItemType">5284</member>
+                                <member name="Rate">5.04</member>
+                                <member name="MinStack">1</member>
+                                <member name="MaxStack">1</member>
+                            </object>
+                        </element>
                     </member>
                     <member name="locations">
                         <element>
                             <object name="ObjectPosition">
-                                <member name="X">3003.689941</member>
-                                <member name="Y">-1870.319946</member>
+                                <member name="X">3003</member>
+                                <member name="Y">-1870</member>
+                                <member name="Rotation">0</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="X">3006</member>
+                                <member name="Y">-2252</member>
                                 <member name="Rotation">0</member>
                             </object>
                         </element>
                         <element>
                             <object name="ObjectPosition">
                                 <member name="X">19001</member>
-                                <member name="Y">834.9959717</member>
-                                <member name="Rotation">10.20009995</member>
+                                <member name="Y">835</member>
+                                <member name="Rotation">-1.5</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="X">19401</member>
+                                <member name="Y">843</member>
+                                <member name="Rotation">-1.5</member>
                             </object>
                         </element>
                         <element>
                             <object name="ObjectPosition">
                                 <member name="X">20386</member>
-                                <member name="Y">359.2049866</member>
-                                <member name="Rotation">10.20009995</member>
+                                <member name="Y">359</member>
+                                <member name="Rotation">-3.14</member>
                             </object>
                         </element>
                         <element>
                             <object name="ObjectPosition">
-                                <member name="X">23738.30078</member>
-                                <member name="Y">3331.469971</member>
-                                <member name="Rotation">0</member>
+                                <member name="X">20376</member>
+                                <member name="Y">-182</member>
+                                <member name="Rotation">-3.14</member>
                             </object>
                         </element>
                         <element>
                             <object name="ObjectPosition">
-                                <member name="X">24176.59961</member>
-                                <member name="Y">2837.47998</member>
-                                <member name="Rotation">0</member>
+                                <member name="X">20383</member>
+                                <member name="Y">-774</member>
+                                <member name="Rotation">-3.14</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="X">23738</member>
+                                <member name="Y">3331</member>
+                                <member name="Rotation">-3.14</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="X">24176</member>
+                                <member name="Y">2837</member>
+                                <member name="Rotation">-3.14</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="X">23696</member>
+                                <member name="Y">2543</member>
+                                <member name="Rotation">-3.14</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="X">24164</member>
+                                <member name="Y">2118</member>
+                                <member name="Rotation">-3.14</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="X">24127</member>
+                                <member name="Y">3708</member>
+                                <member name="Rotation">-3.14</member>
                             </object>
                         </element>
                     </member>

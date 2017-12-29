@@ -206,12 +206,14 @@
                 </object>
             </element>
             <element>
+                <!--todo: Should not appear until quest 32 is complete-->
                 <!-- アズラ -->
                 <object name="ServerNPC">
                     <member name="ID">649</member>
                     <member name="X">42555.6</member>
                     <member name="Y">7301.41</member>
                     <member name="Rotation">-2.38318</member>
+                    <member name="State">0</member>
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
@@ -243,7 +245,13 @@
                     <member name="X">-17680.5</member>
                     <member name="Y">-10149</member>
                     <member name="Rotation">-1.55334</member>
-                    <member name="Actions"/>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z40101_2022</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -287,8 +295,8 @@
                     </member>
                 </object>
             </element>
-            <element>
-                <!-- クラマテング -->
+            <!--<element>
+                <!-- クラマテング Yoshitsune event version
                 <object name="ServerNPC">
                     <member name="ID">3408</member>
                     <member name="X">27754</member>
@@ -302,7 +310,7 @@
                         </element>
                     </member>
                 </object>
-            </element>
+            </element>-->
         </member>
         <member name="Objects"/>
         <member name="Spawns">
@@ -894,6 +902,60 @@
                     </object>
                 </value>
             </pair>
+            <!--todo: The drop amounts and rates were made up.
+                The experience value is what is shown on the EN wiki; the JP wikis don't have a value listed.
+            -->
+            <pair>
+                <key>197200000</key>
+                <value>
+                    <object name="Spawn">
+                        <member name="ID">197200000</member>
+                        <member name="EnemyType">1972</member>
+                        <member name="Drops">
+                            <element>
+                                <object name="ItemDrop">
+                                    <member name="ItemType">5332</member>
+                                    <member name="Rate">0.25</member>
+                                    <member name="MinStack">1</member>
+                                    <member name="MaxStack">3</member>
+                                </object>
+                            </element>
+                            <element>
+                                <object name="ItemDrop">
+                                    <member name="ItemType">799</member>
+                                    <member name="Rate">0.85</member>
+                                    <member name="MinStack">8000</member>
+                                    <member name="MaxStack">19000</member>
+                                </object>
+                            </element>
+                            <element>
+                                <object name="ItemDrop">
+                                    <member name="ItemType">800</member>
+                                    <member name="Rate">0.85</member>
+                                    <member name="MinStack">500</member>
+                                    <member name="MaxStack">2000</member>
+                                </object>
+                            </element>
+                        </member>
+                        <member name="XP">424242</member>
+                        <member name="Actions">
+                            <element>
+                                <object name="ActionStartEvent">
+                                    <member name="eventID">Z40101_FB1_0001</member>
+                                </object>
+                            </element>
+                        </member>
+                        <member name="defeatActions">
+                            <element>
+                                <object name="ActionStartEvent">
+                                    <member name="eventID">Z40101_FB1_0002</member>
+                                </object>
+                            </element>
+                        </member>
+                        <!--Max seen: 1-->
+                    </object>
+                </value>
+            </pair>
         </member>
         <member name="SpawnGroups">
             <pair>
@@ -1324,31 +1386,7 @@
                         <member name="SpawnID">193600001</member>
                         <member name="SpawnLocationGroupID">1936000</member>
                         <member name="MaxCount">9</member>
-                        <member name="RespawnTime">369701696</member>
-                    </object>
-                </value>
-            </pair>
-            <pair>
-                <key>1936001</key>
-                <value>
-                    <object name="SpawnGroup">
-                        <member name="ID">1936001</member>
-                        <member name="SpawnID">193600001</member>
-                        <member name="SpawnLocationGroupID">1936001</member>
-                        <member name="MaxCount">9</member>
-                        <member name="RespawnTime">369701696</member>
-                    </object>
-                </value>
-            </pair>
-            <pair>
-                <key>1961001</key>
-                <value>
-                    <object name="SpawnGroup">
-                        <member name="ID">1961001</member>
-                        <member name="SpawnID">196100001</member>
-                        <member name="SpawnLocationGroupID">1961001</member>
-                        <member name="MaxCount">1</member>
-                        <member name="RespawnTime">5</member>
+                        <!--<member name="RespawnTime">369701696</member>-->
                     </object>
                 </value>
             </pair>
@@ -1360,7 +1398,31 @@
                         <member name="SpawnID">196200001</member>
                         <member name="SpawnLocationGroupID">1962001</member>
                         <member name="MaxCount">1</member>
-                        <member name="RespawnTime">381681664</member>
+                        <!--<member name="RespawnTime">381681664</member>-->
+                    </object>
+                </value>
+            </pair>
+            <pair>
+                <key>1936001</key>
+                <value>
+                    <object name="SpawnGroup">
+                        <member name="ID">1936001</member>
+                        <member name="SpawnID">193600001</member>
+                        <member name="SpawnLocationGroupID">1936001</member>
+                        <member name="MaxCount">9</member>
+                        <!--<member name="RespawnTime">369701696</member>-->
+                    </object>
+                </value>
+            </pair>
+            <pair>
+                <key>1961001</key>
+                <value>
+                    <object name="SpawnGroup">
+                        <member name="ID">1961001</member>
+                        <member name="SpawnID">196100001</member>
+                        <member name="SpawnLocationGroupID">1961001</member>
+                        <member name="MaxCount">1</member>
+                        <!--<member name="RespawnTime">5</member>-->
                     </object>
                 </value>
             </pair>
@@ -1372,7 +1434,19 @@
                         <member name="SpawnID">197300001</member>
                         <member name="SpawnLocationGroupID">1973001</member>
                         <member name="MaxCount">9</member>
-                        <member name="RespawnTime">223975840</member>
+                        <!--<member name="RespawnTime">223975840</member>-->
+                    </object>
+                </value>
+            </pair>
+            <pair>
+                <key>1972000</key>
+                <value>
+                    <object name="SpawnGroup">
+                        <member name="ID">1972000</member>
+                        <member name="SpawnID">197200000</member>
+                        <member name="SpawnLocationGroupID">1972000</member>
+                        <member name="MaxCount">1</member>
+                        <member name="RespawnTime">3600</member>
                     </object>
                 </value>
             </pair>
@@ -1895,8 +1969,34 @@
                     </object>
                 </value>
             </pair>
+            <pair>
+                <key>1972000</key>
+                <value>
+                    <object name="SpawnLocationGroup">
+                        <member name="ID">1972000</member>
+                        <member name="SpotIDs">
+                            <element>11</element>
+                        </member>
+                    </object>
+                </value>
+            </pair>
         </member>
         <member name="Spots">
+            <pair>
+                <key>10001</key>
+                <value>
+                    <object name="ServerZoneSpot">
+                        <member name="ID">10001</member>
+                        <member name="Actions">
+                            <element>
+                                <object name="ActionStartEvent">
+                                    <member name="eventID">Z40101_10001_0000</member>
+                                </object>
+                            </element>
+                        </member>
+                    </object>
+                </value>
+            </pair>
             <pair>
                 <key>40000</key>
                 <value>
@@ -1923,9 +2023,7 @@
                             <element>
                                 <object name="ActionZoneChange">
                                     <member name="zoneID">50101</member>
-                                    <member name="destinationX">-6152</member>
-                                    <member name="destinationY">4965</member>
-                                    <member name="destinationRotation">0</member>
+                                    <member name="spotID">50000</member>
                                 </object>
                             </element>
                         </member>
@@ -1942,9 +2040,7 @@
                             <element>
                                 <object name="ActionZoneChange">
                                     <member name="zoneID">150101</member>
-                                    <member name="destinationX">-10900</member>
-                                    <member name="destinationY">17900</member>
-                                    <member name="destinationRotation">-1</member>
+                                    <member name="spotID">50003</member>
                                 </object>
                             </element>
                         </member>
@@ -1961,9 +2057,7 @@
                             <element>
                                 <object name="ActionZoneChange">
                                     <member name="zoneID">40110</member>
-                                    <member name="destinationX">-8700</member>
-                                    <member name="destinationY">6200</member>
-                                    <member name="destinationRotation">-1.5708</member>
+                                    <member name="spotID">50000</member>
                                 </object>
                             </element>
                         </member>
@@ -1980,9 +2074,7 @@
                             <element>
                                 <object name="ActionZoneChange">
                                     <member name="zoneID">40111</member>
-                                    <member name="destinationX">-3133</member>
-                                    <member name="destinationY">20</member>
-                                    <member name="destinationRotation">0</member>
+                                    <member name="spotID">50000</member>
                                 </object>
                             </element>
                         </member>
