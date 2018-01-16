@@ -1,6 +1,7 @@
 function define(script)
 {
     script.Name = "spin";
+    script.Type = "AI";
     return 0;
 }
 
