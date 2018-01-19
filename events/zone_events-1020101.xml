@@ -34,7 +34,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1020101_PA001</member>
-        <member name="next">Z1020101_MS001</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateFlag">
@@ -42,22 +41,24 @@
                     <member name="ID">485</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z1020101_MS001</member>
-        <member name="next">Z1020101_IT001</member>
-        <member name="messageIDs">
-            <element>1201538</element>
-        </member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z1020101_IT001</member>
-        <member name="items">
-            <pair>
-                <key>12832</key>
-                <value>1</value>
-            </pair>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201538</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>12832</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -79,7 +80,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1020101_PA002</member>
-        <member name="next">Z1020101_MS002</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateFlag">
@@ -87,26 +87,28 @@
                     <member name="ID">485</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z1020101_MS002</member>
-        <member name="next">Z1020101_IT002</member>
-        <member name="messageIDs">
-            <element>956096</element>
-        </member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z1020101_IT002</member>
-        <member name="items">
-            <pair>
-                <key>12832</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>38237</key>
-                <value>5</value>
-            </pair>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>956096</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>12832</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>38237</key>
+                            <value>5</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="Event">
@@ -122,11 +124,17 @@
         </member>
     </object>
     <unmapped>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_EF001</member>
             <member name="next">Z1020101_MS003</member>
             <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">1201504</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">1201504</member>
+                    </object>
+                </element>
+            </member>
             <member name="branches">
                 <element>
                     <object>
@@ -136,82 +144,76 @@
                 </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS003</member>
-            <member name="messageIDs">
-                <element>1201504</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201504</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS004</member>
-            <member name="next">Z1020101_EF002</member>
-            <member name="messageIDs">
-                <element>1201504</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201504</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">1201505</member>
+                        <member name="effect1">4</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">1201506</member>
+                        <member name="effect1">4</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">1201507</member>
+                        <member name="effect1">4</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">1201508</member>
+                        <member name="effect1">4</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2042</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z1020101_EF002</member>
-            <member name="next">Z1020101_MS005</member>
-            <member name="messageID">1201505</member>
-            <member name="effect1">4</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS005</member>
-            <member name="next">Z1020101_EF003</member>
-            <member name="messageIDs">
-                <element>1201505</element>
-            </member>
-        </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z1020101_EF003</member>
-            <member name="next">Z1020101_MS006</member>
-            <member name="messageID">1201506</member>
-            <member name="effect1">4</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS006</member>
-            <member name="next">Z1020101_EF004</member>
-            <member name="messageIDs">
-                <element>1201506</element>
-            </member>
-        </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z1020101_EF004</member>
-            <member name="next">Z1020101_MS007</member>
-            <member name="messageID">1201507</member>
-            <member name="effect1">4</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS007</member>
-            <member name="next">Z1020101_EF005</member>
-            <member name="messageIDs">
-                <element>1201507</element>
-            </member>
-        </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z1020101_EF005</member>
-            <member name="next">Z1020101_MS008</member>
-            <member name="messageID">1201508</member>
-            <member name="effect1">4</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS008</member>
-            <member name="next">Z1020101_SE001</member>
-            <member name="messageIDs">
-                <element>1201508</element>
-            </member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE001</member>
-            <member name="soundID">2042</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_EF006</member>
             <member name="next">Z1020101_MS009</member>
             <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">1201509</member>
-            <member name="effect1">4</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">1201509</member>
+                        <member name="effect1">4</member>
+                    </object>
+                </element>
+            </member>
             <member name="branches">
                 <element>
                     <object>
@@ -335,803 +337,682 @@
                 </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS009</member>
-            <member name="next">Z1020101_SE002</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS030</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">532</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS010</member>
-            <member name="next">Z1020101_SE003</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS031</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">533</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS011</member>
-            <member name="next">Z1020101_SE004</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS032</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS012</member>
-            <member name="next">Z1020101_SE005</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS033</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">532</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS013</member>
-            <member name="next">Z1020101_SE006</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS034</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">533</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">409</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">414</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS014</member>
-            <member name="next">Z1020101_SE007</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS035</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">533</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">409</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS015</member>
-            <member name="next">Z1020101_SE008</member>
-            <member name="messageIDs">
-                <element>1201509</element>
-            </member>
-        </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS016</member>
-            <member name="next">Z1020101_SE009</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS037</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">414</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS017</member>
-            <member name="next">Z1020101_SE010</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS031</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">414</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">533</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS018</member>
-            <member name="next">Z1020101_SE011</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS033</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">414</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">532</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS019</member>
-            <member name="next">Z1020101_SE012</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS032</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">414</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS020</member>
-            <member name="next">Z1020101_SE013</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS032</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">533</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">409</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS021</member>
-            <member name="next">Z1020101_SE014</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS037</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS022</member>
-            <member name="next">Z1020101_SE015</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS034</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">414</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS023</member>
-            <member name="next">Z1020101_SE016</member>
-            <member name="messageIDs">
-                <element>1201509</element>
-            </member>
-        </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS024</member>
-            <member name="next">Z1020101_SE017</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS035</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">409</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">409</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS025</member>
-            <member name="next">Z1020101_SE018</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS030</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">532</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS026</member>
-            <member name="next">Z1020101_SE019</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS037</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS027</member>
-            <member name="next">Z1020101_SE020</member>
-            <member name="messageIDs">
-                <element>1201509</element>
+            <member name="next">Z1020101_MS032</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">410</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS028</member>
-            <member name="next">Z1020101_SE021</member>
-            <member name="messageIDs">
-                <element>1201509</element>
-            </member>
-        </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS029</member>
-            <member name="next">Z1020101_SE022</member>
-            <member name="messageIDs">
-                <element>1201509</element>
-            </member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE002</member>
-            <member name="next">Z1020101_PA003</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE003</member>
-            <member name="next">Z1020101_PA004</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE004</member>
-            <member name="next">Z1020101_PA005</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE005</member>
-            <member name="next">Z1020101_PA006</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE006</member>
-            <member name="next">Z1020101_PA007</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE007</member>
-            <member name="next">Z1020101_PA008</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE008</member>
-            <member name="next">Z1020101_PA009</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE009</member>
-            <member name="next">Z1020101_PA010</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE010</member>
-            <member name="next">Z1020101_PA011</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE011</member>
-            <member name="next">Z1020101_PA012</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE012</member>
-            <member name="next">Z1020101_PA013</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE013</member>
-            <member name="next">Z1020101_PA014</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE014</member>
-            <member name="next">Z1020101_PA015</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE015</member>
-            <member name="next">Z1020101_PA016</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE016</member>
-            <member name="next">Z1020101_PA017</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE017</member>
-            <member name="next">Z1020101_PA018</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE018</member>
-            <member name="next">Z1020101_PA019</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE019</member>
-            <member name="next">Z1020101_PA020</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE020</member>
-            <member name="next">Z1020101_PA021</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE021</member>
-            <member name="next">Z1020101_PA022</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPlaySoundEffect">
-            <member name="ID">Z1020101_SE022</member>
-            <member name="next">Z1020101_PA023</member>
-            <member name="soundID">2059</member>
-            <member name="delay">50</member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA003</member>
-            <member name="next">Z1020101_MS030</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">532</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA004</member>
-            <member name="next">Z1020101_MS031</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">533</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA005</member>
-            <member name="next">Z1020101_MS032</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA006</member>
-            <member name="next">Z1020101_MS033</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">532</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA007</member>
-            <member name="next">Z1020101_MS034</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">533</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">409</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">414</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA008</member>
             <member name="next">Z1020101_MS035</member>
             <member name="actions">
                 <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
                     </object>
                 </element>
                 <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">533</member>
-                        <member name="remove">true</member>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
                     </object>
                 </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">409</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA009</member>
-            <member name="next">Z1020101_MS036</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">533</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">409</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA010</member>
-            <member name="next">Z1020101_MS037</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">414</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA011</member>
-            <member name="next">Z1020101_MS031</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">414</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">533</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA012</member>
-            <member name="next">Z1020101_MS033</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">414</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">532</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA013</member>
-            <member name="next">Z1020101_MS032</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">414</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA014</member>
-            <member name="next">Z1020101_MS032</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">533</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">409</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA015</member>
-            <member name="next">Z1020101_MS037</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA016</member>
-            <member name="next">Z1020101_MS034</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">414</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA017</member>
-            <member name="next">Z1020101_MS038</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA018</member>
-            <member name="next">Z1020101_MS035</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">409</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">409</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA019</member>
-            <member name="next">Z1020101_MS030</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">532</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA020</member>
-            <member name="next">Z1020101_MS037</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">413</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA021</member>
-            <member name="next">Z1020101_MS032</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">410</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA022</member>
-            <member name="next">Z1020101_MS039</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                        <member name="remove">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">407</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="flagType">VALUABLE</member>
-                        <member name="ID">533</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1020101_PA023</member>
-            <member name="next">Z1020101_MS035</member>
-            <member name="actions">
                 <element>
                     <object name="ActionUpdateFlag">
                         <member name="flagType">VALUABLE</member>
@@ -1147,93 +1028,262 @@
                 </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS030</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
-                <element>1201518</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                            <element>1201518</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS031</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
-                <element>1201519</element>
-                <element>1201520</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                            <element>1201519</element>
+                            <element>1201520</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS032</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
-                <element>1201520</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                            <element>1201520</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS033</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
-                <element>1201518</element>
-                <element>1201520</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                            <element>1201518</element>
+                            <element>1201520</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS034</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
-                <element>1201517</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                            <element>1201517</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS035</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS036</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1201516</element>
+        <object name="EventPerformActions">
+            <member name="ID">Z1020101_MS015</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">533</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">409</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1201516</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS037</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
-                <element>1201516</element>
-                <element>1201520</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                            <element>1201516</element>
+                            <element>1201520</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS038</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
-                <element>1201516</element>
+        <object name="EventPerformActions">
+            <member name="ID">Z1020101_MS023</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">413</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                            <element>1201516</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
-            <member name="ID">Z1020101_MS039</member>
-            <member name="messageIDs">
-                <element>1201515</element>
-                <element>1164404</element>
-                <element>1201519</element>
+        <object name="EventPerformActions">
+            <member name="ID">Z1020101_MS028</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201509</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">2059</member>
+                        <member name="delay">50</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                        <member name="remove">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">407</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionUpdateFlag">
+                        <member name="flagType">VALUABLE</member>
+                        <member name="ID">533</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201515</element>
+                            <element>1164404</element>
+                            <element>1201519</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_MS040</member>
             <member name="next">Z1020101_EF007</member>
             <member name="conditionID">UNKNOWN</member>
-            <member name="messageIDs">
-                <element>1201511</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>1201511</element>
+                        </member>
+                    </object>
+                </element>
             </member>
             <member name="branches">
                 <element>
@@ -1262,13 +1312,25 @@
                 </element>
             </member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_EF007</member>
-            <member name="messageID">1200117</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">1200117</member>
+                    </object>
+                </element>
+            </member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1020101_EF008</member>
-            <member name="messageID">956095</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">956095</member>
+                    </object>
+                </element>
+            </member>
         </object>
         <object name="EventPrompt">
             <member name="ID">Z1020101_PR004</member>

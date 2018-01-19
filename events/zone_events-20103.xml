@@ -55,9 +55,6 @@
         <member name="messageIDs">
             <element>70505</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z20103_R2_NM022</member>
@@ -65,23 +62,18 @@
         <member name="messageIDs">
             <element>172323</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z20103_R2_PA007</member>
-        <member name="next">Z20103_R2_ST004</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
                         <pair>
                             <key>799</key>
-                            <value>100</value>
+                            <value>-100</value>
                         </pair>
                     </member>
-                    <member name="stopOnFailure">true</member>
                 </object>
             </element>
             <element>
@@ -97,23 +89,12 @@
                     <member name="ID">67</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_R2_ST004</member>
-        <member name="next">Z20103_R2_MS005</member>
-        <member name="messageID">172324</member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z20103_R2_MS005</member>
-        <member name="next">Z20103_R2_PA009</member>
-        <member name="messageIDs">
-            <element>172324</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z20103_R2_PA009</member>
-        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">172324</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">587</member>
@@ -243,9 +224,6 @@
         <member name="messageIDs">
             <element>70512</element>
         </member>
-        <member name="unknown">
-            <element>169</element>
-        </member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z20103_I5241_0001</member>
@@ -263,8 +241,6 @@
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">INVENTORY_FREE</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value1">1</member>
                                         </object>
                                     </element>
@@ -317,71 +293,71 @@
         </member>
     </object>
     <!--note: there was dialogue for each of the old results, but no new dialogue was added when they updated it.-->
+    <!--todo: randomize.-->
     <object name="EventPerformActions">
         <member name="ID">Z20103_I5241_0003</member>
-        <member name="next">Z20103_I5241_0004</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
                         <pair>
                             <key>799</key>
-                            <value>2000</value>
+                            <value>-2000</value>
                         </pair>
                         <pair>
                             <key>5241</key>
-                            <value>1</value>
+                            <value>-1</value>
                         </pair>
                     </member>
-                    <member name="stopOnFailure">true</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <!--todo: randomize.-->
-    <object name="EventGetItem">
-        <member name="ID">Z20103_I5241_0004</member>
-        <member name="items">
-            <!--<pair>
-                <key>501</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>502</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>503</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>530</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>1314</key>
-                <value>1</value>
-            </pair>-->
-            <pair>
-                <key>1315</key>
-                <value>1</value>
-            </pair>
-            <!--<pair>
-                <key>25013</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>25018</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>25016</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>25017</key>
-                <value>1</value>
-            </pair>-->
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <!--<pair>
+                            <key>501</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>502</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>503</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>530</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>1314</key>
+                            <value>1</value>
+                        </pair>-->
+                        <pair>
+                            <key>1315</key>
+                            <value>1</value>
+                        </pair>
+                        <!--<pair>
+                            <key>25013</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>25018</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>25016</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>25017</key>
+                            <value>1</value>
+                        </pair>-->
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -389,9 +365,6 @@
         <member name="next">Z20103_I5242_0001</member>
         <member name="messageIDs">
             <element>70532</element>
-        </member>
-        <member name="unknown">
-            <element>169</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -410,8 +383,6 @@
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">INVENTORY_FREE</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value1">1</member>
                                         </object>
                                     </element>
@@ -463,55 +434,55 @@
             </element>
         </member>
     </object>
+    <!--todo: randomize.-->
     <object name="EventPerformActions">
         <member name="ID">Z20103_I5242_0003</member>
-        <member name="next">Z20103_I5242_0004</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
                         <pair>
                             <key>799</key>
-                            <value>400</value>
+                            <value>-400</value>
                         </pair>
                         <pair>
                             <key>5242</key>
-                            <value>1</value>
+                            <value>-1</value>
                         </pair>
                     </member>
-                    <member name="stopOnFailure">true</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <!--todo: randomize.-->
-    <object name="EventGetItem">
-        <member name="ID">Z20103_I5242_0004</member>
-        <member name="items">
-            <!--<pair>
-                <key>2707</key>
-                <value>100</value>
-            </pair>-->
-            <pair>
-                <key>2711</key>
-                <value>100</value>
-            </pair>
-            <!--<pair>
-                <key>2712</key>
-                <value>100</value>
-            </pair>
-            <pair>
-                <key>2713</key>
-                <value>100</value>
-            </pair>
-            <pair>
-                <key>2714</key>
-                <value>100</value>
-            </pair>
-            <pair>
-                <key>2718</key>
-                <value>100</value>
-            </pair>-->
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <!--<pair>
+                            <key>2707</key>
+                            <value>100</value>
+                        </pair>-->
+                        <pair>
+                            <key>2711</key>
+                            <value>100</value>
+                        </pair>
+                        <!--<pair>
+                            <key>2712</key>
+                            <value>100</value>
+                        </pair>
+                        <pair>
+                            <key>2713</key>
+                            <value>100</value>
+                        </pair>
+                        <pair>
+                            <key>2714</key>
+                            <value>100</value>
+                        </pair>
+                        <pair>
+                            <key>2718</key>
+                            <value>100</value>
+                        </pair>-->
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -519,9 +490,6 @@
         <member name="next">Z20103_I5243_0001</member>
         <member name="messageIDs">
             <element>70555</element>
-        </member>
-        <member name="unknown">
-            <element>169</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -540,8 +508,6 @@
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">INVENTORY_FREE</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value1">1</member>
                                         </object>
                                     </element>
@@ -608,55 +574,55 @@
             </element>
         </member>
     </object>
+    <!--todo: randomize.-->
     <object name="EventPerformActions">
         <member name="ID">Z20103_I5243_0003</member>
-        <member name="next">Z20103_I5243_0004</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
                         <pair>
                             <key>799</key>
-                            <value>3000</value>
+                            <value>-3000</value>
                         </pair>
                         <pair>
                             <key>5243</key>
-                            <value>1</value>
+                            <value>-1</value>
                         </pair>
                     </member>
-                    <member name="stopOnFailure">true</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <!--todo: randomize.-->
-    <object name="EventGetItem">
-        <member name="ID">Z20103_I5243_0004</member>
-        <member name="items">
-            <pair>
-                <key>1215</key>
-                <value>1</value>
-            </pair>
-            <!--<pair>
-                <key>1216</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>1217</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>1218</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>1221</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>1830</key>
-                <value>1</value>
-            </pair>-->
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>1215</key>
+                            <value>1</value>
+                        </pair>
+                        <!--<pair>
+                            <key>1216</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>1217</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>1218</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>1221</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>1830</key>
+                            <value>1</value>
+                        </pair>-->
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -664,26 +630,17 @@
         <member name="messageIDs">
             <element>70580</element>
         </member>
-        <member name="unknown">
-            <element>169</element>
-        </member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z20103_app_MA</member>
         <member name="messageIDs">
             <element>70505</element>
         </member>
-        <member name="unknown">
-            <element>169</element>
-        </member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z20103_app_IF</member>
         <member name="messageIDs">
             <element>170080</element>
-        </member>
-        <member name="unknown">
-            <element>169</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -692,10 +649,6 @@
         <member name="messageIDs">
             <element>170070</element>
             <element>174200</element>
-        </member>
-        <member name="unknown">
-            <element>169</element>
-            <element>170</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -1079,8 +1032,6 @@
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">INVENTORY_FREE</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value1">2</member>
                                         </object>
                                     </element>
@@ -1123,40 +1074,37 @@
             <element>170074</element>
         </member>
     </object>
-    <object name="EventGetItem">
-        <member name="ID">Z20103_1_Q8_0004</member>
-        <member name="next">Z20103_1_Q8_0005</member>
-        <member name="items">
-            <pair>
-                <key>2201</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>2707</key>
-                <value>99</value>
-            </pair>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q8_0005</member>
-        <member name="next">Z20103_1_Q8_0005a</member>
+        <member name="ID">Z20103_1_Q8_0004</member>
         <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>2201</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>2707</key>
+                            <value>99</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">8</member>
                     <member name="phase">0</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">170091</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
         </member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q8_0005a</member>
-        <member name="next">Z20103_1_Q8_0005b</member>
-        <member name="messageID">170091</member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z20103_1_Q8_0005b</member>
-        <member name="messageID">170091</member>
     </object>
     <object name="Event">
         <member name="ID">Z20103_1_Q8_0006</member>
@@ -1196,14 +1144,14 @@
             <element>170077</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q8_0010</member>
-        <member name="next">Z20103_1_Q8_0011</member>
-        <member name="messageID">170094</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q8_0011</member>
+        <member name="ID">Z20103_1_Q8_0010</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">170094</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">8</member>
@@ -1224,9 +1172,6 @@
         <member name="messageIDs">
             <element>170079</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
         <member name="branches">
             <element>
                 <object>
@@ -1235,8 +1180,6 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">INVENTORY_FREE</member>
-                                <member name="negate">true</member>
-                                <member name="compareMode">LT</member>
                                 <member name="value1">2</member>
                             </object>
                         </element>
@@ -1251,10 +1194,6 @@
         <member name="messageIDs">
             <element>170081</element>
             <element>170082</element>
-        </member>
-        <member name="unknown">
-            <element>169</element>
-            <element>170</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -1284,7 +1223,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z20103_1_Q8_0017</member>
-        <member name="next">Z20103_1_Q8_0018</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateQuest">
@@ -1297,29 +1235,27 @@
                     <member name="XP">4000</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q8_0018</member>
-        <member name="next">Z20103_1_Q8_0018a</member>
-        <member name="messageID">170093</member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z20103_1_Q8_0018a</member>
-        <member name="next">Z20103_1_Q8_0019</member>
-        <member name="messageID">170093</member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z20103_1_Q8_0019</member>
-        <member name="items">
-            <pair>
-                <key>2008</key>
-                <value>1</value>
-            </pair>
-            <pair>
-                <key>2710</key>
-                <value>300</value>
-            </pair>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">170093</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>2008</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>2710</key>
+                            <value>300</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -1382,14 +1318,14 @@
             <element>174206</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q557_0005</member>
-        <member name="next">Z20103_1_Q557_0006</member>
-        <member name="messageID">174221</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q557_0006</member>
+        <member name="ID">Z20103_1_Q557_0005</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">174221</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">557</member>
@@ -1447,8 +1383,6 @@
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">INVENTORY_FREE</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value1">1</member>
                                         </object>
                                     </element>
@@ -1523,7 +1457,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z20103_1_Q557_HE2</member>
-        <member name="next">Z20103_1_Q557_HE3</member>
+        <member name="next">Z20103_1_Q557_0014</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateQuest">
@@ -1536,18 +1470,17 @@
                     <member name="items">
                         <pair>
                             <key>2107</key>
-                            <value>1</value>
+                            <value>-1</value>
                         </pair>
                     </member>
-                    <member name="stopOnFailure">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177438</member>
                 </object>
             </element>
         </member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q557_HE3</member>
-        <member name="next">Z20103_1_Q557_0014</member>
-        <member name="messageID">177438</member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z20103_1_Q557_0011</member>
@@ -1559,7 +1492,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z20103_1_Q557_0012</member>
-        <member name="next">Z20103_1_Q557_0013</member>
+        <member name="next">Z20103_1_Q557_0014</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateQuest">
@@ -1572,32 +1505,32 @@
                     <member name="items">
                         <pair>
                             <key>2107</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">174220</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z20103_1_Q557_0014</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>336</key>
                             <value>1</value>
                         </pair>
                     </member>
-                    <member name="stopOnFailure">true</member>
+                    <member name="notify">true</member>
                 </object>
             </element>
-            <!--<element>
-                <object name="ActionIncreaseExpertise">
-                    <member name="expertID">34</member>
-                    <member name="value1">1</member>
-                </object>
-            </element>-->
-        </member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q557_0013</member>
-        <member name="next">Z20103_1_Q557_0014</member>
-        <member name="messageID">174220</member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z20103_1_Q557_0014</member>
-        <member name="items">
-            <pair>
-                <key>336</key>
-                <value>1</value>
-            </pair>
         </member>
     </object>
     <object name="EventPrompt">
@@ -1705,23 +1638,22 @@
             <element>174211</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q557_0020</member>
-        <member name="next">Z20103_1_Q557_0021</member>
-        <member name="messageID">174222</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q557_0021</member>
+        <member name="ID">Z20103_1_Q557_0020</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">174222</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
                         <pair>
                             <key>2107</key>
-                            <value>1</value>
+                            <value>-1</value>
                         </pair>
                     </member>
-                    <member name="stopOnFailure">true</member>
                 </object>
             </element>
             <!--<element>
@@ -1798,14 +1730,14 @@
             <element>177357</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q54_0005</member>
-        <member name="next">Z20103_1_Q54_0006</member>
-        <member name="messageID">177366</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q54_0006</member>
+        <member name="ID">Z20103_1_Q54_0005</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177366</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">54</member>
@@ -1831,8 +1763,6 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">INVENTORY_FREE</member>
-                                <member name="negate">true</member>
-                                <member name="compareMode">LT</member>
                                 <member name="value1">1</member>
                             </object>
                         </element>
@@ -1888,24 +1818,25 @@
             <element>177362</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q54_0011</member>
-        <member name="next">Z20103_1_Q54_0012</member>
-        <member name="messageID">177367</member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z20103_1_Q54_0012</member>
-        <member name="next">Z20103_1_Q54_0013</member>
-        <member name="items">
-            <pair>
-                <key>799</key>
-                <value>500</value>
-            </pair>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q54_0013</member>
+        <member name="ID">Z20103_1_Q54_0011</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177367</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>799</key>
+                            <value>500</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">54</member>
@@ -1922,18 +1853,17 @@
                     <member name="items">
                         <pair>
                             <key>201</key>
-                            <value>10</value>
+                            <value>-10</value>
                         </pair>
                         <pair>
                             <key>1</key>
-                            <value>20</value>
+                            <value>-20</value>
                         </pair>
                         <pair>
                             <key>3015</key>
-                            <value>5</value>
+                            <value>-5</value>
                         </pair>
                     </member>
-                    <member name="stopOnFailure">true</member>
                 </object>
             </element>
         </member>
@@ -1997,14 +1927,14 @@
             <element>177418</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q55_0005</member>
-        <member name="next">Z20103_1_Q55_0006</member>
-        <member name="messageID">177432</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q55_0006</member>
+        <member name="ID">Z20103_1_Q55_0005</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177432</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">55</member>
@@ -2057,14 +1987,14 @@
             <element>177426</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q55_0012</member>
-        <member name="next">Z20103_1_Q55_0013</member>
-        <member name="messageID">177433</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q55_0013</member>
+        <member name="ID">Z20103_1_Q55_0012</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177433</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">55</member>
@@ -2115,15 +2045,14 @@
             <element>177431</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q55_0017</member>
-        <member name="next">Z20103_1_Q55_0018</member>
-        <member name="messageID">177434</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q55_0018</member>
-        <member name="next">Z20103_1_Q55_0019</member>
+        <member name="ID">Z20103_1_Q55_0017</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177434</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">55</member>
@@ -2145,15 +2074,17 @@
                     <member name="XP">5000</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z20103_1_Q55_0019</member>
-        <member name="items">
-            <pair>
-                <key>799</key>
-                <value>1000</value>
-            </pair>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>799</key>
+                            <value>1000</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="Event">
@@ -2324,14 +2255,14 @@
             <element>177443</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q56_0006</member>
-        <member name="next">Z20103_1_Q56_0007</member>
-        <member name="messageID">177450</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q56_0007</member>
+        <member name="ID">Z20103_1_Q56_0006</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177450</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">56</member>
@@ -2354,8 +2285,6 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">INVENTORY_FREE</member>
-                                <member name="negate">true</member>
-                                <member name="compareMode">LT</member>
                                 <member name="value1">1</member>
                             </object>
                         </element>
@@ -2364,15 +2293,14 @@
             </element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q56_0010</member>
-        <member name="next">Z20103_1_Q56_0011</member>
-        <member name="messageID">177451</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q56_0011</member>
-        <member name="next">Z20103_1_Q56_0012</member>
+        <member name="ID">Z20103_1_Q56_0010</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177451</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">56</member>
@@ -2384,15 +2312,17 @@
                     <member name="XP">10000</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z20103_1_Q56_0012</member>
-        <member name="items">
-            <pair>
-                <key>799</key>
-                <value>1000</value>
-            </pair>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>799</key>
+                            <value>1000</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="Event">
@@ -2406,8 +2336,7 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">LEVEL</member>
-                                <member name="negate">true</member>
-                                <member name="compareMode">LT</member>
+                                <member name="compareMode">GTE</member>
                                 <member name="value1">20</member>
                             </object>
                         </element>
@@ -2665,14 +2594,14 @@
             <element>177461</element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q57_0007</member>
-        <member name="next">Z20103_1_Q57_0008</member>
-        <member name="messageID">177472</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q57_0008</member>
+        <member name="ID">Z20103_1_Q57_0007</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177472</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">57</member>
@@ -2695,8 +2624,6 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">INVENTORY_FREE</member>
-                                <member name="negate">true</member>
-                                <member name="compareMode">LT</member>
                                 <member name="value1">1</member>
                             </object>
                         </element>
@@ -2719,8 +2646,6 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">INVENTORY_FREE</member>
-                                <member name="negate">true</member>
-                                <member name="compareMode">LT</member>
                                 <member name="value1">1</member>
                             </object>
                         </element>
@@ -2743,8 +2668,6 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">INVENTORY_FREE</member>
-                                <member name="negate">true</member>
-                                <member name="compareMode">LT</member>
                                 <member name="value1">1</member>
                             </object>
                         </element>
@@ -2753,15 +2676,14 @@
             </element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z20103_1_Q57_0011</member>
-        <member name="next">Z20103_1_Q57_0012</member>
-        <member name="messageID">177475</member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z20103_1_Q57_0012</member>
-        <member name="next">Z20103_1_Q57_0013</member>
+        <member name="ID">Z20103_1_Q57_0011</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177475</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">57</member>
@@ -2773,15 +2695,17 @@
                     <member name="XP">50000</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z20103_1_Q57_0013</member>
-        <member name="items">
-            <pair>
-                <key>799</key>
-                <value>4000</value>
-            </pair>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>799</key>
+                            <value>4000</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <unmapped>
@@ -2811,14 +2735,14 @@
                 <element>177462</element>
             </member>
         </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z20103_1_Q57_0007a</member>
-            <member name="next">Z20103_1_Q57_0008a</member>
-            <member name="messageID">177473</member>
-        </object>
         <object name="EventPerformActions">
-            <member name="ID">Z20103_1_Q57_0008a</member>
+            <member name="ID">Z20103_1_Q57_0007a</member>
             <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">177473</member>
+                    </object>
+                </element>
                 <element>
                     <object name="ActionUpdateQuest">
                         <member name="questID">57</member>
@@ -2834,14 +2758,14 @@
                 <element>177463</element>
             </member>
         </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z20103_1_Q57_0007b</member>
-            <member name="next">Z20103_1_Q57_0008b</member>
-            <member name="messageID">177474</member>
-        </object>
         <object name="EventPerformActions">
-            <member name="ID">Z20103_1_Q57_0008b</member>
+            <member name="ID">Z20103_1_Q57_0007b</member>
             <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">177474</member>
+                    </object>
+                </element>
                 <element>
                     <object name="ActionUpdateQuest">
                         <member name="questID">57</member>

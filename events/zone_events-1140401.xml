@@ -52,9 +52,6 @@
         <member name="messageIDs">
             <element>1164325</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z1140401_PR002</member>
@@ -125,25 +122,28 @@
         <member name="messageIDs">
             <element>1164336</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
-    <object name="EventStageEffect">
+    <object name="EventPerformActions">
         <member name="ID">Z1140401_EF001</member>
-        <member name="next">Z1140401_EF002</member>
-        <member name="messageID">1164376</member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z1140401_EF002</member>
-        <member name="next">Z1140401_MS001</member>
-        <member name="messageID">1164379</member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z1140401_MS001</member>
-        <member name="messageIDs">
-            <element>1164376</element>
-            <element>1164379</element>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1164376</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1164379</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1164376</element>
+                        <element>1164379</element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -210,32 +210,28 @@
             <element>1164371</element>
             <element>1164373</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-            <element>171</element>
-        </member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z1140401_EF003</member>
-        <member name="next">Z1140401_EF004</member>
-        <member name="messageID">1164381</member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z1140401_EF004</member>
-        <member name="next">Z1140401_MS002</member>
-        <member name="messageID">1164382</member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z1140401_MS002</member>
-        <member name="next">Z1140401_PA001</member>
-        <member name="messageIDs">
-            <element>1164381</element>
-            <element>1164382</element>
-        </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z1140401_PA001</member>
+        <member name="ID">Z1140401_EF003</member>
         <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1164381</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1164382</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1164381</element>
+                        <element>1164382</element>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionUpdateFlag">
                     <member name="flagType">PLUGIN</member>
@@ -313,9 +309,6 @@
         <member name="messageIDs">
             <element>1164311</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1140401_PA002</member>
@@ -334,9 +327,6 @@
         <member name="next">Z1140401_PR007</member>
         <member name="messageIDs">
             <element>1164325</element>
-        </member>
-        <member name="unknown">
-            <element>171</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -472,9 +462,6 @@
         <member name="messageIDs">
             <element>1164374</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z1140401_NM020</member>
@@ -505,9 +492,6 @@
         <member name="next">Z1140401_PR011</member>
         <member name="messageIDs">
             <element>1165440</element>
-        </member>
-        <member name="unknown">
-            <element>171</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -612,7 +596,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1140401_PA003</member>
-        <member name="next">Z1140401_PA004</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateFlag">
@@ -621,11 +604,6 @@
                     <member name="remove">true</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1140401_PA004</member>
-        <member name="actions">
             <element>
                 <object name="ActionZoneChange">
                     <member name="zoneID">1140402</member>
@@ -679,16 +657,15 @@
             <member name="conditionID">UNKNOWN</member>
             <member name="sceneID">53</member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1140401_EF005</member>
-            <member name="next">Z1140401_MS003</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">1164376</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1140401_MS003</member>
-            <member name="messageIDs">
-                <element>1164376</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">1164376</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
             </member>
         </object>
     </unmapped>

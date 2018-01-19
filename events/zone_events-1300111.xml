@@ -63,9 +63,6 @@
         <member name="messageIDs">
             <element>952013</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z1300111_NM003</member>
@@ -184,9 +181,6 @@
         <member name="messageIDs">
             <element>952023</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z1300111_NM010</member>
@@ -266,16 +260,16 @@
             </element>
         </member>
     </object>
-    <object name="EventStageEffect">
+    <object name="EventPerformActions">
         <member name="ID">Z1300111_EF001</member>
-        <member name="next">Z1300111_MS001</member>
-        <member name="messageID">952032</member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z1300111_MS001</member>
         <member name="next">Z1300111_PA001</member>
-        <member name="messageIDs">
-            <element>952032</element>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">952032</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -354,15 +348,15 @@
             </element>
         </member>
     </object>
-    <object name="EventStageEffect">
+    <object name="EventPerformActions">
         <member name="ID">Z1300111_EF002</member>
-        <member name="next">Z1300111_MS002</member>
-        <member name="messageID">952111</member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z1300111_MS002</member>
-        <member name="messageIDs">
-            <element>952111</element>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">952111</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -378,31 +372,28 @@
         <member name="messageIDs">
             <element>952109</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
-    <object name="EventMessage">
+    <object name="EventPerformActions">
         <member name="ID">Z1300111_MS003</member>
-        <member name="next">Z1300111_EF003</member>
-        <member name="messageIDs">
-            <element>952114</element>
+        <member name="next">Z1300111_EF004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">952114</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
         </member>
     </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z1300111_EF003</member>
-        <member name="next">Z1300111_EF004</member>
-        <member name="messageID">952114</member>
-    </object>
-    <object name="EventStageEffect">
+    <object name="EventPerformActions">
         <member name="ID">Z1300111_EF004</member>
-        <member name="next">Z1300111_MS004</member>
-        <member name="messageID">952112</member>
-    </object>
-    <object name="EventMessage">
-        <member name="ID">Z1300111_MS004</member>
-        <member name="messageIDs">
-            <element>952112</element>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">952112</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -411,38 +402,42 @@
         <member name="messageIDs">
             <element>952109</element>
         </member>
-        <member name="unknown">
-            <element>171</element>
-        </member>
     </object>
-    <object name="EventMessage">
+    <object name="EventPerformActions">
         <member name="ID">Z1300111_MS005</member>
-        <member name="next">Z1300111_EF005</member>
-        <member name="messageIDs">
-            <element>952114</element>
-        </member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z1300111_EF005</member>
-        <member name="next">Z1300111_IT001</member>
-        <member name="messageID">952114</member>
-    </object>
-    <object name="EventGetItem">
-        <member name="ID">Z1300111_IT001</member>
         <member name="next">Z1300111_EF004</member>
-        <member name="items">
-            <pair>
-                <key>799</key>
-                <value>49000</value>
-            </pair>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">952114</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>799</key>
+                            <value>49000</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <unmapped>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_EF006</member>
             <member name="next">Z1300111_MS006</member>
             <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">952025</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952025</member>
+                    </object>
+                </element>
+            </member>
             <member name="branches">
                 <element>
                     <object>
@@ -452,17 +447,29 @@
                 </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_MS006</member>
-            <member name="messageIDs">
-                <element>952025</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>952025</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_MS007</member>
             <member name="next">Z1300111_NM019</member>
-            <member name="messageIDs">
-                <element>952025</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>952025</element>
+                        </member>
+                    </object>
+                </element>
             </member>
         </object>
         <object name="EventNPCMessage">
@@ -578,9 +585,15 @@
                 </element>
             </member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_EF007</member>
-            <member name="messageID">952002</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952002</member>
+                    </object>
+                </element>
+            </member>
         </object>
         <object name="EventPerformActions">
             <member name="ID">Z1300111_PA002</member>
@@ -593,23 +606,16 @@
                 </element>
             </member>
         </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z1300111_EF008</member>
-            <member name="next">Z1300111_MS008</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">952031</member>
-            <member name="effect1">3</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1300111_MS008</member>
-            <member name="next">Z1300111_PA003</member>
-            <member name="messageIDs">
-                <element>952031</element>
-            </member>
-        </object>
         <object name="EventPerformActions">
-            <member name="ID">Z1300111_PA003</member>
+            <member name="ID">Z1300111_EF008</member>
             <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952031</member>
+                        <member name="effect1">3</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
                 <element>
                     <object name="ActionUpdateFlag">
                         <member name="flagType">VALUABLE</member>
@@ -618,18 +624,30 @@
                 </element>
             </member>
         </object>
-        <object name="EventPlaySoundEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_SE001</member>
             <member name="conditionID">UNKNOWN</member>
-            <member name="soundID">83401</member>
-            <member name="delay">1</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionPlaySoundEffect">
+                        <member name="soundID">83401</member>
+                        <member name="delay">1</member>
+                    </object>
+                </element>
+            </member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_EF009</member>
             <member name="next">Z1300111_MS009</member>
             <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">952028</member>
-            <member name="effect1">3</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952028</member>
+                        <member name="effect1">3</member>
+                    </object>
+                </element>
+            </member>
             <member name="branches">
                 <element>
                     <object>
@@ -639,59 +657,75 @@
                 </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_MS009</member>
-            <member name="next">Z1300111_EF010</member>
-            <member name="messageIDs">
-                <element>952027</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>952027</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952030</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventMessage">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_MS010</member>
-            <member name="next">Z1300111_EF011</member>
-            <member name="messageIDs">
-                <element>952027</element>
-            </member>
-        </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z1300111_EF010</member>
-            <member name="messageID">952030</member>
-        </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z1300111_EF011</member>
             <member name="next">Z1300111_PA001</member>
-            <member name="messageID">952030</member>
-        </object>
-        <object name="EventStageEffect">
-            <member name="ID">Z1300111_EF012</member>
-            <member name="next">Z1300111_MS011</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">952115</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1300111_MS011</member>
-            <member name="messageIDs">
-                <element>952115</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionDisplayMessage">
+                        <member name="messageIDs">
+                            <element>952027</element>
+                        </member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952030</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
+            <member name="ID">Z1300111_EF012</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952115</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
+            </member>
+        </object>
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_EF013</member>
             <member name="next">Z1300111_MS009</member>
             <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">952024</member>
-            <member name="effect1">3</member>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952024</member>
+                        <member name="effect1">3</member>
+                    </object>
+                </element>
+            </member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_EF014</member>
-            <member name="next">Z1300111_MS012</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">952281</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1300111_MS012</member>
             <member name="next">Z1300111_NM010</member>
-            <member name="messageIDs">
-                <element>952281</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952281</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
             </member>
         </object>
         <object name="EventPerformActions">
@@ -706,29 +740,28 @@
                 </element>
             </member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_R2_ST004</member>
-            <member name="next">Z1300111_R2_MS004</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">952025</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1300111_R2_MS004</member>
             <member name="next">Z1300111_PR008</member>
-            <member name="messageIDs">
-                <element>952025</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952025</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
             </member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z1300111_R2_ST006</member>
-            <member name="next">Z1300111_R2_MS006</member>
-            <member name="messageID">952111</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z1300111_R2_MS006</member>
             <member name="next">Z1300111_R2_PA001</member>
-            <member name="messageIDs">
-                <element>952111</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">952111</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
             </member>
         </object>
     </unmapped>

@@ -109,7 +109,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z622107_PA001</member>
-        <member name="next">Z622107_EF001</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateFlag">
@@ -117,11 +116,12 @@
                     <member name="ID">46</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">139358</member>
+                </object>
+            </element>
         </member>
-    </object>
-    <object name="EventStageEffect">
-        <member name="ID">Z622107_EF001</member>
-        <member name="messageID">139358</member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z622107_PR007</member>
@@ -193,24 +193,31 @@
             <member name="conditionID">UNKNOWN</member>
             <member name="sceneID">12034</member>
         </object>
-        <object name="EventGetItem">
+        <object name="EventPerformActions">
             <member name="ID">Z622107_IT001</member>
-            <member name="next">Z622107_IT002</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="items">
-                <pair>
-                    <key>21941</key>
-                    <value>200</value>
-                </pair>
-            </member>
-        </object>
-        <object name="EventGetItem">
-            <member name="ID">Z622107_IT002</member>
-            <member name="items">
-                <pair>
-                    <key>38237</key>
-                    <value>1</value>
-                </pair>
+            <member name="actions">
+                <element>
+                    <object name="ActionAddRemoveItems">
+                        <member name="items">
+                            <pair>
+                                <key>21941</key>
+                                <value>200</value>
+                            </pair>
+                        </member>
+                        <member name="notify">true</member>
+                    </object>
+                </element>
+                <element>
+                    <object name="ActionAddRemoveItems">
+                        <member name="items">
+                            <pair>
+                                <key>38237</key>
+                                <value>1</value>
+                            </pair>
+                        </member>
+                        <member name="notify">true</member>
+                    </object>
+                </element>
             </member>
         </object>
         <object name="EventPlayScene">
@@ -218,16 +225,15 @@
             <member name="conditionID">UNKNOWN</member>
             <member name="sceneID">12033</member>
         </object>
-        <object name="EventStageEffect">
+        <object name="EventPerformActions">
             <member name="ID">Z622107_EF002</member>
-            <member name="next">Z622107_MS001</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">130769</member>
-        </object>
-        <object name="EventMessage">
-            <member name="ID">Z622107_MS001</member>
-            <member name="messageIDs">
-                <element>130769</element>
+            <member name="actions">
+                <element>
+                    <object name="ActionStageEffect">
+                        <member name="messageID">130769</member>
+                        <member name="includeMessage">true</member>
+                    </object>
+                </element>
             </member>
         </object>
     </unmapped>
