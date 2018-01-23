@@ -8,7 +8,6 @@ function define(script)
 function check(cState, dState, params)
 {
     local character = cState.GetEntity();
-    local lnc = character.GetLNC();
 
-    return character.GetGenderValue();
+    return character.GetGenderValue() == Character_Gender_t.MALE ? 0 : 1;
 }
