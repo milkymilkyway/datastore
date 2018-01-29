@@ -9,5 +9,5 @@ function check(cState, dState, params)
 {
     local character = cState.GetEntity();
 
-    return character.GetGenderValue() == Character_Gender_t.MALE ? 0 : 1;
+    return character.Gender == Character_Gender_t.MALE ? 0 : 1;
 }
