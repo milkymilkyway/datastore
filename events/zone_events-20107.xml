@@ -1989,7 +1989,13 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <!--todo: Give summoned demon 5000 SP.-->
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">SOUL_POINTS</member>
+                    <member name="value">5000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -2793,7 +2799,16 @@
         <member name="ID">Z20107_EF007</member>
         <member name="next">Z20107_NM001</member>
         <member name="actions">
-            <!--todo: remove summoned demon.-->
+            <element>
+                <object name="ActionUpdateCOMP">
+                    <member name="removeDemons">
+                        <pair>
+                            <key>0</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">162328</member>
@@ -4467,11 +4482,42 @@
         <member name="menuType">808</member>
         <member name="shopID">2</member>
     </object>
-    <object name="EventNPCMessage">
+    <object name="EventOpenMenu">
+        <member name="ID">Z20107_BARTER_3</member>
+        <member name="menuType">808</member>
+        <member name="shopID">126</member>
+    </object>
+    <object name="Event">
         <member name="ID">Z20107_233_TALK</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z20107_233_TALKA</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z20107_233_TALKB</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20107_233_TALKA</member>
         <member name="next">Z20107_PR020</member>
         <member name="messageIDs">
             <element>43202</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20107_233_TALKB</member>
+        <member name="next">Z20107_PR020</member>
+        <member name="messageIDs">
+            <element>203131</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -4518,6 +4564,7 @@
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z20107_BARTER_3</member>
                     <member name="messageID">219022</member>
                 </object>
             </element>
