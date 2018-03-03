@@ -437,7 +437,7 @@
             <element>170134</element>
         </member>
     </object>
-    <!-- NPC 206 Default -->
+    <!--NPC 206 Default-->
     <object name="EventPerformActions">
         <member name="ID">Z30101_206_DFLT</member>
         <member name="actions">
@@ -2818,7 +2818,7 @@
             </element>
         </member>
     </object>
-    <!-- CMultiTalkData_suginamiF_001-003.xml -->
+    <!--CMultiTalkData_suginamiF_001-003.xml-->
     <object name="EventMultitalk">
         <member name="ID">Z30101_ML003a</member>
         <member name="next">Z30101_PR013</member>
@@ -3530,6 +3530,19 @@
             </element>
             <element>
                 <object>
+                    <member name="next">Z30101_241_IJ</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">5802</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">Z30101_R2_NM047</member>
                     <member name="conditions">
                         <element>
@@ -3560,6 +3573,16 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z30101_241_IJ</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+		</member>
+	</object>
     <object name="EventNPCMessage">
         <member name="ID">Z30101_241_Q566_IF</member>
         <member name="messageIDs">
@@ -3858,81 +3881,47 @@
     </object>
     <object name="Event">
         <member name="ID">Z30101_241_2A_EV</member>
-        <member name="next">Z30101_EF025</member>
-        <!--<member name="branches">
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>7</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z30101_EF025</member>
+                </object>
+            </element>
             <element>
                 <object>
                     <member name="next">Z30101_EF026</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0004</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0005</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0006</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0007</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0008</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
-        </member>-->
+        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z30101_EF025</member>
@@ -4294,6 +4283,7 @@
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
                     <member name="messageID">110016</member>
                 </object>
             </element>
@@ -4308,11 +4298,16 @@
                 </object>
             </element>
             <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">580201</member>
-                    <member name="spotID">50000</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">5802</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>	
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -5548,7 +5543,7 @@
             <element>110064</element>
         </member>
     </object>
-    <!-- todo: switch to base demon ID -->
+    <!--todo: switch to base demon ID-->
     <object name="EventPrompt">
         <member name="ID">Z30101_PR030</member>
         <member name="messageID">110065</member>
@@ -5590,13 +5585,13 @@
                             <object>
                                 <member name="next">Z30101_248_003</member>
                                 <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">SUMMONED</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">EXISTS</member>
-                                        </object>
-                                    </element>
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="compareMode">EXISTS</member>
+											<member name="type">SUMMONED</member>
+										</object>
+									</element>	
                                 </member>
                             </object>
                         </element>
@@ -5608,7 +5603,7 @@
                                         <object name="EventCondition">
                                             <member name="type">SUMMONED</member>
                                             <member name="value1">268</member>
-                                            <member name="value2">1</member>
+											<member name="value2">1</member>
                                         </object>
                                     </element>
                                     <element>
@@ -5632,14 +5627,14 @@
                             <object>
                                 <member name="next">Z30101_248_003</member>
                                 <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">SUMMONED</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">EXISTS</member>
-                                        </object>
-                                    </element>
-                                </member>
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="compareMode">EXISTS</member>
+											<member name="type">SUMMONED</member>
+										</object>
+									</element>
+								</member>
                             </object>
                         </element>
                         <element>
@@ -5650,7 +5645,7 @@
                                         <object name="EventCondition">
                                             <member name="type">SUMMONED</member>
                                             <member name="value1">265</member>
-                                            <member name="value2">1</member>
+											<member name="value2">1</member>
                                         </object>
                                     </element>
                                     <element>
@@ -5674,14 +5669,14 @@
                             <object>
                                 <member name="next">Z30101_248_003</member>
                                 <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">SUMMONED</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">EXISTS</member>
-                                        </object>
-                                    </element>
-                                </member>
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="compareMode">EXISTS</member>
+											<member name="type">SUMMONED</member>
+										</object>
+									</element>
+								</member>
                             </object>
                         </element>
                         <element>
@@ -5692,7 +5687,7 @@
                                         <object name="EventCondition">
                                             <member name="type">SUMMONED</member>
                                             <member name="value1">265</member>
-                                            <member name="value2">1</member>
+											<member name="value2">1</member>
                                         </object>
                                     </element>
                                     <element>
@@ -5716,14 +5711,14 @@
                             <object>
                                 <member name="next">Z30101_248_003</member>
                                 <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">SUMMONED</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">EXISTS</member>
-                                        </object>
-                                    </element>
-                                </member>
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="compareMode">EXISTS</member>
+											<member name="type">SUMMONED</member>
+										</object>
+									</element>
+								</member>
                             </object>
                         </element>
                         <element>
@@ -5734,7 +5729,7 @@
                                         <object name="EventCondition">
                                             <member name="type">SUMMONED</member>
                                             <member name="value1">265</member>
-                                            <member name="value2">1</member>
+											<member name="value2">1</member>
                                         </object>
                                     </element>
                                     <element>
@@ -5758,14 +5753,14 @@
                             <object>
                                 <member name="next">Z30101_248_003</member>
                                 <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">SUMMONED</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">EXISTS</member>
-                                        </object>
-                                    </element>
-                                </member>
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="compareMode">EXISTS</member>
+											<member name="type">SUMMONED</member>
+										</object>
+									</element>
+								</member>
                             </object>
                         </element>
                         <element>
@@ -5776,7 +5771,7 @@
                                         <object name="EventCondition">
                                             <member name="type">SUMMONED</member>
                                             <member name="value1">264</member>
-                                            <member name="value2">1</member>
+											<member name="value2">1</member>
                                         </object>
                                     </element>
                                     <element>
@@ -5796,7 +5791,7 @@
                                         <object name="EventCondition">
                                             <member name="type">SUMMONED</member>
                                             <member name="value1">264</member>
-                                            <member name="value2">1</member>
+											<member name="value2">1</member>
                                         </object>
                                     </element>
                                 </member>
@@ -5814,14 +5809,14 @@
                             <object>
                                 <member name="next">Z30101_248_003</member>
                                 <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">SUMMONED</member>
-                                            <member name="negate">true</member>
-                                            <member name="compareMode">EXISTS</member>
-                                        </object>
-                                    </element>
-                                </member>
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="compareMode">EXISTS</member>
+											<member name="type">SUMMONED</member>
+										</object>
+									</element>
+								</member>
                             </object>
                         </element>
                         <element>
@@ -5832,7 +5827,7 @@
                                         <object name="EventCondition">
                                             <member name="type">SUMMONED</member>
                                             <member name="value1">262</member>
-                                            <member name="value2">1</member>
+											<member name="value2">1</member>
                                         </object>
                                     </element>
                                     <element>
@@ -5852,7 +5847,7 @@
                                         <object name="EventCondition">
                                             <member name="type">SUMMONED</member>
                                             <member name="value1">262</member>
-                                            <member name="value2">1</member>
+											<member name="value2">1</member>
                                         </object>
                                     </element>
                                 </member>
@@ -5932,31 +5927,31 @@
                     <member name="next">Z30101_NM114</member>
                     <member name="messageID">1</member>
                     <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_DD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_ALIVE</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_LD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_LOCKED</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_DD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="type">PARTNER_ALIVE</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_LD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">PARTNER_LOCKED</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -5975,7 +5970,7 @@
             <element>110088</element>
         </member>
     </object>
-    <!-- This message no longer exists. It may have told you what item you received.
+    <!--This message no longer exists. It may have told you what item you received.
     <object name="EventMessage">
         <member name="ID">Z30101_MS015</member>
         <member name="next">Z30101_IT013</member>
@@ -5983,7 +5978,7 @@
             <element>110096</element>
         </member>
     </object>-->
-    <!-- Knocker with Dia -->
+    <!--Knocker with Dia-->
     <object name="EventPerformActions">
         <member name="ID">Z30101_IT013</member>
         <member name="next">Z30101_RD_268</member>
@@ -6147,31 +6142,31 @@
                     <member name="next">Z30101_NM114a</member>
                     <member name="messageID">1</member>
                     <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_DD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_ALIVE</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_LD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_LOCKED</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_DD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="type">PARTNER_ALIVE</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_LD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">PARTNER_LOCKED</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -6190,7 +6185,7 @@
             <element>110088</element>
         </member>
     </object>
-    <!-- Knocker with Media -->
+    <!--Knocker with Media-->
     <object name="EventPerformActions">
         <member name="ID">Z30101_IT013a</member>
         <member name="next">Z30101_RD_268</member>
@@ -6482,31 +6477,31 @@
                     <member name="next">Z30101_NM114b</member>
                     <member name="messageID">1</member>
                     <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_DD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_ALIVE</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_LD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_LOCKED</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_DD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="type">PARTNER_ALIVE</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_LD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">PARTNER_LOCKED</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -6525,7 +6520,7 @@
             <element>110093</element>
         </member>
     </object>
-    <!-- Dwarf with Ninety-Nine Needles -->
+    <!--Dwarf with Ninety-Nine Needles-->
     <object name="EventPerformActions">
         <member name="ID">Z30101_IT013b</member>
         <member name="next">Z30101_RD_265</member>
@@ -6726,31 +6721,31 @@
                     <member name="next">Z30101_NM114c</member>
                     <member name="messageID">1</member>
                     <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_DD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_ALIVE</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_LD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_LOCKED</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_DD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="type">PARTNER_ALIVE</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_LD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">PARTNER_LOCKED</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -6769,7 +6764,7 @@
             <element>110093</element>
         </member>
     </object>
-    <!-- Dwarf with Rage -->
+    <!--Dwarf with Rage-->
     <object name="EventPerformActions">
         <member name="ID">Z30101_IT013c</member>
         <member name="next">Z30101_RD_265</member>
@@ -6950,31 +6945,31 @@
                     <member name="next">Z30101_NM114d</member>
                     <member name="messageID">1</member>
                     <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_DD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_ALIVE</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_LD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_LOCKED</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_DD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="type">PARTNER_ALIVE</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_LD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">PARTNER_LOCKED</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -6993,7 +6988,7 @@
             <element>110093</element>
         </member>
     </object>
-    <!-- Dwarf with Mazionga -->
+    <!--Dwarf with Mazionga-->
     <object name="EventPerformActions">
         <member name="ID">Z30101_IT013d</member>
         <member name="next">Z30101_RD_265</member>
@@ -7357,31 +7352,31 @@
                     <member name="next">Z30101_NM114e</member>
                     <member name="messageID">1</member>
                     <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_DD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_ALIVE</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_LD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_LOCKED</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_DD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="type">PARTNER_ALIVE</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_LD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">PARTNER_LOCKED</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -7400,7 +7395,7 @@
             <element>110890</element>
         </member>
     </object>
-    <!-- Ubelluris with Satisfaction/Critical 1 -->
+    <!--Ubelluris with Satisfaction/Critical 1-->
     <object name="EventNPCMessage">
         <member name="ID">Z30101_NM124</member>
         <member name="next">Z30101_PR030</member>
@@ -7472,31 +7467,31 @@
                     <member name="next">Z30101_NM114f</member>
                     <member name="messageID">1</member>
                     <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_DD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_ALIVE</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z30101_248_LD</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_LOCKED</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_DD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="negate">true</member>
+											<member name="type">PARTNER_ALIVE</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
+						<element>
+							<object>
+								<member name="next">Z30101_248_LD</member>
+								<member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">PARTNER_LOCKED</member>
+										</object>
+									</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -7515,7 +7510,7 @@
             <element>110891</element>
         </member>
     </object>
-    <!-- Titan with Deathbound -->
+    <!--Titan with Deathbound-->
     <object name="EventNPCMessage">
         <member name="ID">Z30101_NM125</member>
         <member name="messageIDs">
@@ -7555,13 +7550,13 @@
                 <object>
                     <member name="next">Z30101_248_003</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">SUMMONED</member>
-                                <member name="negate">true</member>
-                                <member name="compareMode">EXISTS</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventCondition">
+								<member name="negate">true</member>
+								<member name="compareMode">EXISTS</member>
+								<member name="type">SUMMONED</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -7569,11 +7564,11 @@
                 <object>
                     <member name="next">Z30101_248_LD</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTNER_LOCKED</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventCondition">
+								<member name="type">PARTNER_LOCKED</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -7581,12 +7576,12 @@
                 <object>
                     <member name="next">Z30101_248_DD</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTNER_ALIVE</member>
-                                <member name="negate">true</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventCondition">
+								<member name="negate">true</member>
+								<member name="type">PARTNER_ALIVE</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -7594,14 +7589,14 @@
                 <object>
                     <member name="next">Z30101_NM127</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTNER_LEVEL</member>
-                                <member name="negate">true</member>
-                                <member name="value1">6</member>
-                                <member name="value2">99</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventCondition">
+								<member name="negate">true</member>
+								<member name="type">PARTNER_LEVEL</member>
+								<member name="value1">6</member>
+								<member name="value2">99</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -7609,14 +7604,14 @@
                 <object>
                     <member name="next">Z30101_248_303_006</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTNER_LEVEL</member>
-                                <member name="negate">true</member>
-                                <member name="value1">11</member>
-                                <member name="value2">99</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventCondition">
+								<member name="negate">true</member>
+								<member name="type">PARTNER_LEVEL</member>
+								<member name="value1">11</member>
+								<member name="value2">99</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -7624,14 +7619,14 @@
                 <object>
                     <member name="next">Z30101_248_303_007</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTNER_LEVEL</member>
-                                <member name="negate">true</member>
-                                <member name="value1">15</member>
-                                <member name="value2">99</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventCondition">
+								<member name="negate">true</member>
+								<member name="type">PARTNER_LEVEL</member>
+								<member name="value1">15</member>
+								<member name="value2">99</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -7687,11 +7682,11 @@
             <element>
                 <object>
                     <member name="next">Z30101_248_303_002</member>
-                    <member name="queueNext">Z30101_PA029</member>
+					<member name="queueNext">Z30101_PA029</member>
                 </object>
             </element>
         </member>
-    </object>
+	</object>
     <object name="EventNPCMessage">
         <member name="ID">Z30101_248_303_006</member>
         <member name="next">Z30101_248_303_006a</member>
@@ -7730,11 +7725,11 @@
             <element>
                 <object>
                     <member name="next">Z30101_248_303_006c</member>
-                    <member name="queueNext">Z30101_PA029</member>
+					<member name="queueNext">Z30101_PA029</member>
                 </object>
             </element>
         </member>
-    </object>
+	</object>
     <object name="EventNPCMessage">
         <member name="ID">Z30101_248_303_007</member>
         <member name="next">Z30101_248_303_007a</member>
@@ -7773,11 +7768,11 @@
             <element>
                 <object>
                     <member name="next">Z30101_248_303_007c</member>
-                    <member name="queueNext">Z30101_PA029</member>
+					<member name="queueNext">Z30101_PA029</member>
                 </object>
             </element>
         </member>
-    </object>
+	</object>
     <object name="EventNPCMessage">
         <member name="ID">Z30101_248_303_002</member>
         <member name="next">Z30101_PA029</member>
@@ -7829,16 +7824,16 @@
     <object name="EventPerformActions">
         <member name="ID">Z30101_PA028</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateCOMP">
-                    <member name="removeDemons">
-                        <pair>
-                            <key>0</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
+			<element>
+				<object name="ActionUpdateCOMP">
+					<member name="removeDemons">
+						<pair>
+							<key>0</key>
+							<value>0</value>
+						</pair>
+					</member>
+				</object>
+			</element>
             <element>
                 <object name="ActionUpdateLNC">
                     <member name="value">10</member>
@@ -9824,7 +9819,11 @@
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
-                                <member name="type">RANDOM</member>
+                                <member name="data">
+                                    <object>
+                                        <member name="type">RANDOM</member>
+                                    </object>
+                                </member>
                             </object>
                         </element>
                         <element>
@@ -9842,12 +9841,20 @@
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
-                                <member name="type">RANDOM</member>
+                                <member name="data">
+                                    <object>
+                                        <member name="type">RANDOM</member>
+                                    </object>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object name="EventCondition">
-                                <member name="type">SUMMONED</member>
+                                <member name="data">
+                                    <object>
+                                        <member name="type">SUMMONED</member>
+                                    </object>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -11496,9 +11503,13 @@
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
-                                <member name="type">QUEST_ACTIVE</member>
-                                <member name="value1">609</member>
-                                <member name="value2">1</member>
+                                <member name="data">
+                                    <object name="EventConditionData">
+                                        <member name="type">QUEST_ACTIVE</member>
+                                        <member name="value1">609</member>
+                                        <member name="value2">1</member>
+                                    </object>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -13478,17 +13489,104 @@
             </element>
         </member>
     </object>
-    <!-- NPC 2024 -->
+    <!-- NPC 2024-->
     <object name="Event">
         <member name="ID">Z30101_2024</member>
-        <member name="next">Z30101_R2_PR222</member>
+        <member name="next">Z30101_2024_0</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z30101_R2_PR224</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z30101_2024_Q53_000</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="compareMode">GTE</member>
+								<member name="value1">53</member>
+								<member name="value2">0</member>
+							</object>
+						</element>
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="compareMode">LT</member>
+								<member name="value1">53</member>
+								<member name="value2">4</member>
+							</object>
+						</element>
+					</member>
                 </object>
             </element>
+            <element>
+                <object>
+                    <member name="next">Z30101_R2_PR224</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="compareMode">GTE</member>
+								<member name="value1">660</member>
+								<member name="value2">4</member>
+							</object>
+						</element>
+					</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30101_R2_PR222</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="compareMode">GTE</member>
+								<member name="value1">660</member>
+								<member name="value2">2</member>
+							</object>
+						</element>
+					</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z30101_2024_0</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177305</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z30101_2024_Q53_000</member>
+        <member name="messageID">177304</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z30101_2024_Q53_001</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z30101_2024_Q53_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177306</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+			<!--instance creation goes here.-->
         </member>
     </object>
     <object name="EventPrompt">
@@ -13524,6 +13622,7 @@
                     <member name="phase">3</member>
                 </object>
             </element>
+			<!--Instance creation goes here.-->
         </member>
     </object>
     <object name="EventPrompt">
