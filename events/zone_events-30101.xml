@@ -3530,6 +3530,19 @@
             </element>
             <element>
                 <object>
+                    <member name="next">Z30101_241_IJ</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">5802</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">Z30101_R2_NM047</member>
                     <member name="conditions">
                         <element>
@@ -3560,6 +3573,16 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z30101_241_IJ</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+		</member>
+	</object>
     <object name="EventNPCMessage">
         <member name="ID">Z30101_241_Q566_IF</member>
         <member name="messageIDs">
@@ -3858,81 +3881,47 @@
     </object>
     <object name="Event">
         <member name="ID">Z30101_241_2A_EV</member>
-        <member name="next">Z30101_EF025</member>
-        <!--<member name="branches">
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>7</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z30101_EF025</member>
+                </object>
+            </element>
             <element>
                 <object>
                     <member name="next">Z30101_EF026</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0004</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0005</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0006</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0007</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z30101_241_2A_0008</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">RANDOM</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
-        </member>-->
+        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z30101_EF025</member>
@@ -4294,6 +4283,7 @@
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
                     <member name="messageID">110016</member>
                 </object>
             </element>
@@ -4308,9 +4298,14 @@
                 </object>
             </element>
             <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">580201</member>
-                    <member name="spotID">50000</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">5802</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
                 </object>
             </element>
         </member>
@@ -13478,17 +13473,104 @@
             </element>
         </member>
     </object>
-    <!-- NPC 2024 -->
+    <!-- NPC 2024-->
     <object name="Event">
         <member name="ID">Z30101_2024</member>
-        <member name="next">Z30101_R2_PR222</member>
+        <member name="next">Z30101_2024_0</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z30101_R2_PR224</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z30101_2024_Q53_000</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="compareMode">GTE</member>
+								<member name="value1">53</member>
+								<member name="value2">0</member>
+							</object>
+						</element>
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="compareMode">LT</member>
+								<member name="value1">53</member>
+								<member name="value2">4</member>
+							</object>
+						</element>
+					</member>
                 </object>
             </element>
+            <element>
+                <object>
+                    <member name="next">Z30101_R2_PR224</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="compareMode">GTE</member>
+								<member name="value1">660</member>
+								<member name="value2">4</member>
+							</object>
+						</element>
+					</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30101_R2_PR222</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="compareMode">GTE</member>
+								<member name="value1">660</member>
+								<member name="value2">2</member>
+							</object>
+						</element>
+					</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z30101_2024_0</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177305</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z30101_2024_Q53_000</member>
+        <member name="messageID">177304</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z30101_2024_Q53_001</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z30101_2024_Q53_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">177306</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+			<!--instance creation goes here.-->
         </member>
     </object>
     <object name="EventPrompt">
@@ -13524,6 +13606,7 @@
                     <member name="phase">3</member>
                 </object>
             </element>
+			<!--Instance creation goes here.-->
         </member>
     </object>
     <object name="EventPrompt">
