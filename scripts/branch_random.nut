@@ -5,7 +5,7 @@ function define(script)
     return 0;
 }
 
-function check(cState, dState, params)
+function check(cState, dState, zone, params)
 {
     if(params.len() != 2)
     {
