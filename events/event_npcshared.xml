@@ -1,5 +1,504 @@
 <objects>
-	<!--NPC 259 ミスターＭじぃ-->
+    <!--Unimplemented-->
+    <object name="EventPerformActions">
+        <member name="ID">event_future</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">110711</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27</member>
+        <member name="next">N27_PR001</member>
+        <member name="messageIDs">
+            <element>40101</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_PR001</member>
+        <member name="messageID">40102</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">event_fusion</member>
+                    <member name="messageID">40006</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">40007</member>
+                    <member name="next">N27_27_trifusion01</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">event_trifusion</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">PARTY_SIZE</member>
+                                            <member name="value1">2</member>
+                                            <member name="value2">5</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">event_reunion</member>
+                    <member name="messageID">104101</member>
+                </object>
+            </element>
+            <!-- todo: Mitama fusion stuff.
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">1051002</member>
+                    <member name="conditionID">unknown</member>
+                </object>
+            </element>-->
+            <!-- todo: Rebirth transfer/conversion.
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">1051045</member>
+                    <member name="conditionID">unknown</member>
+                </object>
+            </element>-->
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_036</member>
+                    <member name="messageID">40004</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">40005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_trifusion01</member>
+        <member name="next">N27_PR001</member>
+        <member name="messageIDs">
+            <element>171117</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_036</member>
+        <member name="next">N27_27_037</member>
+        <member name="messageIDs">
+            <element>40103</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_037</member>
+        <member name="messageID">40103</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">50800</member>
+                    <member name="next">N27_27_DR1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_043</member>
+                    <member name="messageID">40104</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_048</member>
+                    <member name="messageID">40105</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_054</member>
+                    <member name="messageID">40126</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_576</member>
+                    <member name="messageID">171115</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">171116</member>
+                    <member name="next">N27_27_DR2</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_RB_0000</member>
+                    <member name="messageID">104102</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0000</member>
+                    <member name="messageID">1051012</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_PR001</member>
+                    <member name="messageID">40008</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0000</member>
+        <member name="next">N27_27_MI_0001</member>
+        <member name="messageIDs">
+            <element>1051013</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_MI_0001</member>
+        <member name="messageID">1051014</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0002</member>
+                    <member name="messageID">1051016</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0003</member>
+                    <member name="messageID">1051017</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0004</member>
+                    <member name="messageID">1051018</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_037</member>
+                    <member name="messageID">1051036</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0002</member>
+        <member name="next">N27_27_MI_0002a</member>
+        <member name="messageIDs">
+            <element>1051021</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_MI_0002a</member>
+        <member name="messageID">1051026</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0002b</member>
+                    <member name="messageID">1051027</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0002c</member>
+                    <member name="messageID">1051032</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0002b</member>
+        <member name="next">N27_27_MI_0002d</member>
+        <member name="messageIDs">
+            <element>1051028</element>
+            <element>1051029</element>
+            <element>1051031</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0002c</member>
+        <member name="next">N27_27_MI_0002d</member>
+        <member name="messageIDs">
+            <element>1051030</element>
+            <element>1051031</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_MI_0002d</member>
+        <member name="messageID">1051039</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0001</member>
+                    <member name="messageID">1051035</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_EM</member>
+                    <member name="messageID">1051036</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_EM</member>
+        <member name="next">N27_27_037</member>
+        <member name="messageIDs">
+            <element>1051042</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0003</member>
+        <member name="next">N27_27_MI_0001</member>
+        <member name="messageIDs">
+            <element>1051022</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_MI_EP</member>
+        <member name="messageID">1051041</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0001</member>
+                    <member name="messageID">1051035</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_EM</member>
+                    <member name="messageID">1051033</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0004</member>
+        <member name="next">N27_27_MI_0004a</member>
+        <member name="messageIDs">
+            <element>1051023</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_MI_0004a</member>
+        <member name="messageID">1051038</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0004b</member>
+                    <member name="messageID">1051019</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0005</member>
+                    <member name="messageID">1051020</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0004b</member>
+        <member name="next">N27_27_MI_0004c</member>
+        <member name="messageIDs">
+            <element>1051034</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_MI_0004c</member>
+        <member name="messageID">1051039</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_0004d</member>
+                    <member name="messageID">1051032</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_EM</member>
+                    <member name="messageID">1051033</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0004d</member>
+        <member name="next">N27_27_MI_EP</member>
+        <member name="messageIDs">
+            <element>1051037</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_MI_0005</member>
+        <member name="next">N27_27_MI_0005a</member>
+        <member name="messageIDs">
+            <element>1051025</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_MI_0005a</member>
+        <member name="messageID">1051040</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <!--todo: this is not the correct next event.-->
+                    <member name="next">N27_27_MI_0001</member>
+                    <member name="messageID">1051032</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_MI_EP</member>
+                    <member name="messageID">1051033</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_RB_0000</member>
+        <member name="next">N27_27_RB_0001</member>
+        <member name="messageIDs">
+            <element>104103</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N27_27_RB_0001</member>
+        <member name="messageID">104104</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_RB_0002</member>
+                    <member name="messageID">104105</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_RB_0003</member>
+                    <member name="messageID">104106</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_RB_0004</member>
+                    <member name="messageID">104107</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_RB_0005</member>
+                    <member name="messageID">104108</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N27_27_037</member>
+                    <member name="messageID">104109</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_RB_0002</member>
+        <member name="next">N27_27_RB_0001</member>
+        <member name="messageIDs">
+            <element>104110</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_RB_0003</member>
+        <member name="next">N27_27_RB_0001</member>
+        <member name="messageIDs">
+            <element>104111</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_RB_0004</member>
+        <member name="next">N27_27_RB_0001</member>
+        <member name="messageIDs">
+            <element>104112</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_RB_0005</member>
+        <member name="next">N27_27_RB_0001</member>
+        <member name="messageIDs">
+            <element>104113</element>
+        </member>
+    </object>
+    <object name="EventDirection">
+        <member name="ID">N27_27_DR1</member>
+        <member name="next">N27_27_037</member>
+        <member name="direction">101</member>
+    </object>
+    <object name="EventDirection">
+        <member name="ID">N27_27_DR2</member>
+        <member name="next">N27_27_037</member>
+        <member name="direction">211</member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_043</member>
+        <member name="next">N27_27_037</member>
+        <member name="messageIDs">
+            <element>40115</element>
+            <element>40116</element>
+            <element>40117</element>
+            <element>40118</element>
+            <element>40119</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_048</member>
+        <member name="next">N27_27_037</member>
+        <member name="messageIDs">
+            <element>40120</element>
+            <element>40121</element>
+            <element>40122</element>
+            <element>40123</element>
+            <element>40124</element>
+            <element>40125</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_054</member>
+        <member name="next">N27_27_037</member>
+        <member name="messageIDs">
+            <element>40127</element>
+            <element>40128</element>
+            <element>40129</element>
+            <element>40130</element>
+            <element>40131</element>
+            <element>40132</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N27_27_576</member>
+        <member name="next">N27_27_037</member>
+        <member name="messageIDs">
+            <element>171119</element>
+            <element>171120</element>
+            <element>171121</element>
+            <element>171122</element>
+            <element>171123</element>
+            <element>171124</element>
+            <element>171125</element>
+        </member>
+    </object>
+    <!--NPC 259 ミスターＭじぃ-->
     <object name="Event">
         <member name="ID">N259</member>
         <member name="next">N259_023</member>
@@ -307,7 +806,7 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">INVENTORY_FREE</member>
-								<member name="compareMode">LT</member>
+                                <member name="compareMode">LT</member>
                                 <member name="value1">1</member>
                             </object>
                         </element>
@@ -410,7 +909,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N259_099</member>
-		<member name="next">N259_201</member>
+        <member name="next">N259_201</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
@@ -432,7 +931,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N259_100</member>
-		<member name="next">N259_201</member>
+        <member name="next">N259_201</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
@@ -454,7 +953,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N259_101</member>
-		<member name="next">N259_201</member>
+        <member name="next">N259_201</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
@@ -476,7 +975,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N259_102</member>
-		<member name="next">N259_201</member>
+        <member name="next">N259_201</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
@@ -498,7 +997,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N259_103</member>
-		<member name="next">N259_201</member>
+        <member name="next">N259_201</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
@@ -520,7 +1019,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N259_104</member>
-		<member name="next">N259_201</member>
+        <member name="next">N259_201</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
@@ -975,66 +1474,66 @@
     </object>
     <object name="Event">
         <member name="ID">N259_SP_0000</member>
-		<member name="next">N259_SP_0004</member>
-		<member name="branches">
-			<element>
-				<object>
-					<member name="next">N259_SP_0001</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">ITEM</member>
-								<member name="negate">true</member>
-								<member name="value1">21502</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>
-			<element>
-				<object>
-					<member name="next">N259_SP_0002</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="negate">true</member>
-								<member name="compareMode">EXISTS</member>
-								<member name="type">SUMMONED</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>
-			<element>
-				<object>
-					<member name="next">N259_SP_0003</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="negate">true</member>
-								<member name="type">PARTNER_ALIVE</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>
-			<element>
-				<object>
-					<member name="next">N259_SP_0004a</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">SOUL_POINTS</member>
-								<member name="value1">95001</member>
-								<member name="value2">99999</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>
-		</member>
-	</object>
+        <member name="next">N259_SP_0004</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N259_SP_0001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="negate">true</member>
+                                <member name="value1">21502</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N259_SP_0002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="negate">true</member>
+                                <member name="compareMode">EXISTS</member>
+                                <member name="type">SUMMONED</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N259_SP_0003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="negate">true</member>
+                                <member name="type">PARTNER_ALIVE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N259_SP_0004a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SOUL_POINTS</member>
+                                <member name="value1">95001</member>
+                                <member name="value2">99999</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">N259_SP_0001</member>
         <member name="next">N259_024</member>
@@ -1042,21 +1541,21 @@
             <element>154435</element>
         </member>
     </object>
-	<object name="EventNPCMessage">
+    <object name="EventNPCMessage">
         <member name="ID">N259_SP_0002</member>
         <member name="next">N259_024</member>
         <member name="messageIDs">
             <element>154434</element>
         </member>
     </object>
-	<object name="EventNPCMessage">
+    <object name="EventNPCMessage">
         <member name="ID">N259_SP_0003</member>
         <member name="next">N259_024</member>
         <member name="messageIDs">
             <element>154410</element>
         </member>
     </object>
-	<object name="EventNPCMessage">
+    <object name="EventNPCMessage">
         <member name="ID">N259_SP_0004a</member>
         <member name="next">N259_SP_0005a</member>
         <member name="messageIDs">
@@ -1069,7 +1568,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-					<member name="next">N259_SP_0007</member>
+                    <member name="next">N259_SP_0007</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
@@ -1080,7 +1579,7 @@
             </element>
         </member>
     </object>
-	<object name="EventNPCMessage">
+    <object name="EventNPCMessage">
         <member name="ID">N259_SP_0004</member>
         <member name="next">N259_SP_0005</member>
         <member name="messageIDs">
@@ -1093,24 +1592,24 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-					<member name="next">N259_SP_0007</member>
+                    <member name="next">N259_SP_0007</member>
                     <member name="messageID">1</member>
-					<member name="branches">
-						<element>
-							<object>
-								<member name="next">N259_SP_0006</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">SOUL_POINTS</member>
-											<member name="value1">100000</member>
-											<member name="value2">100000</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-					</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">N259_SP_0006</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SOUL_POINTS</member>
+                                            <member name="value1">100000</member>
+                                            <member name="value2">100000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -1120,7 +1619,7 @@
             </element>
         </member>
     </object>
-	<object name="EventNPCMessage">
+    <object name="EventNPCMessage">
         <member name="ID">N259_SP_0006</member>
         <member name="messageIDs">
             <element>154452</element>
@@ -1129,31 +1628,31 @@
     <object name="EventPerformActions">
         <member name="ID">N259_SP_0007</member>
         <member name="actions">
-			<element>
-				<object name="ActionUpdatePoints">
-					<member name="pointType">SOUL_POINTS</member>
-					<member name="value">5000</member>
-					<member name="isSet">1</member>
-				</object>
-			</element>
-			<element>
-				<object name="ActionAddRemoveItems">
-					<member name="items">
-						<pair>
-							<key>21502</key>
-							<value>-1</value>
-						</pair>
-					</member>
-				</object>
-			</element>
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">SOUL_POINTS</member>
+                    <member name="value">5000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>21502</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">154446</member>
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-		</member>
-	</object>
+        </member>
+    </object>
     <!-- NPC N265 悪魔研究士 -->
     <object name="Event">
         <member name="ID">N265A</member>
@@ -6279,7 +6778,7 @@
             <element>156019</element>
         </member>
     </object>
-	<!-- NPC 586 ラグ -->
+    <!-- NPC 586 ラグ -->
     <object name="EventNPCMessage">
         <member name="ID">N586</member>
         <member name="next">N586_PR001</member>
@@ -6310,13 +6809,13 @@
             </element>
             <element>
                 <object name="EventChoice">
-					<member name="next">N586_SK001</member>
+                    <member name="next">N586_SK001</member>
                     <member name="messageID">203161</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-					<member name="next">N586_EX001</member>
+                    <member name="next">N586_EX001</member>
                     <member name="messageID">203447</member>
                 </object>
             </element>
@@ -6361,67 +6860,67 @@
     <object name="Event">
         <member name="ID">N586_SK001</member>
         <member name="next">N586_SK002</member>
-		<member name="branches">
-			<element>
-				<object>
-					<member name="next">N586_SK003</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="value1">581</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="value1">582</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="value1">583</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="value1">584</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>	
-		</member>
-	</object>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N586_SK003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="value1">581</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="value1">582</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="value1">583</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="value1">584</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">N586_SK002</member>
         <member name="next">N586_NM005</member>
-		<member name="branches">
-			<element>
-				<object>
-					<member name="next">N586_SK004</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">PARTNER_ALIVE</member>
-								<member name="negate">true</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>	
-		</member>
-	</object>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N586_SK004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTNER_ALIVE</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">N586_SK003</member>
         <member name="messageIDs">
@@ -6500,38 +6999,38 @@
     <object name="Event">
         <member name="ID">N586_EX001</member>
         <member name="next">N586_NM070</member>
-		<member name="branches">
-			<element>
-				<object>
-					<member name="next">N586_EX002</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">ITEM</member>
-								<member name="negate">true</member>
-								<member name="value1">21718</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>
-			<element>
-				<object>
-					<member name="next">N586_NM069</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="compareMode">EXISTS</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>
-		</member>
-	</object>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N586_EX002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="negate">true</member>
+                                <member name="value1">21718</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N586_NM069</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="compareMode">EXISTS</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">N586_EX002</member>
         <member name="next">N586_PR001</member>
@@ -6561,13 +7060,13 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-					<member name="next">N586_NM071a</member>
+                    <member name="next">N586_NM071a</member>
                     <member name="messageID">203452</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-					<member name="next">N586_NM071b</member>
+                    <member name="next">N586_NM071b</member>
                     <member name="messageID">203453</member>
                 </object>
             </element>
@@ -6600,36 +7099,36 @@
                 <object name="EventChoice">
                     <member name="next">N586_NM072</member>
                     <member name="messageID">1</member>
-					<member name="branches">
-						<element>
-							<object>
-								<member name="next">N586_EX003</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">SOUL_POINTS</member>
-											<member name="negate">true</member>
-											<member name="value1">100000</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-						<element>
-							<object>
-								<member name="next">N586_EXIF</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">INVENTORY_FREE</member>
-											<member name="compareMode">LT</member>
-											<member name="value1">1</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-					</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">N586_EX003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SOUL_POINTS</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">100000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">N586_EXIF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -6662,13 +7161,13 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-			<element>
-				<object name="ActionUpdatePoints">
-					<member name="pointType">SOUL_POINTS</member>
-					<member name="value">-100000</member>
-					<member name="isSet">1</member>
-				</object>
-			</element>
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">SOUL_POINTS</member>
+                    <member name="value">-100000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -6707,36 +7206,36 @@
                 <object name="EventChoice">
                     <member name="next">N586_NM072b</member>
                     <member name="messageID">1</member>
-					<member name="branches">
-						<element>
-							<object>
-								<member name="next">N586_EX003</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">SOUL_POINTS</member>
-											<member name="negate">true</member>
-											<member name="value1">50000</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-						<element>
-							<object>
-								<member name="next">N586_EXIF</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">INVENTORY_FREE</member>
-											<member name="compareMode">LT</member>
-											<member name="value1">1</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-					</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">N586_EX003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SOUL_POINTS</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">50000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">N586_EXIF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -6769,13 +7268,13 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-			<element>
-				<object name="ActionUpdatePoints">
-					<member name="pointType">SOUL_POINTS</member>
-					<member name="value">-50000</member>
-					<member name="isSet">1</member>
-				</object>
-			</element>
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">SOUL_POINTS</member>
+                    <member name="value">-50000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -6814,36 +7313,36 @@
                 <object name="EventChoice">
                     <member name="next">N586_NM072a</member>
                     <member name="messageID">1</member>
-					<member name="branches">
-						<element>
-							<object>
-								<member name="next">N586_EX003</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">SOUL_POINTS</member>
-											<member name="negate">true</member>
-											<member name="value1">10000</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-						<element>
-							<object>
-								<member name="next">N586_EXIF</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">INVENTORY_FREE</member>
-											<member name="compareMode">LT</member>
-											<member name="value1">1</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-					</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">N586_EX003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SOUL_POINTS</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">10000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">N586_EXIF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -6876,13 +7375,13 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-			<element>
-				<object name="ActionUpdatePoints">
-					<member name="pointType">SOUL_POINTS</member>
-					<member name="value">-10000</member>
-					<member name="isSet">1</member>
-				</object>
-			</element>
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">SOUL_POINTS</member>
+                    <member name="value">-10000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -6916,10 +7415,10 @@
         <member name="ID">N586_EXIF</member>
         <member name="messageIDs">
             <element>203463</element>
-			<element>203464</element>
+            <element>203464</element>
         </member>
     </object>
-	<!-- NPC 586a ラグ -->
+    <!-- NPC 586a ラグ -->
     <object name="EventNPCMessage">
         <member name="ID">N586a</member>
         <member name="next">N586a_PR001</member>
@@ -6950,13 +7449,13 @@
             </element>
             <element>
                 <object name="EventChoice">
-					<member name="next">N586a_SK001</member>
+                    <member name="next">N586a_SK001</member>
                     <member name="messageID">203161</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-					<member name="next">N586a_EX001</member>
+                    <member name="next">N586a_EX001</member>
                     <member name="messageID">203447</member>
                 </object>
             </element>
@@ -7001,67 +7500,67 @@
     <object name="Event">
         <member name="ID">N586a_SK001</member>
         <member name="next">N586a_SK002</member>
-		<member name="branches">
-			<element>
-				<object>
-					<member name="next">N586a_SK003</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="value1">581</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="value1">582</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="value1">583</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="value1">584</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>	
-		</member>
-	</object>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N586a_SK003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="value1">581</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="value1">582</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="value1">583</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="value1">584</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">N586a_SK002</member>
         <member name="next">N586a_NM005</member>
-		<member name="branches">
-			<element>
-				<object>
-					<member name="next">N586a_SK004</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">PARTNER_ALIVE</member>
-								<member name="negate">true</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>	
-		</member>
-	</object>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N586a_SK004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTNER_ALIVE</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">N586a_SK003</member>
         <member name="messageIDs">
@@ -7140,38 +7639,38 @@
     <object name="Event">
         <member name="ID">N586a_EX001</member>
         <member name="next">N586a_NM070</member>
-		<member name="branches">
-			<element>
-				<object>
-					<member name="next">N586a_EX002</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">ITEM</member>
-								<member name="negate">true</member>
-								<member name="value1">21718</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>
-			<element>
-				<object>
-					<member name="next">N586a_NM069</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">SUMMONED</member>
-								<member name="negate">true</member>
-								<member name="compareMode">EXISTS</member>
-							</object>
-						</element>
-					</member>
-				</object>
-			</element>
-		</member>
-	</object>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N586a_EX002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="negate">true</member>
+                                <member name="value1">21718</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N586a_NM069</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="compareMode">EXISTS</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">N586a_EX002</member>
         <member name="next">N586a_PR001</member>
@@ -7201,13 +7700,13 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-					<member name="next">N586a_NM071a</member>
+                    <member name="next">N586a_NM071a</member>
                     <member name="messageID">203452</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-					<member name="next">N586a_NM071b</member>
+                    <member name="next">N586a_NM071b</member>
                     <member name="messageID">203453</member>
                 </object>
             </element>
@@ -7240,36 +7739,36 @@
                 <object name="EventChoice">
                     <member name="next">N586a_NM072</member>
                     <member name="messageID">1</member>
-					<member name="branches">
-						<element>
-							<object>
-								<member name="next">N586a_EX003</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">SOUL_POINTS</member>
-											<member name="negate">true</member>
-											<member name="value1">100000</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-						<element>
-							<object>
-								<member name="next">N586a_EXIF</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">INVENTORY_FREE</member>
-											<member name="compareMode">LT</member>
-											<member name="value1">1</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-					</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">N586a_EX003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SOUL_POINTS</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">100000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">N586a_EXIF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -7302,13 +7801,13 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-			<element>
-				<object name="ActionUpdatePoints">
-					<member name="pointType">SOUL_POINTS</member>
-					<member name="value">-100000</member>
-					<member name="isSet">1</member>
-				</object>
-			</element>
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">SOUL_POINTS</member>
+                    <member name="value">-100000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -7347,36 +7846,36 @@
                 <object name="EventChoice">
                     <member name="next">N586a_NM072b</member>
                     <member name="messageID">1</member>
-					<member name="branches">
-						<element>
-							<object>
-								<member name="next">N586a_EX003</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">SOUL_POINTS</member>
-											<member name="negate">true</member>
-											<member name="value1">50000</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-						<element>
-							<object>
-								<member name="next">N586a_EXIF</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">INVENTORY_FREE</member>
-											<member name="compareMode">LT</member>
-											<member name="value1">1</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-					</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">N586a_EX003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SOUL_POINTS</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">50000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">N586a_EXIF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -7409,13 +7908,13 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-			<element>
-				<object name="ActionUpdatePoints">
-					<member name="pointType">SOUL_POINTS</member>
-					<member name="value">-50000</member>
-					<member name="isSet">1</member>
-				</object>
-			</element>
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">SOUL_POINTS</member>
+                    <member name="value">-50000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -7454,36 +7953,36 @@
                 <object name="EventChoice">
                     <member name="next">N586a_NM072a</member>
                     <member name="messageID">1</member>
-					<member name="branches">
-						<element>
-							<object>
-								<member name="next">N586a_EX003</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">SOUL_POINTS</member>
-											<member name="negate">true</member>
-											<member name="value1">10000</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-						<element>
-							<object>
-								<member name="next">N586a_EXIF</member>
-								<member name="conditions">
-									<element>
-										<object name="EventCondition">
-											<member name="type">INVENTORY_FREE</member>
-											<member name="compareMode">LT</member>
-											<member name="value1">1</member>
-										</object>
-									</element>
-								</member>
-							</object>
-						</element>
-					</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">N586a_EX003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SOUL_POINTS</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">10000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">N586a_EXIF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -7516,13 +8015,13 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-			<element>
-				<object name="ActionUpdatePoints">
-					<member name="pointType">SOUL_POINTS</member>
-					<member name="value">-10000</member>
-					<member name="isSet">1</member>
-				</object>
-			</element>
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">SOUL_POINTS</member>
+                    <member name="value">-10000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -7556,7 +8055,7 @@
         <member name="ID">N586a_EXIF</member>
         <member name="messageIDs">
             <element>203463</element>
-			<element>203464</element>
+            <element>203464</element>
         </member>
     </object>
     <!-- NPC 3400 ヴィヴィアン -->
@@ -10152,12 +10651,12 @@
                     <member name="messageID">200686</member>
                 </object>
             </element>
-<!--             <element>
+            <!--<element>
                 <object name="EventChoice">
                     <member name="messageID">200687</member>
                 </object>
             </element> -->
-<!--             <element>
+            <!--<element>
                 <object name="EventChoice">
                     <member name="next">Z50101_PR601</member>
                     <member name="messageID">1201000</member>
@@ -10638,7 +11137,7 @@
             <element>
                 <object name="EventChoice">
                     <member name="next">N3411_35_0000</member>
-<!--                     <member name="next">N3411_NM186</member> -->
+                    <!--<member name="next">N3411_NM186</member> -->
                     <member name="messageID">1183221</member>
                 </object>
             </element>
