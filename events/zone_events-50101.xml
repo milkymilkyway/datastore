@@ -6841,20 +6841,36 @@
             </element>
         </member>
     </object>
+	<!--todo: Held together by duct tape. Needs to have extraneous events/branches removed, quest 整備士見習い ～ タイヤ編 ～ needs to be added.-->
     <object name="Event">
         <member name="ID">Z50101_403</member>
-        <member name="next">Z50101_NM211</member>
+        <member name="next">Z50101_NM217</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z50101_NM217</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z50101_NM211</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5288</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object>
-                    <member name="next">Z50101_NM220</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z50101_403_IJ</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">5803</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -6871,11 +6887,43 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50101_403_IJ</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">Z50101_NM211</member>
         <member name="next">Z50101_PR097</member>
         <member name="messageIDs">
             <element>101435</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z50101_403_CF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">COMP_FREE</member>
+								<member name="compareMode">LT</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50101_403_CF</member>
+        <member name="messageIDs">
+            <element>101439</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -6898,22 +6946,263 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z50101_NM212</member>
-        <member name="next">Z50101_EF046</member>
+        <member name="next">Z50101_403_RW</member>
         <member name="messageIDs">
             <element>101440</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z50101_403_RW</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>6</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z50101_EF046t</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z50101_EF046a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z50101_EF046b</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z50101_EF046c</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z50101_EF046d</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z50101_EF046e</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50101_EF046t</member>
+        <member name="next">Z50101_EF046</member>
+        <member name="messageIDs">
+            <element>101449</element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z50101_EF046</member>
         <member name="actions">
             <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5288</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">101448</member>
                 </object>
             </element>
             <element>
+                <object name="ActionUpdateCOMP">
+                    <member name="addDemons">
+                        <pair>
+                            <key>1699</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101441</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50101_EF046a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5288</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101448</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateCOMP">
+                    <member name="addDemons">
+                        <pair>
+                            <key>88</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101447</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50101_EF046b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5288</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101448</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateCOMP">
+                    <member name="addDemons">
+                        <pair>
+                            <key>1145</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101446</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50101_EF046c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5288</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101448</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateCOMP">
+                    <member name="addDemons">
+                        <pair>
+                            <key>128</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">101445</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50101_EF046d</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5288</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101448</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateCOMP">
+                    <member name="addDemons">
+                        <pair>
+                            <key>1767</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101444</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50101_EF046e</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5288</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101448</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateCOMP">
+                    <member name="addDemons">
+                        <pair>
+                            <key>1762</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">101443</member>
                 </object>
             </element>
         </member>
@@ -6964,6 +7253,15 @@
                 <object name="EventChoice">
                     <member name="next">Z50101_NM215</member>
                     <member name="messageID">110013</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5285</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -6986,7 +7284,30 @@
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
                     <member name="messageID">110016</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">5803</member>
+                    <member name="mode">CREATE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5285</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
                 </object>
             </element>
         </member>
@@ -7069,14 +7390,6 @@
         <member name="next">Z50101_PR100</member>
         <member name="messageIDs">
             <element>104215</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z50101_NM220</member>
-        <member name="next">Z50101_PR098</member>
-        <member name="messageIDs">
-            <element>101435</element>
-            <element>101439</element>
         </member>
     </object>
     <object name="EventNPCMessage">
