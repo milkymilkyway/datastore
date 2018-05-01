@@ -5,6 +5,7 @@ function define(script)
     return 0;
 }
 
+// Branch based on the character's current LNC
 function check(cState, dState, zone, params)
 {
     local character = cState.GetEntity();

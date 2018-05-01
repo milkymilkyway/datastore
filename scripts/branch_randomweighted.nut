@@ -5,6 +5,8 @@ function define(script)
     return 0;
 }
 
+// Branch based on a random number selected from the sum of a set of ranges
+// - params[0]+: list of numbers representing random "weights"
 function check(cState, dState, zone, params)
 {
     if(params.len() == 0)

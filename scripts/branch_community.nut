@@ -5,30 +5,34 @@ function define(script)
     return 0;
 }
 
+// Branch based on the current or previous zone ID when entering
+// or exiting the community area
 function check(cState, dState, zone, params)
 {
-	local cZone = zone.GetDefinitionID();
-	//Entering community area.
+    local cZone = zone.GetDefinitionID();
+
+    //Entering community area.
     if(cZone == 20101)
     {
-		return 0;
+        return 0;
     }
-    if(cZone == 50101 || cZone == 200101)
+    else if(cZone == 50101 || cZone == 200101)
     {
-		return 1;
+        return 1;
     }
-	//Leaving community area.
-	local character = cState.GetEntity();
+
+    //Leaving community area.
+    local character = cState.GetEntity();
     if(character.PreviousZone == 20101)
     {
-		return -1;
+        return -1;
     }
-    if(character.PreviousZone == 50101)
+    else if(character.PreviousZone == 50101)
     {
-		return 0;
+        return 0;
     }
     else
     {
-		return 1;
+        return 1;
     }
 }
