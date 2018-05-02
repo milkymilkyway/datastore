@@ -5,6 +5,8 @@ function define(script)
     return 0;
 }
 
+// Branch based on the current phase of the supplied quest ID
+// - params[0]: quest ID
 function check(cState, dState, zone, params)
 {
     if(params.len() == 0)
