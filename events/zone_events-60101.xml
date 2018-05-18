@@ -4211,19 +4211,131 @@
             </element>
         </member>
     </object>
-    <object name="EventPrompt">
+    <object name="Event">
         <member name="ID">Z60101_2004B</member>
+        <member name="next">Z60101_2004B_Q311_0</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z60101_2004B_JOIN</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventCondition">
+								<member name="type">INSTANCE_ACCESS</member>
+								<member name="value1">5901</member>
+							</object>
+						</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z60101_2004B_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">311</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z60101_2004B_JOIN</member>
+        <member name="next">Z60101_2004B_JOIN2</member>
+        <member name="sceneID">123</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2004B_JOIN2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z60101_2004B_01</member>
+        <member name="next">Z60101_2004B_02</member>
+        <member name="branchScriptID">branch_questPhase</member>
+        <member name="branchScriptParams">
+            <element>311</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z60101_2004B_Q311_0</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z60101_SC002</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z60101_2004B_Q311_0</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z60101_2004B_02</member>
+                </object>
+            </element>
+        </member>
+    </object>
+	<object name="EventPlayScene">
+		<member name="ID">Z60101_SC002</member>
+		<member name="next">Z60101_EF064</member>
+		<member name="sceneID">122</member>
+	</object>
+	<object name="EventPerformActions">
+		<member name="ID">Z60101_EF064</member>
+		<member name="actions">
+			<element>
+				<object name="ActionStageEffect">
+					<member name="messageID">160709</member>
+				</object>
+			</element>
+			<element>
+				<object name="ActionUpdateQuest">
+					<member name="questID">311</member>
+					<member name="phase">1</member>
+				</object>
+			</element>
+			<element>
+				<object name="ActionStageEffect">
+					<member name="messageID">160711</member>
+				</object>
+			</element>
+		</member>
+	</object>
+    <object name="EventPrompt">
+        <member name="ID">Z60101_2004B_02</member>
         <member name="messageID">160705</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z60101_SC001</member>
+                    <member name="next">Z60101_EF052</member>
                     <member name="messageID">160706</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z60101_EF052</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="next">Z60101_SC001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">5265</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -4236,21 +4348,43 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2004B_Q311_00</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160711</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPlayScene">
         <member name="ID">Z60101_SC001</member>
         <member name="next">Z60101_PA075</member>
         <member name="sceneID">123</member>
-        <member name="unknown">1</member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z60101_PA075</member>
         <member name="actions">
             <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">590101</member>
-                    <member name="destinationX">24.7696</member>
-                    <member name="destinationY">592.548</member>
-                    <member name="destinationRotation">-1.5708</member>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5265</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">5901</member>
+                    <member name="mode">CREATE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
                 </object>
             </element>
         </member>
@@ -5321,72 +5455,6 @@
                 </element>
             </member>
         </object>
-        <object name="EventPlayScene">
-            <member name="ID">Z60101_SC002</member>
-            <member name="next">Z60101_EF064</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="sceneID">122</member>
-            <member name="branches">
-                <element>
-                    <object>
-                        <member name="next">Z60101_EF065</member>
-                        <member name="conditionID">unknown</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z60101_EF064</member>
-            <member name="next">Z60101_2004A_R2</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">160709</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateQuest">
-                        <member name="questID">311</member>
-                        <member name="phase">1</member>
-                    </object>
-                </element>
-            </member>
-            <member name="branches">
-                <element>
-                    <object>
-                        <member name="next">Z60101_EF066</member>
-                        <member name="conditionID">unknown</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z60101_EF065</member>
-            <member name="next">Z60101_EF066</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">160709</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateQuest">
-                        <member name="questID">311</member>
-                        <member name="phase">1</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z60101_EF066</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">160711</member>
-                    </object>
-                </element>
-            </member>
-        </object>
         <object name="EventPerformActions">
             <member name="ID">Z60101_MS054</member>
             <member name="next">Z60101_NM138</member>
@@ -5584,30 +5652,6 @@
                 </element>
             </member>
         </object>
-        <object name="EventPlayScene">
-            <member name="ID">Z60101_SC004</member>
-            <member name="next">Z60101_EF074</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="sceneID">122</member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z60101_EF074</member>
-            <member name="next">Z60101_2004A_R2</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">160709</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateQuest">
-                        <member name="questID">311</member>
-                        <member name="phase">1</member>
-                    </object>
-                </element>
-            </member>
-        </object>
         <object name="EventPerformActions">
             <member name="ID">Z60101_PA090</member>
             <member name="next">Z60101_NM138</member>
@@ -5646,35 +5690,6 @@
                         <member name="messageIDs">
                             <element>1180246</element>
                         </member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPlayScene">
-            <member name="ID">Z60101_SC005</member>
-            <member name="next">Z60101_EF065</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="sceneID">122</member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z60101_R2_MS003</member>
-            <member name="next">Z60101_2004A_R2</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">132003</member>
-                        <member name="includeMessage">true</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z60101_R2_MS006</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">132003</member>
-                        <member name="includeMessage">true</member>
                     </object>
                 </element>
             </member>
