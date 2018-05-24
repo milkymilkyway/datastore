@@ -24,7 +24,7 @@ function check(cState, dState, zone, params)
     for(local i = 0; i < params.len(); i++)
     {
         local range = params[i].tointeger();
-        if(range <= r)
+        if(r <= range)
         {
             return i;
         }
