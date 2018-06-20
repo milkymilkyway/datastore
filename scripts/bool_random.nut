@@ -8,7 +8,7 @@ function define(script)
 // Check if a random number is within the supplied success rate
 // - value1: success rate
 // - value2: fail rate
-function check(cState, dState, zone, value1, value2, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
     if(value1 < 1 || value2 < 0)
     {

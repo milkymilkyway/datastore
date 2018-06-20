@@ -7,7 +7,7 @@ function define(script)
 
 // Check if the supplied instance timer ID is active
 // - value1: timer ID
-function check(cState, dState, zone, value1, value2, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
     local instance = zone.GetZoneInstance();
     if(instance != null)

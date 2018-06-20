@@ -10,7 +10,7 @@ function define(script)
 // 2) First run
 // 3) New record
 // 4) Anything else
-function check(cState, dState, zone, params)
+function check(source, cState, dState, zone, params)
 {
     local character = cState.GetEntity();
     local progress = character != null ? character.GetProgress().Get() : null;

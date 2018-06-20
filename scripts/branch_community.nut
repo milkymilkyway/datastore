@@ -7,7 +7,7 @@ function define(script)
 
 // Branch based on the current or previous zone ID when entering
 // or exiting the community area
-function check(cState, dState, zone, params)
+function check(source, cState, dState, zone, params)
 {
     local cZone = zone.GetDefinitionID();
 

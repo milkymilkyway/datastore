@@ -7,7 +7,7 @@ function define(script)
 
 // Branch based on a random number between 0 and a supplied value
 // - params[0]: maximum branch number
-function check(cState, dState, zone, params)
+function check(source, cState, dState, zone, params)
 {
     if(params.len() != 1)
     {

@@ -8,7 +8,7 @@ function define(script)
 // Check if the supplied appearance type and ID are set on the character
 // - value1: appearance type
 // - value2: appearance ID
-function check(cState, dState, zone, value1, value2, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
     local character = cState.GetEntity();
     if(character == null)
