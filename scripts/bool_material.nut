@@ -8,7 +8,7 @@ function define(script)
 // Check if the supplied material count exists in the tank
 // - value1: material ID
 // - value2: item count
-function check(cState, dState, zone, value1, value2, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
     local character = cState.GetEntity();
     if(character != null)

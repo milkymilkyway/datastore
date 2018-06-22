@@ -7,7 +7,7 @@ function define(script)
 
 // Check if the current zone ID is one of the supplied values
 // - params[0]+: list of valid zone IDs
-function check(cState, dState, zone, value1, value2, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
     local cZone = zone.GetDefinitionID()
 

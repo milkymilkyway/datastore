@@ -8,7 +8,7 @@ function define(script)
 // Check if the supplied spawn group has any living enemies
 // - value1: current zone ID (for verification)
 // - value2: spawn group ID
-function check(cState, dState, zone, value1, value2, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
     local cZone = zone.GetDefinitionID();
     return (cZone == value1) && zone.GroupHasSpawned(value2, true, true) ? 0 : -1;

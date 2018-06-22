@@ -13,7 +13,7 @@ function define(script)
 // 5) B rank
 // 6) C rank
 // 7) Pariticipation only
-function check(cState, dState, zone, params)
+function check(source, cState, dState, zone, params)
 {
     local character = cState.GetEntity();
     local progress = character != null ? character.GetProgress().Get() : null;

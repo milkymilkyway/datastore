@@ -8,7 +8,7 @@ function define(script)
 // Branch based on the number of zone instance flags set to 1 in a supplied range
 // - params[0]: starting flag ID
 // - params[1]: number of sequential flags to check
-function check(cState, dState, zone, params)
+function check(source, cState, dState, zone, params)
 {
     if(params.len() < 2)
     {

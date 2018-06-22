@@ -6,7 +6,7 @@ function define(script)
 }
 
 // Branch based on the character's gender
-function check(cState, dState, zone, params)
+function check(source, cState, dState, zone, params)
 {
     local character = cState.GetEntity();
 
