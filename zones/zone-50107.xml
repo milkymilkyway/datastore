@@ -7,6 +7,7 @@
         <member name="StartingX">6.09</member>
         <member name="StartingY">405.39</member>
         <member name="StartingRotation">-1.57</member>
+		<member name="BikeDisabled">true</member>
         <member name="NPCs">
             <element>
                 <!-- ビジョナリーガール -->
@@ -15,6 +16,7 @@
                     <member name="X">-1144.3</member>
                     <member name="Y">404.552</member>
                     <member name="Rotation">-1.78921e-07</member>
+					<member name="State">0</member>
                     <member name="Actions"/>
                 </object>
             </element>
@@ -28,7 +30,7 @@
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">Z50107_NM001</member>
+                                <member name="eventID">N29</member>
                             </object>
                         </element>
                     </member>
@@ -68,12 +70,14 @@
             </element>
             <element>
                 <!-- イノセント -->
+				<!-- Duplicate? -->
                 <object name="ServerNPC">
                     <member name="ID">206</member>
                     <member name="X">-1165.78</member>
                     <member name="Y">-375.778</member>
                     <member name="Rotation">-1.78921e-07</member>
                     <member name="Actions"/>
+					<member name="State">0</member>
                 </object>
             </element>
             <element>
@@ -86,7 +90,7 @@
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">Z50107_NM125</member>
+                                <member name="eventID">Z50107_NM125a</member>
                             </object>
                         </element>
                     </member>
@@ -144,9 +148,11 @@
                 <!-- セツ -->
                 <object name="ServerNPC">
                     <member name="ID">486</member>
+					<member name="ActorID">486</member>
                     <member name="X">-286.048</member>
                     <member name="Y">-1076.76</member>
                     <member name="Rotation">1.5708</member>
+					<member name="State">0</member>
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
@@ -159,16 +165,11 @@
             <element>
                 <object name="ServerNPC">
                     <member name="ID">2004</member>
-                    <member name="X">8.11779</member>
-                    <member name="Y">1265.33</member>
-                    <member name="Rotation">-1.5708</member>
+                    <member name="SpotID">60003</member>
                     <member name="Actions">
                         <element>
-                            <object name="ActionZoneChange">
-                                <member name="zoneID">50101</member>
-                                <member name="destinationX">15</member>
-                                <member name="destinationY">7720</member>
-                                <member name="destinationRotation">-1.5708</member>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z50107_EXIT</member>
                             </object>
                         </element>
                     </member>
@@ -321,5 +322,19 @@
             </element>
         </member>
         <member name="Spots"/>
+		<member name="Triggers">
+			<element>
+				<object name="ServerZoneTrigger">
+					<member name="Trigger">ON_ZONE_IN</member>
+					<member name="Actions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">Z50107_486_L</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
     </object>
 </objects>

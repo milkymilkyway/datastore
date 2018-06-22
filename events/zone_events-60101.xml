@@ -261,18 +261,35 @@
     </object>
     <object name="Event">
         <member name="ID">Z60101_211</member>
-        <member name="next">Z60101_NM001</member>
+        <member name="next">Z60101_NM002</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z60101_NM002</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z60101_NM001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">311</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z60101_NM003</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="value1">311</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -297,14 +314,59 @@
     </object>
     <object name="Event">
         <member name="ID">Z60101_225</member>
+        <member name="next">Z60101_NM007</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z60101_225_Q311_000</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">311</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z60101_NM007</member>
+        <member name="messageIDs">
+            <element>160715</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z60101_225_Q311_000</member>
         <member name="next">Z60101_NM004</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z60101_NM007</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z60101_225_Q311_001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">QUEST_FLAGS</member>
+                                <member name="value1">311</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>10</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z60101_225_Q311_001</member>
+        <member name="messageIDs">
+            <element>160717</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -322,14 +384,6 @@
                 <object name="EventChoice">
                     <member name="next">Z60101_NM005</member>
                     <member name="messageID">3</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z60101_NM006</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
@@ -341,10 +395,67 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z60101_NM005</member>
-        <member name="next">Z60101_EF001</member>
+        <member name="next">Z60101_NM005a</member>
         <member name="messageIDs">
             <element>160719</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z60101_225_Q311_IF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INVENTORY_FREE</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z60101_225_Q311_IF</member>
+        <member name="messageIDs">
+            <element>160724</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z60101_NM005a</member>
+        <member name="next">Z60101_225_Q311_002</member>
+        <member name="messageIDs">
             <element>160723</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z60101_225_Q311_002</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>4</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z60101_EF001</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z60101_EF002</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z60101_EF003</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z60101_EF004</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -366,14 +477,21 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z60101_NM006</member>
-        <member name="next">Z60101_EF002</member>
-        <member name="messageIDs">
-            <element>160719</element>
-            <element>160723</element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -395,12 +513,88 @@
                     <member name="notify">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z60101_NM007</member>
-        <member name="messageIDs">
-            <element>160715</element>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_EF003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160722</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5269</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_EF004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5270</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="Event">
@@ -3553,6 +3747,7 @@
             <element>1165252</element>
         </member>
     </object>
+    <!--todo: correct these events. -->
     <object name="Event">
         <member name="ID">Z60101_2002A</member>
         <member name="next">Z60101_PR043</member>
@@ -3739,6 +3934,15 @@
                 <object name="EventChoice">
                     <member name="next">Z60101_EF042</member>
                     <member name="messageID">164756</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">337</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                     <member name="branches">
                         <element>
                             <object>
@@ -3753,6 +3957,15 @@
                 <object name="EventChoice">
                     <member name="next">Z60101_PR044</member>
                     <member name="messageID">164954</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">333</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                     <member name="branches">
                         <element>
                             <object>
@@ -3973,213 +4186,34 @@
     </object>
     <object name="Event">
         <member name="ID">Z60101_2003</member>
-        <member name="next">Z60101_PR050</member>
+        <member name="next">Z60101_PR051a</member>
         <member name="branches">
             <element>
                 <object>
                     <member name="next">Z60101_PR051</member>
-                    <member name="conditionID">unknown</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z60101_PR050</member>
-        <member name="messageID">160740</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z60101_MS037</member>
-                    <member name="messageID">160742</member>
-                    <member name="branches">
+                    <member name="conditions">
                         <element>
-                            <object>
-                                <member name="next">Z60101_MS038</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z60101_MS039</member>
-                                <member name="conditionID">unknown</member>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">311</member>
+                                <member name="value2">1</member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z60101_MS037</member>
-                    <member name="messageID">160743</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z60101_MS039</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z60101_MS037</member>
-                    <member name="messageID">160744</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z60101_MS038</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z60101_MS039</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z60101_MS041</member>
-                    <member name="messageID">160745</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z60101_MS037</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z60101_MS039</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z60101_MS042</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z60101_MS037</member>
-                    <member name="messageID">160746</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">160747</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z60101_MS037</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">160749</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z60101_MS038</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">160754</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z60101_MS039</member>
-        <member name="next">Z60101_NM003</member>
-        <member name="conditionID">UNKNOWN</member>
-        <member name="actions">
-            <element>
-                <object name="ActionDisplayMessage">
-                    <member name="messageIDs">
-                        <element>160751</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">160752</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">311</member>
-                    <member name="phase">2</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z60101_MS041</member>
-        <member name="next">Z60101_PR051</member>
-        <member name="conditionID">UNKNOWN</member>
-        <member name="actions">
-            <element>
-                <object name="ActionDisplayMessage">
-                    <member name="messageIDs">
-                        <element>160751</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">160752</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">311</member>
-                    <member name="phase">2</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z60101_MS042</member>
-        <member name="next">Z60101_PR051</member>
-        <member name="actions">
-            <element>
-                <object name="ActionDisplayMessage">
-                    <member name="messageIDs">
-                        <element>160751</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">160752</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">311</member>
-                    <member name="phase">2</member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z60101_NM003</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z60101_PR050</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">311</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -4196,17 +4230,1839 @@
         </member>
     </object>
     <object name="EventPrompt">
+        <member name="ID">Z60101_PR051a</member>
+        <member name="messageID">160735</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">160736</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z60101_PR050</member>
+        <member name="messageID">160740</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z60101_2003_Q311_F0</member>
+                    <member name="messageID">160742</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">5266</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA0</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_Y004</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_W003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>3</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA0</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B104</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z60101_2003_Q311_F1</member>
+                    <member name="messageID">160743</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">5267</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>3</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA1</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_Y002</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>2</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA1</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_W002</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>2</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA1</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B103</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>3</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA1</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z60101_2003_Q311_F2</member>
+                    <member name="messageID">160744</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">5268</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA2</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_Y000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA2</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_W001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA2</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B102</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>2</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA2</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z60101_2003_Q311_F3</member>
+                    <member name="messageID">160745</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">5269</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B004</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_Y003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>3</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA3</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_W000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA3</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B101</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA3</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z60101_2003_Q311_F4</member>
+                    <member name="messageID">160746</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">5270</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B002</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>2</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA4</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_Y001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA4</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>22</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_W004</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>33</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_B100</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z60101_2003_Q311_FA4</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">QUEST_FLAGS</member>
+                                            <member name="value1">311</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>44</key>
+                                                    <value>4</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">160747</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_000</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160753</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B000</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5266</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5268</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5270</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>3</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5267</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>4</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5269</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>160751</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160752</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="phase">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">100000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_Y000</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5268</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>22</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_Y001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5270</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>22</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_Y002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5267</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>22</key>
+                            <value>3</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_Y003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5269</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>22</key>
+                            <value>4</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_Y004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5266</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>160751</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160752</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="phase">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">100000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_W000</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5269</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>33</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_W001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5268</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>33</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_W002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5267</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>33</key>
+                            <value>3</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_W003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5266</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>33</key>
+                            <value>4</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_W004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5270</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>160751</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160752</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="phase">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">100000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B100</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5270</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>44</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B101</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5269</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>44</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B102</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5268</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>44</key>
+                            <value>3</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B103</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160749</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5267</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>44</key>
+                            <value>4</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_B104</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5266</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>160751</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160752</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="phase">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">100000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_F0</member>
+        <member name="next">Z60101_2003_Q311_F</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5266</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_FA0</member>
+        <member name="next">Z60101_2003_Q311_FA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5266</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_F1</member>
+        <member name="next">Z60101_2003_Q311_F</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5267</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_FA1</member>
+        <member name="next">Z60101_2003_Q311_FA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5267</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_F2</member>
+        <member name="next">Z60101_2003_Q311_F</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5268</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_FA2</member>
+        <member name="next">Z60101_2003_Q311_FA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5268</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_F3</member>
+        <member name="next">Z60101_2003_Q311_F</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5269</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_FA3</member>
+        <member name="next">Z60101_2003_Q311_FA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5269</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_F4</member>
+        <member name="next">Z60101_2003_Q311_F</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5270</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_FA4</member>
+        <member name="next">Z60101_2003_Q311_FA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5270</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_F</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160750</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>22</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>33</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>44</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2003_Q311_FA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160754</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>22</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>33</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>44</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z60101_2004A</member>
+        <member name="next">Z60101_2004A_R2</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z60101_2004A_0</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">30</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z60101_2004A_0</member>
+        <member name="messageID">132010</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">132012</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
         <member name="ID">Z60101_2004A_R2</member>
         <member name="messageID">132010</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z60101_2004A_1</member>
                     <member name="messageID">132011</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
                     <member name="messageID">132012</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_2004A_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">60101</member>
+                    <member name="spotID">50002</member>
                 </object>
             </element>
         </member>
@@ -4219,12 +6075,12 @@
                 <object>
                     <member name="next">Z60101_2004B_JOIN</member>
                     <member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">INSTANCE_ACCESS</member>
-								<member name="value1">5901</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">5901</member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -4261,60 +6117,65 @@
     </object>
     <object name="Event">
         <member name="ID">Z60101_2004B_01</member>
-        <member name="next">Z60101_2004B_02</member>
-        <member name="branchScriptID">branch_questPhase</member>
-        <member name="branchScriptParams">
-            <element>311</element>
-        </member>
+        <member name="next">Z60101_2004B_Q311_0</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z60101_2004B_Q311_0</member>
-                </object>
-            </element>
-            <element>
-                <object>
                     <member name="next">Z60101_SC002</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z60101_2004B_Q311_0</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">311</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z60101_2004B_02</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="value1">311</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
     </object>
-	<object name="EventPlayScene">
-		<member name="ID">Z60101_SC002</member>
-		<member name="next">Z60101_EF064</member>
-		<member name="sceneID">122</member>
-	</object>
-	<object name="EventPerformActions">
-		<member name="ID">Z60101_EF064</member>
-		<member name="actions">
-			<element>
-				<object name="ActionStageEffect">
-					<member name="messageID">160709</member>
-				</object>
-			</element>
-			<element>
-				<object name="ActionUpdateQuest">
-					<member name="questID">311</member>
-					<member name="phase">1</member>
-				</object>
-			</element>
-			<element>
-				<object name="ActionStageEffect">
-					<member name="messageID">160711</member>
-				</object>
-			</element>
-		</member>
-	</object>
+    <object name="EventPlayScene">
+        <member name="ID">Z60101_SC002</member>
+        <member name="next">Z60101_EF064</member>
+        <member name="sceneID">122</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z60101_EF064</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160709</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">311</member>
+                    <member name="phase">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160711</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPrompt">
         <member name="ID">Z60101_2004B_02</member>
         <member name="messageID">160705</member>
@@ -4349,7 +6210,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z60101_2004B_Q311_00</member>
+        <member name="ID">Z60101_2004B_Q311_0</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">

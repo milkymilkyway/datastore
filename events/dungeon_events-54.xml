@@ -1,4 +1,33 @@
 <objects>
+    <!-- Common events -->
+    <object name="EventPrompt">
+        <member name="ID">Z54010X_EXIT</member>
+        <member name="messageID">23</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z54010X_EXIT_0</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z54010X_EXIT_0</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">30102</member>
+                    <member name="spotID">50002</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <!-- 540101 (5481006) -->
     <object name="EventPerformActions">
         <member name="ID">Z540101_5481006_MS001</member>
@@ -13,6 +42,341 @@
         </member>
     </object>
     <!-- 540102 (5462004) -->
+    <object name="EventPrompt">
+        <member name="ID">Z540102_5462004_10001</member>
+        <member name="messageID">17</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_10001_00</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z540102_5462004_10001_00</member>
+        <member name="next">Z540102_5462004_10001_02</member>
+        <member name="sceneID">101</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_10001_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_10001_01a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_10001_01</member>
+        <member name="next">Z540102_5462004_10001_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_10001_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">0</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z540102_5462004_10001_02</member>
+        <member name="next">Z540102_5462004_10001_02a</member>
+        <member name="sceneID">102</member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z540102_5462004_10001_02a</member>
+        <member name="next">Z540102_5462004_10001_02b</member>
+        <member name="sceneID">103</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_10001_02b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">0</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_D00</member>
+        <member name="next">Z540102_5462004_D01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">3</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">4</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z540102_5462004_D01</member>
+        <member name="next">Z540102_5462004_D02</member>
+        <member name="sceneID">102</member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z540102_5462004_D02</member>
+        <member name="sceneID">103</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_D03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">309</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_D04</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_D03</member>
+        <member name="next">Z540102_5462004_D03a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">200000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                    <member name="sourceContext">PARTY</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160347</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">309</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540102_5462004_D03a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_D04</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_D04</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000058</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000059</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000060</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000061</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000062</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">Z540102_112</member>
         <member name="next">Z540102_5462004_NM001</member>
@@ -20,13 +384,36 @@
             <element>
                 <object>
                     <member name="next">Z540102_5462004_NM011</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">19</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">309</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z540102_5462004_NM012</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">309</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -57,12 +444,21 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z540102_5462004_PA001a</member>
                     <member name="messageID">160435</member>
                     <member name="branches">
                         <element>
                             <object>
                                 <member name="next">Z540102_5462004_PA001</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_PHASE</member>
+                                            <member name="value1">309</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -78,12 +474,23 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540102_5462004_PA001</member>
-        <member name="conditionID">UNKNOWN</member>
+        <member name="next">Z540102_5462004_PA001a</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">309</member>
                     <member name="phase">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_PA001a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">50101</member>
+                    <member name="spotID">50011</member>
                 </object>
             </element>
         </member>
@@ -96,18 +503,49 @@
     </object>
     <object name="Event">
         <member name="ID">Z540102_113</member>
-        <member name="next">Z540102_5462004_NM003</member>
+        <member name="next">Z540102_5462004_NM006</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z540102_5462004_NM006</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z540102_5462004_NM003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">309</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z540102_5462004_NM010</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">19</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_NM003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">309</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -117,6 +555,22 @@
         <member name="next">Z540102_5462004_EF001</member>
         <member name="messageIDs">
             <element>160406</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160444</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_NM010</member>
+        <member name="messageIDs">
+            <element>160405</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -138,15 +592,8 @@
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_C_000</member>
                     <member name="messageID">160426</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z540102_5462004_NM007</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
         </member>
@@ -170,15 +617,8 @@
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_LC_000</member>
                     <member name="messageID">160429</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z540102_5462004_NM008</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
         </member>
@@ -202,19 +642,13 @@
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z540102_5462004_NM013</member>
                     <member name="messageID">160432</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z540102_5462004_NM013</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_LLN_00</member>
                     <member name="messageID">160433</member>
                 </object>
             </element>
@@ -229,11 +663,10 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540102_5462004_PA002</member>
-        <member name="next">Z540102_5462004_EF003</member>
         <member name="actions">
             <element>
-                <object name="ActionUpdateLNC">
-                    <member name="value">-5000</member>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
                 </object>
             </element>
             <element>
@@ -243,21 +676,79 @@
                 </object>
             </element>
         </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z540102_5462004_EF003</member>
-        <member name="actions">
+        <member name="branches">
             <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">160445</member>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLL_1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-7499</member>
+                                <member name="value2">-5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLL_2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-4999</member>
+                                <member name="value2">-2500</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLL_3</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-2499</member>
+                                <member name="value2">10000</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
     </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z540102_5462004_NM010</member>
-        <member name="messageIDs">
-            <element>160405</element>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLL_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLL_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-2500</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLL_3</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-5000</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -269,11 +760,10 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540102_5462004_PA003</member>
-        <member name="next">Z540102_5462004_EF003</member>
         <member name="actions">
             <element>
-                <object name="ActionUpdateLNC">
-                    <member name="value">2500</member>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
                 </object>
             </element>
             <element>
@@ -283,13 +773,1349 @@
                 </object>
             </element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLC_1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-10000</member>
+                                <member name="value2">2499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLC_2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">2500</member>
+                                <member name="value2">4999</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLC_3</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">5000</member>
+                                <member name="value2">7499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z540102_5462004_EF001</member>
+        <member name="ID">Z540102_5462004_LNC_LLC_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLC_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">500</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLC_3</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">200</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_LLN_000</member>
+        <member name="next">Z540102_5462004_LNC_LLN_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLN_001</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
-                    <member name="messageID">160444</member>
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLN_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-7499</member>
+                                <member name="value2">-5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLN_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-4999</member>
+                                <member name="value2">-2500</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LLN_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-2499</member>
+                                <member name="value2">10000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLN_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-400</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLN_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LLN_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-2000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_LC_000</member>
+        <member name="next">Z540102_5462004_LNC_LC_001</member>
+        <member name="messageIDs">
+            <element>160409</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z540102_5462004_LNC_LC_001</member>
+        <member name="messageID">160430</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_LCL_000</member>
+                    <member name="messageID">160431</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_LCC_000</member>
+                    <member name="messageID">160432</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_LCN_000</member>
+                    <member name="messageID">160433</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_LCL_000</member>
+        <member name="next">Z540102_5462004_LNC_LCL_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCL_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCL_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-7499</member>
+                                <member name="value2">-5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCL_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-4999</member>
+                                <member name="value2">-2500</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCL_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-2499</member>
+                                <member name="value2">10000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCL_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-400</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCL_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCL_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-2000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_LCC_000</member>
+        <member name="next">Z540102_5462004_LNC_LCC_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCC_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCC_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-10000</member>
+                                <member name="value2">2499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCC_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">2500</member>
+                                <member name="value2">4999</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCC_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">5000</member>
+                                <member name="value2">7499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCC_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">4000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCC_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">2000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCC_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">800</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_LCN_000</member>
+        <member name="next">Z540102_5462004_LNC_LCN_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCN_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCN_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-10000</member>
+                                <member name="value2">2499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCN_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">2500</member>
+                                <member name="value2">4999</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_LCN_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">5000</member>
+                                <member name="value2">7499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCN_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCN_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">500</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_LCN_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">200</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- 540103 (5462001) -->
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_5462001_TR01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>50000047</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="messageID">160441</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_5462001_TR02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>50000048</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="messageID">160441</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_C_000</member>
+        <member name="next">Z540102_5462004_LNC_C_001</member>
+        <member name="messageIDs">
+            <element>160408</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z540102_5462004_LNC_C_001</member>
+        <member name="messageID">160427</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_CL_000</member>
+                    <member name="messageID">160428</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_CC_000</member>
+                    <member name="messageID">160429</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_CL_000</member>
+        <member name="next">Z540102_5462004_LNC_CL_001</member>
+        <member name="messageIDs">
+            <element>160409</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z540102_5462004_LNC_CL_001</member>
+        <member name="messageID">160430</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_CLL_000</member>
+                    <member name="messageID">160431</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_CLC_000</member>
+                    <member name="messageID">160432</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_CLN_000</member>
+                    <member name="messageID">160433</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_CC_000</member>
+        <member name="next">Z540102_5462004_LNC_CC_001</member>
+        <member name="messageIDs">
+            <element>160409</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z540102_5462004_LNC_CC_001</member>
+        <member name="messageID">160430</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_CCL_000</member>
+                    <member name="messageID">160431</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_CCC_000</member>
+                    <member name="messageID">160432</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540102_5462004_LNC_CCN_000</member>
+                    <member name="messageID">160433</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_CLL_000</member>
+        <member name="next">Z540102_5462004_LNC_CLL_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLL_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLL_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-7499</member>
+                                <member name="value2">-5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLL_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-4999</member>
+                                <member name="value2">-2500</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLL_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-2499</member>
+                                <member name="value2">10000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLL_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-800</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLL_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-2000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLL_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-4000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_CLC_000</member>
+        <member name="next">Z540102_5462004_LNC_CLC_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLC_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLC_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-10000</member>
+                                <member name="value2">2499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLC_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">2500</member>
+                                <member name="value2">4999</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLC_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">5000</member>
+                                <member name="value2">7499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLC_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">2000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLC_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLC_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-400</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_CLN_000</member>
+        <member name="next">Z540102_5462004_LNC_CLN_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLN_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLN_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-7499</member>
+                                <member name="value2">-5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLN_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-4999</member>
+                                <member name="value2">-2500</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CLN_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-2499</member>
+                                <member name="value2">10000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLN_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-200</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLN_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-500</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CLN_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_CCL_000</member>
+        <member name="next">Z540102_5462004_LNC_CCL_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCL_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCL_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-7499</member>
+                                <member name="value2">-5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCL_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-4999</member>
+                                <member name="value2">-2500</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCL_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-2499</member>
+                                <member name="value2">10000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCL_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-200</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCL_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-500</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCL_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">-1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_CCC_000</member>
+        <member name="next">Z540102_5462004_LNC_CCC_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCC_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCC_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-10000</member>
+                                <member name="value2">2499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCC_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">2500</member>
+                                <member name="value2">4999</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCC_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">5000</member>
+                                <member name="value2">7499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCC_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">5000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCC_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">2500</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCC_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z540102_5462004_LNC_CCN_000</member>
+        <member name="next">Z540102_5462004_LNC_CCN_001</member>
+        <member name="messageIDs">
+            <element>160410</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCN_001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160445</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">19</member>
+                    <member name="flagType">VALUABLE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCN_002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">-10000</member>
+                                <member name="value2">2499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCN_003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">2500</member>
+                                <member name="value2">4999</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540102_5462004_LNC_CCN_004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LNC</member>
+                                <member name="value1">5000</member>
+                                <member name="value2">7499</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCN_002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">2000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCN_003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">1000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540102_5462004_LNC_CCN_004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateLNC">
+                    <member name="value">400</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- 540105 (5462003) -->
+    <object name="Event">
+        <member name="ID">Z540105_5462003_OD000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540105_5462003_OD000a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540105_5462003_OD000a</member>
+        <member name="next">Z540105_5462003_MS001</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540105_5462003_PR001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5210</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540105_5462003_MS002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5210</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z540105_5462003_PR001</member>
+        <member name="playerSource">true</member>
+        <member name="messageID">160421</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540105_5462003_OD001</member>
+                    <member name="messageID">160422</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">160423</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540105_5462003_OD001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5210</key>
+                            <value>-2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">540034</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540105_5462003_MS001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160442</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540105_5462003_MS002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160443</member>
+                    <member name="includeMessage">true</member>
                 </object>
             </element>
         </member>
@@ -704,7 +2530,14 @@
             <element>
                 <object>
                     <member name="next">Z540108_5462002_NM003</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">GENDER</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -1301,37 +3134,6 @@
             </member>
         </object>
         <!-- 540102 (5462004) -->
-        <object name="EventPrompt">
-            <member name="ID">Z540102_5462004_PR002</member>
-            <member name="playerSource">true</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">17</member>
-            <member name="choices">
-                <element>
-                    <object name="EventChoice">
-                        <member name="messageID">1</member>
-                        <member name="branches">
-                            <element>
-                                <object>
-                                    <member name="next">Z540102_5462004_SC001</member>
-                                    <member name="conditionID">unknown</member>
-                                </object>
-                            </element>
-                        </member>
-                    </object>
-                </element>
-                <element>
-                    <object name="EventChoice">
-                        <member name="messageID">2</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPlayScene">
-            <member name="ID">Z540102_5462004_SC001</member>
-            <member name="sceneID">101</member>
-            <member name="unknown">1</member>
-        </object>
         <object name="EventPlayScene">
             <member name="ID">Z540102_5462004_SC002</member>
             <member name="next">Z540102_5462004_SC003</member>
@@ -1511,18 +3313,6 @@
                 <element>
                     <object name="EventChoice">
                         <member name="messageID">2</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <!-- 540103 (5462001) -->
-        <object name="EventPerformActions">
-            <member name="ID">Z540103_5462001_MS001</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">160441</member>
-                        <member name="includeMessage">true</member>
                     </object>
                 </element>
             </member>
@@ -2145,47 +3935,6 @@
                 <element>
                     <object name="ActionStageEffect">
                         <member name="messageID">20115</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <!-- 540105 (5462003) -->
-        <object name="EventPerformActions">
-            <member name="ID">Z540105_5462003_MS001</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">160442</member>
-                        <member name="includeMessage">true</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPrompt">
-            <member name="ID">Z540105_5462003_PR001</member>
-            <member name="playerSource">true</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">160421</member>
-            <member name="choices">
-                <element>
-                    <object name="EventChoice">
-                        <member name="messageID">160422</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="EventChoice">
-                        <member name="messageID">160423</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z540105_5462003_MS002</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">160443</member>
-                        <member name="includeMessage">true</member>
                     </object>
                 </element>
             </member>

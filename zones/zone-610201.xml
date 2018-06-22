@@ -13,13 +13,15 @@
                 <!-- 剛毅なる道灌 -->
                 <object name="ServerNPC">
                     <member name="ID">105</member>
+					<member name="ActorID">1</member>
                     <member name="X">-610.292</member>
                     <member name="Y">143.773</member>
                     <member name="Rotation">-2.87868e-08</member>
+					<member name="State">0</member>
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">Z610201_NM001</member>
+                                <member name="eventID">Z610X01_105</member>
                             </object>
                         </element>
                     </member>
@@ -29,13 +31,15 @@
                 <!-- スルト -->
                 <object name="ServerNPC">
                     <member name="ID">120</member>
+					<member name="ActorID">2</member>
                     <member name="X">-367.89</member>
                     <member name="Y">-363.94</member>
                     <member name="Rotation">0.785398</member>
+					<member name="State">0</member>
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">Z610201_120</member>
+                                <member name="eventID">Z610101_120</member>
                             </object>
                         </element>
                     </member>
@@ -45,79 +49,61 @@
         <member name="Objects"/>
         <member name="Spawns">
             <pair>
-                <key>182100080</key>
+                <key>1</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">182100080</member>
+                        <member name="ID">1</member>
                         <member name="EnemyType">1821</member>
-                        <member name="Drops">
-                            <element>
-                                <object name="ItemDrop">
-                                    <member name="ItemType">799</member>
-                                    <member name="Rate">0.05</member>
-                                    <member name="MinStack">1</member>
-                                    <member name="MaxStack">1</member>
-                                </object>
-                            </element>
-                            <element>
-                                <object name="ItemDrop">
-                                    <member name="ItemType">800</member>
-                                    <member name="Rate">0.05</member>
-                                    <member name="MinStack">1</member>
-                                    <member name="MaxStack">1</member>
-                                </object>
-                            </element>
-                        </member>
                         <member name="Level">80</member>
-                        <member name="XPEstimate">17527</member>
+                        <member name="TalkResist">100</member>
+                        <member name="XP">8000</member>
+                        <member name="DropSetIDs">
+							<element>1</element>
+                            <element>10000010</element>
+                        </member>
                     </object>
                 </value>
             </pair>
             <pair>
-                <key>177600077</key>
+                <key>2</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">177600077</member>
+                        <member name="ID">2</member>
                         <member name="EnemyType">1776</member>
-                        <member name="Drops">
-                            <element>
-                                <object name="ItemDrop">
-                                    <member name="ItemType">799</member>
-                                    <member name="Rate">0.05</member>
-                                    <member name="MinStack">1</member>
-                                    <member name="MaxStack">2</member>
-                                </object>
-                            </element>
-                            <element>
-                                <object name="ItemDrop">
-                                    <member name="ItemType">800</member>
-                                    <member name="Rate">0.05</member>
-                                    <member name="MinStack">1</member>
-                                    <member name="MaxStack">2</member>
-                                </object>
-                            </element>
-                        </member>
                         <member name="Level">77</member>
-                        <member name="XPEstimate">3373</member>
+                        <member name="TalkResist">100</member>
+                        <member name="XP">1540</member>
+                        <member name="DropSetIDs">
+							<element>1</element>
+                            <element>10000010</element>
+                        </member>
                     </object>
                 </value>
             </pair>
         </member>
         <member name="SpawnGroups">
             <pair>
-                <key>1001</key>
+                <key>1</key>
                 <value>
                     <object name="SpawnGroup">
-                        <member name="ID">1001</member>
+                        <member name="ID">1</member>
                         <member name="Spawns">
                             <pair>
-                                <key>177600077</key>
-                                <value>4</value>
-                            </pair>
-                            <pair>
-                                <key>182100080</key>
+                                <key>1</key>
                                 <value>1</value>
                             </pair>
+                            <pair>
+                                <key>2</key>
+                                <value>4</value>
+                            </pair>
+                        </member>
+                        <member name="DefeatActions">
+                            <element>
+                                <object name="ActionStartEvent">
+                                    <member name="eventID">Z610201_D0000</member>
+									<member name="sourceContext">PARTY</member>
+                                </object>
+                            </element>
                         </member>
                     </object>
                 </value>
@@ -125,12 +111,12 @@
         </member>
         <member name="SpawnLocationGroups">
             <pair>
-                <key>10000</key>
+                <key>1</key>
                 <value>
                     <object name="SpawnLocationGroup">
-                        <member name="ID">10000</member>
+                        <member name="ID">1</member>
                         <member name="GroupIDs">
-                            <element>1001</element>
+                            <element>1</element>
                         </member>
                         <member name="SpotIDs">
                             <element>10000</element>
@@ -140,5 +126,23 @@
             </pair>
         </member>
         <member name="Spots"/>
+		<member name="Triggers">
+			<element>
+				<object name="ServerZoneTrigger">
+					<member name="Trigger">ON_SETUP</member>
+					<member name="Actions">
+						<element>
+							<object name="ActionSpawn">
+								<member name="spawnLocationGroupIDs">
+									<element>1</element>
+								</member>
+								<member name="mode">ONE_TIME</member>
+								<member name="defeatActions"/>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
     </object>
 </objects>
