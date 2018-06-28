@@ -53,6 +53,23 @@
     <!-- Spot 10000 -->
     <object name="Event">
         <member name="ID">Z540101_540X_10000_00</member>
+        <member name="next">Z540101_540X_10000_00a</member>
+        <member name="branchScriptID">branch_dungeonVariant</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_10000_01</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_10000_00b</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540101_540X_10000_00a</member>
         <member name="next">Z540101_540X_10000_01</member>
         <member name="branches">
             <element>
@@ -101,6 +118,56 @@
             </element>
         </member>
     </object>
+    <object name="Event">
+        <member name="ID">Z540101_540X_10000_00b</member>
+        <member name="next">Z540101_540X_10000_01</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_PR004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_PR003a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">12138</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPrompt">
         <member name="ID">Z540101_540X_PR003</member>
         <member name="messageID">130025</member>
@@ -108,6 +175,62 @@
             <element>
                 <object name="EventChoice">
                     <member name="next">Z540101_540X_10000_F0001</member>
+                    <member name="messageID">130026</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z540101_540X_10000_03</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1001</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z540101_540X_SE00F</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1001</key>
+                                                    <value>2</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540101_540X_10000_01</member>
+                    <member name="messageID">130027</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z540101_540X_PR003a</member>
+        <member name="messageID">130025</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540101_540X_10000_F0001a</member>
                     <member name="messageID">130026</member>
                     <member name="branches">
                         <element>
@@ -220,6 +343,32 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540101_540X_10000_F0001a</member>
+        <member name="next">Z540101_540X_SC003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1001</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>12138</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPlayScene">
         <member name="ID">Z540101_540X_SC003</member>
         <member name="next">Z540101_540X_10000_F0002</member>
@@ -243,9 +392,26 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">Z540101_540X_SC004</member>
+                                <member name="eventID">Z540101_540X_10000_F0003</member>
+                                <member name="sourceContext">PARTY</member>
                             </object>
                         </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540101_540X_10000_F0003</member>
+        <member name="next">Z540101_540X_SC004</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
                     </member>
                 </object>
             </element>
@@ -265,7 +431,7 @@
                                 <member name="compareMode">LT_OR_NAN</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>2000</key>
+                                        <key>1800</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -283,7 +449,7 @@
                 <object name="ActionUpdateZoneFlags">
                     <member name="flagStates">
                         <pair>
-                            <key>2000</key>
+                            <key>1800</key>
                             <value>1</value>
                         </pair>
                     </member>
@@ -524,7 +690,6 @@
         <member name="ID">Z540101_540X_10000_03</member>
         <member name="next">Z540101_540X_10000_04</member>
         <member name="sceneID">37</member>
-        <member name="unknown">1</member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540101_540X_10000_04</member>
@@ -544,10 +709,26 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">Z540101_540X_SG1_02</member>
+                                <member name="eventID">Z540101_540X_10000_05</member>
                                 <member name="sourceContext">PARTY</member>
                             </object>
                         </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540101_540X_10000_05</member>
+        <member name="next">Z540101_540X_SG1_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
                     </member>
                 </object>
             </element>
@@ -567,7 +748,7 @@
                                 <member name="compareMode">LT_OR_NAN</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>2000</key>
+                                        <key>1800</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -585,7 +766,7 @@
                 <object name="ActionUpdateZoneFlags">
                     <member name="flagStates">
                         <pair>
-                            <key>2000</key>
+                            <key>1800</key>
                             <value>1</value>
                         </pair>
                     </member>

@@ -1,4 +1,16 @@
 <objects>
+    <object name="EventPlayScene">
+        <member name="ID">sc</member>
+        <member name="sceneID">5012</member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">sc2</member>
+        <member name="sceneID">5014</member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">sc3</member>
+        <member name="sceneID">6011</member>
+    </object>
     <!--Unimplemented-->
     <object name="EventPerformActions">
         <member name="ID">event_future</member>
@@ -6303,6 +6315,84 @@
         <member name="next">N213_213_086</member>
         <member name="messageIDs">
             <element>104174</element>
+        </member>
+    </object>
+    <!--NPC 215 守衛 (シークレットルーム) -->
+    <object name="EventNPCMessage">
+        <member name="ID">N215</member>
+        <member name="next">N215_0</member>
+        <member name="messageIDs">
+            <element>214009</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N215_0</member>
+        <member name="messageID">214002</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N215_1</member>
+                    <member name="messageID">214003</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N215_3</member>
+                    <member name="messageID">214004</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N215_4</member>
+                    <member name="messageID">214005</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">4</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N215_1</member>
+        <member name="next">N215_2</member>
+        <member name="messageIDs">
+            <element>214010</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N215_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">214024</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">9701</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N215_3</member>
+        <member name="messageIDs">
+            <element>214011</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N215_4</member>
+        <member name="messageIDs">
+            <element>214008</element>
         </member>
     </object>
     <!--NPC 233A 山羊屋-->
@@ -17550,38 +17640,16 @@
                 <object>
                     <member name="next">N3401_AP001b</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5401</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001b</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5402</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001b</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5403</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5401</element>
+									<element>5402</element>
+									<element>5403</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17589,38 +17657,16 @@
                 <object>
                     <member name="next">N3401_AP001c</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5421</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001c</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5422</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001c</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5423</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5421</element>
+									<element>5422</element>
+									<element>5423</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17628,25 +17674,15 @@
                 <object>
                     <member name="next">N3401_AP001d</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5481</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001d</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5482</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5481</element>
+									<element>5482</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17654,38 +17690,16 @@
                 <object>
                     <member name="next">N3401_AP001e</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5501</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001e</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5502</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001e</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5503</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5501</element>
+									<element>5502</element>
+									<element>5503</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17693,38 +17707,16 @@
                 <object>
                     <member name="next">N3401_AP001f</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5521</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001f</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5522</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001f</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5523</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5521</element>
+									<element>5522</element>
+									<element>5523</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17732,77 +17724,19 @@
                 <object>
                     <member name="next">N3401_AP001g</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5531</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001g</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5532</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001g</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5533</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001g</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5534</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001g</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5535</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001g</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5536</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5531</element>
+									<element>5532</element>
+									<element>5533</element>
+									<element>5534</element>
+									<element>5535</element>
+									<element>5536</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17810,12 +17744,14 @@
                 <object>
                     <member name="next">N3401_AP001h</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5101</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5101</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17823,12 +17759,14 @@
                 <object>
                     <member name="next">N3401_AP001i</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5121</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5121</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17836,12 +17774,14 @@
                 <object>
                     <member name="next">N3401_AP001j</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">5131</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>5131</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17849,38 +17789,16 @@
                 <object>
                     <member name="next">N3401_AP001k</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">6201</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001k</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">6202</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001k</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">6203</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>6201</element>
+									<element>6202</element>
+									<element>6203</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
@@ -17888,38 +17806,16 @@
                 <object>
                     <member name="next">N3401_AP001l</member>
                     <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">6301</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001l</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">6302</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">N3401_AP001l</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">6303</member>
-                            </object>
-                        </element>
+						<element>
+							<object name="EventScriptCondition">
+								<member name="scriptID">bool_currentInstance</member>
+								<member name="params">
+									<element>6301</element>
+									<element>6302</element>
+									<element>6303</element>
+								</member>
+							</object>
+						</element>
                     </member>
                 </object>
             </element>
