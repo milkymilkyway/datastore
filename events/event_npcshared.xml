@@ -1,16 +1,4 @@
 <objects>
-    <object name="EventPlayScene">
-        <member name="ID">sc</member>
-        <member name="sceneID">5012</member>
-    </object>
-    <object name="EventPlayScene">
-        <member name="ID">sc2</member>
-        <member name="sceneID">5014</member>
-    </object>
-    <object name="EventPlayScene">
-        <member name="ID">sc3</member>
-        <member name="sceneID">6011</member>
-    </object>
     <!--Unimplemented-->
     <object name="EventPerformActions">
         <member name="ID">event_future</member>
@@ -14245,6 +14233,2376 @@
             <element>151037</element>
         </member>
     </object>
+    <!-- NPC 307 山羊屋便 -->
+    <object name="EventNPCMessage">
+        <member name="ID">N307</member>
+        <member name="next">N307_PR008</member>
+        <member name="messageIDs">
+            <element>138501</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N307_PR008</member>
+        <member name="messageID">138502</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_BUY</member>
+                    <member name="messageID">138503</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_G1_RE000</member>
+                    <member name="messageID">138504</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_BARTER</member>
+                    <member name="messageID">138566</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_T000</member>
+                    <member name="messageID">138506</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_NM021</member>
+                    <member name="messageID">138507</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_BUY</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_BUY_207</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>30102</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_BUY_227</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>70103</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_BUY_247</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>70104</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_BUY_237</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>80103</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">N307_BUY_207</member>
+        <member name="menuType">175</member>
+        <member name="shopID">207</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">N307_BUY_227</member>
+        <member name="menuType">175</member>
+        <member name="shopID">227</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">N307_BUY_247</member>
+        <member name="menuType">175</member>
+        <member name="shopID">247</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">N307_BUY_237</member>
+        <member name="menuType">175</member>
+        <member name="shopID">237</member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_G1_RE000</member>
+        <member name="next">N307_G1_RE001</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_G1_IF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INVENTORY_FREE</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_IF</member>
+        <member name="next">N307</member>
+        <member name="messageIDs">
+            <element>138508</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_G1_RE001</member>
+        <member name="next">N307_G1_RE002c</member>
+        <member name="branchScriptID">branch_dungeonTrialResult</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_NM015</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_RE002a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_RE002b</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_NM015</member>
+        <member name="next">N307</member>
+        <member name="messageIDs">
+            <element>138509</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_RE002a</member>
+        <member name="next">N307_G1_RE003</member>
+        <member name="messageIDs">
+            <element>138510</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_RE002b</member>
+        <member name="next">N307_G1_RE003</member>
+        <member name="messageIDs">
+            <element>138511</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_RE002c</member>
+        <member name="next">N307_G1_RE003</member>
+        <member name="messageIDs">
+            <element>138512</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_G1_RE003</member>
+        <member name="branchScriptID">branch_dungeonTrialResultExists</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_NM015</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_IF</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_RE004_A1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_RE004_A</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_RE004_B</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_RE004_C</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_RE004_P</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_RE004_A1</member>
+        <member name="next">N307_G1_RE004_A100</member>
+        <member name="messageIDs">
+            <element>138513</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_G1_RE004_A100</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5101_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">5</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5121_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">6</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5131_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">9</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I540X_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I542X_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">4</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I548X_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">8</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I550X_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I552X_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I553X_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">10</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I570X_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">7</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5711_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">17</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5721_A1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">18</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5101_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>4655</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5121_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>4656</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5131_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>25081</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I540X_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>4653</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I542X_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>4654</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I548X_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>25079</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I550X_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>4651</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I552X_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>4652</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I553X_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>25080</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I570X_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>4657</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5711_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>25077</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5721_A1</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>25078</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_RE004_A</member>
+        <member name="next">N307_G1_RE004_A00</member>
+        <member name="messageIDs">
+            <element>138514</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_G1_RE004_A00</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5101_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">5</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5121_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">6</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5131_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">9</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I540X_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I542X_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">4</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I548X_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">8</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I550X_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I552X_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I553X_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">10</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I570X_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">7</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5711_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">17</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5721_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">18</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5101_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>6</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5121_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>9</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5131_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>12</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I540X_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>9</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I542X_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>16</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I548X_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>38</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I550X_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>10</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I552X_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>16</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I553X_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>56</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I570X_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>10</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5711_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>5</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5721_A</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>6</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_RE004_B</member>
+        <member name="next">N307_G1_RE004_B00</member>
+        <member name="messageIDs">
+            <element>138515</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_G1_RE004_B00</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5101_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">5</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5121_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">6</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5131_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">9</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I540X_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I542X_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">4</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I548X_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">8</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I550X_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I552X_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I553X_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">10</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I570X_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">7</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5711_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">17</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5721_B</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">18</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5101_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>4</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5121_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>7</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5131_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>10</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I540X_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>8</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I542X_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>13</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I548X_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>30</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I550X_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>8</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I552X_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>13</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I553X_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>46</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I570X_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>9</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5711_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>4</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5721_B</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>5</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_RE004_C</member>
+        <member name="next">N307_G1_RE004_C00</member>
+        <member name="messageIDs">
+            <element>138516</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_G1_RE004_C00</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5101_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">5</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5121_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">6</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5131_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">9</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I540X_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I542X_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">4</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I548X_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">8</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I550X_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I552X_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I553X_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">10</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I570X_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">7</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5711_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">17</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5721_C</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">18</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5101_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5121_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>5</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5131_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>8</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I540X_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>7</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I542X_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>10</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I548X_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>24</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I550X_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>6</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I552X_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>10</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I553X_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>36</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I570X_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>8</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5711_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>3</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5721_C</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>4</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_G1_RE004_P</member>
+        <member name="next">N307_G1_RE004_P00</member>
+        <member name="messageIDs">
+            <element>138517</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_G1_RE004_P00</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5101_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">5</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5121_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">6</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5131_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">9</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I540X_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I542X_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">4</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I548X_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">8</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I550X_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I552X_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I553X_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">10</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I570X_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">7</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5711_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">17</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_G1_I5721_P</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonTrialID</member>
+                                <member name="value1">18</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5101_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5121_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5131_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5293</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I540X_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I542X_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I548X_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5292</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I550X_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I552X_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I553X_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5291</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I570X_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5711_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_I5721_P</member>
+        <member name="next">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5294</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                    <member name="mode">TIME_TRIAL_REWARD</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N307_G1_RE005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">TIME_TRIAL</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N307_BARTER</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N307_BARTER_11</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>30102</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_BARTER_12</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>70103</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_BARTER_13</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>70104</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N307_BARTER_10</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>80103</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">N307_BARTER_11</member>
+        <member name="menuType">808</member>
+        <member name="shopID">11</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">N307_BARTER_12</member>
+        <member name="menuType">808</member>
+        <member name="shopID">12</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">N307_BARTER_13</member>
+        <member name="menuType">808</member>
+        <member name="shopID">13</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">N307_BARTER_10</member>
+        <member name="menuType">808</member>
+        <member name="shopID">10</member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_NM021</member>
+        <member name="messageIDs">
+            <element>138537</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_T000</member>
+        <member name="next">N307_T001</member>
+        <member name="messageIDs">
+            <element>138524</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N307_T001</member>
+        <member name="messageID">138525</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_T002</member>
+                    <member name="messageID">138526</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_T003</member>
+                    <member name="messageID">138527</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_T004</member>
+                    <member name="messageID">138528</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_T005</member>
+                    <member name="messageID">138529</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_T006</member>
+                    <member name="messageID">138530</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_T007</member>
+                    <member name="messageID">138637</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N307_PR008</member>
+                    <member name="messageID">138531</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_T002</member>
+        <member name="next">N307_T001</member>
+        <member name="messageIDs">
+            <element>138532</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_T003</member>
+        <member name="next">N307_T001</member>
+        <member name="messageIDs">
+            <element>138533</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_T004</member>
+        <member name="next">N307_T001</member>
+        <member name="messageIDs">
+            <element>138534</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_T005</member>
+        <member name="next">N307_T001</member>
+        <member name="messageIDs">
+            <element>138535</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_T006</member>
+        <member name="next">N307_T001</member>
+        <member name="messageIDs">
+            <element>138638</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N307_T007</member>
+        <member name="next">N307_T001</member>
+        <member name="messageIDs">
+            <element>138639</element>
+        </member>
+    </object>
     <!-- NPC 391 ヤギヌマ -->
     <!-- todo: fill out exchange events. -->
     <object name="Event">
@@ -17640,16 +19998,16 @@
                 <object>
                     <member name="next">N3401_AP001b</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5401</element>
-									<element>5402</element>
-									<element>5403</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5401</element>
+                                    <element>5402</element>
+                                    <element>5403</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17657,16 +20015,16 @@
                 <object>
                     <member name="next">N3401_AP001c</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5421</element>
-									<element>5422</element>
-									<element>5423</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5421</element>
+                                    <element>5422</element>
+                                    <element>5423</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17674,15 +20032,15 @@
                 <object>
                     <member name="next">N3401_AP001d</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5481</element>
-									<element>5482</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5481</element>
+                                    <element>5482</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17690,16 +20048,16 @@
                 <object>
                     <member name="next">N3401_AP001e</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5501</element>
-									<element>5502</element>
-									<element>5503</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5501</element>
+                                    <element>5502</element>
+                                    <element>5503</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17707,16 +20065,16 @@
                 <object>
                     <member name="next">N3401_AP001f</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5521</element>
-									<element>5522</element>
-									<element>5523</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5521</element>
+                                    <element>5522</element>
+                                    <element>5523</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17724,19 +20082,19 @@
                 <object>
                     <member name="next">N3401_AP001g</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5531</element>
-									<element>5532</element>
-									<element>5533</element>
-									<element>5534</element>
-									<element>5535</element>
-									<element>5536</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5531</element>
+                                    <element>5532</element>
+                                    <element>5533</element>
+                                    <element>5534</element>
+                                    <element>5535</element>
+                                    <element>5536</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17744,14 +20102,14 @@
                 <object>
                     <member name="next">N3401_AP001h</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5101</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5101</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17759,14 +20117,14 @@
                 <object>
                     <member name="next">N3401_AP001i</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5121</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5121</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17774,14 +20132,14 @@
                 <object>
                     <member name="next">N3401_AP001j</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>5131</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>5131</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17789,16 +20147,16 @@
                 <object>
                     <member name="next">N3401_AP001k</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>6201</element>
-									<element>6202</element>
-									<element>6203</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>6201</element>
+                                    <element>6202</element>
+                                    <element>6203</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -17806,16 +20164,16 @@
                 <object>
                     <member name="next">N3401_AP001l</member>
                     <member name="conditions">
-						<element>
-							<object name="EventScriptCondition">
-								<member name="scriptID">bool_currentInstance</member>
-								<member name="params">
-									<element>6301</element>
-									<element>6302</element>
-									<element>6303</element>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>6301</element>
+                                    <element>6302</element>
+                                    <element>6303</element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
