@@ -15,7 +15,7 @@ function check(source, cState, dState, zone, params)
         {
             return 0;
         }
-        if(cInstance.InstanceType == ServerZoneInstanceVariant_InstanceType_t.DEMON_ONLY)
+        else if(cInstance.InstanceType == ServerZoneInstanceVariant_InstanceType_t.DEMON_ONLY)
         {
             return 1;
         }

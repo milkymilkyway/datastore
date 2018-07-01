@@ -9,7 +9,7 @@ function define(script)
 // - params[0]+: list of zone instance IDs
 function check(source, cState, dState, zone, value1, value2, params)
 {
-	local instance = zone.GetZoneInstance();
+    local instance = zone.GetZoneInstance();
     if(instance != null)
     {
         local cInstance = instance.GetDefinitionID();

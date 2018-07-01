@@ -7,9 +7,9 @@ function define(script)
 
 function prepare(eState, manager)
 {
-	local aiState = eState.GetAIState();
-	aiState.OverrideAction("combat", "spin");
-	aiState.OverrideAction("idle", "spin");
+    local aiState = eState.GetAIState();
+    aiState.OverrideAction("combat", "spin");
+    aiState.OverrideAction("idle", "spin");
     return 0;
 }
 
