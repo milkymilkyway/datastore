@@ -2116,6 +2116,303 @@
         </member>
     </object>
     <!-- 550102 (553X) -->
+    <object name="EventPrompt">
+        <member name="ID">Z550102_553X_10000</member>
+        <member name="messageID">17</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z550102_553X_10000_00</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z550102_553X_10000_02</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2000</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z550102_553X_10000_00</member>
+        <member name="next">Z550102_553X_10000_01a</member>
+        <member name="sceneID">31</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550102_553X_10000_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_553X_10000_01</member>
+        <member name="next">Z550102_553X_10000_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_553X_10000_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">0</member>
+                    <member name="spotID">50002</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z550102_553X_10000_02</member>
+        <member name="next">Z550102_553X_10000_02a</member>
+        <member name="sceneID">54</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_553X_10000_02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">0</member>
+                    <member name="spotID">50002</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_553X_10000_03</member>
+        <member name="next">Z550102_553X_SC002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="mode">DESPAWN</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="mode">DESPAWN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">Z550102_553X_SC002</member>
+        <member name="sceneID">54</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550102_553X_10000_03a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1800</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_553X_10000_03a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1800</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">1</member>
+                    <member name="actorID">3401</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">1</member>
+                    <member name="actorID">550001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                    <member name="actorID">550001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>93</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">50010</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>94</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">50010</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>93</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">50010</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>94</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">50010</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>93</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">50010</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_5531008_EF003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">164399</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="ID">390</member>
+                    <member name="flagType">VALUABLE</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">Z550102_5531008_NM001</member>
         <member name="next">Z550102_5531008_PR001</member>
@@ -2135,7 +2432,17 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="messageID">0</member>
+                    <member name="next">Z550102_N231_PL00</member>
+                    <member name="messageID">133204</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5370</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -2150,6 +2457,106 @@
         <member name="next">Z550102_5531008_PR001</member>
         <member name="messageIDs">
             <element>133206</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z550102_N231_PL00</member>
+        <member name="next">Z550102_N231_PL01</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550102_N231_PL03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PLUGIN</member>
+                                <member name="value1">19</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z550102_N231_PL01</member>
+        <member name="next">Z550102_N231_PL02</member>
+        <member name="messageIDs">
+            <element>133207</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_N231_PL02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>-5370</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">133208</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">PLUGIN</member>
+                    <member name="ID">19</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z550102_N231_PL03</member>
+        <member name="next">Z550102_5531008_PR001</member>
+        <member name="messageIDs">
+            <element>133209</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z550102_5531008_PR003</member>
+        <member name="playerSource">true</member>
+        <member name="messageID">164220</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">164204</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">164205</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_5531008_MS001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">164214</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550102_5531008_EF002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">164211</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <!-- 550102 (5561002) -->
@@ -3159,15 +3566,502 @@
             </element>
         </member>
     </object>
+    <!-- 553X (Common events)-->
+    <object name="EventPerformActions">
+        <member name="ID">Z55010X_553X_T0a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>89</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>90</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5001</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>89</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5002</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>90</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5003</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>89</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5004</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z55010X_553X_T0b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>90</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5005</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>89</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5006</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>90</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5007</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>89</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5008</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>90</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5009</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z55010X_553X_T0c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>89</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5010</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>89</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5011</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>90</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5012</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>90</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5013</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>89</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5014</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z55010X_553X_T1a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>92</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5001</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5002</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>92</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5003</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5004</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z55010X_553X_T1b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>92</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5005</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5006</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>92</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5007</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5008</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>92</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5009</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z55010X_553X_T1d</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5015</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5016</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>92</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5017</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>92</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5018</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5019</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <!-- 550103 (5531001) -->
+    <object name="Event">
+        <member name="ID">Z550103_5531001_PR000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550103_5531001_PR001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">555001</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPrompt">
         <member name="ID">Z550103_5531001_PR001</member>
         <member name="messageID">2010</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z550103_5531001_EF001</member>
                     <member name="messageID">2011</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z550103_5531001_EF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">555001</member>
+                                            <member name="value2">3</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -3180,6 +4074,27 @@
     <object name="EventPerformActions">
         <member name="ID">Z550103_5531001_EF001</member>
         <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550018</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">555001</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="mode">ONE_TIME_RANDOM</member>
+                    <member name="spotID">501</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">133103</member>
@@ -4432,6 +5347,97 @@
         </member>
     </object>
     <!-- 550104 (553X) -->
+    <object name="Event">
+        <member name="ID">Z550104_553X001_PR000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550104_553X001_PR001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">555002</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z550104_553X001_PR001</member>
+        <member name="messageID">2010</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2011</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z550104_553X001_EF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">555002</member>
+                                            <member name="value2">3</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2012</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550104_553X001_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550033</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">555002</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="mode">ONE_TIME_RANDOM</member>
+                    <member name="spotID">502</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">133103</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>133104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <!-- 550105 (55XX) -->
     <object name="Event">
         <member name="ID">Z550105_55XX_0000</member>
@@ -5934,7 +6940,97 @@
         </member>
     </object>
     <!-- 550105 (553X) -->
-
+    <object name="Event">
+        <member name="ID">Z550105_553X001_PR000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550105_553X001_PR001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">555003</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z550105_553X001_PR001</member>
+        <member name="messageID">2010</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2011</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z550105_553X001_EF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">555003</member>
+                                            <member name="value2">3</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2012</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550105_553X001_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550058</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">555003</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>8</element>
+                    </member>
+                    <member name="mode">ONE_TIME_RANDOM</member>
+                    <member name="spotID">102</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">133103</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>133104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <!-- 550106 (55XX) -->
     <object name="Event">
         <member name="ID">Z550106_55XX_0000</member>
@@ -7891,6 +8987,97 @@
         </member>
     </object>
     <!-- 550106 (553X) -->
+    <object name="Event">
+        <member name="ID">Z550106_553X001_PR000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550106_553X001_PR001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">555004</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z550106_553X001_PR001</member>
+        <member name="messageID">2010</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2011</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z550106_553X001_EF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">555004</member>
+                                            <member name="value2">3</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2012</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550106_553X001_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550075</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">555004</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="mode">ONE_TIME_RANDOM</member>
+                    <member name="spotID">504</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">133103</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>133104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <!-- 550107 (55XX) -->
     <object name="EventPerformActions">
         <member name="ID">Z550107_55XX_D000</member>
@@ -9012,6 +10199,121 @@
         </member>
     </object>
     <!-- 550107 (553X) -->
+    <object name="Event">
+        <member name="ID">Z550107_553X_PR000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550107_553X_PR001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">555009</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z550107_553X_PR001</member>
+        <member name="messageID">2010</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2011</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z550107_553X_EF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">555009</member>
+                                            <member name="value2">3</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2012</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550107_553X_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550094</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">555009</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550080</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550081</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550082</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550083</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="mode">ONE_TIME_RANDOM</member>
+                    <member name="spotID">505</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">133103</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>133104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <!-- 550108 (55XX) -->
     <object name="Event">
         <member name="ID">Z550108_55XX_PR004</member>
@@ -10781,10 +12083,98 @@
             </element>
         </member>
     </object>
-    <!-- 550108 (5531007) -->
-
-    <!-- 550108 (5533005) -->
-
+    <!-- 550108 (553X) -->
+    <object name="Event">
+        <member name="ID">Z550108_553X_PR000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z550108_553X_PR001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">555010</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z550108_553X_PR001</member>
+        <member name="messageID">2010</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2011</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z550108_553X_EF001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">555010</member>
+                                            <member name="value2">3</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2012</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z550108_553X_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">550111</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">555010</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="mode">ONE_TIME_RANDOM</member>
+                    <member name="spotID">506</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">133103</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>133104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <!-- 550108 (5561001) -->
     <!-- NPC 211 -->
     <object name="Event">
@@ -11745,6 +13135,94 @@
             <element>43239</element>
         </member>
     </object>
+    <!-- 550109 (553X) -->
+    <object name="EventNPCMessage">
+        <member name="ID">Z550109_553X_001</member>
+        <member name="next">Z550109_553X_002</member>
+        <member name="messageIDs">
+            <element>43200</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z550109_553X_002</member>
+        <member name="messageID">43201</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z550109_553X_015</member>
+                    <member name="messageID">43238</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z550109_553X_017</member>
+                    <member name="messageID">40001</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z550109_553X_019</member>
+                    <member name="messageID">40003</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z550109_553X_011</member>
+                    <member name="messageID">40004</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z550109_553X_021</member>
+                    <member name="messageID">40005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z550109_553X_015</member>
+        <member name="next">Z550109_553X_002</member>
+        <member name="messageIDs">
+            <element>43231</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z550109_553X_017</member>
+        <member name="next">Z550109_553X_008</member>
+        <member name="messageIDs">
+            <element>43240</element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z550109_553X_008</member>
+        <member name="menuType">175</member>
+        <member name="shopID">224</member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z550109_553X_019</member>
+        <member name="next">Z550109_553X_010</member>
+        <member name="messageIDs">
+            <element>43237</element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z550109_553X_010</member>
+        <member name="menuType">177</member>
+        <member name="shopID">224</member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z550109_553X_011</member>
+        <member name="next">Z550109_553X_002</member>
+        <member name="messageIDs">
+            <element>43202</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z550109_553X_021</member>
+        <member name="messageIDs">
+            <element>43239</element>
+        </member>
+    </object>
     <unmapped>
         <!-- 550101 (5501004) -->
         <object name="EventPrompt">
@@ -12027,92 +13505,6 @@
                     <object name="ActionStageEffect">
                         <member name="messageID">130037</member>
                         <member name="includeMessage">true</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <!-- 550102 (5531008) -->
-        <object name="EventPrompt">
-            <member name="ID">Z550102_5531008_PR003</member>
-            <member name="playerSource">true</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="messageID">164220</member>
-            <member name="choices">
-                <element>
-                    <object name="EventChoice">
-                        <member name="messageID">164204</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="EventChoice">
-                        <member name="messageID">164205</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z550102_5531008_MS001</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">164214</member>
-                        <member name="includeMessage">true</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z550102_5531008_EF002</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">164211</member>
-                        <member name="includeMessage">true</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPlayScene">
-            <member name="ID">Z550102_5531008_SC001</member>
-            <member name="sceneID">31</member>
-            <member name="unknown">1</member>
-        </object>
-        <object name="EventPlayScene">
-            <member name="ID">Z550102_5531008_SC002</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="sceneID">54</member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z550102_5531008_IT001</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionAddRemoveItems">
-                        <member name="items">
-                            <pair>
-                                <key>21941</key>
-                                <value>2450</value>
-                            </pair>
-                        </member>
-                        <member name="notify">true</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z550102_5531008_EF003</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">164399</member>
-                        <member name="includeMessage">true</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionUpdateFlag">
-                        <member name="ID">390</member>
-                        <member name="flagType">VALUABLE</member>
-                        <member name="remove">true</member>
                     </object>
                 </element>
             </member>
