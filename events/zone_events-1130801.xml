@@ -1,4 +1,45 @@
 <objects>
+    <object name="Event">
+        <member name="ID">Z1130801_LOAD</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z1130801_LOAD_A</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z1130801_LOAD_B</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1130801_LOAD_A</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">633</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1130801_LOAD_B</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">634</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">Z1130801_589</member>
         <member name="next">Z1130801_R2_PR001</member>
@@ -40,6 +81,13 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">50101</member>
+                    <member name="spotID">50018</member>
+                </object>
+            </element>
+            <!--956009 to 956013-->
         </member>
     </object>
     <object name="EventPerformActions">
@@ -70,6 +118,7 @@
                     <member name="messageID">1165702</member>
                 </object>
             </element>
+            <!--1165869, 1165870?-->
             <element>
                 <object name="EventChoice">
                     <member name="next">Z1130801_NM004</member>
@@ -104,10 +153,15 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z1130801_NM004</member>
-        <member name="next">Z1130801_PR006</member>
+        <member name="next">Z20104_BARTER_328</member>
         <member name="messageIDs">
             <element>1165704</element>
         </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z20104_BARTER_328</member>
+        <member name="menuType">808</member>
+        <member name="shopID">328</member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z1130801_PR006</member>
