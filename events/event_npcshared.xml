@@ -5383,7 +5383,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N213_213_MB_005b</member>
-        <member name="next">N213_213_MB_009</member>
+        <member name="next">N213_213_MB_005c</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
@@ -5410,6 +5410,38 @@
                         </pair>
                     </member>
                     <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N213_213_MB_005c</member>
+        <member name="next">N213_213_MB_009</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N213_213_MB_005d</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">591</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N213_213_MB_005d</member>
+        <member name="next">N213_213_MB_009</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">591</member>
+                    <member name="phase">1</member>
                 </object>
             </element>
         </member>
@@ -18504,12 +18536,21 @@
     </object>
     <object name="Event">
         <member name="ID">N658_1</member>
-        <member name="next">N658_2</member>
-        <member name="branchScriptID">branch_community</member>
+        <member name="next">N658_3</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">N658_3</member>
+                    <member name="next">N658_2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentZone</member>
+                                <member name="params">
+                                    <element>20101</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -18523,6 +18564,12 @@
                     <member name="spotID">50002</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">712</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -18532,6 +18579,12 @@
                 <object name="ActionZoneChange">
                     <member name="zoneID">270101</member>
                     <member name="spotID">50001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">713</member>
                 </object>
             </element>
         </member>
