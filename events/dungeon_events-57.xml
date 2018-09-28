@@ -3210,13 +3210,103 @@
         </member>
     </object>
 
-    <!-- 570106 (5703001) -->
-
-    <!-- 570107 (5701003) -->
-
-    <!-- 570107 (5703002) -->
-
     <!-- 571101 -->
+    <object name="Event">
+        <member name="ID">Z571101_10000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z571101_EF001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571101_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">135246</member>
+                    <member name="includeMessage">true</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z571101_30000</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z571101_EF002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571101_EF002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">135247</member>
+                    <member name="includeMessage">true</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">Z571101_NM001</member>
         <member name="next">Z571101_PR001</member>
@@ -3249,8 +3339,41 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z571101_NM002</member>
+        <member name="next">Z571101_PA001a</member>
         <member name="messageIDs">
             <element>135236</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571101_PA001a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">571101</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z571101_SP01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>10</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -3288,7 +3411,163 @@
             </element>
         </member>
     </object>
-
+    <object name="EventPerformActions">
+        <member name="ID">Z571101_SP01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>100</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z571101_PA002</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">135265</member>
+                    <member name="includeMessage">true</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571101_PA002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">135267</member>
+                    <member name="includeMessage">true</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">1</member>
+                    <member name="actorID">3401</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">1</member>
+                    <member name="actorID">661001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                    <member name="actorID">661001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>57110001</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>57110002</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>57110001</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">103</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>57110002</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">104</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>57110001</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">105</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    
     <!-- 571102 -->
     <object name="EventNPCMessage">
         <member name="ID">Z571102_NM001</member>
@@ -3297,18 +3576,53 @@
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z571102_PR001</member>
+        <member name="ID">Z571102_BLUE</member>
         <member name="messageID">135228</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z571102_EF001</member>
+                    <member name="next">Z571102_BLUE01</member>
                     <member name="messageID">135229</member>
                     <member name="branches">
                         <element>
                             <object>
                                 <member name="next">Z571102_EF002</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_EF002a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -3317,6 +3631,278 @@
             <element>
                 <object name="EventChoice">
                     <member name="messageID">135230</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_BLUE01</member>
+        <member name="next">Z571102_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z571102_YELLOW</member>
+        <member name="messageID">135228</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z571102_YELLOW01</member>
+                    <member name="messageID">135229</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z571102_EF002</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_EF002a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">135230</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_YELLOW01</member>
+        <member name="next">Z571102_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z571102_RED</member>
+        <member name="messageID">135228</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z571102_RED01</member>
+                    <member name="messageID">135229</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z571102_EF002</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_EF002a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">135230</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_RED01</member>
+        <member name="next">Z571102_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z571102_GREEN</member>
+        <member name="messageID">135228</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z571102_GREEN01</member>
+                    <member name="messageID">135229</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z571102_EF002</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_EF002a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">135230</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_GREEN01</member>
+        <member name="next">Z571102_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>4</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">3</member>
                 </object>
             </element>
         </member>
@@ -3341,27 +3927,13 @@
             </element>
         </member>
     </object>
-    <object name="EventPrompt">
-        <member name="ID">Z571102_PR002</member>
-        <member name="messageID">135228</member>
-        <member name="choices">
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_EF002a</member>
+        <member name="actions">
             <element>
-                <object name="EventChoice">
-                    <member name="next">Z571102_EF002</member>
-                    <member name="messageID">135229</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z571102_EF001</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">135230</member>
+                <object name="ActionStageEffect">
+                    <member name="messageID">135232</member>
+                    <member name="includeMessage">true</member>
                 </object>
             </element>
         </member>
@@ -3372,79 +3944,980 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z571102_PA001</member>
+                    <member name="next">Z571102_EF002</member>
                     <member name="messageID">135229</member>
                     <member name="branches">
                         <element>
                             <object>
                                 <member name="next">Z571102_EF002</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>10</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_EF002</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>7</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_PA000b</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>11</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_PA000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_PA000</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_PA000a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_PA000a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z571102_PA001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA002</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA003</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>5</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA004</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>6</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>0</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA005</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>7</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA006</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA007</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA008</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>5</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA009</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>6</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA010</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>7</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA011</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>8</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z571102_PA012</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>9</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                                <pair>
+                                                    <key>4</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -3458,7 +4931,476 @@
         </member>
     </object>
     <object name="EventPerformActions">
+        <member name="ID">Z571102_PA000</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="spotID">21</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="spotID">27</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="spotID">31</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="spotID">32</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="spotID">43</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="spotID">44</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">135227</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA000a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">21</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">23</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">28</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">31</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">39</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">41</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">135227</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z571102_PA000b</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z571102_PA001a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA002a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>4</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA003a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>5</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA004a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>6</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA005a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>7</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA006a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA007a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>4</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA008a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>5</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA009a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>6</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA010a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>7</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA011a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>8</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571102_PA012a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>9</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
         <member name="ID">Z571102_PA001</member>
+        <member name="next">Z571102_PA001a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA001a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3470,6 +5412,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA002</member>
+        <member name="next">Z571102_PA002a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>4</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA002a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3481,6 +5491,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA003</member>
+        <member name="next">Z571102_PA003a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>5</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA003a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3492,6 +5570,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA004</member>
+        <member name="next">Z571102_PA004a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>6</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA004a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3503,6 +5649,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA005</member>
+        <member name="next">Z571102_PA005a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>7</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA005a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3514,6 +5728,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA006</member>
+        <member name="next">Z571102_PA006a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA006a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3525,6 +5807,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA007</member>
+        <member name="next">Z571102_PA007a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>4</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA007a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3536,6 +5886,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA008</member>
+        <member name="next">Z571102_PA008a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>5</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA008a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3547,6 +5965,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA009</member>
+        <member name="next">Z571102_PA009a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>6</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA009a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3558,6 +6044,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA010</member>
+        <member name="next">Z571102_PA010a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>7</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA010a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3569,6 +6123,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA011</member>
+        <member name="next">Z571102_PA011a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>8</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA011a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3580,6 +6202,74 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z571102_PA012</member>
+        <member name="next">Z571102_PA012a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>9</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570151</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570152</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570153</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">570155</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571102_PA012a</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3589,7 +6279,364 @@
             </element>
         </member>
     </object>
-
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_TR_EXIT_00</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>2</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">571102</member>
+                    <member name="spotID">60005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_TR_EXIT_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>4</key>
+                            <value>2</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">571102</member>
+                    <member name="spotID">60005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_TR_EXIT_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>5</key>
+                            <value>2</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">571102</member>
+                    <member name="spotID">60005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_TR_EXIT_03</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>6</key>
+                            <value>2</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">571102</member>
+                    <member name="spotID">60005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_TR_EXIT_04</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>7</key>
+                            <value>2</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">571102</member>
+                    <member name="spotID">60005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_TR_EXIT_05</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>8</key>
+                            <value>2</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">571102</member>
+                    <member name="spotID">60005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_TR_EXIT_06</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>9</key>
+                            <value>2</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">571102</member>
+                    <member name="spotID">60005</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z571103_SP01</member>
+        <member name="next">Z571103_SP01a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z571103_SP01b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>100</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_random</member>
+                                <member name="value1">5</member>
+                                <member name="value2">95</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571103_SP01c</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>100</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_random</member>
+                                <member name="value1">5</member>
+                                <member name="value2">95</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z571103_SP01d</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>100</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_random</member>
+                                <member name="value1">5</member>
+                                <member name="value2">95</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_SP01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_SP01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>9</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="spotID">12</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_SP01c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>10</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="spotID">12</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z571103_SP01d</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>11</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="spotID">12</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    
     <!-- 572101 -->
     <object name="EventPrompt">
         <member name="ID">Z572101_PR001</member>
@@ -4987,183 +8034,6 @@
                 <element>
                     <object name="ActionStageEffect">
                         <member name="messageID">25022</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <!-- 571101 -->
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_EF001</member>
-            <member name="next">Z571101_MS001</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">135246</member>
-                        <member name="effect1">3</member>
-                    </object>
-                </element>
-            </member>
-            <member name="branches">
-                <element>
-                    <object>
-                        <member name="next">Z571101_MS002</member>
-                        <member name="conditionID">unknown</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_MS001</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>135246</element>
-                        </member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_MS002</member>
-            <member name="next">Z571101_MS003</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>135246</element>
-                        </member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">135247</member>
-                        <member name="effect1">3</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_MS003</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>135247</element>
-                        </member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_EF003</member>
-            <member name="next">Z571101_MS004</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">135247</member>
-                        <member name="effect1">3</member>
-                    </object>
-                </element>
-            </member>
-            <member name="branches">
-                <element>
-                    <object>
-                        <member name="next">Z571101_MS005</member>
-                        <member name="conditionID">unknown</member>
-                    </object>
-                </element>
-                <element>
-                    <object>
-                        <member name="next">Z571101_MS003</member>
-                        <member name="conditionID">unknown</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_MS004</member>
-            <member name="next">Z571101_NM001</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>135247</element>
-                        </member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_MS005</member>
-            <member name="next">Z571101_MS006</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>135247</element>
-                        </member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">135265</member>
-                        <member name="effect1">3</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_MS006</member>
-            <member name="next">Z571101_NM001</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>135265</element>
-                        </member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_EF005</member>
-            <member name="next">Z571101_MS007</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">135265</member>
-                        <member name="effect1">3</member>
-                    </object>
-                </element>
-            </member>
-            <member name="branches">
-                <element>
-                    <object>
-                        <member name="next">Z571101_MS006</member>
-                        <member name="conditionID">unknown</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z571101_MS007</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>135265</element>
-                        </member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">135267</member>
-                        <member name="effect1">3</member>
-                        <member name="includeMessage">true</member>
                     </object>
                 </element>
             </member>
