@@ -3588,6 +3588,49 @@
                 <object name="EventChoice">
                     <member name="next">Z30102_PR034</member>
                     <member name="messageID">157151</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z30102_MS005</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">501</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z30102_BC_X</member>
+                                <member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">STATUS_ACTIVE</member>
+											<member name="value1">905</member>
+										</object>
+									</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z30102_BC_X</member>
+                                <member name="conditions">
+									<element>
+										<object name="EventCondition">
+											<member name="type">STATUS_ACTIVE</member>
+											<member name="value1">907</member>
+										</object>
+									</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -3619,13 +3662,65 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z30102_MS002</member>
+                    <member name="next">Z30102_MS002_BC</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
                     <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z30102_BC_X</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">157147</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z30102_MS002_BC</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">157351</member>
+                    <member name="sourceContext">PARTY</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">157251</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>501</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">5403</member>
+                    <member name="variantID">30000</member>
+                    <member name="timerID">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
                 </object>
             </element>
         </member>

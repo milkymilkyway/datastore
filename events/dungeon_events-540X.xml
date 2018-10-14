@@ -54,16 +54,50 @@
     <object name="Event">
         <member name="ID">Z540101_540X_10000_00</member>
         <member name="next">Z540101_540X_10000_00a</member>
-        <member name="branchScriptID">branch_dungeonVariant</member>
         <member name="branches">
             <element>
                 <object>
                     <member name="next">Z540101_540X_10000_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>TIME_TRIAL</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object>
                     <member name="next">Z540101_540X_10000_00b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DEMON_ONLY</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_10000_00a_BC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -168,13 +202,63 @@
             </element>
         </member>
     </object>
+    <object name="Event">
+        <member name="ID">Z540101_540X_10000_00a_BC</member>
+        <member name="next">Z540101_540X_10000_01</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_PR004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_PR003_BC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5333</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPrompt">
-        <member name="ID">Z540101_540X_PR003</member>
+        <member name="ID">Z540101_540X_PR003_BC</member>
         <member name="messageID">130025</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z540101_540X_10000_F0001</member>
+                    <member name="next">Z540101_540X_10000_F0001_BC</member>
                     <member name="messageID">130026</member>
                     <member name="branches">
                         <element>
@@ -220,6 +304,39 @@
                 <object name="EventChoice">
                     <member name="next">Z540101_540X_10000_01</member>
                     <member name="messageID">130027</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z540101_540X_10000_F0001_BC</member>
+        <member name="messageID">300002</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z540101_5403004_MS002</member>
+                    <member name="messageID">300003</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z540101_540X_10000_F0002_BC</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">5333</member>
+                                            <member name="value2">5</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">300004</member>
                 </object>
             </element>
         </member>
@@ -369,10 +486,68 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540101_540X_10000_F0002_BC</member>
+        <member name="next">Z540101_540X_SC003</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1001</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5333</key>
+                            <value>-5</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPlayScene">
         <member name="ID">Z540101_540X_SC003</member>
         <member name="next">Z540101_540X_10000_F0002</member>
         <member name="sceneID">1013</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_10000_F0002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>TIME_TRIAL</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_10000_F0003_BC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540101_540X_10000_F0002</member>
@@ -386,7 +561,34 @@
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
-                        <element>2</element>
+                        <element>1003</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z540101_540X_10000_F0003</member>
+                                <member name="sourceContext">PARTY</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540101_540X_10000_F0003_BC</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">0</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1004</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -691,6 +893,23 @@
         <member name="ID">Z540101_540X_10000_03</member>
         <member name="next">Z540101_540X_10000_04</member>
         <member name="sceneID">37</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540101_540X_10000_04_BC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540101_540X_10000_04</member>
@@ -704,7 +923,34 @@
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
-                        <element>1</element>
+                        <element>1001</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z540101_540X_10000_05</member>
+                                <member name="sourceContext">PARTY</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540101_540X_10000_04_BC</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">0</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1002</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -883,16 +1129,20 @@
     </object>
     <object name="Event">
         <member name="ID">Z540101_Q317_L</member>
-        <member name="branchScriptID">branch_dungeonVariant</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next"/>
-                </object>
-            </element>
-            <element>
-                <object>
                     <member name="next">Z540101_Q317_L1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DEMON_ONLY</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -1051,6 +1301,1081 @@
                     <member name="flagStates">
                         <pair>
                             <key>54030</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP01</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP01b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>47</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP01a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>47</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>47</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>62</element>
+                    </member>
+                    <member name="spotID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>47</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP02</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP02b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>48</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP02a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>48</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>48</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP02b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>61</element>
+                    </member>
+                    <member name="spotID">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>48</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP03</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP03b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>49</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP03a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>49</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP03a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">9</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>49</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP03b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>62</element>
+                    </member>
+                    <member name="spotID">9</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>49</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP04</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP04b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>50</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP04a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>50</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP04a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">3</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540010</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP04b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>62</element>
+                    </member>
+                    <member name="spotID">3</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540010</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP05</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP05b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP05a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP05a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">6</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540004</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP05b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>62</element>
+                    </member>
+                    <member name="spotID">6</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540004</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP06</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP06b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>52</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP06a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>52</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP06a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="spotID">4</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>52</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP06b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>60</element>
+                    </member>
+                    <member name="spotID">4</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>52</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP07</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP07b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>53</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP07a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>53</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP07a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                    <member name="spotID">5</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>53</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP07b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>63</element>
+                    </member>
+                    <member name="spotID">5</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z540103_540X_SP07f</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>53</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP07f</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130771</member>
+                    <member name="sourceContext">PARTY</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>65</element>
+                    </member>
+                    <member name="spotID">5</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z540103_540X_SP07c</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP07c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130772</member>
+                    <member name="sourceContext">PARTY</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP07d</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_digitalizeRace</member>
+                                <member name="value1">59</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP07d</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130773</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">DIGITALIZE_POINTS</member>
+                    <member name="value">5000</member>
+                    <member name="isSet">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP08</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP08b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP08a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP08a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">8</member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540002</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>54</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP08b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>61</element>
+                    </member>
+                    <member name="spotID">8</member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540002</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>54</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SP09</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP09b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>55</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SP09a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>55</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP09a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                    <member name="spotID">7</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>55</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SP09b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>66</element>
+                    </member>
+                    <member name="spotID">7</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>55</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540103_540X_SE01</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540103_540X_SE01a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>56</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540103_540X_SE01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130770</member>
+                    <member name="sourceContext">PARTY</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>56</key>
                             <value>1</value>
                         </pair>
                     </member>
@@ -2721,6 +4046,862 @@
         </member>
     </object>
     <!-- 540106 (5403003) -->
+    <object name="Event">
+        <member name="ID">Z540106_540X_SP01</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP01b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>47</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP01a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>47</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>47</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>61</element>
+                    </member>
+                    <member name="spotID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>47</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540106_540X_SP02</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP02b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>48</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP02a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>48</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">3</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540061</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>48</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP02b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>62</element>
+                    </member>
+                    <member name="spotID">3</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540061</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>48</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540106_540X_SP03</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP03b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>49</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP03a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>49</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP03a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">5</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540064</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>49</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP03b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>62</element>
+                    </member>
+                    <member name="spotID">5</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540064</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>49</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540106_540X_SP04</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP04b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>50</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP04a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>50</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP04a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">4</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540052</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP04b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>62</element>
+                    </member>
+                    <member name="spotID">4</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540052</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540106_540X_SP05</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP05b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP05a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP05a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="spotID">6</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP05b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>60</element>
+                    </member>
+                    <member name="spotID">6</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540106_540X_SP06</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP06b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>52</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP06a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>52</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP06a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">7</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540055</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>52</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP06b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>62</element>
+                    </member>
+                    <member name="spotID">7</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">540055</member>
+                                <member name="state">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>52</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540106_540X_SP07</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP07b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>53</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP07a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>53</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP07a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">8</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>53</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP07b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>61</element>
+                    </member>
+                    <member name="spotID">8</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>53</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z540106_540X_SP08</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP08b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_dungeonVariant</member>
+                                <member name="params">
+                                    <element>DIGITALIZE</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z540106_540X_SP08a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP08a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>54</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540106_540X_SP08b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>61</element>
+                    </member>
+                    <member name="spotID">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>54</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">Z540106_540X_540060</member>
         <member name="branches">
