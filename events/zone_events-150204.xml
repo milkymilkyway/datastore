@@ -5,10 +5,25 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z150204_PR004</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z150204_3368_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="value1">69</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z150204_3368_00</member>
+        <member name="next">Z150201_R2_PA002</member>
+        <member name="messageIDs">
+            <element>1206558</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -32,14 +47,6 @@
                 <object name="EventChoice">
                     <member name="next">Z150204_PR004</member>
                     <member name="messageID">1206504</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z150204_PR002</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
@@ -62,12 +69,38 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z150204_NM003</member>
+                    <member name="next">Z150204_NM003a</member>
                     <member name="messageID">1206514</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z150204_NM003</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">BETHEL</member>
+                                            <member name="value1">3</member>
+                                            <member name="value2">150000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PLUGIN</member>
+                                <member name="value1">80</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z150204_BARTER_6</member>
                     <member name="messageID">1206509</member>
                 </object>
             </element>
@@ -76,6 +109,18 @@
                     <member name="messageID">18</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z150204_BARTER_6</member>
+        <member name="menuType">808</member>
+        <member name="shopID">6</member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z150204_NM003a</member>
+        <member name="next">Z150204_PR002</member>
+        <member name="messageIDs">
+            <element>1206593</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -114,6 +159,14 @@
         <member name="ID">Z150204_PA001</member>
         <member name="actions">
             <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">BETHEL</member>
+                    <member name="value">-150000</member>
+                    <member name="isSet">1</member>
+                    <member name="modifier">3</member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionUpdateFlag">
                     <member name="flagType">PLUGIN</member>
                     <member name="ID">80</member>
@@ -141,54 +194,18 @@
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z150204_PR004</member>
-        <member name="messageID">1206568</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z150204_BARTER_6</member>
-                    <member name="messageID">1206509</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z150204_PR001</member>
-                    <member name="messageID">18</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventOpenMenu">
-        <member name="ID">Z150204_BARTER_6</member>
-        <member name="menuType">808</member>
-        <member name="shopID">6</member>
-    </object>
-    <object name="EventPrompt">
         <member name="ID">Z150204_1070004</member>
         <member name="messageID">1206656</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z150204_PA002</member>
+                    <member name="next">Z150201_R2_PA002</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
                     <member name="messageID">2</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z150204_PA002</member>
-        <member name="actions">
-            <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">150101</member>
-                    <member name="destinationX">-5376.580078</member>
-                    <member name="destinationY">-678.4569702</member>
-                    <member name="destinationRotation">3.140000105</member>
                 </object>
             </element>
         </member>

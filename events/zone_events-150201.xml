@@ -5,14 +5,34 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z150201_R2_PR013</member>
-                    <member name="conditionID">unknown</member>
+                    <member name="next">Z150201_R2_NM006</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="value1">1202</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z150201_R2_NM006</member>
+        <member name="next">Z150201_R2_PA002</member>
+        <member name="messageIDs">
+            <element>1206555</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_R2_PA002</member>
+        <member name="actions">
             <element>
-                <object>
-                    <member name="next">Z150201_R2_NM006</member>
-                    <member name="conditionID">unknown</member>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">150101</member>
+                    <member name="spotID">50201</member>
                 </object>
             </element>
         </member>
@@ -36,58 +56,13 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z150201_R2_PR005</member>
+                    <member name="next">Z150201_R2_PR013</member>
                     <member name="messageID">1206501</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z150201_R2_PR013</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
                     <member name="messageID">4244</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z150201_R2_PR005</member>
-        <member name="messageID">1206565</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">1206506</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z150201_R2_PR004</member>
-                    <member name="messageID">18</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z150201_R2_NM006</member>
-        <member name="next">Z150201_R2_PA002</member>
-        <member name="messageIDs">
-            <element>1206555</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z150201_R2_PA002</member>
-        <member name="actions">
-            <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">150101</member>
-                    <member name="destinationX">-5376.580078</member>
-                    <member name="destinationY">-678.4569702</member>
-                    <member name="destinationRotation">3.140000105</member>
                 </object>
             </element>
         </member>
@@ -111,7 +86,24 @@
                         <element>
                             <object>
                                 <member name="next">Z150201_R2_NM002</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">BETHEL</member>
+                                            <member name="value1">0</member>
+                                            <member name="value2">150000</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PLUGIN</member>
+                                <member name="value1">77</member>
+                                <member name="value2">0</member>
                             </object>
                         </element>
                     </member>
@@ -121,14 +113,6 @@
                 <object name="EventChoice">
                     <member name="next">Z150201_BARTER_3</member>
                     <member name="messageID">1206506</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z150201_BARTER_5</member>
-                                <member name="conditionID">unknown</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
@@ -194,6 +178,14 @@
         <member name="ID">Z150201_R2_PA001</member>
         <member name="actions">
             <element>
+                <object name="ActionUpdatePoints">
+                    <member name="pointType">BETHEL</member>
+                    <member name="value">-150000</member>
+                    <member name="isSet">1</member>
+                    <member name="modifier">0</member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionUpdateFlag">
                     <member name="flagType">PLUGIN</member>
                     <member name="ID">77</member>
@@ -213,24 +205,44 @@
             </element>
         </member>
     </object>
-    <object name="EventOpenMenu">
-        <member name="ID">Z150201_BARTER_5</member>
-        <member name="menuType">808</member>
-        <member name="shopID">5</member>
-    </object>
     <object name="EventPrompt">
         <member name="ID">Z150201_PR003</member>
         <member name="messageID">1206656</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z150201_PA001</member>
+                    <member name="next">Z150201_R2_PA002</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z150201_R2_PR009</member>
+        <member name="messageID">1206651</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z150201_I10702</member>
                     <member name="messageID">1</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z150201_R2_PA002</member>
-                                <member name="conditionID">unknown</member>
+                                <member name="next">Z150201_IJ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INSTANCE_ACCESS</member>
+                                            <member name="value1">50001</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -244,30 +256,28 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z150201_PA001</member>
+        <member name="ID">Z150201_IJ</member>
         <member name="actions">
             <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">150101</member>
-                    <member name="destinationX">-5376.58</member>
-                    <member name="destinationY">-678.457</member>
-                    <member name="destinationRotation">3.14</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
                 </object>
             </element>
         </member>
     </object>
-    <object name="EventPrompt">
-        <member name="ID">Z150201_R2_PR009</member>
-        <member name="messageID">1206651</member>
-        <member name="choices">
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_I10702</member>
+        <member name="actions">
             <element>
-                <object name="EventChoice">
-                    <member name="messageID">1</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">10702</member>
+                    <member name="variantID">50001</member>
                 </object>
             </element>
             <element>
-                <object name="EventChoice">
-                    <member name="messageID">2</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
                 </object>
             </element>
         </member>
@@ -316,6 +326,995 @@
             <element>
                 <object name="EventChoice">
                     <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">2</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z150201_TEAM_INDRA_INTRO</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">5</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z150201_TEAM_INDRA_SETUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">185</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z150201_TEAM_INDRA_MIASMA</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">305</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z150201_TEAM_INDRA_MIASMA</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">425</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z150201_TEAM_INDRA_MIASMA</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">545</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z150201_TEAM_INDRA_MIASMA</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_INTRO</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="location">ZONE</member>
+                    <member name="messageID">1206301</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_SETUP</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">50</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStageEffect">
+                                <member name="messageID">1206311</member>
+                                <member name="effectType">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="timerID">86</member>
+                    <member name="mode">START_TIMER</member>
+                    <member name="timerExpirationEventID">Z150201_TEAM_INDRA_SETUP_2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_SETUP_2</member>
+        <member name="next">Z150201_TEAM_INDRA_MIASMA_INITIAL</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="timerID">87</member>
+                    <member name="mode">START_TIMER</member>
+                    <member name="timerExpirationEventID">Z150201_TEAM_INDRA_FINISH</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_FINISH</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206391</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_INITIAL</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>6</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_INITIAL_1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_INITIAL_2</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_INITIAL_3</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_INITIAL_4</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_INITIAL_5</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_INITIAL_6</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_INITIAL_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206361</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830072</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_INITIAL_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">1206362</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830027</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_INITIAL_3</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">1206363</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>12</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830028</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_INITIAL_4</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">1206364</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>13</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830031</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_INITIAL_5</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">1206365</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>14</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830033</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_INITIAL_6</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">1206366</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>15</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830016</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_0</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_0</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>6</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_2</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_3</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_4</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_5</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_6</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206412</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830026</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>12</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>13</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>14</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>15</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830027</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830028</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830031</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830033</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830016</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206413</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830027</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>11</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>12</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>13</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>14</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>15</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830026</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830028</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830031</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830033</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830016</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_3</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206414</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830028</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>12</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>13</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>14</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>15</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830026</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830027</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830031</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830033</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830016</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_4</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206415</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206362</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830031</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>13</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>12</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>14</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>15</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830026</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830027</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830028</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830033</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830016</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_5</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206416</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830033</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>14</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>12</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>13</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>15</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830026</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830027</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830028</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830031</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830016</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z150201_TEAM_INDRA_MIASMA_6</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206417</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830016</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>15</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="location">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>12</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>13</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>14</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>830026</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830027</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830028</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830031</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>830033</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
         </member>
