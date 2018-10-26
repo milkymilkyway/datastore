@@ -1,6 +1,834 @@
 <objects>
     <object name="Event">
-        <member name="ID">Z1070102_MIASMA</member>
+        <member name="ID">Z1070102_SETUP</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z1070102_SETUP_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>499</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_SETUP_A</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>499</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="timerID">86</member>
+                    <member name="mode">START_TIMER</member>
+                    <member name="timerExpirationEventID">Z1070102_TEAM_SETUP_2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">50</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z1070102_TEAM_INTRO2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z1070102_TEAM_INTRO2</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_INTRO2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>500</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150202_TEAM_MISHA_INTRO2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>501</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150203_TEAM_KRESNIK_INTRO2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>502</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_INDRAJIT_INTRO2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>503</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_KUDLAK_INTRO2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>504</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_TEAM_SETUP_2</member>
+        <member name="next">Z1070102_TEAM_MIASMA_INITIAL</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="timerID">87</member>
+                    <member name="mode">START_TIMER</member>
+                    <member name="timerExpirationEventID">Z1070102_TEAM_FINISH</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnGroupIDs">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>5</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>6</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>7</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>8</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>9</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>12</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>13</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>14</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>15</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                    <member name="mode">ENABLE_GROUP</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                        <element>2</element>
+                        <element>3</element>
+                        <element>4</element>
+                        <element>5</element>
+                        <element>6</element>
+                        <element>7</element>
+                        <element>8</element>
+                        <element>9</element>
+                        <element>10</element>
+                        <element>11</element>
+                        <element>12</element>
+                        <element>13</element>
+                        <element>14</element>
+                        <element>15</element>
+                        <element>16</element>
+                        <element>17</element>
+                        <element>18</element>
+                        <element>19</element>
+                        <element>20</element>
+                        <element>21</element>
+                        <element>22</element>
+                        <element>23</element>
+                        <element>24</element>
+                        <element>25</element>
+                        <element>26</element>
+                        <element>27</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">120</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z1070102_TEAM_MIASMA</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">240</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z1070102_TEAM_MIASMA</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">360</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z1070102_TEAM_MIASMA</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">480</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z1070102_TEAM_MIASMA</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_TEAM_FINISH</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnGroupIDs">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>5</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>6</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>7</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>8</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>9</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>11</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>12</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>13</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>14</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>15</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>16</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>17</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>18</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>19</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>20</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>21</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>22</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>23</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>24</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>25</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>26</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>27</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>28</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>29</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>30</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>31</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>32</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>33</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>34</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>35</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>36</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>37</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>38</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>39</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>40</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>41</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>42</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>43</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>44</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>45</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>46</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>47</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>48</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>49</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>50</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>51</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>52</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>53</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>54</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>55</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>56</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>57</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>58</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>59</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>60</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>61</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>62</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>63</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>64</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>65</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>66</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>67</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>68</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>69</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>70</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>71</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>72</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>73</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>74</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>75</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                    <member name="mode">DISABLE_GROUP</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>201</element>
+                    </member>
+                    <member name="mode">DESPAWN</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">101</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_FINISH</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>500</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150202_TEAM_MISHA_FINISH</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>501</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150203_TEAM_KRESNIK_FINISH</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>502</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_INDRAJIT_FINISH</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>503</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_KUDLAK_FINISH</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>504</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z1070102_TEAM_MIASMA_INITIAL</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_INITIAL</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>500</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150202_TEAM_MISHA_MIASMA_INITIAL</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>501</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150203_TEAM_KRESNIK_MIASMA_INITIAL</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>502</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_INDRAJIT_MIASMA_INITIAL</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>503</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_KUDLAK_MIASMA_INITIAL</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>504</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z1070102_TEAM_MIASMA</member>
         <member name="branches">
             <element>
                 <object>
@@ -22,86 +850,1335 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z1070102_MIASMA_01</member>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>500</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150202_TEAM_MISHA_MIASMA</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>501</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150203_TEAM_KRESNIK_MIASMA</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>502</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_INDRAJIT_MIASMA</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>503</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_KUDLAK_MIASMA</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>504</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z1070102_MIASMA_SPAWN</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
                                 <member name="type">ZONE_FLAGS</member>
                                 <member name="flagStates">
+                                    <pair>
+                                        <key>1000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_SPAWN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>500</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150202_TEAM_MISHA_MIASMA_SPAWN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>501</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150203_TEAM_KRESNIK_MIASMA_SPAWN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>502</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_INDRAJIT_MIASMA_SPAWN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>503</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z150204_TEAM_KUDLAK_MIASMA_SPAWN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>504</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_DEFEAT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>54</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z1070102_DEFEAT_1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>49</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>55</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z1070102_DEFEAT_2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>99</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>56</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z1070102_DEFEAT_3</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>199</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>57</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z1070102_DEFEAT_4</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>299</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>58</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z1070102_DEFEAT_5</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>54</key>
+                                        <value>449</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>59</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_DEFEAT_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>55</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">4</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>2</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>3</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>4</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>5</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">8</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>6</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>7</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>8</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>9</key>
+                                        <value>0</value>
+                                    </pair>
                                     <pair>
                                         <key>10</key>
-                                        <value>1</value>
+                                        <value>0</value>
                                     </pair>
                                 </member>
+                                <member name="mode">DISABLE_GROUP</member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
             <element>
-                <object>
-                    <member name="next">Z1070102_MIASMA_02</member>
-                    <member name="conditions">
+                <object name="ActionDelay">
+                    <member name="duration">12</member>
+                    <member name="actions">
                         <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="flagStates">
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
                                     <pair>
                                         <key>11</key>
-                                        <value>1</value>
+                                        <value>0</value>
                                     </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z1070102_MIASMA_03</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="flagStates">
                                     <pair>
                                         <key>12</key>
-                                        <value>1</value>
+                                        <value>0</value>
                                     </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z1070102_MIASMA_04</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="flagStates">
                                     <pair>
                                         <key>13</key>
-                                        <value>1</value>
+                                        <value>0</value>
                                     </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z1070102_MIASMA_05</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="flagStates">
                                     <pair>
                                         <key>14</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>15</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">4</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>16</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>17</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>18</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>19</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>20</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">8</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>21</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>22</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>23</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>24</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>25</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">12</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>26</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>27</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>28</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>29</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>30</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_DEFEAT_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>56</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">4</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>16</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>17</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>18</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>19</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>20</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">8</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>21</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>22</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>23</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>24</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>25</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">12</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>26</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>27</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>28</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>29</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>30</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">4</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>31</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>32</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>33</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>34</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>35</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">8</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>36</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>37</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>38</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>39</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>40</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">12</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>41</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>42</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>43</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>44</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>45</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_DEFEAT_3</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>57</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">4</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>31</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>32</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>33</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>34</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>35</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">8</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>36</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>37</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>38</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>39</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>40</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">12</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>41</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>42</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>43</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>44</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>45</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">4</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>46</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>47</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>48</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>49</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>50</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">8</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>52</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>53</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>54</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>55</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">12</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>56</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>57</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>58</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>59</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>60</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_DEFEAT_4</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>58</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">4</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>46</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>47</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>48</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>49</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>50</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">8</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>52</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>53</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>54</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>55</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">12</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>56</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>57</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>58</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>59</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>60</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">DISABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">4</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>61</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>62</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>63</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>64</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>65</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">8</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>66</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>67</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>68</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>69</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>70</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">12</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnGroupIDs">
+                                    <pair>
+                                        <key>71</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>72</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>73</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>74</key>
+                                        <value>0</value>
+                                    </pair>
+                                    <pair>
+                                        <key>75</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="mode">ENABLE_GROUP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_DEFEAT_5</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>59</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>201</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_SPAWN_BOSS</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206475</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_DEFEAT_BOSS</member>
+        <member name="next">Z150201_MIASMA_CLEAR</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1206411</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1206486</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z150201_MIASMA_CLEAR</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z150201_TEAM_INDRA_MIASMA_CLEAR</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>500</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -112,14 +2189,14 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z1070102_MIASMA_06</member>
+                    <member name="next">Z150202_TEAM_MISHA_MIASMA_CLEAR</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>15</key>
+                                        <key>501</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -128,123 +2205,233 @@
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1070102_MIASMA_01</member>
-        <member name="actions">
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">TOKUSEI</member>
-                    <member name="sourceContext">SOURCE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>830002</key>
-                            <value>1</value>
-                        </pair>
+                <object>
+                    <member name="next">Z150203_TEAM_KRESNIK_MIASMA_CLEAR</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>502</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1070102_MIASMA_02</member>
-        <member name="actions">
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">TOKUSEI</member>
-                    <member name="sourceContext">SOURCE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>830003</key>
-                            <value>1</value>
-                        </pair>
+                <object>
+                    <member name="next">Z150204_TEAM_INDRAJIT_MIASMA_CLEAR</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>503</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1070102_MIASMA_03</member>
-        <member name="actions">
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">TOKUSEI</member>
-                    <member name="sourceContext">SOURCE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>830004</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1070102_MIASMA_04</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">TOKUSEI</member>
-                    <member name="sourceContext">SOURCE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>830007</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1070102_MIASMA_05</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">TOKUSEI</member>
-                    <member name="sourceContext">SOURCE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>830009</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1070102_MIASMA_06</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">TOKUSEI</member>
-                    <member name="sourceContext">SOURCE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>830016</key>
-                            <value>1</value>
-                        </pair>
+                <object>
+                    <member name="next">Z150204_TEAM_KUDLAK_MIASMA_CLEAR</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>504</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z1070102_101</member>
+        <member name="ID">Z107010X_101</member>
         <member name="messageID">23</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z1070102_PA001</member>
+                    <member name="next">Z1070102_PA001x</member>
                     <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z1070102_PA001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>500</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z1070102_PA001a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>501</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z1070102_PA001b</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>502</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z1070102_PA001c</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>503</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z1070102_PA001d</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>504</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
                     <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_PA001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">150201</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_PA001a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">150202</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_PA001b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">150203</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_PA001c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">150204</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_PA001d</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">150205</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z1070102_PA001x</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">150101</member>
+                    <member name="spotID">50201</member>
                 </object>
             </element>
         </member>
@@ -271,17 +2458,6 @@
                     <object name="ActionStageEffect">
                         <member name="messageID">1206391</member>
                         <member name="effectType">3</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1070102_PA001</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionZoneChange">
-                        <member name="zoneID">150201</member>
-                        <member name="spotID">50001</member>
                     </object>
                 </element>
             </member>
@@ -396,30 +2572,6 @@
                         <member name="messageIDs">
                             <element>1206446</element>
                         </member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPerformActions">
-            <member name="ID">Z1070102_R2_ST013</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">1206475</member>
-                        <member name="effectType">3</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>1206411</element>
-                        </member>
-                    </object>
-                </element>
-                <element>
-                    <object name="ActionStageEffect">
-                        <member name="messageID">1206486</member>
-                        <member name="effectType">3</member>
                     </object>
                 </element>
             </member>

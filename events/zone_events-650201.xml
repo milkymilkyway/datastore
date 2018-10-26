@@ -1,35 +1,216 @@
 <objects>
-    <unmapped>
-        <object name="EventPerformActions">
-            <member name="ID">Z650201_MS001</member>
-            <member name="next">Z650201_PR001</member>
-            <member name="conditionID">UNKNOWN</member>
-            <member name="actions">
-                <element>
-                    <object name="ActionDisplayMessage">
-                        <member name="messageIDs">
-                            <element>156506</element>
-                        </member>
-                    </object>
-                </element>
-            </member>
-        </object>
-        <object name="EventPrompt">
-            <member name="ID">Z650201_PR001</member>
-            <member name="playerSource">true</member>
-            <member name="messageID">156528</member>
-            <member name="choices">
-                <element>
-                    <object name="EventChoice">
-                        <member name="messageID">156529</member>
-                    </object>
-                </element>
-                <element>
-                    <object name="EventChoice">
-                        <member name="messageID">156530</member>
-                    </object>
-                </element>
-            </member>
-        </object>
-    </unmapped>
+    <object name="Event">
+        <member name="ID">Z650201_EXIT</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z650201_PR001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>100</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z650201_PR001</member>
+        <member name="playerSource">true</member>
+        <member name="messageID">156528</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z650201_PA001</member>
+                    <member name="messageID">156529</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z650201_PA001a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">652</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z650201_PA001b</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">653</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z650201_PA001c</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">654</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z650201_PA001d</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">655</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z650201_PA001e</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">656</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">156530</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z650201_PA001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">40101</member>
+                    <member name="spotID">60010</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z650201_PA001a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">652</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">20101</member>
+                    <member name="spotID">50006</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z650201_PA001b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">653</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">50101</member>
+                    <member name="spotID">50006</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z650201_PA001c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">654</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">100101</member>
+                    <member name="spotID">50000</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z650201_PA001d</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">655</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">140101</member>
+                    <member name="spotID">50008</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z650201_PA001e</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">656</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">130101</member>
+                    <member name="spotID">50000</member>
+                </object>
+            </element>
+        </member>
+    </object>
 </objects>

@@ -7,7 +7,36 @@
         <member name="StartingX">0</member>
         <member name="StartingY">0</member>
         <member name="StartingRotation">0</member>
-        <member name="NPCs"/>
+        <member name="NPCs">
+            <element>
+                <!-- ヤギヌマ -->
+                <object name="ServerNPC">
+                    <member name="ID">391</member>
+                    <member name="SpotID">60001</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z40101_391</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <!-- ヤギヌマ -->
+                <object name="ServerNPC">
+                    <member name="ID">391</member>
+                    <member name="SpotID">60002</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z40101_391</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="Objects">
             <element>
                 <!-- 扉 -->
@@ -102,6 +131,24 @@
         <member name="Triggers">
             <element>
                 <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_ZONE_IN</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionAddRemoveStatus">
+                                <member name="statusStacks">
+                                    <pair>
+                                        <key>2374</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                                <member name="targetType">CHARACTER_AND_PARTNER</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ServerZoneTrigger">
                     <member name="Trigger">ON_PVP_START</member>
                     <member name="Actions">
                         <element>
@@ -138,6 +185,43 @@
                             <object name="ActionSetNPCState">
                                 <member name="actorID">650006</member>
                                 <member name="state">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_PVP_COMPLETE</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionDisplayMessage">
+                                <member name="messageIDs">
+                                    <element>156506</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>100</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_PVP_BASE_CAPTURE</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z650101_RANDOM_EVENT</member>
                             </object>
                         </element>
                     </member>
