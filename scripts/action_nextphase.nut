@@ -11,7 +11,15 @@ function run(source, cState, dState, zone, server, params)
     {
         return Result_t.FAIL;
     }
-
+    if(params.len() == 1)
+    {
     return server.GetMatchManager().AdvancePhase(zone, -1, params[0].tointeger())
-		? Result_t.SUCCESS : Result_t.FAIL;
+        ? Result_t.SUCCESS : Result_t.FAIL;
+    }
+    if(params.len() == 2)
+    {
+    return server.GetMatchManager().AdvancePhase(zone, params[1].tointeger(), params[0].tointeger())
+        ? Result_t.SUCCESS : Result_t.FAIL;
+    }
+    return Result_t.FAIL;
 }
