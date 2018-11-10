@@ -5,18 +5,39 @@ function define(script)
     return 0;
 }
 
+// Create/Modify an event counter
+// - params[0]: event counter ID
+// - params[1]: value to change/set counter by
+// - params[2]: counter should be decreased if 1
 function run(source, cState, dState, zone, server, params)
 {
     local syncManager = server.GetChannelSyncManager();
     local worldDB = server.GetWorldDatabase();
 
     local character = cState.GetEntity();
-    local eCounter = cState.GetEventCounter(params[0].toInteger());
+    if(character == null)
+    {
+        return Result_t.FAIL;
+    }
+
+    local eCounter = cState.GetEventCounter(params[0].tointeger());
+    local counterValue = 1;
+    if(params.len() >= 2)
+    {
+        counterValue = params[1].tointeger();
+    }
+
+    if(params.len() == 3 && params[2].tointeger() == 1)
+    {
+        counterValue = counterValue * -1;
+    }
+
     if(!eCounter)
     {
+        eCounter = EventCounter();
         eCounter.SetCharacter(character.GetUUID());
-        eCounter.SetType(params[0].toInteger());
-        eCounter.SetCounter(1);
+        eCounter.SetType(params[0].tointeger());
+        eCounter.SetCounter(counterValue);
 
         if(!PersistentObject.Register(eCounter, UUID()) || !eCounter.Insert(worldDB))
         {
@@ -25,7 +46,7 @@ function run(source, cState, dState, zone, server, params)
     }
     else
     {
-        eCounter.SetCounter(eCounter.GetCounter() + 1);
+        eCounter.SetCounter(eCounter.GetCounter() + counterValue);
 
         if(!eCounter.Update(worldDB))
         {
