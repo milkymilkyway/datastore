@@ -13,6 +13,7 @@ function run(source, cState, dState, zone, server, params)
 {
     local syncManager = server.GetChannelSyncManager();
     local worldDB = server.GetWorldDatabase();
+    local worldClock = server.GetWorldClockTime();
 
     local character = cState.GetEntity();
     if(character == null)

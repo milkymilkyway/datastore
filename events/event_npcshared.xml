@@ -1,4 +1,162 @@
 <objects>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBENTRY</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBEntry</member>
+                    <member name="params">
+                        <element>230104</element>
+                        <element>230104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBQUEUE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBQueue</member>
+                    <member name="params">
+                        <element>230104</element>
+                        <element>230104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBEND</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBEnd</member>
+                    <member name="params">
+                        <element>230104</element>
+                        <element>230104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBSTART</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBStart</member>
+                    <member name="params">
+                        <element>230104</element>
+                        <element>230104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBSPECTATE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBSpectate</member>
+                    <member name="params">
+                        <element>230104</element>
+                        <element>230104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBGUP</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBGauge</member>
+                    <member name="params">
+                        <element>230104</element>
+                        <element>230104</element>
+                        <element>50000</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBGDOWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBGauge</member>
+                    <member name="params">
+                        <element>230104</element>
+                        <element>230104</element>
+                        <element>-50000</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBENDPHASE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBTimer</member>
+                    <member name="params">
+                        <element>230104</element>
+                        <element>230104</element>
+                        <element>20</element>
+                        <element>TEST_NEXTPHASE</element>
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBSPAWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>101</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">TEST_UBRESET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBReset</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">INVOKE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="type">CHARACTER_COOLDOWN</member>
+                    <member name="delayID">-1</member>
+                    <member name="duration">7200</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="type">CHARACTER_COOLDOWN</member>
+                    <member name="delayID">-4</member>
+                    <member name="duration">72000</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <!--Unimplemented-->
     <object name="EventPerformActions">
         <member name="ID">event_future</member>
@@ -2319,6 +2477,38 @@
                 <object name="EventChoice">
                     <member name="next">N27_PR001</member>
                     <member name="messageID">40008</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z20107_PR001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_currentZone</member>
+                                            <member name="params">
+                                                <element>20107</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z50106_PR001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_currentZone</member>
+                                            <member name="params">
+                                                <element>50106</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -2354,6 +2544,38 @@
                 <object name="EventChoice">
                     <member name="next">N27_PR001</member>
                     <member name="messageID">40008</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z20107_PR001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_currentZone</member>
+                                            <member name="params">
+                                                <element>20107</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z50106_PR001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_currentZone</member>
+                                            <member name="params">
+                                                <element>50106</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -2541,6 +2763,23 @@
                 <object name="EventChoice">
                     <member name="next">N27_PR001</member>
                     <member name="messageID">40008</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z50106_PR001</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_currentZone</member>
+                                            <member name="params">
+                                                <element>50106</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -10696,7 +10935,13 @@
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">PARTNER_SKILL_LEARNED</member>
-                                            <member name="value1">348</member>
+                                            <member name="value1">347</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">PARTNER_SKILL_LEARNED</member>
+                                            <member name="value1">621</member>
                                         </object>
                                     </element>
                                 </member>
@@ -24049,17 +24294,34 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">N625_NM330</member>
+                    <member name="next">N625_NM334</member>
                     <member name="messageID">211004</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">N625_NM334</member>
+                                <member name="next">N625_NM330</member>
                                 <member name="conditions">
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">STATUS_ACTIVE</member>
                                             <member name="value1">2396</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">N625_NM330</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_cooldown</member>
+                                            <member name="negate">true</member>
+                                            <member name="params">
+                                                <element>-6</element>
+                                            </member>
                                         </object>
                                     </element>
                                 </member>
@@ -24131,27 +24393,34 @@
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
                     <member name="statusStacks">
                         <pair>
                             <key>2396</key>
                             <value>1</value>
                         </pair>
                     </member>
-                    <member name="statusTime">
+                    <member name="statusTimes">
                         <pair>
                             <key>2396</key>
-                            <value>601000</value>
+                            <value>3600000</value>
                         </pair>
                     </member>
                     <member name="targetType">CHARACTER</member>
                 </object>
             </element>
             <element>
+                <object name="ActionDelay">
+                    <member name="type">CHARACTER_COOLDOWN</member>
+                    <member name="delayID">-6</member>
+                    <member name="duration">3600</member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionZoneInstance">
                     <member name="mode">CREATE</member>
                     <member name="instanceID">11601</member>
-                    <member name="variantID">999</member>
-                    <member name="timerExpirationEventID">Z1160101_END</member>
+                    <member name="variantID">1160</member>
                 </object>
             </element>
             <element>

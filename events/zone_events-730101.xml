@@ -85,6 +85,38 @@
                 </object>
             </element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z730101_PA001a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2905</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z730101_PA001a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>7301000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="Event">
         <member name="ID">Z730101_ZF01</member>
@@ -264,10 +296,12 @@
                 </object>
             </element>
             <element>
-                <object name="ActionStartEvent">
-                    <member name="eventID">Z730101_SC001</member>
-                    <member name="sourceContext">ALL</member>
-                    <member name="location">ZONE</member>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_nextPhase</member>
+                    <member name="params">
+                        <element>1</element>
+                        <element>3</element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -324,7 +358,7 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_nextPhase</member>
                     <member name="params">
-                        <element>1</element>
+                        <element>3</element>
                         <element>4</element>
                     </member>
                 </object>
@@ -357,7 +391,7 @@
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
-                        <element>2</element>
+                        <element>10006</element>
                     </member>
                     <member name="spawnActions">
                         <element>
@@ -378,7 +412,7 @@
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
-                        <element>3</element>
+                        <element>10007</element>
                     </member>
                     <member name="spawnActions">
                         <element>
@@ -399,7 +433,7 @@
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
-                        <element>4</element>
+                        <element>10008</element>
                     </member>
                     <member name="spawnActions">
                         <element>
@@ -420,7 +454,7 @@
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
-                        <element>5</element>
+                        <element>10009</element>
                     </member>
                     <member name="spawnActions">
                         <element>
@@ -441,7 +475,7 @@
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
-                        <element>6</element>
+                        <element>10010</element>
                     </member>
                     <member name="spawnActions">
                         <element>
@@ -973,15 +1007,14 @@
         <member name="ID">Z730101_PA002</member>
         <member name="actions">
             <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="isReplace">true</member>
-                    <member name="statusStacks">
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="flagStates">
                         <pair>
-                            <key>36</key>
+                            <key>7301000</key>
                             <value>0</value>
                         </pair>
                     </member>
-                    <member name="targetType">CHARACTER</member>
                 </object>
             </element>
             <element>
