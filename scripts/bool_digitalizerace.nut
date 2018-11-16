@@ -7,7 +7,7 @@ function define(script)
 
 // Checks the demon race that a character is digitalized with.
 // - value1 = ID of a demon race.
-function check(source, cState, dState, zone, value1, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
     local character = cState.GetEntity();
     if(character != null)

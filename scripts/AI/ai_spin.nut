@@ -8,8 +8,8 @@ function define(script)
 function prepare(eState, manager)
 {
     local aiState = eState.GetAIState();
-    aiState.OverrideAction("combat", "spin");
-    aiState.OverrideAction("idle", "spin");
+    aiState.SetActionOverridesEntry("combat", "spin");
+    aiState.SetActionOverridesEntry("idle", "spin");
     return 0;
 }
 

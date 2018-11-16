@@ -7,7 +7,7 @@ function define(script)
 
 // Check a dungeon's variant type.
 // params[0] = A dungeon variant type. Acceptable values are in server_zone.xml
-function check(source, cState, dState, zone, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
     local cInstance = zone.GetZoneInstance();
     if(cInstance != null)
@@ -15,7 +15,7 @@ function check(source, cState, dState, zone, params)
         local cVariant = cInstance.GetVariant();
         if(cVariant != null)
         {
-            switch(cInstance.InstanceType)
+            switch(cVariant.InstanceType)
             {
                 case ServerZoneInstanceVariant_InstanceType_t.NORMAL:
                     return params[0] == "NORMAL" ? 0 : -1;

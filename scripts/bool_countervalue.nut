@@ -13,9 +13,9 @@ function check(source, cState, dState, zone, value1, value2, params)
     local character = cState.GetEntity();
     if(character != null)
     {
-        if(value1 != null && value2 != null)
+        if(value1 != 0 && value2 != 0)
         {
-            local counter = character.GetEventCounter(value1);
+            local counter = cState.GetEventCounter(value1);
             if(counter != null)
             {
                 return counter.GetCounter() >= value2 ? 0 : -1;

@@ -854,8 +854,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1160101_DANGER_2a</member>
-        <member name="sourceContext">ALL</member>
-        <member name="location">ZONE</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -882,6 +880,8 @@
                             <value>-100</value>
                         </pair>
                     </member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
                     <member name="mode">DESTINY_BOX</member>
                 </object>
             </element>
@@ -997,8 +997,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1160101_PROTECT_2b</member>
-        <member name="sourceContext">ALL</member>
-        <member name="location">ZONE</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -1824,6 +1822,30 @@
         </member>
     </object>
     <object name="EventPerformActions">
+        <member name="ID">Z1160101_MITAMA_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_enableSpawnGroup</member>
+                    <member name="params">
+                        <element>1001</element>
+                        <element>1002</element>
+                        <element>1003</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>10</element>
+                        <element>20</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
         <member name="ID">Z1160101_SP_MITAMA_1</member>
         <member name="actions">
             <element>
@@ -1879,6 +1901,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1160101_MITAMA1</member>
+        <member name="next">Z1160101_MITAMA_END</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -1912,25 +1935,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_enableSpawnGroup</member>
-                    <member name="params">
-                        <element>1001</element>
-                        <element>1002</element>
-                        <element>1003</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>10</element>
-                        <element>20</element>
-                        <element>30</element>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE</member>
                     <member name="flagStates">
@@ -1948,6 +1952,26 @@
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>999</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -1989,6 +2013,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1160101_MITAMA2</member>
+        <member name="next">Z1160101_MITAMA_END</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -2023,25 +2048,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_enableSpawnGroup</member>
-                    <member name="params">
-                        <element>1001</element>
-                        <element>1002</element>
-                        <element>1003</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>10</element>
-                        <element>20</element>
-                        <element>30</element>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE</member>
                     <member name="flagStates">
@@ -2063,6 +2069,26 @@
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>999</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -2104,6 +2130,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1160101_MITAMA3</member>
+        <member name="next">Z1160101_MITAMA_END</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -2138,25 +2165,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_enableSpawnGroup</member>
-                    <member name="params">
-                        <element>1001</element>
-                        <element>1002</element>
-                        <element>1003</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>10</element>
-                        <element>20</element>
-                        <element>30</element>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE</member>
                     <member name="flagStates">
@@ -2178,6 +2186,26 @@
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>999</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -2219,6 +2247,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1160101_MITAMA4</member>
+        <member name="next">Z1160101_MITAMA_END</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -2253,25 +2282,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_enableSpawnGroup</member>
-                    <member name="params">
-                        <element>1001</element>
-                        <element>1002</element>
-                        <element>1003</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>10</element>
-                        <element>20</element>
-                        <element>30</element>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE</member>
                     <member name="flagStates">
@@ -2289,6 +2299,26 @@
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>999</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -2540,6 +2570,17 @@
         <member name="ID">Z1160101_END</member>
         <member name="actions">
             <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
                         <element>10</element>
@@ -2556,6 +2597,20 @@
                         <element>54</element> -->
                     </member>
                     <member name="mode">DESPAWN</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_disableSpawnGroup</member>
+                    <member name="params">
+                        <element>1001</element>
+                        <element>1002</element>
+                        <element>1003</element>
+                        <element>1004</element>
+                        <element>1005</element>
+                        <element>1006</element>
+                        <element>1007</element>
+                    </member>
                 </object>
             </element>
             <element>

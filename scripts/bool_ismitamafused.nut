@@ -5,13 +5,13 @@ function define(script)
     return 0;
 }
 
-function check(source, cState, dState, zone, params)
+function check(source, cState, dState, zone, value1, value2, params)
 {
-	local demon = dState.GetEntity();
+    local demon = dState.GetEntity();
     if(demon != null)
     {
-		return demon.GetMitamaType() != 0 ? 0 : -1;
+        return demon.GetMitamaType() != 0 ? 0 : -1;
     }
-	return -1;
+    return -1;
 
 }
