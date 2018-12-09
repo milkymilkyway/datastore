@@ -1387,12 +1387,31 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z90106_2003_HP</member>
                     <member name="messageID">97</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
                     <member name="messageID">98</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z90106_2003_HP</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>99</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetHomepoint">
+                    <member name="zoneID">90106</member>
+                    <member name="spotID">50002</member>
                 </object>
             </element>
         </member>
@@ -1410,6 +1429,37 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z90106_PL001</member>
+                    <member name="messageID">1190033</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">38143</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z90106_PL001a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">PLUGIN</member>
+                                            <member name="value1">130</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
                     <member name="next">Z90106_NM059</member>
                     <member name="messageID">1190034</member>
                 </object>
@@ -1420,6 +1470,105 @@
         <member name="ID">Z90106_NM059</member>
         <member name="messageIDs">
             <element>1190044</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z90106_PL001a</member>
+        <member name="messageIDs">
+            <element>1190036</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z90106_PL001</member>
+        <member name="next">Z90106_PL002</member>
+        <member name="messageIDs">
+            <element>1190035</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z90106_PL002</member>
+        <member name="messageID">1190035</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90106_PL004a</member>
+                    <member name="messageID">1190038</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z90106_PL004</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">38143</member>
+                                            <member name="value2">7</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90106_PL003</member>
+                    <member name="messageID">1190042</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z90106_PL003</member>
+        <member name="messageIDs">
+            <element>1190043</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z90106_PL004a</member>
+        <member name="messageIDs">
+            <element>1190037</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z90106_PL004</member>
+        <member name="next">Z90106_PL005</member>
+        <member name="messageIDs">
+            <element>1190041</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z90106_PL005</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>38143</key>
+                            <value>-7</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1190039</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1190040</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">PLUGIN</member>
+                    <member name="ID">130</member>
+                </object>
+            </element>
         </member>
     </object>
     <unmapped>

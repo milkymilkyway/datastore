@@ -1,6 +1,6 @@
 function define(script)
 {
-    script.Name = "action_enableSpawnGroup";
+    script.Name = "action_disablePlasma";
     script.Type = "ActionCustom";
     return 0;
 }
@@ -12,9 +12,14 @@ function run(source, cState, dState, zone, server, params)
     {
         for(local i = 0; i < params.len(); i++)
         {
-            zone.EnableDisableSpawnGroup(params[i].tointeger(), true);
+            local pState = zone.GetPlasma(params[i].tointeger());
+            if(pState == 0)
+            {
+                return -1;
+            }
+            pState.Toggle(false, true);
         }
         return Result_t.SUCCESS;
     }
-    return -1;
+    return -1
 }
