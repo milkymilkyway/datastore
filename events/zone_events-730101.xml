@@ -84,6 +84,14 @@
                     <member name="remove">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_ResetInstancePoison</member>
+                    <member name="params">
+                        <element>15</element>
+                    </member>
+                </object>
+            </element>
         </member>
         <member name="branches">
             <element>
@@ -118,9 +126,19 @@
             </element>
         </member>
     </object>
-    <object name="Event">
+    <object name="EventPerformActions">
         <member name="ID">Z730101_ZF01</member>
         <member name="next">Z730101_ZF01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_ResetInstancePoison</member>
+                    <member name="params">
+                        <element>-3</element>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="branches">
             <element>
                 <object>
@@ -177,9 +195,19 @@
             </element>
         </member>
     </object>
-    <object name="Event">
+    <object name="EventPerformActions">
         <member name="ID">Z730101_ZF02</member>
         <member name="next">Z730101_ZF02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_ResetInstancePoison</member>
+                    <member name="params">
+                        <element>3</element>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="branches">
             <element>
                 <object>
@@ -1018,6 +1046,15 @@
                 </object>
             </element>
             <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_ResetInstancePoison</member>
+                    <member name="params">
+                        <element>0</element>
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionUpdateFlag">
                     <member name="flagType">VALUABLE</member>
                     <member name="ID">190</member>
@@ -1272,6 +1309,57 @@
                 <object name="ActionStageEffect">
                     <member name="messageID">117019</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z730101_BOSS_TOKUSEI</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z730101_BOSS_TOKUSEI_2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_enemyFilter</member>
+                                <member name="value1">2466</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z730101_BOSS_TOKUSEI_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">SOURCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>7301001</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>7301002</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>7301003</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>7301004</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>7301005</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
         </member>
