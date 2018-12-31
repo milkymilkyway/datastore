@@ -1,21 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <objects>
-    <!-- 電子回廊001F -->
     <object name="ServerZone">
         <member name="ID">800101</member>
         <member name="DynamicMapID">8001001</member>
         <member name="Global">false</member>
         <member name="GroupID">20102</member>
-        <member name="StartingX">4085.47</member>
-        <member name="StartingY">22.28</member>
-        <member name="StartingRotation">-3.14</member>
+        <member name="StartingX">4085.469971</member>
+        <member name="StartingY">22.28000069</member>
+        <member name="StartingRotation">-3.140000105</member>
         <member name="NPCs"/>
         <member name="Objects">
             <element>
-                <!-- 起動プログラム -->
                 <object name="ServerObject">
                     <member name="ID">570171</member>
                     <member name="SpotID">60001</member>
+                    <member name="ActorID">2</member>
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
@@ -23,14 +21,14 @@
                             </object>
                         </element>
                     </member>
-                    <member name="State">0</member>
                 </object>
             </element>
             <element>
-                <!-- 帰還プログラム -->
                 <object name="ServerObject">
                     <member name="ID">570173</member>
                     <member name="SpotID">61001</member>
+                    <member name="State">1</member>
+                    <member name="ActorID">1</member>
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
@@ -38,7 +36,6 @@
                             </object>
                         </element>
                     </member>
-                    <member name="State">1</member>
                 </object>
             </element>
         </member>
@@ -53,22 +50,28 @@
                             <element>
                                 <object name="ItemDrop">
                                     <member name="ItemType">800</member>
-                                    <member name="Rate">0.05</member>
+                                    <member name="Rate">0.05000000075</member>
                                     <member name="MinStack">92</member>
                                     <member name="MaxStack">141</member>
+                                    <member name="Type">NORMAL</member>
+                                    <member name="Modifier">1</member>
+                                    <member name="CooldownRestrict">0</member>
                                 </object>
                             </element>
                             <element>
                                 <object name="ItemDrop">
                                     <member name="ItemType">799</member>
-                                    <member name="Rate">0.05</member>
+                                    <member name="Rate">0.05000000075</member>
                                     <member name="MinStack">182</member>
                                     <member name="MaxStack">280</member>
+                                    <member name="Type">NORMAL</member>
+                                    <member name="Modifier">1</member>
+                                    <member name="CooldownRestrict">0</member>
                                 </object>
                             </element>
                         </member>
                         <member name="Level">18</member>
-                        <member name="XPEstimate">1000</member>
+                        <member name="TalkResults">1</member>
                     </object>
                 </value>
             </pair>
@@ -151,13 +154,82 @@
             <pair>
                 <key>10001</key>
                 <value>
-                    <!--Definition Args: 0, 0, 800121, 0-->
                     <object name="ServerZoneSpot">
                         <member name="ID">10001</member>
-                        <member name="Actions">
+                        <member name="LeaveActions">
                             <element>
-                                <object name="ActionStartEvent">
-                                    <member name="eventID">debug_noEvent</member>
+                                <object name="ActionSpawn">
+                                    <member name="spawnLocationGroupIDs">
+                                        <element>1</element>
+                                    </member>
+                                    <member name="mode">ONE_TIME</member>
+                                    <member name="defeatActions">
+                                        <element>
+                                            <object name="ActionUpdateZoneFlags">
+                                                <member name="flagStates">
+                                                    <pair>
+                                                        <key>1</key>
+                                                        <value>1</value>
+                                                    </pair>
+                                                </member>
+                                            </object>
+                                        </element>
+                                        <element>
+                                            <object name="ActionStartEvent">
+                                                <member name="eventID">Z800101_EF002</member>
+                                            </object>
+                                        </element>
+                                    </member>
+                                </object>
+                            </element>
+                            <element>
+                                <object name="ActionSpawn">
+                                    <member name="spawnLocationGroupIDs">
+                                        <element>2</element>
+                                    </member>
+                                    <member name="mode">ONE_TIME</member>
+                                    <member name="defeatActions">
+                                        <element>
+                                            <object name="ActionUpdateZoneFlags">
+                                                <member name="flagStates">
+                                                    <pair>
+                                                        <key>2</key>
+                                                        <value>1</value>
+                                                    </pair>
+                                                </member>
+                                            </object>
+                                        </element>
+                                        <element>
+                                            <object name="ActionStartEvent">
+                                                <member name="eventID">Z800101_EF002</member>
+                                            </object>
+                                        </element>
+                                    </member>
+                                </object>
+                            </element>
+                            <element>
+                                <object name="ActionSpawn">
+                                    <member name="spawnLocationGroupIDs">
+                                        <element>3</element>
+                                    </member>
+                                    <member name="mode">ONE_TIME</member>
+                                    <member name="defeatActions">
+                                        <element>
+                                            <object name="ActionUpdateZoneFlags">
+                                                <member name="flagStates">
+                                                    <pair>
+                                                        <key>3</key>
+                                                        <value>1</value>
+                                                    </pair>
+                                                </member>
+                                            </object>
+                                        </element>
+                                        <element>
+                                            <object name="ActionStartEvent">
+                                                <member name="eventID">Z800101_EF002</member>
+                                            </object>
+                                        </element>
+                                    </member>
                                 </object>
                             </element>
                         </member>
