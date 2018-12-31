@@ -12,7 +12,7 @@ function run(source, cState, dState, zone, server, params)
         return Result_t.FAIL;
     }
 
-	local gZone = server.GetZoneManager().GetGlobalZone(params[0].tointeger(),
+    local gZone = server.GetZoneManager().GetGlobalZone(params[0].tointeger(),
         params[1].tointeger());
 
     local match = UBMatch();
@@ -23,5 +23,5 @@ function run(source, cState, dState, zone, server, params)
     match.SetGaugeDecay(5000);
     match.SetGaugeDecayScale(1.25);
     return server.GetMatchManager().StartStopMatch(gZone, match)
-		? Result_t.SUCCESS : Result_t.FAIL;
+        ? Result_t.SUCCESS : Result_t.FAIL;
 }

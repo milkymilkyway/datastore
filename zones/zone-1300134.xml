@@ -3,7 +3,7 @@
     <object name="ServerZone">
         <member name="ID">1300134</member>
         <member name="DynamicMapID">13001033</member>
-        <member name="Global">true</member>
+        <member name="Global">false</member>
         <member name="StartingX">0.00</member>
         <member name="StartingY">-1800.00</member>
         <member name="StartingRotation">1.57</member>
@@ -12,6 +12,8 @@
                 <!-- ゴモリー -->
                 <object name="ServerNPC">
                     <member name="ID">491</member>
+                    <member name="ActorID">491</member>
+                    <member name="State">0</member>
                     <member name="SpotID">60001</member>
                     <member name="Actions">
                         <element>
@@ -26,14 +28,23 @@
                 <!-- 黄金の光 -->
                 <object name="ServerNPC">
                     <member name="ID">3401</member>
+                    <member name="ActorID">3401</member>
+                    <member name="State">0</member>
                     <member name="SpotID">67001</member>
-                    <member name="Actions"/>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">N3401</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <!-- ※デバッグ用NPC -->
                 <object name="ServerNPC">
                     <member name="ID">99035</member>
+                    <member name="State">0</member>
                     <member name="SpotID">69001</member>
                     <member name="Actions"/>
                 </object>
@@ -103,10 +114,10 @@
         </member>
         <member name="Spawns">
             <pair>
-                <key>568700090</key>
+                <key>1</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">568700090</member>
+                        <member name="ID">1</member>
                         <member name="EnemyType">5687</member>
                         <member name="Drops">
                             <element>
@@ -124,10 +135,10 @@
                 </value>
             </pair>
             <pair>
-                <key>568800080</key>
+                <key>3</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">568800080</member>
+                        <member name="ID">3</member>
                         <member name="EnemyType">5688</member>
                         <member name="Drops">
                             <element>
@@ -153,10 +164,10 @@
                 </value>
             </pair>
             <pair>
-                <key>568900080</key>
+                <key>2</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">568900080</member>
+                        <member name="ID">2</member>
                         <member name="EnemyType">5689</member>
                         <member name="Drops">
                             <element>
@@ -174,10 +185,10 @@
                 </value>
             </pair>
             <pair>
-                <key>569000080</key>
+                <key>4</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">569000080</member>
+                        <member name="ID">4</member>
                         <member name="EnemyType">5690</member>
                         <member name="Drops">
                             <element>
@@ -197,13 +208,34 @@
         </member>
         <member name="SpawnGroups">
             <pair>
-                <key>1001</key>
+                <key>1</key>
                 <value>
                     <object name="SpawnGroup">
-                        <member name="ID">1001</member>
+                        <member name="ID">1</member>
                         <member name="Spawns">
                             <pair>
-                                <key>568700090</key>
+                                <key>1</key>
+                                <value>1</value>
+                            </pair>
+                        </member>
+                        <member name="DefeatActions">
+                            <element>
+                                <object name="ActionStartEvent">
+                                    <member name="eventID">Z1300134_5687_DEFEAT</member>
+                                </object>
+                            </element>
+                        </member>
+                    </object>
+                </value>
+            </pair>
+            <pair>
+                <key>2</key>
+                <value>
+                    <object name="SpawnGroup">
+                        <member name="ID">2</member>
+                        <member name="Spawns">
+                            <pair>
+                                <key>2</key>
                                 <value>1</value>
                             </pair>
                         </member>
@@ -211,17 +243,13 @@
                 </value>
             </pair>
             <pair>
-                <key>1002</key>
+                <key>3</key>
                 <value>
                     <object name="SpawnGroup">
-                        <member name="ID">1002</member>
+                        <member name="ID">3</member>
                         <member name="Spawns">
                             <pair>
-                                <key>568700090</key>
-                                <value>1</value>
-                            </pair>
-                            <pair>
-                                <key>568900080</key>
+                                <key>3</key>
                                 <value>1</value>
                             </pair>
                         </member>
@@ -229,41 +257,13 @@
                 </value>
             </pair>
             <pair>
-                <key>1003</key>
+                <key>4</key>
                 <value>
                     <object name="SpawnGroup">
-                        <member name="ID">1003</member>
+                        <member name="ID">4</member>
                         <member name="Spawns">
                             <pair>
-                                <key>568800080</key>
-                                <value>1</value>
-                            </pair>
-                        </member>
-                    </object>
-                </value>
-            </pair>
-            <pair>
-                <key>1004</key>
-                <value>
-                    <object name="SpawnGroup">
-                        <member name="ID">1004</member>
-                        <member name="Spawns">
-                            <pair>
-                                <key>568900080</key>
-                                <value>1</value>
-                            </pair>
-                        </member>
-                    </object>
-                </value>
-            </pair>
-            <pair>
-                <key>1005</key>
-                <value>
-                    <object name="SpawnGroup">
-                        <member name="ID">1005</member>
-                        <member name="Spawns">
-                            <pair>
-                                <key>569000080</key>
+                                <key>4</key>
                                 <value>1</value>
                             </pair>
                         </member>
@@ -273,15 +273,13 @@
         </member>
         <member name="SpawnLocationGroups">
             <pair>
-                <key>3001</key>
+                <key>1</key>
                 <value>
                     <object name="SpawnLocationGroup">
-                        <member name="ID">3001</member>
+                        <member name="ID">1</member>
                         <member name="GroupIDs">
-                            <element>1001</element>
-                            <element>1002</element>
+                            <element>1</element>
                         </member>
-                        <member name="RespawnTime">5</member>
                         <member name="SpotIDs">
                             <element>3001</element>
                         </member>
@@ -289,14 +287,13 @@
                 </value>
             </pair>
             <pair>
-                <key>3002</key>
+                <key>2</key>
                 <value>
                     <object name="SpawnLocationGroup">
-                        <member name="ID">3002</member>
+                        <member name="ID">2</member>
                         <member name="GroupIDs">
-                            <element>1003</element>
+                            <element>2</element>
                         </member>
-                        <member name="RespawnTime">5</member>
                         <member name="SpotIDs">
                             <element>3002</element>
                         </member>
@@ -304,16 +301,13 @@
                 </value>
             </pair>
             <pair>
-                <key>3003</key>
+                <key>3</key>
                 <value>
                     <object name="SpawnLocationGroup">
-                        <member name="ID">3003</member>
+                        <member name="ID">3</member>
                         <member name="GroupIDs">
-                            <element>1001</element>
-                            <element>1002</element>
-                            <element>1004</element>
+                            <element>3</element>
                         </member>
-                        <member name="RespawnTime">5</member>
                         <member name="SpotIDs">
                             <element>3003</element>
                         </member>
@@ -321,14 +315,13 @@
                 </value>
             </pair>
             <pair>
-                <key>3004</key>
+                <key>4</key>
                 <value>
                     <object name="SpawnLocationGroup">
-                        <member name="ID">3004</member>
+                        <member name="ID">4</member>
                         <member name="GroupIDs">
-                            <element>1005</element>
+                            <element>4</element>
                         </member>
-                        <member name="RespawnTime">5</member>
                         <member name="SpotIDs">
                             <element>3004</element>
                         </member>
@@ -337,5 +330,31 @@
             </pair>
         </member>
         <member name="Spots"/>
+        <member name="Triggers">
+            <element>
+                <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_SPAWN</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z1300134_STATUS</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_ZONE_IN</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z1300134_SP</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
 </objects>
