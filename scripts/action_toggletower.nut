@@ -7,26 +7,34 @@ function define(script)
 
 function run(source, cState, dState, zone, server, params)
 {
-    local cZone = zone.GetDefinitionID()
-    if(cZone == null)
+    if(params.len() < 2)
     {
         return Result_t.FAIL;
     }
-    if(params.len() <= 0)
+
+    local bases = zone.GetDiasporaBases();
+
+    local sourceEntityID = cState != null ? cState.GetEntityID() : -1;
+    local capture = params[0].tointeger() == 1;
+    local matchManager = server.GetMatchManager();
+    local anyMissing = false;
+    for(local i = 1; i < params.len(); i++)
     {
-        return Result_t.FAIL;
-    }
-    if(params.len() == 1)
-    {
-        return Result_t.FAIL;
-    }
-    if(params.len() >= 2)
-    {
-        for(local i = 1; i < params.len(); i++)
+        local missing = true;
+        local baseID = params[i].tointeger();
+        for(local k = 0; k < bases.len(); k++)
         {
-            server.GetMatchManager().ToggleDiasporaBase(zone, params[i].tointeger(), params[0].tointeger() == 1)
+            if(bases[k].GetEntity().GetDefinition().GetID() == baseID)
+            {
+                matchManager.ToggleDiasporaBase(zone, bases[k].GetEntityID(),
+                    sourceEntityID, capture);
+                missing = false;
+                break;
+            }
         }
-        return Result_t.SUCCESS
+
+        anyMissing = anyMissing || missing;
     }
-    return Result_t.FAIL;
+
+    return anyMissing ? Result_t.SUCCESS : Result_t.FAIL;
 }

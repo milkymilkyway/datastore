@@ -244,8 +244,9 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">761001</member>
+                    <member name="ActorID">761001</member>
                     <member name="SpotID">60017</member>
-                    <member name="State">3</member>
+                    <member name="State">0</member>
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
@@ -258,8 +259,16 @@
             <element>
                 <object name="ServerObject">
                     <member name="ID">1200101</member>
+                    <member name="ActorID">1200101</member>
                     <member name="SpotID">69001</member>
-                    <member name="State">1</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z730101_1200101</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="State">2</member>
                 </object>
             </element>
         </member>
@@ -3314,6 +3323,13 @@
                     <member name="Value">1</member>
                     <member name="Actions">
                         <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z760101_INDULGENCE</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
                             <object name="ActionSetNPCState">
                                 <member name="state">2</member>
                                 <member name="actorID">760001</member>
@@ -3403,6 +3419,12 @@
                                             </member>
                                         </object>
                                     </element>
+                                    <element>
+                                        <object name="ActionStartEvent">
+                                            <member name="eventID">Z760101_AB_01</member>
+                                            <member name="allowInterrupt">NO</member>
+                                        </object>
+                                    </element>
                                 </member>
                             </object>
                         </element>
@@ -3486,15 +3508,39 @@
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">Z760101_AB_01</member>
-                                <member name="allowInterrupt">NO</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object name="ActionStartEvent">
                                 <member name="eventID">Z760101_SC001</member>
                                 <member name="allowInterrupt">NO</member>
                                 <member name="sourceContext">ALL</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_SPAWN</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z760101_BOSS_TOKUSEI</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_ZONE_IN</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionAddRemoveStatus">
+                                <member name="statusStacks">
+                                    <pair>
+                                        <key>2038</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                                <member name="targetType">CHARACTER</member>
                             </object>
                         </element>
                     </member>

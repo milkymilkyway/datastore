@@ -16,13 +16,13 @@ function check(source, cState, dState, zone, value1, value2, params)
     {
         if(value1 != 0)
         {
-            return character.GetProgress().DigitalizeLevels(value1) >= value2 ? 0 : -1;
+            return character.GetProgress().Get().GetDigitalizeLevelsByKey(value1) >= value2 ? 0 : -1;
         }
         else
         {
             for(local i = 0; i < params.len(); i++)
             {
-                if(character.GetProgress().DigitalizeLevels(params[i].tointeger()) >= value2)
+                if(character.GetProgress().Get().GetDigitalizeLevelsByKey(params[i].tointeger()) >= value2)
                 {
                     return 0;
                 }
