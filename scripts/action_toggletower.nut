@@ -36,5 +36,5 @@ function run(source, cState, dState, zone, server, params)
         anyMissing = anyMissing || missing;
     }
 
-    return anyMissing ? Result_t.SUCCESS : Result_t.FAIL;
+    return anyMissing ? Result_t.FAIL : Result_t.SUCCESS;
 }

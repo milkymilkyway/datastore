@@ -7,14 +7,15 @@ function define(script)
 
 function run(source, cState, dState, zone, server, params)
 {
-    local cZone = zone.GetDefinitionID()
-    if(cZone != null)
+    if(zone != null)
     {
         for(local i = 0; i < params.len(); i++)
         {
             zone.EnableDisableSpawnGroup(params[i].tointeger(), true);
         }
+
         return Result_t.SUCCESS;
     }
-    return -1;
+
+    return Result_t.FAIL;
 }
