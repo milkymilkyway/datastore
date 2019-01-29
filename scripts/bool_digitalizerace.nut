@@ -6,13 +6,18 @@ function define(script)
 }
 
 // Checks the demon race that a character is digitalized with.
-// - value1 = ID of a demon race.
+// - value1 = ID of a demon race or -1 for any.
 function check(source, cState, dState, zone, value1, value2, params)
 {
     local character = cState.GetEntity();
     if(character != null)
     {
-        return cState.GetDigitalizeState().GetRaceID() == value1 ? 0 : -1;
+        local dgState = cState.GetDigitalizeState();
+        if(dgState)
+        {
+            return value1 == -1 ? 0 : (dgState.GetRaceID() == value1 ? 0 : -1);
+        }
     }
+
     return -1;
 }
