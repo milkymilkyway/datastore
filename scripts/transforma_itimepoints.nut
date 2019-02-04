@@ -46,7 +46,7 @@ function transform(source, cState, dState, zone, params)
     else
     {
         // Lock at current rank
-    for(local i = 0; i < 5; i++)
+        for(local i = 0; i < 5; i++)
         {
             if((5 - i) <= minRank)
             {
