@@ -199,6 +199,21 @@
         <member name="branches">
             <element>
                 <object>
+                    <member name="next">Z1160101_PA014</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_previousZone</member>
+                                <member name="params">
+                                    <element>20101</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">Z1160101_PA014a</member>
                     <member name="conditions">
                         <element>
@@ -2594,6 +2609,18 @@
                     </member>
                 </object>
             </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">310</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z1160101_END</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="Event">
@@ -2692,6 +2719,20 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z1160101_END</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -2714,11 +2755,11 @@
                         <element>41</element>
                         <element>42</element>
                         <element>43</element>
-                        <!--                         <element>50</element>
+                        <element>50</element>
                         <element>51</element>
                         <element>52</element>
                         <element>53</element>
-                        <element>54</element> -->
+                        <element>54</element>
                     </member>
                     <member name="mode">DESPAWN</member>
                 </object>

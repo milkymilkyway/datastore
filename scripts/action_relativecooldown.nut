@@ -7,7 +7,8 @@ function define(script)
 
 function run(source, cState, dState, zone, server, params)
 {
-    if(params.len() < 3 || cState == null)
+    local character = cState != null ? cState.GetEntity() : null;
+    if(params.len() < 3 || character == null)
     {
         return Result_t.FAIL;
     }
@@ -39,7 +40,7 @@ function run(source, cState, dState, zone, server, params)
         timeDelta = timeDelta + 86400 * params[3].tointeger();
     }
 
-    cState.GetEntity().SetActionCooldownsEntry(cooldownID, now + timeDelta);
+    character.SetActionCooldownsEntry(cooldownID, now + timeDelta);
 
     return Result_t.SUCCESS;
 }
