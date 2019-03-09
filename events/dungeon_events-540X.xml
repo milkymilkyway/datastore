@@ -1,6 +1,5 @@
 ﻿<objects>
     <!-- 540101 -->
-    <!-- NPC 540088 -->
     <object name="EventPrompt">
         <member name="ID">Z540101_540X_PR001</member>
         <!-- todo: Conditions missing -->
@@ -51,7 +50,6 @@
             </element>
         </member>
     </object>
-    <!-- Spot 10000 -->
     <object name="Event">
         <member name="ID">Z540101_540X_10000_00</member>
         <member name="next">Z540101_540X_10000_00a</member>
@@ -487,6 +485,17 @@
             <element>
                 <object name="EventChoice">
                     <member name="messageID">130030</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z540101_UNMAP_540X_MS002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">300006</member>
+                    <member name="includeMessage">true</member>
                 </object>
             </element>
         </member>
@@ -1435,7 +1444,6 @@
         </member>
     </object>
     <!-- 540103 (5403001) -->
-    <!--todo: this adds sound effects to nearly every room; come back to this later.-->
     <object name="Event">
         <member name="ID">Z540103_540X_TU0001</member>
         <member name="branches">
@@ -1542,6 +1550,15 @@
                         <element>3</element>
                     </member>
                     <member name="spotID">1</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE13</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -1846,6 +1863,13 @@
                                 <member name="state">3</member>
                             </object>
                         </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE09</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -1961,6 +1985,13 @@
                                 <member name="state">3</member>
                             </object>
                         </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE20</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -2069,6 +2100,15 @@
                         <element>1</element>
                     </member>
                     <member name="spotID">4</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE16</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -2168,6 +2208,15 @@
                         <element>4</element>
                     </member>
                     <member name="spotID">5</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE17</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -2352,6 +2401,13 @@
                             <object name="ActionSetNPCState">
                                 <member name="actorID">540002</member>
                                 <member name="state">3</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE15</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -2557,90 +2613,6 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">Z540103_540X</member>
-        <!-- todo: Conditions missing -->
-        <member name="next">Z540103_540X_NM001</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">Z540103_540X_NM003</member>
-                    <!-- condition: unknown -->
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z540103_540X_NM001</member>
-        <member name="next">Z540103_540X_PR001</member>
-        <member name="messageIDs">
-            <element>130669</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z540103_540X_NM003</member>
-        <member name="next">Z540103_540X_PR009</member>
-        <member name="messageIDs">
-            <element>130651</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540103_540X_PR009</member>
-        <member name="messageID">130652</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130653</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130654</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540103_540X_PR001</member>
-        <member name="messageID">130663</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540103_540X_NM002</member>
-                    <member name="messageID">130665</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130666</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z540103_540X_NM002</member>
-        <member name="next">Z540103_540X_SE001</member>
-        <member name="messageIDs">
-            <element>130667</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z540103_540X_SE001</member>
-        <member name="actions">
-            <element>
-                <object name="ActionPlaySoundEffect">
-                    <member name="soundID">100921</member>
-                    <member name="delay">50</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">130673</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <!-- Spot 40000 -->
     <object name="EventPrompt">
         <member name="ID">Z540103_540X_EXIT_01</member>
         <member name="messageID">23</member>
@@ -2760,6 +2732,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540103_540X_MS001</member>
+        <member name="next">D540X_VOICE24</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -2771,6 +2744,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540103_540X_MS002</member>
+        <member name="next">D540X_VOICE25</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -3077,142 +3051,6 @@
         </member>
     </object>
     <!-- 540104 (5401001) -->
-    <object name="Event">
-        <member name="ID">Z540104_540X</member>
-        <!-- todo: Conditions missing -->
-        <member name="next">Z540104_540X_NM001</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">Z540104_540X_NM004</member>
-                    <!-- condition: unknown -->
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z540104_540X_NM001</member>
-        <member name="next">Z540104_540X_PR001</member>
-        <member name="messageIDs">
-            <element>130669</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z540104_540X_NM004</member>
-        <member name="next">Z540104_540X_PR003</member>
-        <member name="messageIDs">
-            <element>130651</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540104_540X_PR003</member>
-        <!-- todo: Conditions missing -->
-        <member name="messageID">130652</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130653</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z540104_540X_PR004</member>
-                                <!-- condition: unknown -->
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130654</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540104_540X_PR004</member>
-        <member name="messageID">130656</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540104_540X_SE003</member>
-                    <member name="messageID">130657</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540104_540X_SE004</member>
-                    <member name="messageID">130658</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540104_540X_PR003</member>
-                    <member name="messageID">130659</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z540104_540X_SE003</member>
-        <member name="next">Z540104_540X_PR005</member>
-        <member name="actions">
-            <element>
-                <object name="ActionPlaySoundEffect">
-                    <member name="soundID">100919</member>
-                    <member name="delay">50</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z540104_540X_SE004</member>
-        <member name="actions">
-            <element>
-                <object name="ActionPlaySoundEffect">
-                    <member name="soundID">100922</member>
-                    <member name="delay">50</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540104_540X_PR005</member>
-        <member name="messageID">130661</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540104_540X_PR004</member>
-                    <member name="messageID">130659</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540104_540X_PR001</member>
-        <!-- todo: Conditions missing -->
-        <member name="messageID">130663</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130665</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z540103_5403001_NM002</member>
-                                <!-- condition: unknown -->
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130666</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="Event">
         <member name="ID">Z540104_540X_540032</member>
         <member name="branches">
@@ -3624,7 +3462,6 @@
             </element>
         </member>
     </object>
-    <!-- Spot 11000 -->
     <object name="EventPerformActions">
         <member name="ID">Z540104_540X_11000_01</member>
         <member name="next">Z540104_540X_11000_02</member>
@@ -3666,89 +3503,6 @@
         </member>
     </object>
     <!-- 540105 (5402001) -->
-    <object name="Event">
-        <member name="ID">Z540105_540X</member>
-        <!-- todo: Conditions missing -->
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">Z540105_540X_NM003</member>
-                    <!-- condition: unknown -->
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z540105_540X_NM003</member>
-        <member name="next">Z540105_540X_PR005</member>
-        <member name="messageIDs">
-            <element>130651</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540105_540X_PR005</member>
-        <member name="messageID">130652</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540105_540X_PR006</member>
-                    <member name="messageID">130653</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130654</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540105_540X_PR006</member>
-        <member name="messageID">130656</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540105_540X_SE002</member>
-                    <member name="messageID">130657</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">130658</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540105_540X_PR005</member>
-                    <member name="messageID">130659</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z540105_540X_SE002</member>
-        <member name="next">Z540105_540X_PR007</member>
-        <member name="actions">
-            <element>
-                <object name="ActionPlaySoundEffect">
-                    <member name="soundID">100919</member>
-                    <member name="delay">50</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z540105_540X_PR007</member>
-        <member name="messageID">130661</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z540105_540X_PR006</member>
-                    <member name="messageID">130659</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="Event">
         <member name="ID">Z540105_540X_540049</member>
         <member name="branches">
@@ -3902,6 +3656,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540105_540X_EF002</member>
+        <member name="next">D540X_VOICE30</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -4047,22 +3802,11 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z540105_540X_EF006</member>
+        <member name="next">D540X_VOICE29</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
-                    <!--<member name="next">Z540105_540X_SE007</member>-->
                     <member name="messageID">20115</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z540105_540X_SE007</member>
-        <member name="actions">
-            <element>
-                <object name="ActionPlaySoundEffect">
-                    <member name="soundID">100949</member>
-                    <member name="delay">50</member>
                 </object>
             </element>
         </member>
@@ -4367,6 +4111,13 @@
                                 <member name="state">3</member>
                             </object>
                         </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE13</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -4482,6 +4233,13 @@
                                 <member name="state">3</member>
                             </object>
                         </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE18</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -4595,6 +4353,13 @@
                             <object name="ActionSetNPCState">
                                 <member name="actorID">540052</member>
                                 <member name="state">3</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE16</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -4809,6 +4574,13 @@
                             <object name="ActionSetNPCState">
                                 <member name="actorID">540055</member>
                                 <member name="state">3</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D540X_VOICE14</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -6229,20 +6001,353 @@
         <member name="menuType">175</member>
         <member name="shopID">202</member>
     </object>
+    <!-- Voice -->
+    <object name="Event">
+        <member name="ID">D540X_O540103</member>
+        <member name="next">D540X_O540103_INACCESSIBLE</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_DEACTIVATED</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">540103</member>
+                                <member name="value2">3</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_OFF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">540103</member>
+                                <member name="value2">3</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_ACTIVE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_CODE2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4126</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">25063</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_CODE2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4127</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">25063</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_CODE1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4126</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_CODE1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4127</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_CODE1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">25063</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_O540103_HIDE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">255</member>
+                    <member name="actorID">540103</member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_dungeonVariant</member>
+                    <member name="params">
+                        <element>NORMAL</element>
+                    </member>
+                    <member name="negate">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_O540103_WAKE1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">1</member>
+                    <member name="actorID">540103</member>
+                    <member name="from">0</member>
+                    <member name="stopOnFailure">false</member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventCondition">
+                    <member name="type">NPC_STATE</member>
+                    <member name="value1">540103</member>
+                    <member name="value2">255</member>
+                    <member name="negate">true</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_WAKE2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4126</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_WAKE2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4127</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_O540103_WAKE2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">25063</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_O540103_WAKE2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                    <member name="actorID">540103</member>
+                    <member name="from">1</member>
+                    <member name="stopOnFailure">false</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_O540103_INACCESSIBLE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130671</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_O540103_OFF</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130670</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_O540103_DEACTIVATED</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130674</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D540X_O540103_ACTIVE</member>
+        <member name="next">D540X_O540103_ACTIVE_PR</member>
+        <member name="messageIDs">
+            <element>130651</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D540X_O540103_CODE1</member>
+        <member name="next">D540X_O540103_INACTIVE_PR</member>
+        <member name="messageIDs">
+            <element>130669</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D540X_O540103_CODE2</member>
+        <member name="next">D540X_O540103_INACTIVE_PR</member>
+        <member name="messageIDs">
+            <element>130662</element>
+        </member>
+    </object>
     <object name="EventPrompt">
-        <member name="ID">Z540101_UNMAP_540X_PR005</member>
-        <!-- todo: Conditions missing -->
-        <member name="messageID">300002</member>
+        <member name="ID">D540X_O540103_ACTIVE_PR</member>
+        <member name="messageID">130652</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z540101_UNMAP_540X_MS002</member>
-                    <member name="messageID">300003</member>
+                    <member name="messageID">130653</member>
+                    <member name="next">130668</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z540101_540X_SC003</member>
-                                <!-- condition: unknown -->
+                                <member name="next">D540X_VOICE_TEST_K</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>5000</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">D540X_VOICE_TEST_O</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>5000</key>
+                                                    <value>2</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6250,24 +6355,2206 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="messageID">300004</member>
+                    <member name="messageID">130654</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D540X_O540103_INACTIVE_PR</member>
+        <member name="messageID">130663</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D540X_VOICE_ON_K1</member>
+                    <member name="messageID">130664</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">25063</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D540X_VOICE_ON_O1</member>
+                    <member name="messageID">130665</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4126</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D540X_VOICE_ON_O1</member>
+                    <member name="messageID">130665</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4126</member>
+                                <member name="value2">0</member>
+                                <member name="compareMode">EQUAL</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">4127</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130666</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D540X_VOICE_TEST_K</member>
+        <member name="messageID">130655</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130657</member>
+                    <member name="branchScriptID">branch_randomSplit</member>
+                    <member name="branchScriptParams">
+                        <element>3</element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D540X_VOICE_TEST_K1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">D540X_VOICE_TEST_K2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">D540X_VOICE_TEST_K3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130658</member>
+                    <member name="next">D540X_VOICE_OFF_K</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130659</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D540X_VOICE_TEST_O</member>
+        <member name="messageID">130656</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130657</member>
+                    <member name="branchScriptID">branch_randomSplit</member>
+                    <member name="branchScriptParams">
+                        <element>2</element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D540X_VOICE_TEST_O1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">D540X_VOICE_TEST_O2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130658</member>
+                    <member name="next">D540X_VOICE_OFF_O</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130659</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z540101_UNMAP_540X_MS002</member>
+        <member name="ID">D540X_VOICE_TEST_K1</member>
+        <member name="next">D540X_VOICE_TEST_K_END</member>
         <member name="actions">
             <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">300006</member>
-                    <member name="includeMessage">true</member>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100953</member>
+                    <member name="delay">50</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z540101_UNMAP_540X_SE001</member>
+        <member name="ID">D540X_VOICE_TEST_K2</member>
+        <member name="next">D540X_VOICE_TEST_K_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100954</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE_TEST_K3</member>
+        <member name="next">D540X_VOICE_TEST_K_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100955</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE_OFF_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100957</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>5000</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">1</member>
+                    <member name="actorID">540103</member>
+                    <member name="from">3</member>
+                    <member name="stopOnFailure">false</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE_TEST_O1</member>
+        <member name="next">D540X_VOICE_TEST_O_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100919</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE_TEST_O2</member>
+        <member name="next">D540X_VOICE_TEST_O_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100920</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE_OFF_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100922</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>5000</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">1</member>
+                    <member name="actorID">540103</member>
+                    <member name="from">3</member>
+                    <member name="stopOnFailure">false</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D540X_VOICE_TEST_K_END</member>
+        <member name="messageID">130660</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130659</member>
+                    <member name="next">D540X_VOICE_TEST_K</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D540X_VOICE_TEST_O_END</member>
+        <member name="messageID">130661</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">130659</member>
+                    <member name="next">D540X_VOICE_TEST_O</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D540X_VOICE_ON_K1</member>
+        <member name="next">D540X_VOICE_ON_K2</member>
+        <member name="messageIDs">
+            <element>130667</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE_ON_K2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100956</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130672</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>5000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D540X_VOICE_ON_O1</member>
+        <member name="next">D540X_VOICE_ON_O2</member>
+        <member name="messageIDs">
+            <element>130667</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE_ON_O2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100921</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130673</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>5000</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE02</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE02_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE02_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE02_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100957</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE02_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100922</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE03</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE03_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE03_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE03_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100958</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE03_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100923</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE04</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE04_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE04_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE04_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100959</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE04_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100924</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE05</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE05_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE05_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE05_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100960</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE05_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100925</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE06</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE06_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE06_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE06_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100961</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE06_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100926</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE07</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE07_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE07_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE07_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100962</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE07_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100927</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE08</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE08_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE08_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE08_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100963</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE08_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100928</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE09</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE09_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE09_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE09_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100964</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE09_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100929</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE10</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE10_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE10_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE10_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100965</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE10_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100930</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE11</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE11_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE11_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE11_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100966</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE11_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100931</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE12</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE12_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE12_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE12_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100967</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE12_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100932</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE13</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE13_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE13_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE13_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100968</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE13_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100933</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE14</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE14_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE14_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE14_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100969</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE14_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100934</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE15</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE15_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE15_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE15_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100970</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE15_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100935</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE16</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE16_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE16_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE16_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100971</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE16_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100936</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE17</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE17_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE17_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE17_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100972</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE17_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100937</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE18</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE18_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE18_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE18_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100973</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE18_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100938</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE19</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE19_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE19_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE19_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100974</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE19_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100939</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE20</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE20_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE20_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE20_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100975</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE20_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100940</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE21</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE21_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE21_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE21_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100976</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE21_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100941</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE22</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE22_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE22_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE22_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100977</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE22_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100942</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE23</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE23_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE23_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE23_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100978</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE23_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100943</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE24</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE24_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE24_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE24_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100979</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE24_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100944</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE25</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE25_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE25_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE25_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100980</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE25_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100945</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE26</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE26_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE26_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE26_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100981</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE26_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100946</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE27</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE27_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE27_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE27_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100982</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE27_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100947</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE28</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE28_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE28_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE28_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100983</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE28_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100948</member>
+                    <member name="delay">180</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE29</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE29_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE29_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE29_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100984</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE29_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100949</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE30</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE30_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE30_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE30_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100985</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE30_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100950</member>
+                    <member name="delay">50</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE31</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE31_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE31_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE31_K</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100986</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE31_O</member>
         <member name="actions">
             <element>
                 <object name="ActionPlaySoundEffect">
@@ -6276,21 +8563,63 @@
             </element>
         </member>
     </object>
+    <object name="Event">
+        <member name="ID">D540X_VOICE32</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE32_K</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D540X_VOICE32_O</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5000</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z540101_UNMAP_540X_IT002</member>
+        <member name="ID">D540X_VOICE32_K</member>
         <member name="actions">
             <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>21941</key>
-                            <value>15</value>
-                        </pair>
-                        <pair>
-                            <key>38237</key>
-                            <value>5</value>
-                        </pair>
-                    </member>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100987</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D540X_VOICE32_O</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">100952</member>
                 </object>
             </element>
         </member>

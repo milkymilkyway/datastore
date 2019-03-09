@@ -18,7 +18,8 @@ function check(source, cState, dState, zone, value1, value2, params)
             switch(cVariant.InstanceType)
             {
                 case ServerZoneInstanceVariant_InstanceType_t.NORMAL:
-                    return params[0] == "NORMAL" ? 0 : -1;
+                    // Handled below
+                    break;
                 case ServerZoneInstanceVariant_InstanceType_t.TIME_TRIAL:
                     return params[0] == "TIME_TRIAL" ? 0 : -1;
                 case ServerZoneInstanceVariant_InstanceType_t.PVP:
@@ -36,5 +37,6 @@ function check(source, cState, dState, zone, value1, value2, params)
             }
         }
     }
-    return -1;
+
+    return params[0] == "NORMAL" ? 0 : -1;
 }
