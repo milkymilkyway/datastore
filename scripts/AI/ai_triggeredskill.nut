@@ -36,6 +36,10 @@ function trigger(eState, manager, now)
     local skillID = aiState.GetActionOverridesByKey("TriggerSkill");
     if(skillID.len() > 0)
     {
+        if(skillID.tointeger() == 0)
+        {
+            return 0;
+        }
         aiState.RemoveActionOverrides("TriggerSkill");
         manager.QueueUseSkillCommand(eState, skillID.tointeger(),
             aiState.GetTargetEntityID(), false);
