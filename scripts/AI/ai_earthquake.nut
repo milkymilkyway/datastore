@@ -1,6 +1,6 @@
 function define(script)
 {
-    script.Name = "quakinInMyBoots";
+    script.Name = "earthquake";
     script.Type = "AI";
     return 0;
 }

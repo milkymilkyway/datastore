@@ -19,7 +19,7 @@ function check(source, cState, dState, zone, params)
     local branch = Randomizer.RNG(0, params[0].tointeger() - 1);
     if(character.Gender == Character_Gender_t.FEMALE)
     {
-        branch += params[0].toInteger();
+        branch += params[0].tointeger();
     }
 
     return branch;
