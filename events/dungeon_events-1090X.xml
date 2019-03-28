@@ -288,14 +288,14 @@
             </element>
         </member>
     </object>
-    <!-- 1090001 2 -->
+    <!-- 1090001 1 -->
     <object name="EventPrompt">
-        <member name="ID">D1090X_10902004_PR001</member>
+        <member name="ID">D1090X_10901_PR001</member>
         <member name="messageID">17</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">D1090X_10902004_SC001</member>
+                    <member name="next">D1090X_10901_SC001</member>
                     <member name="messageID">1</member>
                     <member name="branches">
                         <element>
@@ -345,6 +345,785 @@
         </member>
     </object>
     <object name="EventPlayScene">
+        <member name="ID">D1090X_10901_SC001</member>
+        <member name="next">D1090X_10901_BOSS_00</member>
+        <member name="sceneID">2064</member>
+        <member name="unknown">1</member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_10901_BOSS_00</member>
+        <member name="next">D1090X_10901_BOSS_00a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_10901_BOSS_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_10901_BOSS_00a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_10901_BOSS_00a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">0</member>
+                    <member name="spotID">50002</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_Q845_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_10901_BOSS_01</member>
+        <member name="next">D1090X_10901_BOSS_00a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnLocationGroupIDs">
+                                    <element>1</element>
+                                </member>
+                                <member name="mode">ONE_TIME</member>
+                                <member name="defeatActions">
+                                    <element>
+                                        <object name="ActionUpdateZoneFlags">
+                                            <member name="type">ZONE</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="ActionStartEvent">
+                                            <member name="eventID">D1090X_10901_BOSS_02</member>
+                                            <member name="sourceContext">ALL</member>
+                                            <member name="location">ZONE</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>101</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>101</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_10901_BOSS_02</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_10901_BOSS_02</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_10901_BOSS_02a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>101</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_10901_BOSS_02a</member>
+        <member name="next">D1090X_10901_SC002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">3401</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">101</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D1090X_10901_SC002</member>
+        <member name="sceneID">12064</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_10901_BOSS_04</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_Q845_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_10901_BOSS_04</member>
+        <member name="next">D1090X_10901_BOSS_05</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2001</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_10901_BOSS_05</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>4</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_10901_BOSS_05a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_10901_BOSS_05b</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_10901_BOSS_05c</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_10901_BOSS_05d</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_10901_BOSS_05a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">103</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">104</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">105</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_Q845_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_10901_BOSS_05b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">103</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">104</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">105</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_Q845_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_10901_BOSS_05c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">103</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">104</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">105</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_Q845_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_10901_BOSS_05d</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020028</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">103</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">104</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>109020027</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">105</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_Q845_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- 1090001 2 -->
+    <object name="EventPrompt">
+        <member name="ID">D1090X_10902004_PR001</member>
+        <member name="messageID">17</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D1090X_10902004_SC001</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
         <member name="ID">D1090X_10902004_SC001</member>
         <member name="next">D1090X_10902004_BOSS_00</member>
         <member name="sceneID">2065</member>
@@ -375,7 +1154,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D1090X_10902004_BOSS_01</member>
+                    <member name="next">D1090X_10902004_BOSS_00a</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -400,6 +1179,44 @@
                 <object name="ActionZoneChange">
                     <member name="zoneID">0</member>
                     <member name="spotID">50003</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_Q845_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -1630,8 +2447,8 @@
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
-                    <member name="zoneID">1090101</member>
-                    <member name="spotID">50001</member>
+                    <member name="zoneID">1090102</member>
+                    <member name="spotID">50002</member>
                 </object>
             </element>
         </member>
@@ -1699,8 +2516,8 @@
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
-                    <member name="zoneID">1090101</member>
-                    <member name="spotID">50001</member>
+                    <member name="zoneID">1090102</member>
+                    <member name="spotID">50003</member>
                 </object>
             </element>
         </member>
@@ -1723,6 +2540,1979 @@
                 <object name="ActionZoneChange">
                     <member name="zoneID">1090301</member>
                     <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- 1090101 -->
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD01</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>101</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090333</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090332</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD02</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>71</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090319</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090320</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD03</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090321</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090322</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD04</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>81</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090330</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090331</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090101_OD04a</member>
+        <member name="next">D1090X_1090201_EF001</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_OD04b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>61</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD04b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090328</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090329</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD05</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>91</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090323</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090324</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090101_OD05a</member>
+        <member name="next">D1090X_1090201_EF001</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_OD05b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>91</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD05b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090325</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090326</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD06</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>61</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090317</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090318</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090101_OD07</member>
+        <member name="next">D1090X_1090201_EF001</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_OD07a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>510</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD07a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>510</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090311</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090312</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090101_SP01</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>3</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_SP01a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_SP01b</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_SP01c</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_SP01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>610</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnLocationGroupIDs">
+                                    <element>510</element>
+                                </member>
+                                <member name="defeatActions">
+                                    <element>
+                                        <object name="ActionUpdateZoneFlags">
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>510</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_SP01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>710</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnLocationGroupIDs">
+                                    <element>510</element>
+                                </member>
+                                <member name="defeatActions">
+                                    <element>
+                                        <object name="ActionUpdateZoneFlags">
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>510</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_SP01c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>910</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSpawn">
+                                <member name="spawnLocationGroupIDs">
+                                    <element>510</element>
+                                </member>
+                                <member name="defeatActions">
+                                    <element>
+                                        <object name="ActionUpdateZoneFlags">
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>510</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_OD08</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>21</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090307</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090306</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090101_TR01</member>
+        <member name="next">D1090X_1090101_TR01a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_TR01b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTY_SIZE</member>
+                                <member name="value1">2</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_TR01c</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTY_SIZE</member>
+                                <member name="value1">3</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_TR01d</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTY_SIZE</member>
+                                <member name="value1">4</member>
+                                <member name="value2">4</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_TR01e</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTY_SIZE</member>
+                                <member name="value1">5</member>
+                                <member name="value2">5</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_TR01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020021</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1013</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_TR01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020024</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1012</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020021</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1013</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_TR01c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020021</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1011</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020024</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1012</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020022</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1013</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_TR01d</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020021</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1011</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020024</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1012</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020022</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1013</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020025</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1014</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_TR01e</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020022</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1011</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020024</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1012</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020021</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1013</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020025</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1014</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020022</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1015</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090101_TR02</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>3</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_TR02a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_TR02b</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090101_TR02c</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_TR02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020024</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1001</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020022</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1002</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020025</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1003</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020021</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1004</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020024</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1005</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_TR02b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020023</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1001</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020025</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1002</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020021</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1003</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020025</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1004</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020021</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1005</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090101_TR02c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020026</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1001</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020026</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1002</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020022</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1003</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020025</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1004</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>109020022</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object name="ObjectPosition">
+                                <member name="SpotID">1005</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- 1090102 -->
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_OD01</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>61</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>63</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090405</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090409</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_OD02</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>131</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>132</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>133</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>134</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1090413</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_SP91</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_SP91a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>91</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">845</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_SP91b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>91</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_SP91a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>91</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210231</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090508</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090701</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090102_Q845_91_00</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_SP91b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>91</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>910</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090508</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_Q845_91_00</member>
+        <member name="next">D1090X_1090203_Q845_00a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_91_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_random</member>
+                                <member name="value1">40</member>
+                                <member name="value2">60</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_Q845_91_01</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_91_01a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_91_01b</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_Q845_91_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210233</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2281</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4195</element>
+                    </member>
+                    <member name="spotID">91</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090203_Q845_00b</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_Q845_91_01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210233</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2282</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4196</element>
+                    </member>
+                    <member name="spotID">91</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090203_Q845_00b</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_SP171</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_SP171a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>171</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">845</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_SP171b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>171</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_SP171a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>171</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210231</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>171</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090702</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090102_Q845_171_00</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_SP171b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>171</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1710</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_Q845_171_00</member>
+        <member name="next">D1090X_1090203_Q845_00a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_171_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_random</member>
+                                <member name="value1">40</member>
+                                <member name="value2">60</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_Q845_171_01</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_171_01a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_171_01b</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_Q845_171_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210233</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2281</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4195</element>
+                    </member>
+                    <member name="spotID">171</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090203_Q845_00b</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_Q845_171_01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210233</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2282</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4196</element>
+                    </member>
+                    <member name="spotID">171</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090203_Q845_00b</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_SP221</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_SP221a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>221</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">845</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_SP221b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>221</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_SP221a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>221</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210231</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>221</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090523</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090703</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090102_Q845_221_00</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_SP221b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>221</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2210</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090523</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_Q845_221_00</member>
+        <member name="next">D1090X_1090203_Q845_00a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_221_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_random</member>
+                                <member name="value1">40</member>
+                                <member name="value2">60</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1090X_1090102_Q845_221_01</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_221_01a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1090X_1090102_Q845_221_01b</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_Q845_221_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210233</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2281</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4195</element>
+                    </member>
+                    <member name="spotID">221</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090203_Q845_00b</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090102_Q845_221_01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1210233</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2282</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4196</element>
+                    </member>
+                    <member name="spotID">221</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090203_Q845_00b</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -3097,6 +5887,12 @@
                     </member>
                     <member name="defeatActions">
                         <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090704</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                        <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D1090X_1090202_Q845_91_00</member>
                             </object>
@@ -3510,6 +6306,12 @@
                         <element>221</element>
                     </member>
                     <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090705</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D1090X_1090202_Q845_221_00</member>
@@ -5262,6 +8064,12 @@
                     </member>
                     <member name="defeatActions">
                         <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090706</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                        <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D1090X_1090203_Q845_71_00</member>
                             </object>
@@ -5675,6 +8483,12 @@
                         <element>81</element>
                     </member>
                     <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">1090707</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D1090X_1090203_Q845_81_00</member>
