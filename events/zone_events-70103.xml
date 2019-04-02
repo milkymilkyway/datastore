@@ -331,6 +331,21 @@
             </element>
             <element>
                 <object>
+                    <member name="next">Z70103_JOIN_BC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="compareMode">EXISTS</member>
+                                <member name="value1">7</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">event_instanceJoin</member>
                     <member name="conditions">
                         <element>
@@ -492,8 +507,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">event_future</member>
-                    <!-- <member name="next">Z70103_PR013</member> -->
+                    <member name="next">Z70103_PR013</member>
                     <member name="messageID">157146</member>
                     <member name="conditions">
                         <element>
@@ -758,6 +772,67 @@
                             <object name="EventCondition">
                                 <member name="type">LEVEL</member>
                                 <member name="value1">60</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z70103_JOIN_BC</member>
+        <member name="next">Z70103_PR009</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z70103_PR009</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">700</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_BC_X</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">905</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_BC_X</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">907</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_instanceJoin</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">5501</member>
+                                <member name="value2">5503</member>
+                                <member name="compareMode">BETWEEN</member>
                             </object>
                         </element>
                     </member>
@@ -2043,7 +2118,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z70103_PR013</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">157140</member>
         <member name="choices">
             <element>
@@ -2053,8 +2127,43 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z70103_PR015</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z30102_MS005</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">507</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z30102_BC_X</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">STATUS_ACTIVE</member>
+                                            <member name="value1">905</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z30102_BC_X</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">STATUS_ACTIVE</member>
+                                            <member name="value1">907</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -2089,7 +2198,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z70103_MS001</member>
+                    <member name="next">Z70103_BC_BRONZE</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
@@ -2100,19 +2209,29 @@
             </element>
         </member>
     </object>
-    <object name="EventPrompt">
-        <member name="ID">Z70103_PR015</member>
-        <member name="messageID">157469</member>
-        <member name="choices">
+    <object name="EventPerformActions">
+        <member name="ID">Z70103_BC_BRONZE</member>
+        <member name="actions">
             <element>
-                <object name="EventChoice">
-                    <member name="next">Z70103_MS002</member>
-                    <member name="messageID">1</member>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>507</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
             <element>
-                <object name="EventChoice">
-                    <member name="messageID">2</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="variantID">60001</member>
+                    <member name="instanceID">5502</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
                 </object>
             </element>
         </member>
