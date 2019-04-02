@@ -1,50 +1,65 @@
+local hpThreshold = 0.80;
+local queuedQuakes = 0;
+local quakeActive = false;
+
 function define(script)
 {
     script.Name = "earthquake";
     script.Type = "AI";
+    script.Instantiated = true;
     return 0;
 }
 
 function prepare(eState, manager)
 {
     local aiState = eState.GetAIState();
-    aiState.SetActionOverridesEntry("aggro", "");
-    aiState.SetActionOverridesEntry("combat", "");
-    aiState.SetActionOverridesEntry("wander", "");
+    aiState.SetActionOverridesEntry("combatSkillComplete", "");
+    aiState.SetActionOverridesEntry("combatSkillHit", "");
     return 0;
 }
 
-function aggro(eState, manager, now)
+function combatSkillComplete(source, manager, activated, target, hit)
 {
-    return queueQuake(eState, manager, now);
-}
-
-function combat(eState, manager, now)
-{
-    return queueQuake(eState, manager, now);
-}
-
-function wander(eState, manager, now)
-{
-    return queueQuake(eState, manager, now);
-}
-
-function queueQuake(eState, manager, now)
-{
-    local aiState = eState.GetAIState();
-
-    local quakeTime = aiState.GetActionTimesByKey("Quake");
-    if(quakeTime == 0)
+    if(activated.GetSkillData().GetCommon().GetID() == 420)
     {
-        // First quake is 3m from first check
-        aiState.SetActionTimesEntry("Quake", now + 180000000);
-    }
-    else if(quakeTime <= now && manager.UseDiasporaQuake(eState, 420, 5.0))
-    {
-        // Subsequent quakes are 3m apart
-        aiState.SetActionTimesEntry("Quake", now + 180000000);
+        // Quake just completed, see if we should queue another
+        quakeActive = false;
+
+        if(source.GetCoreStats().GetHP() > 0 && queuedQuakes > 0)
+        {
+            startQuake(source, manager);
+        }
     }
 
-    // Never prevent other actions
-    return 0;
+    return 1;
+}
+
+function combatSkillHit(eState, manager, source, skillData)
+{
+    local cs = eState.GetCoreStats();
+    while(cs.GetHP() > 0 &&
+        ((cs.GetHP() * 1.0) / (eState.GetMaxHP() * 1.0)) <= hpThreshold)
+    {
+        queuedQuakes++;
+        hpThreshold -= 0.20;
+    }
+
+    if(!quakeActive)
+    {
+        startQuake(eState, manager);
+    }
+
+    return 1;
+}
+
+function startQuake(eState, manager)
+{
+    local cs = eState.GetCoreStats();
+    if(!quakeActive && cs.GetHP() > 0 && queuedQuakes > 0)
+    {
+        quakeActive = true;
+        queuedQuakes--;
+        quakeActive = manager.UseDiasporaQuake(eState, 420,
+            Randomizer.RNG(60, 140) * 0.1);
+    }
 }
