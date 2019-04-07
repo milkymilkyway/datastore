@@ -843,6 +843,18 @@
                     <member name="value1">5370</member>
                 </object>
             </element>
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
         <member name="actions">
             <element>
@@ -850,7 +862,7 @@
                     <member name="type">ZONE</member>
                     <member name="flagStates">
                         <pair>
-                            <key>1</key>
+                            <key>2</key>
                             <value>0</value>
                         </pair>
                     </member>
@@ -867,7 +879,7 @@
                                 <member name="type">ZONE</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>1</key>
+                                        <key>2</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -880,7 +892,7 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_triggerSkill</member>
                     <member name="params">
-                        <element>443</element>
+                        <element>1154</element>
                     </member>
                 </object>
             </element>
@@ -895,7 +907,7 @@
             </element>
             <element>
                 <object name="ActionDelay">
-                    <member name="duration">5</member>
+                    <member name="duration">15</member>
                     <member name="actions">
                         <element>
                             <object name="ActionStartEvent">
@@ -929,6 +941,18 @@
                     <member name="location">ZONE</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2553</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
         </member>
         <member name="branches">
             <element>
@@ -941,7 +965,7 @@
                                 <member name="compareMode">LT_OR_NAN</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>1</key>
+                                        <key>2</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -954,6 +978,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">D1131X_1131303_SUSANOO_02a</member>
+        <member name="next">D1131X_1131303_SUSANOO_04</member>
         <member name="conditions">
             <element>
                 <object name="EventScriptCondition">
@@ -964,14 +989,6 @@
         </member>
         <member name="actions">
             <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_triggerSkill</member>
-                    <member name="params">
-                        <element>0</element>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionStageEffect">
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
@@ -980,10 +997,23 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">D1131X_1131303_SUSANOO_03</member>
+        <member name="next">D1131X_1131303_SUSANOO_04</member>
         <member name="conditions">
             <element>
                 <object name="EventScriptCondition">
@@ -1007,6 +1037,56 @@
                         <element>10</element>
                     </member>
                     <member name="mode">DESPAWN</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1131X_1131303_SUSANOO_04</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>3</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">216012</member>
+                    <member name="effectType">3</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
                 </object>
             </element>
         </member>
@@ -1072,6 +1152,42 @@
                 </object>
             </element>
             <element>
+                <object name="ActionDelay">
+                    <member name="duration">60</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1131X_1131303_SUSANOO</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">120</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1131X_1131303_SUSANOO</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">180</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1131X_1131303_SUSANOO</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_enableSpawnGroup</member>
                     <member name="params">
@@ -1116,6 +1232,17 @@
         <member name="ID">D1131X_1131303_END_A</member>
         <member name="next">D1131X_1131303_END_EASY</member>
         <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
@@ -1196,29 +1323,6 @@
                     <member name="targetType">CHARACTER_AND_PARTNER</member>
                     <member name="sourceContext">PARTY</member>
                     <member name="adjustable">TRUE</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131303_UNMAP_11313003_R2_ST009</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">216012</member>
-                    <member name="effectType">3</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>1</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
                 </object>
             </element>
         </member>
