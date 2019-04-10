@@ -22,13 +22,16 @@ function combatSkillComplete(source, manager, activated, target, hit)
 {
     if(activated.GetSkillData().GetCommon().GetID() == 420)
     {
-        // Quake just completed, see if we should queue another
+        // Quake just completed, see if we should queue another then fire
+        // the completion event
         quakeActive = false;
 
         if(source.GetCoreStats().GetHP() > 0 && queuedQuakes > 0)
         {
             startQuake(source, manager);
         }
+
+        manager.StartEvent(source, "ai_quakeComplete");
     }
 
     return 1;
