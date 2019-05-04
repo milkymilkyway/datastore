@@ -23,13 +23,7 @@ function run(source, cState, dState, zone, server, params)
     {
         return Result_t.FAIL;
     }
-    local aiState = enemy.GetAIState();
-    if(aiState == null)
-    {
-        return Result_t.FAIL;
-    }
-    aiState.SetStatus(AIStatus_t.WANDERING, true);
-    aiState.SetDespawnWhenLost(false);
+
     // todo: comment this in and remove the temporary reposition
     /*// Extend and rotate the point around the source 800 units out
     local radians = Randomizer.RNG(-314159, 314159) * 0.00001;
@@ -75,6 +69,14 @@ function run(source, cState, dState, zone, server, params)
     zoneManager.LinearReposition(enemy, xPos2, yPos2);
 
     local enemyList = [ enemy ];
-    return zoneManager.AddEnemiesToZone(enemyList, zone, true, true, "")
-        ? Result_t.SUCCESS : Result_t.FAIL;
+    if(zoneManager.AddEnemiesToZone(enemyList, zone, true, true, ""))
+    {
+        local aiState = enemy.GetAIState();
+        aiState.SetStatus(AIStatus_t.WANDERING, true);
+        aiState.SetDespawnWhenLost(false);
+
+        return Result_t.SUCCESS;
+    }
+
+    return Result_t.FAIL;
 }

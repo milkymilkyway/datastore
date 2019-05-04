@@ -1,6 +1,43 @@
 ﻿<objects>
     <!-- 104010X -->
     <object name="Event">
+        <member name="ID">Z10401XX_NORN_OUTRO_DEBUG</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z10401XX_NORN_OUTRO_DEBUG_0</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">3355</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z10401XX_NORN_OUTRO_DEBUG_0</member>
+        <member name="next">Z10401XX_MIASMA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">TOKUSEI</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>832000</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
         <member name="ID">Z10401XX_MIASMA</member>
         <member name="branches">
             <element>
@@ -4272,7 +4309,6 @@
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE</member>
                     <member name="flagStates">
                         <pair>
                             <key>4</key>
@@ -4289,7 +4325,6 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionUpdateZoneFlags">
-                                <member name="type">ZONE</member>
                                 <member name="flagStates">
                                     <pair>
                                         <key>1</key>
@@ -4300,14 +4335,14 @@
                         </element>
                         <element>
                             <object name="ActionSetNPCState">
-                                <member name="actorID">1040001</member>
                                 <member name="state">3</member>
+                                <member name="actorID">1040001</member>
                             </object>
                         </element>
                         <element>
                             <object name="ActionSetNPCState">
-                                <member name="actorID">1040002</member>
                                 <member name="state">3</member>
+                                <member name="actorID">1040002</member>
                             </object>
                         </element>
                     </member>

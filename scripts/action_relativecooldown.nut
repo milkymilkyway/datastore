@@ -16,16 +16,16 @@ function run(source, cState, dState, zone, server, params)
     local cooldownID = params[0].tointeger();
     local toHour = params[1].tointeger();
     local toMin = params[2].tointeger();
-    local toMerge = toHour * 100 + toMin;
+    local toMerge = toHour * 60 + toMin;
 
     local clock = server.GetWorldClockTime();
     local now = clock.SystemTime;
-    local fromMerge = clock.SystemHour * 100 + clock.SystemMin;
+    local fromMerge = clock.SystemHour * 60 + clock.SystemMin;
 
     local timeDelta = 0;
     if(fromMerge < toMerge)
     {
-        timeDelta = toMerge - fromMerge;
+        timeDelta = (toMerge - fromMerge) * 60;
     }
     else
     {
