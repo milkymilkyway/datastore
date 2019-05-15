@@ -10,16 +10,20 @@
         <member name="StartingY">-246.65</member>
         <member name="StartingRotation">-3.14</member>
         <member name="NPCs"/>
+        <member name="DropSetIDs">
+            <element>1</element>
+        </member>
         <member name="Objects">
             <element>
                 <!-- 起動プログラム -->
                 <object name="ServerObject">
                     <member name="ID">570171</member>
+                    <member name="ActorID">570171</member>
                     <member name="SpotID">60001</member>
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">Z581102_PR001</member>
+                                <member name="eventID">D5811_PR002</member>
                             </object>
                         </element>
                     </member>
@@ -31,53 +35,63 @@
                 <object name="ServerObject">
                     <member name="ID">570173</member>
                     <member name="SpotID">60002</member>
-                    <member name="Actions"/>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D5811_EF001</member>
+                            </object>
+                        </element>
+                    </member>
                     <member name="State">1</member>
                 </object>
             </element>
         </member>
         <member name="Spawns">
             <pair>
-                <key>247400015</key>
+                <key>1</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">247400015</member>
+                        <member name="ID">1</member>
                         <member name="EnemyType">2474</member>
-                        <member name="Drops"/>
+                        <member name="TalkResist">100</member>
+                        <member name="XP">0</member>
                         <member name="Level">15</member>
                     </object>
                 </value>
             </pair>
             <pair>
-                <key>247900015</key>
+                <key>2</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">247900015</member>
+                        <member name="ID">2</member>
                         <member name="EnemyType">2479</member>
-                        <member name="Drops"/>
+                        <member name="TalkResist">100</member>
+                        <member name="XP">0</member>
                         <member name="Level">15</member>
                     </object>
                 </value>
             </pair>
             <pair>
-                <key>247500020</key>
+                <key>3</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">247500020</member>
+                        <member name="ID">3</member>
                         <member name="EnemyType">2475</member>
-                        <member name="Drops"/>
+                        <member name="TalkResist">100</member>
+                        <member name="XP">0</member>
                         <member name="Level">20</member>
                         <member name="XPEstimate">1136099</member>
                     </object>
                 </value>
             </pair>
             <pair>
-                <key>247700010</key>
+                <key>4</key>
                 <value>
                     <object name="Spawn">
-                        <member name="ID">247700010</member>
+                        <member name="ID">4</member>
                         <member name="EnemyType">2477</member>
-                        <member name="Drops"/>
+                        <member name="TalkResist">100</member>
+                        <member name="XP">0</member>
                         <member name="Level">10</member>
                     </object>
                 </value>
@@ -91,9 +105,18 @@
                         <member name="ID">1001</member>
                         <member name="Spawns">
                             <pair>
-                                <key>247400015</key>
+                                <key>1</key>
                                 <value>1</value>
                             </pair>
+                        </member>
+                        <member name="SpawnActions">
+                            <element>
+                                <object name="ActionStartEvent">
+                                    <member name="eventID">D5811_EF002</member>
+                                    <member name="sourceContext">ALL</member>
+                                    <member name="location">ZONE</member>
+                                </object>
+                            </element>
                         </member>
                     </object>
                 </value>
@@ -105,7 +128,7 @@
                         <member name="ID">1002</member>
                         <member name="Spawns">
                             <pair>
-                                <key>247700010</key>
+                                <key>4</key>
                                 <value>1</value>
                             </pair>
                         </member>
@@ -119,7 +142,7 @@
                         <member name="ID">1003</member>
                         <member name="Spawns">
                             <pair>
-                                <key>247500020</key>
+                                <key>3</key>
                                 <value>1</value>
                             </pair>
                         </member>
@@ -133,7 +156,7 @@
                         <member name="ID">1004</member>
                         <member name="Spawns">
                             <pair>
-                                <key>247900015</key>
+                                <key>2</key>
                                 <value>1</value>
                             </pair>
                         </member>
@@ -208,8 +231,104 @@
                         <member name="ID">10001</member>
                         <member name="Actions">
                             <element>
-                                <object name="ActionStartEvent">
-                                    <member name="eventID">debug_noEvent</member>
+                                <object name="ActionSpawn">
+                                    <member name="spawnLocationGroupIDs">
+                                        <element>21</element>
+                                    </member>
+                                    <member name="mode">ONE_TIME</member>
+                                    <member name="defeatActions">
+                                        <element>
+                                            <object name="ActionStageEffect">
+                                                <member name="sourceContext">ALL</member>
+                                                <member name="location">ZONE</member>
+                                                <member name="messageID">179032</member>
+                                            </object>
+                                        </element>
+                                        <element>
+                                            <object name="ActionSpawn">
+                                                <member name="spawnLocationGroupIDs">
+                                                    <element>22</element>
+                                                </member>
+                                                <member name="mode">ONE_TIME</member>
+                                                <member name="defeatActions">
+                                                    <element>
+                                                        <object name="ActionUpdateZoneFlags">
+                                                            <member name="type">ZONE</member>
+                                                            <member name="flagStates">
+                                                                <pair>
+                                                                    <key>22</key>
+                                                                    <value>1</value>
+                                                                </pair>
+                                                            </member>
+                                                        </object>
+                                                    </element>
+                                                    <element>
+                                                        <object name="ActionStartEvent">
+                                                            <member name="eventID">D5811_DF02</member>
+                                                            <member name="sourceContext">ALL</member>
+                                                            <member name="location">ZONE</member>
+                                                        </object>
+                                                    </element>
+                                                </member>
+                                            </object>
+                                        </element>
+                                        <element>
+                                            <object name="ActionSpawn">
+                                                <member name="spawnLocationGroupIDs">
+                                                    <element>23</element>
+                                                </member>
+                                                <member name="mode">ONE_TIME</member>
+                                                <member name="defeatActions">
+                                                    <element>
+                                                        <object name="ActionUpdateZoneFlags">
+                                                            <member name="type">ZONE</member>
+                                                            <member name="flagStates">
+                                                                <pair>
+                                                                    <key>23</key>
+                                                                    <value>1</value>
+                                                                </pair>
+                                                            </member>
+                                                        </object>
+                                                    </element>
+                                                    <element>
+                                                        <object name="ActionStartEvent">
+                                                            <member name="eventID">D5811_DF02</member>
+                                                            <member name="sourceContext">ALL</member>
+                                                            <member name="location">ZONE</member>
+                                                        </object>
+                                                    </element>
+                                                </member>
+                                            </object>
+                                        </element>
+                                        <element>
+                                            <object name="ActionSpawn">
+                                                <member name="spawnLocationGroupIDs">
+                                                    <element>24</element>
+                                                </member>
+                                                <member name="mode">ONE_TIME</member>
+                                                <member name="defeatActions">
+                                                    <element>
+                                                        <object name="ActionUpdateZoneFlags">
+                                                            <member name="type">ZONE</member>
+                                                            <member name="flagStates">
+                                                                <pair>
+                                                                    <key>24</key>
+                                                                    <value>1</value>
+                                                                </pair>
+                                                            </member>
+                                                        </object>
+                                                    </element>
+                                                    <element>
+                                                        <object name="ActionStartEvent">
+                                                            <member name="eventID">D5811_DF02</member>
+                                                            <member name="sourceContext">ALL</member>
+                                                            <member name="location">ZONE</member>
+                                                        </object>
+                                                    </element>
+                                                </member>
+                                            </object>
+                                        </element>
+                                    </member>
                                 </object>
                             </element>
                         </member>
