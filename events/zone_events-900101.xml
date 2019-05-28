@@ -10,10 +10,25 @@
         <member name="ID">Z900101_PA001</member>
         <member name="actions">
             <element>
-                <object name="ActionUpdateFlag">
-                    <member name="flagType">VALUABLE</member>
-                    <member name="ID">379</member>
-                    <member name="remove">true</member>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">540</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z900101_EF001</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -24,7 +39,28 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z900101_EF002</member>
                     <member name="messageID">178085</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z900101_ZC01</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -35,9 +71,40 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z900101_UNMAP_EF001</member>
-        <member name="next">Z900101_PR001</member>
+        <member name="ID">Z900101_ZC01</member>
         <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">210201</member>
+                    <member name="spotID">50050</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z900101_EF002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">178088</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z900101_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">178079</member>

@@ -1,4 +1,72 @@
 ﻿<objects>
+    <object name="Event">
+        <member name="ID">INVOKE_NEUTRAL_VICTORY</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">INVOKE_NEUTRAL_VICTORY_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">EVENT_WORLD_COUNTER</member>
+                                <member name="value1">-4</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">10000</member>
+                                <member name="value2">12400</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">INVOKE_NEUTRAL_VICTORY_01a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">10000</member>
+                                <member name="value2">12400</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">INVOKE_NEUTRAL_VICTORY_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_enableSpawnGroup</member>
+                    <member name="params">
+                        <element>103</element>
+                        <element>104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">INVOKE_NEUTRAL_VICTORY_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_disableSpawnGroup</member>
+                    <member name="params">
+                        <element>103</element>
+                        <element>104</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">Z40101_214</member>
         <member name="messageIDs">
