@@ -60,8 +60,21 @@
     </object>
     <object name="Event">
         <member name="ID">D10701_TEAM_INTRO</member>
-        <member name="next">D10701_TEAM_INDRA_INTRO</member>
         <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D10701_TEAM_INDRA_INTRO</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PENTALPHA_TEAM</member>
+                                <member name="value1">0</member>
+                                <member name="compareMode">EQUAL</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object>
                     <member name="next">D10701_TEAM_MISHA_INTRO</member>
@@ -70,6 +83,7 @@
                             <object name="EventCondition">
                                 <member name="type">PENTALPHA_TEAM</member>
                                 <member name="value1">1</member>
+                                <member name="compareMode">EQUAL</member>
                             </object>
                         </element>
                     </member>
@@ -83,6 +97,7 @@
                             <object name="EventCondition">
                                 <member name="type">PENTALPHA_TEAM</member>
                                 <member name="value1">2</member>
+                                <member name="compareMode">EQUAL</member>
                             </object>
                         </element>
                     </member>
@@ -96,6 +111,7 @@
                             <object name="EventCondition">
                                 <member name="type">PENTALPHA_TEAM</member>
                                 <member name="value1">3</member>
+                                <member name="compareMode">EQUAL</member>
                             </object>
                         </element>
                     </member>
@@ -109,6 +125,7 @@
                             <object name="EventCondition">
                                 <member name="type">PENTALPHA_TEAM</member>
                                 <member name="value1">4</member>
+                                <member name="compareMode">EQUAL</member>
                             </object>
                         </element>
                     </member>
@@ -646,10 +663,45 @@
             </element>
         </member>
     </object>
-    <object name="EventPerformActions">
+    <object name="Event">
         <member name="ID">D10701_TEAM_SETUP_2</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D10701_TEAM_SETUP_2_A</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>498</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D10701_TEAM_SETUP_2_A</member>
         <member name="next">D10701_TEAM_MIASMA_INITIAL</member>
         <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>498</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionZoneInstance">
                     <member name="timerID">87</member>

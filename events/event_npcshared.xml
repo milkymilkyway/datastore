@@ -1,45 +1,8 @@
 ﻿<objects>
-    <object name="EventPerformActions">
-        <member name="ID">VALUABLE_REMOVAL</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateFlag">
-                    <member name="flagType">VALUABLE</member>
-                    <member name="ID">724</member>
-                    <member name="remove">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">VALUABLE_CHECK</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">VALUABLE_HAVE</member>
-					<member name="conditions">
-						<element>
-							<object name="EventCondition">
-								<member name="type">VALUABLE</member>
-								<member name="value1">724</member>
-								<member name="value2">1</member>
-							</object>
-						</element>
-					</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">VALUABLE_HAVE</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
+    <object name="EventOpenMenu">
+        <member name="ID">CASINO_SLOT</member>
+        <member name="menuType">764</member>
+        <member name="shopID">1001</member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">INVOKE_LAW</member>
@@ -119,17 +82,27 @@
             </element>
         </member>
     </object>
-    <object name="EventPerformActions">
+    <object name="Event">
         <member name="ID">PENTALPHA_RESET</member>
-        <member name="conditions">
+        <member name="branches">
             <element>
-                <object name="EventCondition">
-                    <member name="type">TIMESPAN_WEEK</member>
-                    <member name="value1">10000</member>
-                    <member name="value2">12400</member>
+                <object>
+                    <member name="next">PENTALPHA_RESET_0</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">10000</member>
+                                <member name="value2">12400</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">PENTALPHA_RESET_0</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -31147,6 +31120,47 @@
             </element>
             <element>
                 <object>
+                    <member name="next">N3401_AP00_6304a</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_INSTANCE_FLAGS</member>
+								<member name="flagStates">
+									<pair>
+										<key>16</key>
+										<value>4</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>6304</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N3401_AP00_6304</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>6304</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">N3401_AP00_920X</member>
                     <member name="conditions">
                         <element>
@@ -32404,6 +32418,224 @@
                         <pair>
                             <key>21941</key>
                             <value>24</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2463</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N3401_AP00_6304</member>
+        <member name="next">N3401_AP00_6304_0</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N3401_APIF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INVENTORY_FREE</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N3401_AP00_6304_0e</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">EQUIPPED</member>
+                                <member name="value1">25244</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP00_6304_0</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>999999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>21941</key>
+                            <value>1520</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2463</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP00_6304_0e</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>999999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>21941</key>
+                            <value>1824</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2463</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N3401_AP00_6304a</member>
+        <member name="next">N3401_AP00_6304a_0</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N3401_APIF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INVENTORY_FREE</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N3401_AP00_6304a_0e</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">EQUIPPED</member>
+                                <member name="value1">25244</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP00_6304a_0</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>999999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>21941</key>
+                            <value>2660</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2463</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP00_6304a_0e</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>999999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>21941</key>
+                            <value>3192</value>
                         </pair>
                     </member>
                     <member name="notify">true</member>
@@ -37377,6 +37609,23 @@
                 <object name="EventChoice">
                     <member name="next">N2031_DM_RESET_02_00a</member>
                     <member name="messageID">1201587</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">N2031_DM_RESET_MI</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">21506</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
