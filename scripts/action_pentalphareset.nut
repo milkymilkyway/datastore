@@ -11,30 +11,36 @@ function run(source, cState, dState, zone, server, params)
     local syncManager = server.GetChannelSyncManager();
     local worldDB = server.GetWorldDatabase();
 
-	local previous = matchManager.GetPentalphaMatch(false);
-	local worldClock = server.GetWorldClockTime();
+    local previous = matchManager.GetPentalphaMatch(false);
+    if(previous && params.len() > 0 && params[0] == "INITONLY")
+    {
+        return Result_t.SUCCESS;
+    }
 
-	local match = PentalphaMatch();
-	match.SetStartTime(worldClock.SystemTime);
-	if(previous)
-	{
-		match.SetPrevious(previous.GetUUID());
-		previous.SetEndTime(worldClock.SystemTime);
-	}
+    local worldClock = server.GetWorldClockTime();
 
-	if(!PersistentObject.Register(match, UUID()) || !match.Insert(worldDB) ||
-		(previous && !previous.Update(worldDB)))
-	{
-		return Result_t.FAIL;
-	}
+    local match = PentalphaMatch();
+    match.SetStartTime(worldClock.SystemTime);
 
-	syncManager.UpdateRecord(match, "PentalphaMatch");
-	if(previous)
-	{
-		syncManager.UpdateRecord(previous, "PentalphaMatch");
-	}
+    if(previous)
+    {
+        match.SetPrevious(previous.GetUUID());
+        previous.SetEndTime(worldClock.SystemTime);
+    }
 
-	syncManager.SyncOutgoing();
+    if(!PersistentObject.Register(match, UUID()) || !match.Insert(worldDB) ||
+        (previous && !previous.Update(worldDB)))
+    {
+        return Result_t.FAIL;
+    }
+
+    syncManager.UpdateRecord(match, "PentalphaMatch");
+    if(previous)
+    {
+        syncManager.UpdateRecord(previous, "PentalphaMatch");
+    }
+
+    syncManager.SyncOutgoing();
 
     return Result_t.SUCCESS;
 }

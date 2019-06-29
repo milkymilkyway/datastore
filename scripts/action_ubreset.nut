@@ -7,34 +7,43 @@ function define(script)
 
 function run(source, cState, dState, zone, server, params)
 {
+    local worldClock = server.GetWorldClockTime();
+    if(params.len() >= 1)
+    {
+        local day = worldClock.Day;
+        if(day != params[0].tointeger())
+        {
+            return Result_t.SUCCESS;
+        }
+    }
+
     local matchManager = server.GetMatchManager();
     local syncManager = server.GetChannelSyncManager();
     local worldDB = server.GetWorldDatabase();
 
-	local previous = matchManager.GetUBTournament();
-	local worldClock = server.GetWorldClockTime();
+    local previous = matchManager.GetUBTournament();
 
-	local tournament = UBTournament();
-	tournament.SetStartTime(worldClock.SystemTime);
-	if(previous)
-	{
-		tournament.SetPrevious(previous.GetUUID());
-		previous.SetEndTime(worldClock.SystemTime);
-	}
+    local tournament = UBTournament();
+    tournament.SetStartTime(worldClock.SystemTime);
+    if(previous)
+    {
+        tournament.SetPrevious(previous.GetUUID());
+        previous.SetEndTime(worldClock.SystemTime);
+    }
 
-	if(!PersistentObject.Register(tournament, UUID()) || !tournament.Insert(worldDB) ||
-		(previous && !previous.Update(worldDB)))
-	{
-		return Result_t.FAIL;
-	}
+    if(!PersistentObject.Register(tournament, UUID()) || !tournament.Insert(worldDB) ||
+        (previous && !previous.Update(worldDB)))
+    {
+        return Result_t.FAIL;
+    }
 
-	syncManager.UpdateRecord(tournament, "UBTournament");
-	if(previous)
-	{
-		syncManager.UpdateRecord(previous, "UBTournament");
-	}
+    syncManager.UpdateRecord(tournament, "UBTournament");
+    if(previous)
+    {
+        syncManager.UpdateRecord(previous, "UBTournament");
+    }
 
-	syncManager.SyncOutgoing();
+    syncManager.SyncOutgoing();
 
     return Result_t.SUCCESS;
 }

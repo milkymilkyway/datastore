@@ -1,8 +1,420 @@
 ﻿<objects>
-    <object name="EventOpenMenu">
-        <member name="ID">CASINO_SLOT</member>
-        <member name="menuType">764</member>
-        <member name="shopID">1001</member>
+    <object name="EventPerformActions">
+        <member name="ID">UB_DEBUG_RESET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBReset</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">UB_RESET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBReset</member>
+                    <member name="params">
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">UB_CHAMPION_BUFF</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_UBChampion</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">UB_CHAMPION_GIFT</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_cooldown</member>
+                                <member name="params">
+                                    <element>-6001</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">UB_CHAMPION_GIFT_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2100</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">UB_CHAMPION_GIFT_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-6001</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>27063</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">COMP_EXPANSION_GIFT</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">1054</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">1055</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">1056</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">1087</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="negate">true</member>
+                                <member name="value1">1088</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_cooldown</member>
+                                <member name="params">
+                                    <element>-6000</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">COMP_EXPANSION_GIFT_SUN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">00000</member>
+                                <member name="value2">02359</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">COMP_EXPANSION_GIFT_MON</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">10000</member>
+                                <member name="value2">12359</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">COMP_EXPANSION_GIFT_TUE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">20000</member>
+                                <member name="value2">22359</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">COMP_EXPANSION_GIFT_WED</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">30000</member>
+                                <member name="value2">32359</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">COMP_EXPANSION_GIFT_THU</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">40000</member>
+                                <member name="value2">42359</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">COMP_EXPANSION_GIFT_FRI</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">50000</member>
+                                <member name="value2">52359</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">COMP_EXPANSION_GIFT_SAT</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">TIMESPAN_WEEK</member>
+                                <member name="value1">60000</member>
+                                <member name="value2">62359</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">COMP_EXPANSION_GIFT_SUN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-6000</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>61548</element>
+                        <element>1505</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">COMP_EXPANSION_GIFT_MON</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-6000</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>12176</element>
+                        <element>1505</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">COMP_EXPANSION_GIFT_TUE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-6000</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>12167</element>
+                        <element>1505</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">COMP_EXPANSION_GIFT_WED</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-6000</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>12173</element>
+                        <element>1505</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">COMP_EXPANSION_GIFT_THU</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-6000</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>12164</element>
+                        <element>1505</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">COMP_EXPANSION_GIFT_FRI</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-6000</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>12179</element>
+                        <element>1505</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">COMP_EXPANSION_GIFT_SAT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-6000</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>12170</element>
+                        <element>1505</element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">INVOKE_LAW</member>
@@ -142,6 +554,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">INVOKE_LAW_WIN</member>
+        <member name="next">INVOKE_RESET_COUNTER</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -158,6 +571,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">INVOKE_NEUTRAL_WIN</member>
+        <member name="next">INVOKE_RESET_COUNTER</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -174,6 +588,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">INVOKE_CHAOS_WIN</member>
+        <member name="next">INVOKE_RESET_COUNTER</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -231,6 +646,47 @@
                     </member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">WEBGAME</member>
+        <member name="menuType">764</member>
+        <member name="transformScriptID">transforme_shop</member>
+        <member name="transformScriptParams">
+            <element>764</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">WEBGAME_VIP_MACHINE</member>
+        <member name="next">WEBGAME</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">WEBGAME_VIP_MACHINE_1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">1083</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">1084</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">WEBGAME_VIP_MACHINE_1</member>
+        <member name="messageIDs">
+            <element>106007</element>
         </member>
     </object>
     <!--Unimplemented-->
@@ -31122,17 +31578,17 @@
                 <object>
                     <member name="next">N3401_AP00_6304a</member>
                     <member name="conditions">
-						<element>
-							<object name="EventFlagCondition">
-								<member name="type">ZONE_INSTANCE_FLAGS</member>
-								<member name="flagStates">
-									<pair>
-										<key>16</key>
-										<value>4</value>
-									</pair>
-								</member>
-							</object>
-						</element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>16</key>
+                                        <value>4</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                         <element>
                             <object name="EventScriptCondition">
                                 <member name="scriptID">bool_currentInstance</member>
@@ -33436,7 +33892,7 @@
                 </object>
             </element>
             <!-- Lucifuge nerf -->
-            <!--             <element>
+            <element>
                 <object>
                     <member name="next">N3401_AP00_620X</member>
                     <member name="conditions">
@@ -33448,12 +33904,16 @@
                                         <key>20</key>
                                         <value>1</value>
                                     </pair>
+                                    <pair>
+                                        <key>5999</key>
+                                        <value>1</value>
+                                    </pair>
                                 </member>
                             </object>
                         </element>
                     </member>
                 </object>
-            </element> -->
+            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_1300X_0e</member>

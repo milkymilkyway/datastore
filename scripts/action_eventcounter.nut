@@ -34,7 +34,7 @@ function run(source, cState, dState, zone, server, params)
             return Result_t.FAIL;
         }
     
-        eCounter = cState.GetEventCounter(params[0].tointeger());
+        eCounter = cState.GetEventCounter(params[0].tointeger(), true);
         if(params.len() >= 2)
         {
             counterValue = params[1].tointeger();
@@ -48,40 +48,15 @@ function run(source, cState, dState, zone, server, params)
         counterValue = counterValue * -1;
     }
 
-    if(params.len() == 3 && params[2].tointeger() == 2)
+    if(!eCounter || eCounter.GetUUID().IsNull())
     {
         if(!eCounter)
         {
             eCounter = EventCounter();
             eCounter.SetCharacter(characterUID);
             eCounter.SetType(params[0].tointeger());
-            eCounter.SetCounter(counterValue);
-
-            if(!PersistentObject.Register(eCounter, UUID()) || !eCounter.Insert(worldDB))
-            {
-                return Result_t.FAIL;
-            }
         }
-        else
-        {
-            eCounter.SetCounter(counterValue);
 
-            if(!eCounter.Update(worldDB))
-            {
-                return Result_t.FAIL;
-            }
-        }
-        syncManager.UpdateRecord(eCounter, "EventCounter");
-        syncManager.SyncOutgoing();
-
-        return Result_t.SUCCESS;
-    }
-
-    if(!eCounter)
-    {
-        eCounter = EventCounter();
-        eCounter.SetCharacter(characterUID);
-        eCounter.SetType(params[0].tointeger());
         eCounter.SetCounter(counterValue);
 
         if(!PersistentObject.Register(eCounter, UUID()) || !eCounter.Insert(worldDB))
@@ -91,7 +66,16 @@ function run(source, cState, dState, zone, server, params)
     }
     else
     {
-        eCounter.SetCounter(eCounter.GetCounter() + counterValue);
+        if(params.len() == 3 && params[2].tointeger() == 2)
+        {
+            // Setting
+            eCounter.SetCounter(counterValue);
+        }
+        else
+        {
+            // Adding
+            eCounter.SetCounter(eCounter.GetCounter() + counterValue);
+        }
 
         if(!eCounter.Update(worldDB))
         {

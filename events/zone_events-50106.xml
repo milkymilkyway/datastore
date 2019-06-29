@@ -10250,26 +10250,83 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50106_I12003_00</member>
                     <member name="messageID">205040</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50106_I12001_00</member>
                     <member name="messageID">205041</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50106_I12002_00</member>
                     <member name="messageID">205042</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50106_I12501_00</member>
                     <member name="messageID">205043</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">67</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z50106_I12501_X2</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_cooldown</member>
+                                            <member name="params">
+                                                <element>-12501</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z50106_I12501_X</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">STATUS_ACTIVE</member>
+                                            <member name="value1">905</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z50106_I12501_X</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">STATUS_ACTIVE</member>
+                                            <member name="value1">907</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z50106_PR185</member>
                     <member name="messageID">205044</member>
                 </object>
             </element>
@@ -10278,6 +10335,172 @@
                     <member name="messageID">205035</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50106_I12001_00</member>
+        <member name="next">Z50106_I12001_01</member>
+        <member name="messageIDs">
+            <element>205046</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50106_I12001_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">205048</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50106_I12002_00</member>
+        <member name="next">Z50106_I12002_01</member>
+        <member name="messageIDs">
+            <element>205046</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50106_I12002_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12002</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">205049</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12002</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50106_I12003_00</member>
+        <member name="next">Z50106_I12003_01</member>
+        <member name="messageIDs">
+            <element>205046</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50106_I12003_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12003</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">205047</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12003</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50106_I12501_00</member>
+        <member name="next">Z50106_I12501_01</member>
+        <member name="messageIDs">
+            <element>205052</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z50106_I12501_01</member>
+        <member name="messageID">205053</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z50106_I12501_02</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50106_I12501_02</member>
+        <member name="next">Z50106_I12501_03</member>
+        <member name="messageIDs">
+            <element>205046</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z50106_I12501_03</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="type">CHARACTER_COOLDOWN</member>
+                    <member name="delayID">-12501</member>
+                    <member name="duration">72000</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">205050</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12501</member>
+                    <member name="variantID">125001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12501</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50106_I12501_X</member>
+        <member name="next">Z50106_PR186</member>
+        <member name="messageIDs">
+            <element>205055</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z50106_I12501_X2</member>
+        <member name="next">Z50106_PR186</member>
+        <member name="messageIDs">
+            <element>205051</element>
         </member>
     </object>
     <object name="EventNPCMessage">

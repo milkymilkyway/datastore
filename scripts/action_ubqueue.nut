@@ -16,12 +16,27 @@ function run(source, cState, dState, zone, server, params)
         params[1].tointeger());
 
     local match = UBMatch();
-    match.SetQueueDuration(1);
-    match.SetAnnounceDuration(1);
-    match.SetReadyDuration(10);
-    match.SetDarkLimit(400000);
-    match.SetGaugeDecay(5000);
-    match.SetGaugeDecayScale(1.25);
+    if(params.len() == 3 && params[2] == "UA")
+    {
+        match.Category = UBMatch_Category_t.UA;
+        match.SetSubType(5);
+        match.SetQueueDuration(5);
+        match.SetReadyDuration(300);
+        match.SetMemberLimit(15);
+        match.SetSpectatorLimit(0);
+    }
+    else
+    {
+        match.SetQueueDuration(15);
+        match.SetAnnounceDuration(15);
+        match.SetReadyDuration(300);
+        match.SetDarkLimit(400000);
+        match.SetGaugeDecay(5000);
+        match.SetGaugeScale(10.0);
+        match.SetGaugeDecayScale(1.75);
+        match.SetMemberLimit(5);
+        match.SetSpectatorLimit(50);
+    }
     return server.GetMatchManager().StartStopMatch(gZone, match)
         ? Result_t.SUCCESS : Result_t.FAIL;
 }
