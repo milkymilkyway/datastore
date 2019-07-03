@@ -63,7 +63,7 @@ function define(script)
 
 function start(api, character, coins, out)
 {
-    playerName = characater.GetName();
+    playerName = character.GetName();
     coinCount = coins;
 
     // Set the starting jackpot
@@ -356,7 +356,7 @@ function draw(api, session, params, out)
 
         if(currentBets[EMPTY_10] && turn == 10 && paid.len() == 0)
         {
-            pendingCoins += PREDICT_WINNINGS[EMPTY_10] * currentBets[i];
+            pendingCoins += PREDICT_WINNINGS[EMPTY_10] * currentBets[EMPTY_10];
             paid.append(EMPTY_10);
         }
     }
