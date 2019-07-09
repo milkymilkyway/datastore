@@ -15,7 +15,7 @@ function check(source, cState, dState, zone, value1, value2, params)
     {
         if(value1 != 0 && value2 != 0)
         {
-            local counter = cState.GetEventCounter(value1);
+            local counter = cState.GetEventCounter(value1, false);
             if(counter != null)
             {
                 return counter.GetCounter() >= value2 ? 0 : -1;

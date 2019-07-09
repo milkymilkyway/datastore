@@ -14,7 +14,7 @@ function check(source, cState, dState, zone, params)
         return -1;
     }
 
-    local counter = cState.GetEventCounter(params[0].tointeger());
+    local counter = cState.GetEventCounter(params[0].tointeger(), false);
     if(counter != null)
     {
         return counter.GetCounter();
