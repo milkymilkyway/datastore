@@ -162,6 +162,17 @@ function draw(api, session, params, out)
                         // Fallen angels (captain, 1-7)
                         20, 21, 22, 23, 24, 25, 26, 27 ];
 
+    // Kino cheats by slipping in an additional devil card each time you win
+    // You don't become a successful street swindler by playing fair :)
+    for(local i = 0; i < wins; i++)
+    {
+        allCards.append(Randomizer.RNG(20, 27));
+        if(i >= 3)
+        {
+            allCards.append(Randomizer.RNG(20, 27));
+        }
+    }
+
     if(currentBets[EASY_ANGEL_CAP])
     {
         allCards.append(0);
@@ -259,6 +270,8 @@ function draw(api, session, params, out)
                     {
                         // Prevent loss and reduce pending coins
                         pendingCoins = 10;
+                        //currentBets[LOSS_GUARD] = 0;
+                        turnResult = -2;
                     }
                     else
                     {
@@ -282,7 +295,7 @@ function draw(api, session, params, out)
         }
     }
 
-    if(turnResult != -1)
+    if(turnResult > -1)
     {
         switch(total)
         {
@@ -340,7 +353,7 @@ function draw(api, session, params, out)
 
             if(b == COIN_MULTIPLIER)
             {
-                pendingCoins += PREDICT_WINNINGS[b] * 10 * currentBets[b];
+                pendingCoins += PREDICT_WINNINGS[b] * currentBets[b];
             }
             else if(b == COIN_PER_TURN)
             {
@@ -359,6 +372,11 @@ function draw(api, session, params, out)
             pendingCoins += PREDICT_WINNINGS[EMPTY_10] * currentBets[EMPTY_10];
             paid.append(EMPTY_10);
         }
+    }
+    else if(turnResult == -2)
+    {
+        paid.append(LOSS_GUARD);
+        turnResult = 0;
     }
 
     api.SetResponse(out, "cards", arrayToJSON([ card1, card2, card3 ]));

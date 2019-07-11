@@ -192,6 +192,7 @@ function stop(api, session, params, out)
                 api.SetResponse(out, "error", "Payout failed");
             }
 
+            api.SetResponse(out, "matchItem", matchItem.tostring());
             api.SetResponse(out, "coins", coinCount.tostring());
         }
 
