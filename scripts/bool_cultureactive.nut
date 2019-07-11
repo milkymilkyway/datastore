@@ -12,24 +12,27 @@ function check(source, cState, dState, zone, value1, value2, params)
     {
         return -1;
     }
+
     local culture = character.GetCultureData().Get();
     if(culture == null)
     {
         return -1;
     }
+
     if(value1 == 1)
     {
-        if(culture.GetActive() == value1)
+        if(!culture.GetItem().IsNull() && !culture.GetActive())
         {
             return 0;
         }
     }
-    if(value2 == 1)
+    else
     {
-        if(culture.GetActive() == value2)
+        if(culture.GetActive())
         {
             return 0;
         }
     }
+
     return -1;
 }
