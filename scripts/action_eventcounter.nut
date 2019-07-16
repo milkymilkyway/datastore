@@ -8,7 +8,7 @@ function define(script)
 // Create/Modify an event counter
 // - params[0]: event counter ID
 // - params[1]: value to change/set counter by
-// - params[2]: counter should be decreased if 1, set to params[1] if 2
+// - params[2]: counter should be decreased if 1, set to params[1] if 2, flag mask (add) if 3
 // - params[3]: if 1, set the world counter instead
 function run(source, cState, dState, zone, server, params)
 {
@@ -43,9 +43,18 @@ function run(source, cState, dState, zone, server, params)
         characterUID = character.GetUUID();
     }
 
-    if(params.len() == 3 && params[2].tointeger() == 1)
+    if(params.len() == 3)
     {
-        counterValue = counterValue * -1;
+        if(params[2].tointeger() == 1)
+        {
+            // Decrease
+            counterValue = counterValue * -1;
+        }
+        else if(params[2].tointeger() == 3)
+        {
+            // Flag mask (add)
+            counterValue = 1 << counterValue;
+        }
     }
 
     if(!eCounter || eCounter.GetUUID().IsNull())
@@ -70,6 +79,11 @@ function run(source, cState, dState, zone, server, params)
         {
             // Setting
             eCounter.SetCounter(counterValue);
+        }
+        else if(params.len() == 3 && params[2].tointeger() == 3)
+        {
+            // Flag mask (add)
+            eCounter.SetCounter(eCounter.GetCounter() | counterValue);
         }
         else
         {
