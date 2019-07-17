@@ -1,5 +1,99 @@
 ﻿<objects>
     <!-- Common events -->
+    <object name="EventPerformActions">
+        <member name="ID">D1061X_CF</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1061X_DISGRACEFUL</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventCondition">
+                    <member name="type">STATUS_ACTIVE</member>
+                    <member name="value1">2903</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>1</key>
+                            <value>100</value>
+                        </pair>
+                        <pair>
+                            <key>2903</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPrompt">
         <member name="ID">D1061X_EXIT</member>
         <member name="messageID">23</member>
@@ -135,6 +229,17 @@
     <object name="EventPerformActions">
         <member name="ID">D10610_PA001</member>
         <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionZoneChange">
                     <member name="spotID">50002</member>
@@ -392,6 +497,17 @@
     <object name="EventPerformActions">
         <member name="ID">D10611_PA001</member>
         <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionZoneChange">
                     <member name="spotID">50002</member>
@@ -662,6 +778,17 @@
         <member name="ID">D10612_PA001</member>
         <member name="actions">
             <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionZoneChange">
                     <member name="spotID">50002</member>
                 </object>
@@ -868,6 +995,17 @@
     <object name="EventPerformActions">
         <member name="ID">D10613_ZC001</member>
         <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionZoneChange">
                     <member name="spotID">50002</member>
@@ -1645,6 +1783,17 @@
                 </object>
             </element>
             <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionZoneChange">
                     <member name="spotID">50002</member>
                 </object>
@@ -1900,6 +2049,17 @@
                 <object name="ActionPlayBGM">
                     <member name="musicID">180</member>
                     <member name="fadeInDelay">50</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
             <element>
@@ -2184,6 +2344,17 @@
                 <object name="ActionPlayBGM">
                     <member name="musicID">232</member>
                     <member name="fadeInDelay">50</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
             <element>

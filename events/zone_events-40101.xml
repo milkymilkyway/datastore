@@ -6937,8 +6937,62 @@
             <element>148252</element>
         </member>
     </object>
-    <object name="EventNPCMessage">
+    <object name="Event">
         <member name="ID">Z40101_649</member>
+        <member name="next">Z40101_649_01</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z40101_649_01a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">32</member>
+                                <member name="value2">4</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">32</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z40101_649_01b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">694</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40101_649_01a</member>
+        <member name="messageIDs">
+            <element>206002</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40101_649_01b</member>
+        <member name="next">Z40101_PR030</member>
+        <member name="messageIDs">
+            <element>206001</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40101_649_01</member>
         <member name="next">Z40101_PR030</member>
         <member name="messageIDs">
             <element>206003</element>
@@ -6976,6 +7030,12 @@
                 <object name="ActionStageEffect">
                     <member name="messageID">206008</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">260101</member>
+                    <member name="spotID">50001</member>
                 </object>
             </element>
         </member>
@@ -8530,29 +8590,20 @@
     </object>
     <object name="Event">
         <member name="ID">Z40101_10001_0003</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>4</element>
-        </member>
+        <member name="next">Z40101_10001_0004</member>
         <member name="branches">
             <element>
                 <object>
                     <member name="next">Z40101_10001_0003a</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z40101_10001_0004</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z40101_10001_0004</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z40101_10001_0004</member>
+                    <member name="next">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_random</member>
+                                <member name="value1">15</member>
+                                <member name="value2">85</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -8861,14 +8912,64 @@
             </element>
         </member>
     </object>
+    <object name="Event">
+        <member name="ID">Z40101_649_L</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z40101_649_L2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">695</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z40101_649_L2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">649</member>
+                    <member name="state">1</member>
+                    <member name="sourceClientOnly">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z40101_Q32</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z40101_Q32_SC003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">32</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPlayScene">
-        <member name="ID">Z40101_UNMAP_SC003</member>
-        <member name="next">Z40101_UNMAP_PA031</member>
+        <member name="ID">Z40101_Q32_SC003</member>
+        <member name="next">Z40101_Q32_PA031</member>
         <member name="sceneID">2101</member>
         <member name="unknown">1</member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z40101_UNMAP_PA031</member>
+        <member name="ID">Z40101_Q32_PA031</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -8886,6 +8987,12 @@
                 <object name="ActionUpdateQuest">
                     <member name="questID">32</member>
                     <member name="phase">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">260101</member>
+                    <member name="spotID">50001</member>
                 </object>
             </element>
         </member>
