@@ -27,8 +27,8 @@ function run(source, cState, dState, zone, server, params)
     }
     else
     {
-        match.SetQueueDuration(15);
-        match.SetAnnounceDuration(15);
+        match.SetQueueDuration(10);
+        match.SetAnnounceDuration(10);
         match.SetReadyDuration(300);
         match.SetDarkLimit(400000);
         match.SetGaugeDecay(5000);
@@ -37,6 +37,7 @@ function run(source, cState, dState, zone, server, params)
         match.SetMemberLimit(5);
         match.SetSpectatorLimit(50);
     }
+
     return server.GetMatchManager().StartStopMatch(gZone, match)
         ? Result_t.SUCCESS : Result_t.FAIL;
 }
