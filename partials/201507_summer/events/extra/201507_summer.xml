@@ -83,6 +83,189 @@
             </element>
         </member>
     </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201507_587_D10511</member>
+        <member name="next">EX201507_587_D10511_PR</member>
+        <member name="messageIDs">
+            <element>1157617</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201507_587_D10511_PR</member>
+        <member name="messageID">1157618</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201507_587_D10511_END</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201507_587_D10511_MI</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">799</member>
+                                            <member name="value2">100000</member>
+                                            <member name="compareMode">LT</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201507_587_D10511_MD</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="compareMode">EXISTS</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201507_587_D10511_PD</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">PARTNER_ALIVE</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201507_587_D10511_PF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">PARTNER_FAMILIARITY</member>
+                                            <member name="value1">8001</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201507_587_D10511_MOUNT</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_tokusei</member>
+                                            <member name="params">
+                                                <element>9999999</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201507_587_D10511_CANCEL</member>
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201507_587_D10511_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>799</key>
+                            <value>-100000</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1157630</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">10511</member>
+                    <member name="variantID">10058</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">10511</member>
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201507_587_D10511_MI</member>
+        <member name="messageIDs">
+            <element>1157620</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201507_587_D10511_MD</member>
+        <member name="messageIDs">
+            <element>1157621</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201507_587_D10511_PD</member>
+        <member name="messageIDs">
+            <element>1157622</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201507_587_D10511_PF</member>
+        <member name="messageIDs">
+            <element>1157623</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201507_587_D10511_MOUNT</member>
+        <member name="messageIDs">
+            <element>1157624</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201507_587_D10511_CANCEL</member>
+        <member name="next">N587_MAIN_PR</member>
+        <member name="messageIDs">
+            <element>1157619</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">SD_587_MAIN_PR</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_true</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="skipInvalid">true</member>
+    </object>
     <object name="Event">
         <member name="ID">EX201507_656_BARTER</member>
         <member name="next">EX201507_656_BARTER_652</member>
