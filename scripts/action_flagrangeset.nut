@@ -36,7 +36,7 @@ function run(source, cState, dState, zone, server, params)
         if(percentIncluded)
         {
             local chance = params[i + (valueSize - 1)].tointeger();
-            setKey = chance >= 100 || chance <= Randomizer.RNG(1, 100);
+            setKey = chance >= 100 || chance >= Randomizer.RNG(1, 100);
         }
 
         if(setKey)

@@ -1,19 +1,38 @@
 ﻿<objects>
+    <!-- todo: enable title rewards for Eihwaz. -->
     <object name="Event">
-        <member name="ID">Z260101_233</member>
-        <!-- todo: Conditions missing -->
-        <member name="next">Z260101_NM001</member>
+        <member name="ID">Z260101_653_L</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z260101_PR001</member>
-                    <!-- condition: unknown -->
+                    <member name="next">Z260101_653_L2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">696</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260101_653_L2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">653</member>
+                    <member name="state">1</member>
+                    <member name="sourceClientOnly">true</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM001</member>
+        <member name="ID">Z260101_233</member>
         <member name="next">Z260101_PR001</member>
         <member name="messageIDs">
             <element>220001</element>
@@ -21,7 +40,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR001</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">220002</member>
         <member name="choices">
             <element>
@@ -31,25 +49,7 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM004</member>
-                                <!-- condition: unknown -->
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z260101_NM007</member>
-                                <!-- condition: unknown -->
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z260101_NM010</member>
-                                <!-- condition: unknown -->
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z260101_NM012</member>
+                                <member name="next">Z260101_NM002a</member>
                                 <!-- condition: unknown -->
                             </object>
                         </element>
@@ -96,9 +96,15 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z260101_NM002</member>
-        <member name="next">Z260101_PR002</member>
+        <member name="next">Z260101_NM002a</member>
         <member name="messageIDs">
             <element>220003</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_NM002a</member>
+        <member name="next">Z260101_PR002</member>
+        <member name="messageIDs">
             <element>220004</element>
         </member>
     </object>
@@ -110,6 +116,170 @@
                 <object name="EventChoice">
                     <member name="next">Z260101_NM003</member>
                     <member name="messageID">220031</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM013</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="negate">true</member>
+                                            <member name="compareMode">EXISTS</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_NM005</member>
+                    <member name="messageID">220032</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="value1">80</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM013</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="negate">true</member>
+                                            <member name="compareMode">EXISTS</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM008</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_PHASE</member>
+                                            <member name="compareMode">GTE</member>
+                                            <member name="value1">80</member>
+                                            <member name="value2">3</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_NM009</member>
+                    <member name="messageID">220033</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="value1">80</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM013</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="negate">true</member>
+                                            <member name="compareMode">EXISTS</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_NM011</member>
+                    <member name="messageID">220034</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="value1">80</member>
+                                <member name="value2">4</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM013</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="negate">true</member>
+                                            <member name="compareMode">EXISTS</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_NM014</member>
+                    <member name="messageID">220035</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">80</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM013</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="negate">true</member>
+                                            <member name="compareMode">EXISTS</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_NM006</member>
+                    <member name="messageID">220030</member>
                 </object>
             </element>
             <element>
@@ -154,40 +324,17 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM004</member>
-        <member name="next">Z260101_PR004</member>
-        <member name="messageIDs">
-            <element>220004</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z260101_PR004</member>
-        <member name="messageID">220004</member>
-        <member name="choices">
             <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM003</member>
-                    <member name="messageID">220031</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12901</member>
+                    <member name="variantID">20019</member>
                 </object>
             </element>
             <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM005</member>
-                    <member name="messageID">220032</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM006</member>
-                    <member name="messageID">220030</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220027</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12901</member>
                 </object>
             </element>
         </member>
@@ -226,6 +373,19 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12902</member>
+                    <member name="variantID">20019</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12902</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -233,55 +393,6 @@
         <member name="next">Z260101_PR001</member>
         <member name="messageIDs">
             <element>220003</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM007</member>
-        <member name="next">Z260101_PR006</member>
-        <member name="messageIDs">
-            <element>220004</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z260101_PR006</member>
-        <!-- todo: Conditions missing -->
-        <member name="messageID">220004</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220031</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM005</member>
-                    <member name="messageID">220032</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z260101_NM008</member>
-                                <!-- condition: unknown -->
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM009</member>
-                    <member name="messageID">220033</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220030</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220027</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -325,50 +436,17 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM010</member>
-        <member name="next">Z260101_PR008</member>
-        <member name="messageIDs">
-            <element>220004</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z260101_PR008</member>
-        <member name="messageID">220004</member>
-        <member name="choices">
             <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM003</member>
-                    <member name="messageID">220031</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12903</member>
+                    <member name="variantID">20019</member>
                 </object>
             </element>
             <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM005</member>
-                    <member name="messageID">220032</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220033</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM011</member>
-                    <member name="messageID">220034</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220030</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220027</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12903</member>
                 </object>
             </element>
         </member>
@@ -407,55 +485,17 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM012</member>
-        <member name="next">Z260101_PR010</member>
-        <member name="messageIDs">
-            <element>220004</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z260101_PR010</member>
-        <member name="messageID">220004</member>
-        <member name="choices">
             <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM013</member>
-                    <member name="messageID">220031</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12904</member>
+                    <member name="variantID">20019</member>
                 </object>
             </element>
             <element>
-                <object name="EventChoice">
-                    <member name="messageID">220032</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220033</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM011</member>
-                    <member name="messageID">220034</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM014</member>
-                    <member name="messageID">220035</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220030</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">220027</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12904</member>
                 </object>
             </element>
         </member>
@@ -497,6 +537,19 @@
                 <object name="ActionStageEffect">
                     <member name="messageID">220044</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12905</member>
+                    <member name="variantID">20019</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12905</member>
                 </object>
             </element>
         </member>
@@ -580,6 +633,13 @@
         <member name="next">Z260101_PR012</member>
         <member name="messageIDs">
             <element>207151</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_R2_NM012a</member>
+        <member name="next">Z260101_PR012</member>
+        <member name="messageIDs">
+            <element>207152</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -1045,29 +1105,48 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_R2_NM012</member>
+                    <member name="next">Z260101_R2_NM012a</member>
                     <member name="messageID">207150</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_COMPLETE</member>
-                                <member name="value1">36</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_COMPLETE</member>
-                                <member name="value1">49</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
                     <member name="branches">
                         <element>
                             <object>
+                                <member name="next">Z260101_R2_NM012</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">STATUS_ACTIVE</member>
+                                            <member name="value1">2537</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
                                 <member name="next">Z260101_NM110</member>
-                                <!-- todo: solo fight -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">33</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">34</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">35</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -2876,8 +2955,37 @@
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
+                    <member name="messageID">207157</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
                     <member name="messageID">207158</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2537</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12701</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12701</member>
                 </object>
             </element>
         </member>
@@ -3633,29 +3741,48 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM186</member>
+                    <member name="next">Z260101_NM189a</member>
                     <member name="messageID">206200</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_COMPLETE</member>
-                                <member name="value1">46</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_COMPLETE</member>
-                                <member name="value1">48</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
                     <member name="branches">
                         <element>
                             <object>
                                 <member name="next">Z260101_NM189</member>
-                                <!-- todo: Solo match -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">STATUS_ACTIVE</member>
+                                            <member name="value1">2536</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM186</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">38</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">39</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">40</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -3800,8 +3927,37 @@
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
+                    <member name="messageID">206207</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
                     <member name="messageID">206208</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2536</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12702</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12702</member>
                 </object>
             </element>
         </member>
@@ -3818,6 +3974,13 @@
         <member name="next">Z260101_PR106</member>
         <member name="messageIDs">
             <element>206201</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_NM189a</member>
+        <member name="next">Z260101_PR106</member>
+        <member name="messageIDs">
+            <element>206202</element>
         </member>
     </object>
     <object name="Event">
@@ -5695,21 +5858,21 @@
             </element>
         </member>
     </object>
-    <object name="Event">
+    <object name="EventPerformActions">
         <member name="ID">Z260101_Q32</member>
-        <member name="branches">
+        <member name="conditions">
             <element>
-                <object>
-                    <member name="next">Z260101_ML001</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_PHASE</member>
-                                <member name="value1">32</member>
-                                <member name="value2">3</member>
-                            </object>
-                        </element>
-                    </member>
+                <object name="EventCondition">
+                    <member name="type">QUEST_PHASE</member>
+                    <member name="value1">32</member>
+                    <member name="value2">3</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">Z260101_ML001</member>
                 </object>
             </element>
         </member>
@@ -5793,33 +5956,32 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z260101_NM271</member>
-        <!-- todo: Conditions missing -->
         <member name="next">Z260101_PR137</member>
         <member name="messageIDs">
             <element>209000</element>
         </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">Z260101_PR170</member>
-                    <!-- condition: unknown -->
-                </object>
-            </element>
-        </member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR137</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209001</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
                     <member name="next">Z260101_NM272</member>
                     <member name="messageID">209032</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM355</member>
+                                <!-- condition: unknown -->
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z260101_NM356</member>
                     <member name="messageID">209033</member>
                 </object>
             </element>
@@ -5831,55 +5993,127 @@
                         <element>
                             <object>
                                 <member name="next">Z260101_NM319</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_ACTIVE</member>
+                                            <member name="value1">71</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM325</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_ACTIVE</member>
+                                            <member name="value1">72</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM328</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_ACTIVE</member>
+                                            <member name="value1">73</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM331</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_ACTIVE</member>
+                                            <member name="value1">74</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM334</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_ACTIVE</member>
+                                            <member name="value1">75</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM340</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_ACTIVE</member>
+                                            <member name="value1">76</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM343</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_ACTIVE</member>
+                                            <member name="value1">77</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM346</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_ACTIVE</member>
+                                            <member name="value1">78</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM349</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">78</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -5887,19 +6121,34 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM350</member>
+                    <member name="next">Z260101_NM351</member>
                     <member name="messageID">209156</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM351</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_NM350</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">74</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM354</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">STATUS_ACTIVE</member>
+                                            <member name="value1">2538</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -5907,7 +6156,45 @@
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z260101_NM364</member>
                     <member name="messageID">207004</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM364a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">72</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">74</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_653_T01</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">74</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -6095,54 +6382,122 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR142</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209168</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM278</member>
                     <member name="messageID">1</member>
                     <member name="branches">
                         <element>
                             <object>
+                                <member name="next">Z260101_NM278</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">71</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
                                 <member name="next">Z260101_NM284</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">72</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM289</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">73</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM294</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">74</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM299</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">75</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM304</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">76</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM309</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">77</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                         <element>
                             <object>
                                 <member name="next">Z260101_NM314</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">78</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6194,6 +6549,21 @@
                 <object name="EventChoice">
                     <member name="next">Z260101_NM280</member>
                     <member name="messageID">209309</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_653_MQ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUESTS_ACTIVE</member>
+                                            <member name="value1">20</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -6213,7 +6583,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS106</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -6267,6 +6636,12 @@
         </member>
     </object>
     <object name="EventNPCMessage">
+        <member name="ID">Z260101_653_MQ</member>
+        <member name="messageIDs">
+            <element>209253</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
         <member name="ID">Z260101_NM285</member>
         <member name="next">Z260101_PR146</member>
         <member name="messageIDs">
@@ -6285,8 +6660,15 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM287</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_653_MQ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUESTS_ACTIVE</member>
+                                            <member name="value1">20</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6309,32 +6691,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS108</member>
-        <member name="next">Z260101_NM281</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209273</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">72</member>
-                    <member name="phase">0</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM287</member>
-        <member name="next">Z260101_MS109</member>
-        <member name="messageIDs">
-            <element>209196</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS109</member>
-        <member name="next">Z260101_NM271</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -6389,7 +6745,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR148</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209207</member>
         <member name="choices">
             <element>
@@ -6399,8 +6754,15 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM292</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_653_MQ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUESTS_ACTIVE</member>
+                                            <member name="value1">20</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6423,32 +6785,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS110</member>
-        <member name="next">Z260101_NM281</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209276</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">73</member>
-                    <member name="phase">0</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM292</member>
-        <member name="next">Z260101_MS111</member>
-        <member name="messageIDs">
-            <element>209208</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS111</member>
-        <member name="next">Z260101_NM271</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -6503,7 +6839,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR150</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209219</member>
         <member name="choices">
             <element>
@@ -6513,8 +6848,15 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM297</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_653_MQ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUESTS_ACTIVE</member>
+                                            <member name="value1">20</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6537,32 +6879,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS112</member>
-        <member name="next">Z260101_NM281</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209279</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">74</member>
-                    <member name="phase">0</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM297</member>
-        <member name="next">Z260101_MS113</member>
-        <member name="messageIDs">
-            <element>209220</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS113</member>
-        <member name="next">Z260101_NM271</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -6617,7 +6933,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR152</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209231</member>
         <member name="choices">
             <element>
@@ -6627,8 +6942,15 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM302</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_653_MQ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUESTS_ACTIVE</member>
+                                            <member name="value1">20</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6651,32 +6973,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS114</member>
-        <member name="next">Z260101_NM281</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209282</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">75</member>
-                    <member name="phase">0</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM302</member>
-        <member name="next">Z260101_MS115</member>
-        <member name="messageIDs">
-            <element>209232</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS115</member>
-        <member name="next">Z260101_NM271</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -6731,7 +7027,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR154</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209243</member>
         <member name="choices">
             <element>
@@ -6741,8 +7036,15 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM307</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_653_MQ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUESTS_ACTIVE</member>
+                                            <member name="value1">20</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6765,32 +7067,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS116</member>
-        <member name="next">Z260101_NM281</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209285</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">76</member>
-                    <member name="phase">0</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM307</member>
-        <member name="next">Z260101_MS117</member>
-        <member name="messageIDs">
-            <element>209244</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS117</member>
-        <member name="next">Z260101_NM271</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -6845,7 +7121,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR156</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209255</member>
         <member name="choices">
             <element>
@@ -6855,8 +7130,15 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM312</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_653_MQ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUESTS_ACTIVE</member>
+                                            <member name="value1">20</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6879,32 +7161,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS118</member>
-        <member name="next">Z260101_NM281</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209288</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">77</member>
-                    <member name="phase">0</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM312</member>
-        <member name="next">Z260101_MS119</member>
-        <member name="messageIDs">
-            <element>209256</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS119</member>
-        <member name="next">Z260101_NM271</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -6959,7 +7215,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR158</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209267</member>
         <member name="choices">
             <element>
@@ -6969,8 +7224,15 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM317</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_653_MQ</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUESTS_ACTIVE</member>
+                                            <member name="value1">20</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -6993,32 +7255,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS120</member>
-        <member name="next">Z260101_NM281</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209291</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">78</member>
-                    <member name="phase">0</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM317</member>
-        <member name="next">Z260101_MS121</member>
-        <member name="messageIDs">
-            <element>209268</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS121</member>
-        <member name="next">Z260101_NM271</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -7049,7 +7285,6 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR159</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209171</member>
         <member name="choices">
             <element>
@@ -7060,13 +7295,15 @@
                         <element>
                             <object>
                                 <member name="next">Z260101_NM323</member>
-                                <!-- condition: unknown -->
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z260101_NM324</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">PARTNER_FAMILIARITY</member>
+                                            <member name="value1">8000</member>
+                                            <member name="value2">10000</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -7112,13 +7349,126 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z260101_NM322</member>
-        <member name="next">Z260101_PA113</member>
         <member name="messageIDs">
             <element>209176</element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z260101_653_Q71</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">71</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z260101_653_Q72</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">72</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z260101_653_Q73</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">73</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z260101_653_Q74</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">74</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z260101_653_Q75</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">75</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z260101_653_Q76</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">76</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z260101_653_Q77</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">77</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z260101_653_Q78</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">78</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z260101_PA113</member>
+        <member name="ID">Z260101_653_Q71</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -7135,6 +7485,132 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260101_653_Q72</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">209275</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">72</member>
+                    <member name="forceUpdate">true</member>
+                    <member name="phase">-2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260101_653_Q73</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">209278</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">73</member>
+                    <member name="forceUpdate">true</member>
+                    <member name="phase">-2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260101_653_Q74</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">209281</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">74</member>
+                    <member name="forceUpdate">true</member>
+                    <member name="phase">-2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260101_653_Q75</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">209284</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">75</member>
+                    <member name="forceUpdate">true</member>
+                    <member name="phase">-2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260101_653_Q76</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">209287</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">76</member>
+                    <member name="forceUpdate">true</member>
+                    <member name="phase">-2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260101_653_Q77</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">209290</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">77</member>
+                    <member name="forceUpdate">true</member>
+                    <member name="phase">-2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260101_653_Q78</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">209293</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">78</member>
+                    <member name="forceUpdate">true</member>
+                    <member name="phase">-2</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">Z260101_NM323</member>
         <member name="next">Z260101_MS123</member>
@@ -7144,7 +7620,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS123</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -7153,28 +7628,9 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">71</member>
-                    <member name="phase">-1</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM324</member>
-        <member name="next">Z260101_MS124</member>
-        <member name="messageIDs">
-            <element>209172</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS124</member>
-        <member name="next">Z260101_NM271</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209271</member>
-                    <member name="includeMessage">true</member>
+                <object name="ActionGrantXP">
+                    <member name="XP">250000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
                 </object>
             </element>
             <element>
@@ -7198,8 +7654,145 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM326</member>
+                    <member name="next">Z260101_NM320</member>
                     <member name="messageID">209296</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">CLAN_HOME</member>
+                                            <member name="value1">20101</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">CLAN_HOME</member>
+                                            <member name="value1">50101</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">CLAN_HOME</member>
+                                            <member name="value1">100101</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">CLAN_HOME</member>
+                                            <member name="value1">130101</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">CLAN_HOME</member>
+                                            <member name="value1">140101</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">1001</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">1002</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">1003</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">1004</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM326a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">1005</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -7216,14 +7809,27 @@
             <element>209184</element>
         </member>
     </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_NM326a</member>
+        <member name="next">Z260101_MS125</member>
+        <member name="messageIDs">
+            <element>209185</element>
+            <element>209186</element>
+        </member>
+    </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS125</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">209274</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">250000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
                 </object>
             </element>
             <element>
@@ -7247,8 +7853,24 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM329</member>
+                    <member name="next">Z260101_NM320</member>
                     <member name="messageID">209297</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM329</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">27</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -7267,12 +7889,17 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS127</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">209277</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">250000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
                 </object>
             </element>
             <element>
@@ -7292,18 +7919,25 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR163</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209171</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM332</member>
+                    <member name="next">Z260101_NM320</member>
                     <member name="messageID">209298</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z260101_NM333</member>
-                                <!-- condition: unknown -->
+                                <member name="next">Z260101_NM332</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">673</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -7325,7 +7959,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS129</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -7334,28 +7967,9 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">74</member>
-                    <member name="phase">-1</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM333</member>
-        <member name="next">Z260101_MS130</member>
-        <member name="messageIDs">
-            <element>209210</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_MS130</member>
-        <member name="next">Z260101_NM271</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209280</member>
-                    <member name="includeMessage">true</member>
+                <object name="ActionGrantXP">
+                    <member name="XP">250000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
                 </object>
             </element>
             <element>
@@ -7375,18 +7989,25 @@
     </object>
     <object name="EventPrompt">
         <member name="ID">Z260101_PR164</member>
-        <!-- todo: Conditions missing -->
         <member name="messageID">209171</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM335</member>
+                    <member name="next">Z260101_NM320</member>
                     <member name="messageID">209299</member>
                     <member name="branches">
                         <element>
                             <object>
                                 <member name="next">Z260101_NM338</member>
-                                <!-- condition: unknown -->
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">2216</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -7400,62 +8021,6 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM335</member>
-        <member name="next">Z260101_PR165</member>
-        <member name="messageIDs">
-            <element>209223</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z260101_PR165</member>
-        <member name="messageID">209224</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM336</member>
-                    <member name="messageID">209306</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM337</member>
-                    <member name="messageID">209307</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM336</member>
-        <member name="messageIDs">
-            <element>209225</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z260101_NM337</member>
-        <member name="next">Z260101_PA122</member>
-        <member name="messageIDs">
-            <element>209226</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z260101_PA122</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">209284</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">75</member>
-                    <member name="forceUpdate">true</member>
-                    <member name="phase">-2</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
         <member name="ID">Z260101_NM338</member>
         <member name="next">Z260101_MS132</member>
         <member name="messageIDs">
@@ -7464,7 +8029,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS132</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -7472,6 +8036,18 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">250000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+<!--             <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">TITLE</member>
+                    <member name="ID">1001</member>
+                </object>
+            </element> -->
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">75</member>
@@ -7493,8 +8069,38 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM341</member>
+                    <member name="next">Z260101_NM320</member>
                     <member name="messageID">209300</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM341</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">686</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM341</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">687</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -7513,12 +8119,17 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS134</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">209286</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">250000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
                 </object>
             </element>
             <element>
@@ -7542,8 +8153,24 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM344</member>
+                    <member name="next">Z260101_NM320</member>
                     <member name="messageID">209301</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM344</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">55</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -7562,7 +8189,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS136</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -7570,6 +8196,24 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">250000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                </object>
+            </element>
+<!--             <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">TITLE</member>
+                    <member name="ID">1002</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">TITLE</member>
+                    <member name="ID">1003</member>
+                </object>
+            </element> -->
             <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">77</member>
@@ -7591,8 +8235,24 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_NM347</member>
+                    <member name="next">Z260101_NM320</member>
                     <member name="messageID">209302</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z260101_NM347</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">LEVEL</member>
+                                            <member name="value1">75</member>
+                                            <member name="compareMode">GTE</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -7611,12 +8271,17 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z260101_MS138</member>
-        <member name="next">Z260101_NM281</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">209292</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">250000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
                 </object>
             </element>
             <element>
@@ -7677,8 +8342,37 @@
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
+                    <member name="messageID">209164</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
                     <member name="messageID">209165</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2538</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">12703</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">12703</member>
                 </object>
             </element>
         </member>
@@ -7695,49 +8389,6 @@
         <member name="next">Z260101_PR137</member>
         <member name="messageIDs">
             <element>209158</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z260101_PR170</member>
-        <!-- todo: Conditions missing -->
-        <member name="messageID">209001</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM355</member>
-                    <member name="messageID">209032</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z260101_NM272</member>
-                                <!-- condition: unknown -->
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM356</member>
-                    <member name="messageID">209033</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z260101_NM364</member>
-                    <member name="messageID">207004</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">4</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -7820,7 +8471,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z260101_PR170</member>
+                    <member name="next">Z260101_PR137</member>
                     <member name="messageID">204010</member>
                 </object>
             </element>
@@ -7882,9 +8533,108 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z260101_NM364</member>
-        <member name="next">Z260101_PR170</member>
+        <member name="next">Z260101_PR137</member>
         <member name="messageIDs">
             <element>209046</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_NM364a</member>
+        <member name="next">Z260101_PR137</member>
+        <member name="messageIDs">
+            <element>209045</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_653_T01</member>
+        <member name="next">Z260101_653_T02</member>
+        <member name="messageIDs">
+            <element>209038</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z260101_653_T02</member>
+        <member name="messageID">209038</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_653_T03</member>
+                    <member name="messageID">209039</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_653_T04</member>
+                    <member name="messageID">209040</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_653_T05</member>
+                    <member name="messageID">209041</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z260101_PR137</member>
+                    <member name="messageID">204010</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">4</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_653_T03</member>
+        <member name="next">Z260101_653_T02</member>
+        <member name="messageIDs">
+            <element>209042</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_653_T04</member>
+        <member name="next">Z260101_653_T02</member>
+        <member name="messageIDs">
+            <element>209043</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_653_T05</member>
+        <member name="next">Z260101_653_T06w</member>
+        <member name="messageIDs">
+            <element>209044</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z260101_653_T06m</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">GENDER</member>
+                                <member name="value1">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_653_T06m</member>
+        <member name="next">Z260101_653_T02</member>
+        <member name="messageIDs">
+            <element>209312</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z260101_653_T06w</member>
+        <member name="next">Z260101_653_T02</member>
+        <member name="messageIDs">
+            <element>209313</element>
         </member>
     </object>
     <object name="Event">
@@ -7908,7 +8658,7 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z260101_UNMAP_NM365</member>
-        <member name="next">Z260101_PR170</member>
+        <member name="next">Z260101_PR137</member>
         <member name="messageIDs">
             <element>209000</element>
         </member>
