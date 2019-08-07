@@ -13,14 +13,12 @@ function check(source, cState, dState, zone, value1, value2, params)
     if(instance != null)
     {
         local variant = instance.GetVariant();
-        if(variant != null)
+        local variantID = variant != null ? variant.GetID() : 0;
+        for(local i = 0; i < params.len(); i++)
         {
-            for(local i = 0; i < params.len(); i++)
+            if(params[i].tointeger() == variantID)
             {
-                if(params[i].tointeger() == variant.GetID())
-                {
-                    return 0;
-                }
+                return 0;
             }
         }
     }
