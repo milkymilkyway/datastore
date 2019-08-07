@@ -10,7 +10,8 @@ function define(script)
 // - params[1]: message ID
 function run(source, cState, dState, zone, server, params)
 {
-    if(cState == null || params.len() < 1)
+    local character = cState != null ? cState.GetEntity() : null;
+    if(character == null || params.len() < 1)
     {
         return Result_t.FAIL;
     }
@@ -19,14 +20,11 @@ function run(source, cState, dState, zone, server, params)
     local lobbyDB = server.GetLobbyDatabase();
     local clock = server.GetWorldClockTime();
 
-    local character = cState.GetEntity();
-    if(character == null)
-    {
-        return Result_t.FAIL;
-    }
+    local accountRef = AccountRef();
+    accountRef.SetUUID(character.GetAccount());
 
     local post = PostItem();
-    post.SetAccount(character.GetAccount());
+    post.SetAccount(accountRef);
     post.SetTimestamp(clock.SystemTime);
     if(params.len() >= 2)
     {
