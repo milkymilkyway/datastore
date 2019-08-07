@@ -5,6 +5,8 @@ function define(script)
     return 0;
 }
 
+// Gather information about how many players are in the current instance and
+// optionally check if a specific world ID is among them.
 // - params[0]: ZONE or INSTANCE for flag types to use during this script
 // - params[1]: Flag key to use for increasing the count
 // - params[2]: (Optional) flag key to check for matching world CID

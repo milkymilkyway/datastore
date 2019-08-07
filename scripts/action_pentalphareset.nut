@@ -5,6 +5,8 @@ function define(script)
     return 0;
 }
 
+// Reset the current Pentalpha match by saving off the current one
+// and starting a new one
 function run(source, cState, dState, zone, server, params)
 {
     local matchManager = server.GetMatchManager();

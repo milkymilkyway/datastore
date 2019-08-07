@@ -5,6 +5,9 @@ function define(script)
     return 0;
 }
 
+// Check if the current character has active (or pending pickup) culture items
+// - value1: If 1, check if the cultiure item pending pickup, otherwise check
+//   if an active item exists
 function check(source, cState, dState, zone, value1, value2, params)
 {
     local character = cState != null ? cState.GetEntity() : null;

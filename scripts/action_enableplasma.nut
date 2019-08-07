@@ -5,9 +5,10 @@ function define(script)
     return 0;
 }
 
+// Enable the supplied plasmas in the current zone
+// - params[0]: Plasma IDs
 function run(source, cState, dState, zone, server, params)
 {
-    local cZone = zone.GetDefinitionID()
     if(zone != null)
     {
         for(local i = 0; i < params.len(); i++)
@@ -17,9 +18,12 @@ function run(source, cState, dState, zone, server, params)
             {
                 return Result_t.FAIL;
             }
+
             pState.Toggle(true, true);
         }
+
         return Result_t.SUCCESS;
     }
+
     return Result_t.FAIL;
 }

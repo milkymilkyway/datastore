@@ -28,7 +28,7 @@ function run(source, cState, dState, zone, server, params)
     else
     {
         // Use character counter
-        local character = cState.GetEntity();
+        local character = cState != null ? cState.GetEntity() : null;
         if(character == null)
         {
             return Result_t.FAIL;

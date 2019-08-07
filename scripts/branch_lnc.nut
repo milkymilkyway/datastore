@@ -8,7 +8,12 @@ function define(script)
 // Branch based on the character's current LNC
 function check(source, cState, dState, zone, params)
 {
-    local character = cState.GetEntity();
+    local character = cState != null ? cState.GetEntity() : null;
+    if(character == null)
+    {
+        return -1;
+    }
+
     local lnc = character.GetLNC();
 
     if(lnc >= 5000)

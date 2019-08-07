@@ -11,7 +11,7 @@ function define(script)
 // - params[0]: GTE value check if 0, flag check if 1
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local character = cState.GetEntity();
+    local character = cState != null ? cState.GetEntity() : null;
     if(character != null)
     {
         if(value1 != 0)

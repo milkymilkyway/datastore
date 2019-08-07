@@ -10,6 +10,6 @@ function define(script)
 // - value2: spawn group ID
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local cZone = zone.GetDefinitionID();
-    return (cZone == value1) && zone.GroupHasSpawned(value2, true, true) ? 0 : -1;
+    return zone != null && zone.GetDefinitionID() == value1 &&
+        zone.GroupHasSpawned(value2, true, true) ? 0 : -1;
 }

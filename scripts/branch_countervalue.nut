@@ -9,7 +9,7 @@ function define(script)
 // - params[0]: event counter
 function check(source, cState, dState, zone, params)
 {
-    if(params.len() == 0)
+    if(cState == null || params.len() < 1)
     {
         return -1;
     }

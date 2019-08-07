@@ -9,7 +9,7 @@ function define(script)
 // - value1: timer ID
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local instance = zone.GetZoneInstance();
+    local instance = zone != null ? zone.GetZoneInstance() : null;
     if(instance != null)
     {
         return instance.GetTimerID() == value1 ? 0 : -1;

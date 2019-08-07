@@ -10,7 +10,7 @@ function define(script)
 // - params[0]: maximum branch number per gender
 function check(source, cState, dState, zone, params)
 {
-    local character = cState.GetEntity();
+    local character = cState ? cState.GetEntity() : null;
     if(params.len() != 1 || character == null)
     {
         return -1;

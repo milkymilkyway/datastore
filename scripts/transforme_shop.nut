@@ -5,9 +5,11 @@ function define(script)
     return 0;
 }
 
+// Set the shop ID from a character zone flag state for an EventOpenMenu
+// - params[0]: Flag key
 function transform(source, cState, dState, zone, params)
 {
-    if(params.len() == 0 || cState == null)
+    if(params.len() == 0 || cState == null || zone == null)
     {
         return -1;
     }

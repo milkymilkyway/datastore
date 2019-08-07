@@ -5,14 +5,14 @@ function define(script)
     return 0;
 }
 
+// Check if the current character is the target source entity
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    if(cState != null)
+    if(source != null && cState != null &&
+        source.GetEntityID() == cState.GetEntityID())
     {
-        if(source.GetEntityID() == cState.GetEntityID())
-        {
-            return 0;
-        }
+        return 0;
     }
+
     return -1;
 }

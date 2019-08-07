@@ -5,6 +5,8 @@ function define(script)
     return 0;
 }
 
+// Randomly pick a world CID that has access to the current instance and set
+// it on a zone or instance flag
 // - params[0]: Flag key to store the character world CID in
 // - params[1]: ZONE or INSTANCE for flag type to set
 function run(source, cState, dState, zone, server, params)

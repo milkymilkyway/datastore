@@ -5,54 +5,56 @@ function define(script)
     return 0;
 }
 
+// Give the Ultimate Battle Champion status effect to the winner(s) of the last
+// tournament for the next 24 hours
 function run(source, cState, dState, zone, server, params)
 {
     local matchManager = server.GetMatchManager();
     local syncManager = server.GetChannelSyncManager();
     local worldDB = server.GetWorldDatabase();
 
-	local current = matchManager.GetUBTournament();
+    local current = matchManager.GetUBTournament();
 
-	if(current && !current.GetPrevious().IsNull())
-	{
+    if(current && !current.GetPrevious().IsNull())
+    {
         // Lastly award status effect to winner(s)
-		local winners = [];
+        local winners = [];
 
-		local prevRef = UBTournamentRef();
-		prevRef.SetUUID(current.GetPrevious());
+        local prevRef = UBTournamentRef();
+        prevRef.SetUUID(current.GetPrevious());
 
         foreach(result in UBResult.LoadUBResultListByTournament(worldDB, prevRef))
         {
-			if(result.GetTournamentRank() == 1)
-			{
-				winners.push(result);
-			}
+            if(result.GetTournamentRank() == 1)
+            {
+                winners.push(result);
+            }
         }
 
-		if(winners.len() > 0)
-		{
-			foreach(winner in winners)
-			{
-				local effect = StatusEffect();
-				effect.SetEffect(2100);
-				effect.SetStack(1);
-				effect.SetEntity(winner.GetCharacter());
-				local post = PostItem();
-				local lobbyDB = server.GetLobbyDatabase();
-				post.SetTimestamp(worldClock.SystemTime);
-				if(PersistentObject.Register(effect, UUID()) && effect.Insert(worldDB))
-				{
-					syncManager.UpdateRecord(effect, "StatusEffect");
-				}
-				else
-				{
-					print("Failed to insert UB champion effect on: " + winner.GetCharacter());
-				}
-			}
+        if(winners.len() > 0)
+        {
+            foreach(winner in winners)
+            {
+                local effect = StatusEffect();
+                effect.SetEffect(2100);
+                effect.SetStack(1);
+                effect.SetEntity(winner.GetCharacter());
+                local post = PostItem();
+                local lobbyDB = server.GetLobbyDatabase();
+                post.SetTimestamp(worldClock.SystemTime);
+                if(PersistentObject.Register(effect, UUID()) && effect.Insert(worldDB))
+                {
+                    syncManager.UpdateRecord(effect, "StatusEffect");
+                }
+                else
+                {
+                    print("Failed to insert UB champion effect on: " + winner.GetCharacter());
+                }
+            }
 
-			syncManager.SyncOutgoing();
-		}
-	}
+            syncManager.SyncOutgoing();
+        }
+    }
 
     return Result_t.SUCCESS;
 }

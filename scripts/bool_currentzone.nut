@@ -9,11 +9,15 @@ function define(script)
 // - params[0]+: list of valid zone IDs
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local cZone = zone.GetDefinitionID()
+    if(zone == null)
+    {
+        return -1;
+    }
 
+    local zoneID = zone.GetDefinitionID();
     for(local i = 0; i < params.len(); i++)
     {
-        if(params[i].tointeger() == cZone)
+        if(params[i].tointeger() == zoneID)
         {
             return 0;
         }

@@ -5,6 +5,7 @@ function define(script)
     return 0;
 }
 
+// Check if the current character is a participant in the current zone
 function check(source, cState, dState, zone, value1, value2, params)
 {
     local ubMatch = zone != null ? zone.GetUBMatch() : null;

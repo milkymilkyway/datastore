@@ -12,7 +12,7 @@ function define(script)
 // 4) Anything else
 function check(source, cState, dState, zone, params)
 {
-    local character = cState.GetEntity();
+    local character = cState != null ? cState.GetEntity() : null;
     local progress = character != null ? character.GetProgress().Get() : null;
     if(progress != null)
     {

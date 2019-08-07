@@ -8,14 +8,15 @@ function define(script)
 // Branch on a dungeon's variant type.
 function check(source, cState, dState, zone, params)
 {
-    local cInstance = zone.GetZoneInstance().GetVariant();
-    if(cInstance != null)
+    local instance = zone != null ? zone.GetZoneInstance() : null;
+    local variant = instance != null ? instance.GetVariant() : null;
+    if(variant != null)
     {
-        if(cInstance.InstanceType == ServerZoneInstanceVariant_InstanceType_t.TIME_TRIAL)
+        if(variant.InstanceType == ServerZoneInstanceVariant_InstanceType_t.TIME_TRIAL)
         {
             return 0;
         }
-        else if(cInstance.InstanceType == ServerZoneInstanceVariant_InstanceType_t.DEMON_ONLY)
+        else if(variant.InstanceType == ServerZoneInstanceVariant_InstanceType_t.DEMON_ONLY)
         {
             return 1;
         }

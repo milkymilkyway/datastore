@@ -9,14 +9,10 @@ function define(script)
 // - value1 = ID of a demon race or -1 for any.
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local character = cState.GetEntity();
-    if(character != null)
+    local dgState = cState != null ? cState.GetDigitalizeState() : null;
+    if(dgState)
     {
-        local dgState = cState.GetDigitalizeState();
-        if(dgState)
-        {
-            return value1 == -1 ? 0 : (dgState.GetRaceID() == value1 ? 0 : -1);
-        }
+        return value1 == -1 ? 0 : (dgState.GetRaceID() == value1 ? 0 : -1);
     }
 
     return -1;

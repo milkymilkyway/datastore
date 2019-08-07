@@ -5,9 +5,12 @@ function define(script)
     return 0;
 }
 
+// Change the current state of a Diaspora tower in the current zone
+// - params[0]: If 1, capture the tower, otherwise release it
+// - params[1]+: Base IDs to toggle
 function run(source, cState, dState, zone, server, params)
 {
-    if(params.len() < 2)
+    if(zone == null || params.len() < 2)
     {
         return Result_t.FAIL;
     }

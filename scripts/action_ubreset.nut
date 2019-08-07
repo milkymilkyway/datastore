@@ -5,6 +5,9 @@ function define(script)
     return 0;
 }
 
+// Reset the current Ultimate Battle tournment by saving off the current one
+// and starting a new one
+// - params[0]: Optional verification check for the current day of the month
 function run(source, cState, dState, zone, server, params)
 {
     local worldClock = server.GetWorldClockTime();

@@ -5,6 +5,7 @@ function define(script)
     return 0;
 }
 
+// Check if the current character is a spectating a UB match
 function check(source, cState, dState, zone, value1, value2, params)
 {
     if(cState != null &&

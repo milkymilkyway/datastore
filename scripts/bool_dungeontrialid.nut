@@ -9,7 +9,7 @@ function define(script)
 // - value1: A time trial ID.
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local character = cState.GetEntity();
+    local character = cState != null ? cState.GetEntity() : null;
     local progress = character != null ? character.GetProgress().Get() : null;
     if(progress != null)
     {
@@ -19,5 +19,6 @@ function check(source, cState, dState, zone, value1, value2, params)
             return 0;
         }
     }
+
     return -1;
 }

@@ -5,9 +5,11 @@ function define(script)
     return 0;
 }
 
+// Set an EventExNPCMessage message value based on an EventCounter value
+// - params[0]: Event counter type
 function transform(source, cState, dState, zone, params)
 {
-    if(params.len() == 0)
+    if(params.len() == 0 || cState == null)
     {
         return -1;
     }

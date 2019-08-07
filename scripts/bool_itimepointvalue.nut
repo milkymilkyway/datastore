@@ -10,7 +10,7 @@ function define(script)
 // - value2: point value
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local character = cState.GetEntity();
+    local character = cState != null ? cState.GetEntity() : null;
     local progress = character ? character.GetProgress().Get() : null;
     if(character == null || progress == null)
     {

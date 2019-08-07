@@ -10,7 +10,7 @@ function define(script)
 // - value2: item count
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local character = cState.GetEntity();
+    local character = cState != null ? cState.GetEntity() : null;
     if(character != null)
     {
         return character.GetMaterialsByKey(value1) >= value2 ? 0 : -1;

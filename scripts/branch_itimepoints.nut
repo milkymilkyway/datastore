@@ -12,7 +12,7 @@ function define(script)
 // - params[2]: If "Y", adjust offset based upon character gender
 function check(source, cState, dState, zone, params)
 {
-    local character = cState.GetEntity();
+    local character = cState != null ? cState.GetEntity() : null;
     local progress = character ? character.GetProgress().Get() : null;
     if(character == null || progress == null || params.len() < 1)
     {

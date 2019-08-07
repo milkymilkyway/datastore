@@ -9,11 +9,11 @@ function define(script)
 // - params[0]+: list of zone instance variant IDs
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local instance = zone.GetZoneInstance();
-    if(instance != null)
+    local instance = zone != null ? zone.GetZoneInstance() : null;
+    local variant = instance != null ? instance.GetVariant() : null;
+    if(variant != null)
     {
-        local variant = instance.GetVariant();
-        local variantID = variant != null ? variant.GetID() : 0;
+        local variantID = variant.GetID();
         for(local i = 0; i < params.len(); i++)
         {
             if(params[i].tointeger() == variantID)

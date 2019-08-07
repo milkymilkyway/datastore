@@ -5,6 +5,10 @@ function define(script)
     return 0;
 }
 
+// Set a counter triggered skill on the current source entity that is AI
+// controlled (only works with specific custom AI types)
+// - params[0]: Skill ID to counter with
+// - params[1]: Optional action type to counter when hit by
 function run(source, cState, dState, zone, server, params)
 {
     if(params.len() < 2 || source == null)

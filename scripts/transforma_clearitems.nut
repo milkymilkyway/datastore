@@ -5,15 +5,13 @@ function define(script)
     return 0;
 }
 
+// Transform an ActionAddRemoveItems command by removing all of the supplied
+// item types the current character has in their inventory
+// - params[0]+: Item types to remove
 function transform(source, cState, dState, zone, params)
 {
-    if(params.len() < 1)
-    {
-        return -1;
-    }
-
-    local character = cState.GetEntity();
-    if(character == null)
+    local character = cState != null ? cState.GetEntity() : null;
+    if(character == null || params.len() < 1)
     {
         return -1;
     }
@@ -21,6 +19,7 @@ function transform(source, cState, dState, zone, params)
     local inventory = character.GetItemBoxesByIndex(0).Get();
     if(inventory == null)
     {
+        // Should never happen
         return -1;
     }
 

@@ -5,6 +5,8 @@ function define(script)
     return 0;
 }
 
+// Spawn an enemy near the current source entity, accounting for zone geometry
+// - params[0]+: Valid spawn IDs (one is randomly chosen)
 function run(source, cState, dState, zone, server, params)
 {
     if(params.len() < 1 || zone == null || source == null)

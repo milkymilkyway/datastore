@@ -5,7 +5,7 @@ function define(script)
     return 0;
 }
 
-// Apply zone or zone instance flag value to an Ex NPC Message
+// Apply zone or zone instance flag value to an EventExNPCMessage
 // - params[0]: Flag key
 // - params[1]: ZONE or INSTANCE for flag type to set
 function transform(source, cState, dState, zone, params)

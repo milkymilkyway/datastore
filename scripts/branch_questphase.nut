@@ -9,12 +9,12 @@ function define(script)
 // - params[0]: quest ID
 function check(source, cState, dState, zone, params)
 {
-    if(params.len() == 0)
+    local character = cState != null ? cState.GetEntity() : null;
+    if(character == null || params.len() < 1)
     {
         return -1;
     }
 
-    local character = cState.GetEntity();
     local quest = character.GetQuestsByKey(params[0].tointeger()).Get();
 
     return quest ? quest.GetPhase() : -1;

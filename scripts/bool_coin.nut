@@ -5,17 +5,11 @@ function define(script)
     return 0;
 }
 
+// Check if the current character has at least the supplied number of coins
 // - value1: Amount of coins.
 function check(source, cState, dState, zone, value1, value2, params)
 {
-    local character = cState.GetEntity();
-    if(character != null)
-    {
-        local coin = character.GetProgress().Get();
-        if (coin != null)
-        {
-            return coin.GetCoins() >= value1 ? 0 : -1;
-        }
-    }
-    return -1;
+    local character = cState != null ? cState.GetEntity() : null;
+    local progress = character != null ? character.GetProgress().Get() : null;
+    return progress != null && progress.GetCoins() >= value1 ? 0 : -1;
 }

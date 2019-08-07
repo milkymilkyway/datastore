@@ -6,16 +6,17 @@ function define(script)
 }
 
 // Transform an ActionUpdatePoints command to ensure the character does not
-// exceed the current I-Time rank using
+// exceed the current I-Time rank using flags for boosting
 // - params[0]: Min rank
 // - params[1]: Max point value
 // - params[2]: Optional CHARACTER_ZONE flag ID for boost percentage
 function transform(source, cState, dState, zone, params)
 {
-    local character = cState.GetEntity();
+    local character = cState != null ? cState.GetEntity() : null;
     local progress = character ? character.GetProgress().Get() : null;
     local addPoints = action.GetValue();
-    if(character == null || progress == null || params.len() < 2 || addPoints < 0)
+    if(character == null || zone == null || progress == null ||
+        params.len() < 2 || addPoints < 0)
     {
         return -1;
     }

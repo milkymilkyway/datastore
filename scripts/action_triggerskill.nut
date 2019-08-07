@@ -5,6 +5,9 @@ function define(script)
     return 0;
 }
 
+// Trigger a skill on the current source entity that is AI controlled (only
+// works with specific custom AI types)
+// - params[0]: Skill ID to trigger
 function run(source, cState, dState, zone, server, params)
 {
     if(params.len() < 1 || source == null)

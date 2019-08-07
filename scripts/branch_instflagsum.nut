@@ -10,17 +10,16 @@ function define(script)
 // - params[1]: number of sequential flags to check
 function check(source, cState, dState, zone, params)
 {
-    if(params.len() < 2)
+    local instance = zone != null ? zone.GetInstance() : null;
+    if(instance == null || params.len() < 2)
     {
         return -1;
     }
 
-    local zone = cState.GetZone();
-
     local flagsSet = -1;
     for(local i = 0; i < params[1].tointeger(); i++)
     {
-        if(zone.GetInstance().GetFlagState(params[0].tointeger() + i, 0) == 1)
+        if(instance.GetFlagState(params[0].tointeger() + i, 0) == 1)
         {
             flagsSet++;
         }

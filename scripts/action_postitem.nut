@@ -10,7 +10,7 @@ function define(script)
 // - params[1]: message ID
 function run(source, cState, dState, zone, server, params)
 {
-    if(params.len() < 1)
+    if(cState == null || params.len() < 1)
     {
         return Result_t.FAIL;
     }
@@ -32,7 +32,9 @@ function run(source, cState, dState, zone, server, params)
     {
         post.SetGiftMessage(params[1].tointeger());
     }
+
     post.SetType(params[0].tointeger());
+
     // todo: Set Source (post.Source = PostItem_Source_t.RECURRING etc);
 
     if(!PersistentObject.Register(post, UUID()) || !post.Insert(lobbyDB))

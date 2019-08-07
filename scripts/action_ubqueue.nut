@@ -5,6 +5,11 @@ function define(script)
     return 0;
 }
 
+// Queue an Ultimate Battle (or Ultimate Attack) match in a specified global
+// zone
+// - params[0]: Global zone ID
+// - params[1]: Global dynamic map ID
+// - params[2]: Optional Ultimate Attack specifier if "UA"
 function run(source, cState, dState, zone, server, params)
 {
     if(params.len() < 2)

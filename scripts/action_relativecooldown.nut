@@ -5,6 +5,11 @@ function define(script)
     return 0;
 }
 
+// Calculate and set a relative cooldown on the current character
+// - params[0]: Cooldown ID
+// - params[1]: System hour to expire
+// - params[2]: System minute to expire
+// - params[3]: Optional number of days to offset
 function run(source, cState, dState, zone, server, params)
 {
     local character = cState != null ? cState.GetEntity() : null;
