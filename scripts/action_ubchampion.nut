@@ -33,15 +33,14 @@ function run(source, cState, dState, zone, server, params)
 
         if(winners.len() > 0)
         {
+            local worldClock = server.GetWorldClockTime();
             foreach(winner in winners)
             {
                 local effect = StatusEffect();
                 effect.SetEffect(2100);
                 effect.SetStack(1);
                 effect.SetEntity(winner.GetCharacter());
-                local post = PostItem();
-                local lobbyDB = server.GetLobbyDatabase();
-                post.SetTimestamp(worldClock.SystemTime);
+                effect.SetExpiration(worldClock.SystemTime + 86400);
                 if(PersistentObject.Register(effect, UUID()) && effect.Insert(worldDB))
                 {
                     syncManager.UpdateRecord(effect, "StatusEffect");
