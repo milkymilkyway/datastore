@@ -78,18 +78,25 @@ function run(source, cState, dState, zone, server, params)
         if(params.len() == 3 && params[2].tointeger() == 2)
         {
             // Setting
-            eCounter.SetCounter(counterValue);
         }
         else if(params.len() == 3 && params[2].tointeger() == 3)
         {
             // Flag mask (add)
-            eCounter.SetCounter(eCounter.GetCounter() | counterValue);
+            counterValue = eCounter.GetCounter() | counterValue;
         }
         else
         {
             // Adding
-            eCounter.SetCounter(eCounter.GetCounter() + counterValue);
+            counterValue = eCounter.GetCounter() + counterValue;
         }
+
+        if(eCounter.GetCounter() == counterValue)
+        {
+            // Nothing to do
+            return Result_t.SUCCESS;
+        }
+
+        eCounter.SetCounter(counterValue);
 
         if(!eCounter.Update(worldDB))
         {
