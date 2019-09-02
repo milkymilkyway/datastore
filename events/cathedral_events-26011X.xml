@@ -19,6 +19,1912 @@
             546 : M
     -->
     <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_INIT</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z26011X_SP_INIT_ZF</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z26011X_SP_INIT_ZF</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">Z26011X_SP_LAW</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">Z26011X_SP_NEUTRAL</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">Z26011X_SP_CHAOS</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_INIT_ZF</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_LAW_RESPAWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">240</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z26011X_SP_LAW</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z26011X_SP_LAW</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z26011X_SP_LAW_1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z26011X_SP_LAW_2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_LAW_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z26011X_SP_LAW_SPAWN</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_LAW_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z26011X_SP_LAW_SPAWN</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_LAW_SPAWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z26011X_SP_LAW_RESPAWN</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_NEUTRAL_RESPAWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">240</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z26011X_SP_NEUTRAL</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z26011X_SP_NEUTRAL</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z26011X_SP_NEUTRAL_1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z26011X_SP_NEUTRAL_2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_NEUTRAL_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z26011X_SP_NEUTRAL_SPAWN</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_NEUTRAL_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z26011X_SP_NEUTRAL_SPAWN</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_NEUTRAL_SPAWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z26011X_SP_NEUTRAL_RESPAWN</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_CHAOS_RESPAWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">240</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z26011X_SP_CHAOS</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z26011X_SP_CHAOS</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z26011X_SP_CHAOS_1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z26011X_SP_CHAOS_2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_CHAOS_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z26011X_SP_CHAOS_SPAWN</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_CHAOS_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z26011X_SP_CHAOS_SPAWN</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SP_CHAOS_SPAWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">Z26011X_SP_CHAOS_RESPAWN</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_MICHAEL_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_MICHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_MICHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_MICHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_MICHAEL_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120193</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_RAPHAEL_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_RAPHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_RAPHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_RAPHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_RAPHAEL_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120194</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_GABRIEL_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_GABRIEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_GABRIEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_GABRIEL_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_GABRIEL_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120195</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_URIEL_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_URIEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_URIEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_URIEL_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_URIEL_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120196</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_WHITE_RIDER_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_WHITE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_WHITE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_WHITE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_WHITE_RIDER_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120197</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_RED_RIDER_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_RED_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_RED_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_RED_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_RED_RIDER_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120198</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_BLACK_RIDER_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_BLACK_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_BLACK_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_BLACK_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_BLACK_RIDER_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120199</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_PALE_RIDER_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_PALE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_PALE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_PALE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_PALE_RIDER_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120200</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_JIKOKUTEN_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_JIKOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_JIKOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_JIKOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_JIKOKUTEN_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120201</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_ZOUCHOUTEN_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_ZOUCHOUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_ZOUCHOUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_ZOUCHOUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_ZOUCHOUTEN_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120202</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_KOUMOKUTEN_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_KOUMOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_KOUMOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_KOUMOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_KOUMOKUTEN_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120203</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_BISHAMONTEN_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_BISHAMONTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_BISHAMONTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_BISHAMONTEN_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_BISHAMONTEN_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120204</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_MICHAEL_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_MICHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_MICHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_MICHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_MICHAEL_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120205</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_RAPHAEL_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_RAPHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_RAPHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_RAPHAEL_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_RAPHAEL_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120206</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_GABRIEL_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_GABRIEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_GABRIEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_GABRIEL_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_GABRIEL_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120207</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_URIEL_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_URIEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_URIEL_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_URIEL_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_URIEL_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120208</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_WHITE_RIDER_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_WHITE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_WHITE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_WHITE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_WHITE_RIDER_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120209</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_RED_RIDER_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_RED_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_RED_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_RED_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_RED_RIDER_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120210</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_BLACK_RIDER_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_BLACK_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_BLACK_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_BLACK_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_BLACK_RIDER_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120211</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_PALE_RIDER_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_PALE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_PALE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_PALE_RIDER_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_PALE_RIDER_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120212</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_JIKOKUTEN_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_JIKOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_JIKOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_JIKOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_JIKOKUTEN_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120213</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_ZOUCHOUTEN_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_ZOUCHOUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_ZOUCHOUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_ZOUCHOUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_ZOUCHOUTEN_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120214</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_KOUMOKUTEN_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_KOUMOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_KOUMOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_KOUMOKUTEN_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_KOUMOKUTEN_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120215</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_BISHAMONTEN_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_BISHAMONTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_BISHAMONTEN_02</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_BISHAMONTEN_02</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_BISHAMONTEN_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120216</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_NOZUCHI_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_NOZUCHI_01a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_NOZUCHI_01a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_NOZUCHI_01a</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_NOZUCHI_FLEE_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120259</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_NOZUCHI_FLEE_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120260</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_NOZUCHI_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120250</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_NOZUCHI_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_NOZUCHI_01a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_NOZUCHI_01a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_NOZUCHI_01a</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_NOZUCHI_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120251</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_NOZUCHI_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_NOZUCHI_02a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_NOZUCHI_02a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_NOZUCHI_02a</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_NOZUCHI_02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120256</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_NOZUCHI_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_NOZUCHI_02a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_NOZUCHI_02a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_NOZUCHI_02a</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_NOZUCHI_02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120257</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_SUKUNA_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_SUKUNA_01a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_SUKUNA_01a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_SUKUNA_01a</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_SUKUNA_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120253</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_SUKUNA_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_SUKUNA_01a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_SUKUNA_01a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_SUKUNA_01a</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_SUKUNA_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120254</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_SUKUNA_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260111_SUKUNA_02a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260111_SUKUNA_02a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260111_SUKUNA_02a</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260111_SUKUNA_02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120258</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_SUKUNA_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260111</element>
+                        <element>260111</element>
+                        <element>Z260112_SUKUNA_02a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260112</element>
+                        <element>260112</element>
+                        <element>Z260112_SUKUNA_02a</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_startRemoteEvent</member>
+                    <member name="params">
+                        <element>260113</element>
+                        <element>260113</element>
+                        <element>Z260112_SUKUNA_02a</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z260112_SUKUNA_02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120258</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z26011X_SUKUNA_FLEE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="messageID">120255</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
         <member name="ID">Z26011X_CLEAR</member>
         <member name="actions">
             <element>
@@ -1462,6 +3368,7 @@
                                         <object name="EventCondition">
                                             <member name="type">ZIOTITE_LARGE</member>
                                             <member name="value1">3</member>
+                                            <member name="compareMode">GTE</member>
                                         </object>
                                     </element>
                                 </member>
@@ -1474,7 +3381,8 @@
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">ZIOTITE_SMALL</member>
-                                            <member name="value1">5000</member>
+                                            <member name="value1">50000</member>
+                                            <member name="compareMode">GTE</member>
                                         </object>
                                     </element>
                                 </member>
@@ -1511,7 +3419,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-5000</member>
+                    <member name="value">-50000</member>
                 </object>
             </element>
             <element>
@@ -2415,7 +4323,8 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">ZIOTITE_SMALL</member>
-                                <member name="value1">500</member>
+                                <member name="value1">5000</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -2536,7 +4445,7 @@
                                             </member>
                                         </object>
                                     </element>
-                                </member>
+                                    </element>
                             </object>
                         </element>
                         <element>
@@ -2676,7 +4585,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-500</member>
+                    <member name="value">-5000</member>
                 </object>
             </element>
             <element>
@@ -2706,7 +4615,7 @@
             <element>
                 <object name="EventCondition">
                     <member name="type">ZIOTITE_SMALL</member>
-                    <member name="value1">500</member>
+                    <member name="value1">5000</member>
                     <member name="compareMode">GTE</member>
                 </object>
             </element>
@@ -2799,7 +4708,8 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">ZIOTITE_SMALL</member>
-                                <member name="value1">500</member>
+                                <member name="value1">5000</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -2819,7 +4729,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-500</member>
+                    <member name="value">-5000</member>
                 </object>
             </element>
             <element>
@@ -2916,7 +4826,8 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">ZIOTITE_SMALL</member>
-                                <member name="value1">500</member>
+                                <member name="value1">5000</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -2936,7 +4847,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-500</member>
+                    <member name="value">-5000</member>
                 </object>
             </element>
             <element>
@@ -3033,7 +4944,8 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">ZIOTITE_SMALL</member>
-                                <member name="value1">500</member>
+                                <member name="value1">5000</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -3053,7 +4965,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-500</member>
+                    <member name="value">-5000</member>
                 </object>
             </element>
             <element>
@@ -3111,7 +5023,8 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">ZIOTITE_SMALL</member>
-                                <member name="value1">500</member>
+                                <member name="value1">5000</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -3131,7 +5044,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-500</member>
+                    <member name="value">-5000</member>
                 </object>
             </element>
             <element>
@@ -3189,7 +5102,8 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">ZIOTITE_SMALL</member>
-                                <member name="value1">500</member>
+                                <member name="value1">5000</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -3209,7 +5123,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-500</member>
+                    <member name="value">-5000</member>
                 </object>
             </element>
             <element>
@@ -3267,7 +5181,8 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">ZIOTITE_SMALL</member>
-                                <member name="value1">500</member>
+                                <member name="value1">5000</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -3287,7 +5202,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-500</member>
+                    <member name="value">-5000</member>
                 </object>
             </element>
             <element>
@@ -3345,7 +5260,8 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">ZIOTITE_SMALL</member>
-                                <member name="value1">500</member>
+                                <member name="value1">5000</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -3365,7 +5281,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-500</member>
+                    <member name="value">-5000</member>
                 </object>
             </element>
             <element>
@@ -4360,7 +6276,8 @@
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">ZIOTITE_SMALL</member>
-                                            <member name="value1">2000</member>
+                                            <member name="value1">20000</member>
+                                            <member name="compareMode">GTE</member>
                                         </object>
                                     </element>
                                 </member>
@@ -4426,7 +6343,8 @@
             <element>
                 <object name="EventCondition">
                     <member name="type">ZIOTITE_SMALL</member>
-                    <member name="value1">2000</member>
+                    <member name="value1">20000</member>
+                    <member name="compareMode">GTE</member>
                 </object>
             </element>
         </member>
@@ -4434,7 +6352,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-2000</member>
+                    <member name="value">-20000</member>
                 </object>
             </element>
             <element>
@@ -4459,7 +6377,8 @@
             <element>
                 <object name="EventCondition">
                     <member name="type">ZIOTITE_SMALL</member>
-                    <member name="value1">2000</member>
+                    <member name="value1">20000</member>
+                    <member name="compareMode">GTE</member>
                 </object>
             </element>
         </member>
@@ -4467,7 +6386,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-2000</member>
+                    <member name="value">-20000</member>
                 </object>
             </element>
             <element>
@@ -4492,7 +6411,8 @@
             <element>
                 <object name="EventCondition">
                     <member name="type">ZIOTITE_SMALL</member>
-                    <member name="value1">2000</member>
+                    <member name="value1">20000</member>
+                    <member name="compareMode">GTE</member>
                 </object>
             </element>
         </member>
@@ -4500,7 +6420,7 @@
             <element>
                 <object name="ActionUpdatePoints">
                     <member name="pointType">ZIOTITE</member>
-                    <member name="value">-2000</member>
+                    <member name="value">-20000</member>
                 </object>
             </element>
             <element>
