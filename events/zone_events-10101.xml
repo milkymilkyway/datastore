@@ -6457,7 +6457,7 @@
     </object>
     <!-- Spot 10001 -->
     <object name="Event">
-        <member name="ID">Z10101_10001_01</member>
+        <member name="ID">Z10101_S10001</member>
         <member name="next">Z10101_10001_02</member>
         <member name="branches">
             <element>
@@ -6468,14 +6468,12 @@
                             <object name="EventCondition">
                                 <member name="type">QUEST_COMPLETE</member>
                                 <member name="value1">300</member>
-                                <member name="value2">0</member>
                             </object>
                         </element>
                         <element>
                             <object name="EventCondition">
                                 <member name="type">QUEST_ACTIVE</member>
                                 <member name="value1">300</member>
-                                <member name="value2">0</member>
                             </object>
                         </element>
                     </member>
@@ -6496,7 +6494,6 @@
                             <object name="EventCondition">
                                 <member name="type">QUEST_COMPLETE</member>
                                 <member name="value1">5</member>
-                                <member name="value2">0</member>
                             </object>
                         </element>
                     </member>
@@ -6540,19 +6537,18 @@
     </object>
     <!-- Spot 10002 -->
     <object name="Event">
-        <member name="ID">Z10101_10002_01</member>
+        <!-- todo: verify -->
+        <member name="ID">Z10101_S10002</member>
         <member name="next">Z10101_PA032</member>
         <member name="branches">
             <element>
                 <object>
                     <member name="next">Z10101_10002_03</member>
                     <member name="conditions">
-                        <!-- todo: verify -->
                         <element>
                             <object name="EventCondition">
                                 <member name="type">QUEST_COMPLETE</member>
                                 <member name="value1">5</member>
-                                <member name="value2">0</member>
                             </object>
                         </element>
                     </member>
@@ -6580,11 +6576,11 @@
     </object>
     <!-- Spot 10100 -->
     <object name="EventMultitalk">
-        <member name="ID">Z10101_Q334_FIN_01</member>
-        <member name="next">Z10101_Q334_FIN_02</member>
-        <member name="playerSource">true</member>
-        <member name="messageID">100031</member>
         <!-- todo: fix -->
+        <member name="ID">Z10101_S10100</member>
+        <member name="next">Z10101_Q334_FIN_02</member>
+        <member name="messageID">100031</member>
+        <member name="playerSource">true</member>
         <member name="conditions">
             <element>
                 <object name="EventCondition">
@@ -6597,7 +6593,6 @@
                 <object name="EventCondition">
                     <member name="type">QUEST_COMPLETE</member>
                     <member name="value1">334</member>
-                    <member name="value2">0</member>
                 </object>
             </element>
         </member>
@@ -7542,34 +7537,8 @@
             <element>180199</element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">Z10101_A_L</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">Z10101_A_L2</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_COMPLETE</member>
-                                <member name="value1">301</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_COMPLETE</member>
-                                <member name="value1">302</member>
-                                <member name="value2">0</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z10101_A_L2</member>
+        <member name="ID">Z10101_ZONE_IN</member>
         <member name="actions">
             <element>
                 <object name="ActionSetNPCState">
@@ -7607,22 +7576,18 @@
                 </object>
             </element>
         </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z10101_UNMAP_EF050</member>
-        <member name="next">Z10101_10001_02</member>
-        <member name="actions">
+        <member name="conditions">
             <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">100995</member>
-                    <member name="effectType">3</member>
+                <object name="EventCondition">
+                    <member name="type">QUEST_COMPLETE</member>
+                    <member name="value1">301</member>
+                    <member name="value2">1</member>
                 </object>
             </element>
             <element>
-                <object name="ActionDisplayMessage">
-                    <member name="messageIDs">
-                        <element>100996</element>
-                    </member>
+                <object name="EventCondition">
+                    <member name="type">QUEST_COMPLETE</member>
+                    <member name="value1">302</member>
                 </object>
             </element>
         </member>
