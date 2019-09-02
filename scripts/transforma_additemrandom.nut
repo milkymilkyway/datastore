@@ -15,7 +15,7 @@ function transform(source, cState, dState, zone, params)
         return -1;
     }
 
-    local key = Randomizer.RNG(0, (params.len() / 2)) * 2;
+    local key = Randomizer.RNG(0, (params.len() / 2) - 1) * 2;
 
     action.SetItemsEntry(params[key].tointeger(), params[key + 1].tointeger());
 
