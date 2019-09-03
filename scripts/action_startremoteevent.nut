@@ -5,20 +5,28 @@ function define(script)
     return 0;
 }
 
+// Start an event in one or more global zones
+// - params[0]: ID of the event to start
+// - params[1]+: Pairs of zone and dynamic map IDs to start the event in
 function run(source, cState, dState, zone, server, params)
 {
-    if(params.len() < 3 || zone == null || server == null)
+    if(params.len() < 3 || (params.len() % 2) != 1)
     {
         return Result_t.FAIL;
     }
 
-    local targetZone = server.GetZoneManager().GetGlobalZone(params[0].tointeger(), 
-    params[1].tointeger());
-
-    if(server.GetZoneManager().StartZoneEvent(targetZone, params[2]))
+    local failed = false;
+    for(local i = 1; i < (params.len() - 1);)
     {
-        return Result_t.SUCCESS;
+        local targetZone = server.GetZoneManager().GetGlobalZone(params[i].tointeger(), 
+            params[i + 1].tointeger());
+        if(targetZone == null || !server.GetZoneManager().StartZoneEvent(targetZone, params[0]))
+        {
+            failed = true;
+        }
+
+        i += 2;
     }
 
-    return Result_t.FAIL;
+    return failed ? Result_t.FAIL : Result_t.SUCCESS;
 }

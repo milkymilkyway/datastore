@@ -12856,8 +12856,8 @@
         </member>
     </object>
     <object name="Event">
-        <member name="ID">Z50101_288_R2</member>
-        <member name="next">Z50101_288</member>
+        <member name="ID">Z50101_288</member>
+        <member name="next">Z50101_288_MAIN</member>
         <member name="branches">
             <element>
                 <object>
@@ -12881,14 +12881,12 @@
                             <object name="EventCondition">
                                 <member name="type">QUEST_ACTIVE</member>
                                 <member name="value1">517</member>
-                                <member name="value2">0</member>
                             </object>
                         </element>
                         <element>
                             <object name="EventCondition">
                                 <member name="type">QUEST_COMPLETE</member>
                                 <member name="value1">517</member>
-                                <member name="value2">0</member>
                             </object>
                         </element>
                         <element>
@@ -12915,9 +12913,9 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">QUEST_PHASE</member>
-                                <member name="compareMode">GTE</member>
                                 <member name="value1">517</member>
                                 <member name="value2">1</member>
+                                <member name="compareMode">GTE</member>
                             </object>
                         </element>
                     </member>
@@ -12937,11 +12935,11 @@
                     </member>
                 </object>
             </element>
-            <!--todo: quests 50, 664, 802 -->
+            <!-- todo: quests 50, 664, 802 -->
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z50101_288</member>
+        <member name="ID">Z50101_288_MAIN</member>
         <member name="messageIDs">
             <element>60700</element>
         </member>
@@ -22127,12 +22125,12 @@
         </member>
     </object>
     <object name="Event">
-        <member name="ID">Z50101_2000_N334_0000</member>
-        <member name="next">Z50101_2000_N334_0001</member>
+        <member name="ID">Z50101_50108_DOOR</member>
+        <member name="next">Z50101_50108_DOOR_LOCKED</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z50101_N334_004</member>
+                    <member name="next">Z50101_TO_50108</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -22147,7 +22145,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z50101_2000_N334_0001</member>
+        <member name="ID">Z50101_50108_DOOR_LOCKED</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -22399,13 +22397,13 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z50101_N334_003</member>
-        <member name="next">Z50101_N334_004</member>
+        <member name="next">Z50101_TO_50108</member>
         <member name="messageIDs">
             <element>101725</element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z50101_N334_004</member>
+        <member name="ID">Z50101_TO_50108</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -23618,7 +23616,7 @@
         <member name="messageID">500685</member>
     </object>
     <object name="Event">
-        <member name="ID">Z50101_451A</member>
+        <member name="ID">Z50101_451</member>
         <!-- todo: Conditions missing -->
         <member name="next">Z50101_R2_ML101</member>
         <member name="branches">
@@ -33935,7 +33933,7 @@
     </object>
     <!-- Duplicate of NPC 2031 for daily mission purposes -->
     <object name="EventPrompt">
-        <member name="ID">Z50101_N2031</member>
+        <member name="ID">Z50101_2031</member>
         <member name="messageID">200684</member>
         <member name="choices">
             <element>
@@ -33963,8 +33961,8 @@
                     <member name="conditions">
                         <element>
                             <object name="EventScriptCondition">
-                                <member name="scriptID">bool_cooldown</member>
                                 <member name="negate">true</member>
+                                <member name="scriptID">bool_cooldown</member>
                                 <member name="params">
                                     <element>-10</element>
                                 </member>
@@ -34040,14 +34038,10 @@
                 </object>
             </element>
             <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
+                <object name="EventChoice"/>
             </element>
             <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
+                <object name="EventChoice"/>
             </element>
             <element>
                 <object name="EventChoice">
@@ -34206,7 +34200,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">1201007</member>
                 </object>
             </element>
@@ -34483,10 +34477,10 @@
                                 <member name="conditions">
                                     <element>
                                         <object name="EventScriptCondition">
-                                            <member name="scriptID">bool_counterValue</member>
-                                            <member name="negate">true</member>
                                             <member name="value1">10201</member>
                                             <member name="value2">5</member>
+                                            <member name="negate">true</member>
+                                            <member name="scriptID">bool_counterValue</member>
                                         </object>
                                     </element>
                                 </member>
@@ -34503,13 +34497,12 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">PARTY_SIZE</member>
-                                <member name="value1">0</member>
                             </object>
                         </element>
                         <element>
                             <object name="EventScriptCondition">
-                                <member name="scriptID">bool_cooldown</member>
                                 <member name="negate">true</member>
+                                <member name="scriptID">bool_cooldown</member>
                                 <member name="params">
                                     <element>-10</element>
                                 </member>
@@ -34532,8 +34525,8 @@
                         </element>
                         <element>
                             <object name="EventScriptCondition">
-                                <member name="scriptID">bool_cooldown</member>
                                 <member name="negate">true</member>
+                                <member name="scriptID">bool_cooldown</member>
                                 <member name="params">
                                     <element>-10</element>
                                 </member>
@@ -34550,7 +34543,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">1201007</member>
                 </object>
             </element>
@@ -34573,7 +34566,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">1201007</member>
                 </object>
             </element>
@@ -34658,7 +34651,7 @@
                         </element>
                         <element>
                             <object>
-                                <member name="next">Z50101_N2031</member>
+                                <member name="next">Z50101_2031</member>
                                 <member name="conditions">
                                     <element>
                                         <object name="EventScriptCondition">
@@ -36387,7 +36380,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">1201007</member>
                 </object>
             </element>
@@ -36717,7 +36710,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -36770,8 +36763,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">2</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -36782,7 +36775,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -36835,8 +36828,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">3</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -36847,7 +36840,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -36900,8 +36893,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">5</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -36912,7 +36905,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -36965,8 +36958,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">10</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -36977,7 +36970,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -37030,8 +37023,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">20</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -37042,7 +37035,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -37095,8 +37088,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">2</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -37107,7 +37100,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -37160,8 +37153,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">4</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -37172,7 +37165,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -37225,8 +37218,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">6</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -37237,7 +37230,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -37290,8 +37283,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">10</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -37302,7 +37295,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -37355,8 +37348,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">20</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -37367,7 +37360,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -37420,8 +37413,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">40</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -37432,7 +37425,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -37518,7 +37511,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">203009</member>
                 </object>
             </element>
@@ -37536,7 +37529,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">1201562</member>
                 </object>
             </element>
@@ -37743,7 +37736,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">1201562</member>
                 </object>
             </element>
@@ -37967,8 +37960,8 @@
                                         <object name="EventCondition">
                                             <member name="type">ITEM</member>
                                             <member name="value1">21506</member>
-                                            <member name="compareMode">LT</member>
                                             <member name="value2">1</member>
+                                            <member name="compareMode">LT</member>
                                         </object>
                                     </element>
                                 </member>
@@ -37979,7 +37972,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38027,7 +38020,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38075,7 +38068,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38123,7 +38116,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38171,7 +38164,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38219,7 +38212,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38267,7 +38260,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38315,7 +38308,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38363,7 +38356,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38411,7 +38404,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38459,7 +38452,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38507,7 +38500,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38555,7 +38548,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38603,7 +38596,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38651,7 +38644,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38699,7 +38692,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38747,7 +38740,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38795,7 +38788,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38843,7 +38836,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38891,7 +38884,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38939,7 +38932,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -38987,7 +38980,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -39035,7 +39028,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -39083,7 +39076,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z50101_N2031</member>
+                    <member name="next">Z50101_2031</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
