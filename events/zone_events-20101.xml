@@ -23372,6 +23372,157 @@
             </element>
         </member>
     </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575</member>
+        <member name="next">Z20101_575_MAIN_PR</member>
+        <member name="messageIDs">
+            <element>1201091</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z20101_575_MAIN_PR</member>
+        <member name="messageID">1201091</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z20101_575_EV1201095</member>
+                    <member name="messageID">1201092</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z20101_575_DESC1</member>
+                    <member name="messageID">1201093</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z20101_575_END</member>
+                    <member name="messageID">1201094</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575_EV1201095</member>
+        <member name="next">Z20101_575_MAIN_PR</member>
+        <member name="messageIDs">
+            <element>1201095</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575_DESC1</member>
+        <member name="next">Z20101_575_DESC1_PR</member>
+        <member name="messageIDs">
+            <element>1201096</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575_END</member>
+        <member name="messageIDs">
+            <element>1201181</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z20101_575_DESC1_PR</member>
+        <member name="messageID">1201097</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z20101_575_DESC1_END</member>
+                    <member name="messageID">1201098</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z20101_575_DESC2</member>
+                    <member name="messageID">1201099</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575_DESC1_END</member>
+        <member name="next">Z20101_575_DESC_END_HIGH</member>
+        <member name="messageIDs">
+            <element>1201182</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z20101_575_DESC_END</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">10</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575_DESC2</member>
+        <member name="next">Z20101_575_DESC2_PR</member>
+        <member name="messageIDs">
+            <element>1201183</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575_DESC_END_HIGH</member>
+        <member name="messageIDs">
+            <element>1201187</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575_DESC_END</member>
+        <member name="messageIDs">
+            <element>1201186</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z20101_575_DESC2_PR</member>
+        <member name="messageID">1201184</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z20101_575_DESC_END_HIGH</member>
+                    <member name="messageID">1201098</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z20101_575_DESC_END</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">LEVEL</member>
+                                            <member name="value1">10</member>
+                                            <member name="compareMode">LT</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z20101_575_CONFUSED</member>
+                    <member name="messageID">1201099</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z20101_575_CONFUSED</member>
+        <member name="messageIDs">
+            <element>1201185</element>
+        </member>
+    </object>
     <!-- NPC 2003 -->
     <object name="Event">
         <member name="ID">Z20101_HP</member>
@@ -23622,6 +23773,93 @@
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">850930</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z20101_2091</member>
+        <member name="messageID">1201076</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">DM_START</member>
+                    <member name="messageID">1201000</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="negate">true</member>
+                                <member name="scriptID">bool_cooldown</member>
+                                <member name="params">
+                                    <element>-10</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z20101_2091_ERR1</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">LEVEL</member>
+                                            <member name="value1">10</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_notUsed</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">DM_DONE</member>
+                    <member name="messageID">1201195</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_cooldown</member>
+                                <member name="params">
+                                    <element>-10</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">88</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z20101_2091_ERR1</member>
+        <member name="messageID">1201001</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z20101_2091_ERR2</member>
+                    <member name="messageID">203009</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z20101_2091_ERR2</member>
+        <member name="messageID">1201077</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">203009</member>
                 </object>
             </element>
         </member>

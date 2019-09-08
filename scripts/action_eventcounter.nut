@@ -23,6 +23,7 @@ function run(source, cState, dState, zone, server, params)
     {
         // Use world counter
         eCounter = syncManager.GetWorldEventCounter(params[0].tointeger());
+        counterValue = params[1].tointeger();
         characterUID = UUID();
     }
     else
