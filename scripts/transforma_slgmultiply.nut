@@ -19,7 +19,7 @@ function transform(source, cState, dState, zone, params)
 
     local multiplier = params[0].tointeger();
     local slgID = params[Randomizer.RNG(1, params.len() - 1)].tointeger();
-    for(local i = 0; i < multiplier; i++)
+    for(local i = 0; i < zone.GetFlagState(multiplier, 0, 0); i++)
     {
         action.AppendSpawnLocationGroupIDs(slgID);
     }
