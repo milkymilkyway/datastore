@@ -24,7 +24,7 @@ function transform(source, cState, dState, zone, params)
     local minRank = params[0].tointeger();
     local maxPoints = params[1].tointeger();
 
-    local points = progress.GetITimePointsByKey(action.GetITimeID());
+    local points = progress.GetITimePointsByKey(action.GetModifier());
     local oldPoints = points;
 
     // Calculated boosted amount if flag specified
