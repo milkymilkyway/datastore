@@ -3255,6 +3255,50 @@
         </member>
     </object>
     <object name="EventPerformActions">
+        <member name="ID">D9221_01_SP901</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>901</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_SP9010</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_01_SP9010</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>9010</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_TR01</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
         <member name="ID">D9221_01_SP902</member>
         <member name="actions">
             <element>
@@ -3332,27 +3376,8 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D9221_01_SP1001a</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>2</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1002</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1003</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">D9221_01_SP1002</member>
+        <member name="ID">D9221_01_SP1001a</member>
         <member name="actions">
             <element>
                 <object name="ActionSpawn">
@@ -3362,19 +3387,27 @@
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">920899</member>
-                                <member name="state">2</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>920899</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_OD_920899</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D9221_01_SP1003</member>
-        <member name="actions">
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
@@ -3383,12 +3416,50 @@
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">920899</member>
-                                <member name="state">2</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>920899</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_OD_920899</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_01_OD_920899</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">GTE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>920899</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920899</member>
+                    <member name="state">2</member>
                 </object>
             </element>
         </member>
@@ -3411,31 +3482,19 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D9221_01_SP1004a</member>
+                                <member name="eventID">D9221_01_SP1005</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_SP1006</member>
                                 <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D9221_01_SP1004a</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>2</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1005</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1006</member>
                 </object>
             </element>
         </member>
@@ -3490,31 +3549,19 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D9221_01_SP1007a</member>
+                                <member name="eventID">D9221_01_SP1008</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_SP1009</member>
                                 <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D9221_01_SP1007a</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>2</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1008</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1009</member>
                 </object>
             </element>
         </member>
@@ -3579,27 +3626,8 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D9221_01_SP1010a</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>2</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1011</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1012</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">D9221_01_SP1011</member>
+        <member name="ID">D9221_01_SP1010a</member>
         <member name="actions">
             <element>
                 <object name="ActionSpawn">
@@ -3609,19 +3637,27 @@
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">920900</member>
-                                <member name="state">2</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>920900</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_OD_920900</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D9221_01_SP1012</member>
-        <member name="actions">
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
@@ -3630,12 +3666,50 @@
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">920900</member>
-                                <member name="state">2</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>920900</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_OD_920900</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_01_OD_920900</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">GTE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>920900</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920900</member>
+                    <member name="state">2</member>
                 </object>
             </element>
         </member>
@@ -3674,27 +3748,8 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D9221_01_SP1101a</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>2</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1102</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1103</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">D9221_01_SP1102</member>
+        <member name="ID">D9221_01_SP1101a</member>
         <member name="actions">
             <element>
                 <object name="ActionSpawn">
@@ -3704,19 +3759,27 @@
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">920901</member>
-                                <member name="state">2</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>920901</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_OD_920901</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D9221_01_SP1103</member>
-        <member name="actions">
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
@@ -3725,12 +3788,50 @@
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">920901</member>
-                                <member name="state">2</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>920901</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_OD_920901</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_01_OD_920901</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">GTE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>920901</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920901</member>
+                    <member name="state">2</member>
                 </object>
             </element>
         </member>
@@ -3753,31 +3854,19 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D9221_01_SP1104a</member>
+                                <member name="eventID">D9221_01_SP1105</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_SP1106</member>
                                 <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D9221_01_SP1104a</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>2</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1105</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1106</member>
                 </object>
             </element>
         </member>
@@ -3832,31 +3921,19 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D9221_01_SP1107a</member>
+                                <member name="eventID">D9221_01_SP1108</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_SP1109</member>
                                 <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D9221_01_SP1107a</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>2</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1108</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1109</member>
                 </object>
             </element>
         </member>
@@ -3921,27 +3998,8 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D9221_01_SP1110a</member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>2</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1111</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D9221_01_SP1112</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">D9221_01_SP1111</member>
+        <member name="ID">D9221_01_SP1110a</member>
         <member name="actions">
             <element>
                 <object name="ActionSpawn">
@@ -3951,19 +4009,27 @@
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">920902</member>
-                                <member name="state">2</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>920902</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_OD_920902</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D9221_01_SP1112</member>
-        <member name="actions">
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
@@ -3972,12 +4038,50 @@
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">920902</member>
-                                <member name="state">2</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>920902</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_01_OD_920902</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_01_OD_920902</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">GTE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>920902</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920902</member>
+                    <member name="state">2</member>
                 </object>
             </element>
         </member>
@@ -4202,7 +4306,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D9221_01_921055_01</member>
+                    <member name="next">D9221_01_921055_RENTAL</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -4211,7 +4315,42 @@
                                 <member name="value2">1</member>
                             </object>
                         </element>
-                        <!-- todo: not expired. -->
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_01_921055_RENTAL</member>
+		<member name="next">D9221_01_921055_EXPIRED</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagActiveRental</member>
+                    <member name="params">
+                        <element>12855</element>
+                        <element>100</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_01_921055_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>100</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -4244,14 +4383,6 @@
                                 </member>
                             </object>
                         </element>
-                        <element>
-                            <object>
-                                <member name="next">D9221_01_921055_EXPIRED</member>
-                                <member name="conditions">
-                                    <!-- todo: not expired. -->
-                                </member>
-                            </object>
-                        </element>
                     </member>
                 </object>
             </element>
@@ -4275,14 +4406,6 @@
                                             </member>
                                         </object>
                                     </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">D9221_01_921055_EXPIRED</member>
-                                <member name="conditions">
-                                    <!-- todo: not expired. -->
                                 </member>
                             </object>
                         </element>
@@ -4601,6 +4724,11 @@
             </element>
             <element>
                 <object name="ActionStartEvent">
+                    <member name="eventID">D9221_02_SP101</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
                     <member name="eventID">D9221_Q838_UPDATE</member>
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
@@ -4663,11 +4791,6 @@
             </element>
             <element>
                 <object name="ActionStartEvent">
-                    <member name="eventID">D9221_02_OD01</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStartEvent">
                     <member name="eventID">D9221_02_SP1202</member>
                 </object>
             </element>
@@ -4679,6 +4802,11 @@
             <element>
                 <object name="ActionStartEvent">
                     <member name="eventID">D9221_02_SP103</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D9221_02_OD01</member>
                 </object>
             </element>
             <element>
@@ -4740,6 +4868,12 @@
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">920114</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920123</member>
                     <member name="state">2</member>
                 </object>
             </element>
@@ -5200,17 +5334,21 @@
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D9221_02_SP702</member>
-        <member name="actions">
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
                         <element>702</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_02_SP704</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -6955,13 +7093,11 @@
                 </object>
             </element>
             <element>
-                <object name="ActionStartEvent">
-                    <member name="eventID">D9221_04_SP102</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStartEvent">
-                    <member name="eventID">D9221_04_SP81</member>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>102</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
                 </object>
             </element>
             <element>
@@ -7015,13 +7151,11 @@
                 </object>
             </element>
             <element>
-                <object name="ActionStartEvent">
-                    <member name="eventID">D9221_04_SP202</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStartEvent">
-                    <member name="eventID">D9221_04_SP91</member>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>202</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
                 </object>
             </element>
             <element>
@@ -7057,19 +7191,6 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D9221_04_SP102</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>102</element>
-                    </member>
-                    <member name="mode">ONE_TIME</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
         <member name="ID">D9221_04_SP02</member>
         <member name="actions">
             <element>
@@ -7088,19 +7209,6 @@
                             </object>
                         </element>
                     </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D9221_04_SP202</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>202</element>
-                    </member>
-                    <member name="mode">ONE_TIME</member>
                 </object>
             </element>
         </member>
@@ -7125,6 +7233,30 @@
                     <member name="mode">ONE_TIME</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>71</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>81</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>151</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -7139,6 +7271,30 @@
             </element>
         </member>
         <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>91</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>101</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>131</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
@@ -7222,19 +7378,6 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D9221_04_SP81</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>81</element>
-                    </member>
-                    <member name="mode">ONE_TIME</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
         <member name="ID">D9221_04_SP09</member>
         <member name="actions">
             <element>
@@ -7258,19 +7401,6 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D9221_04_SP91</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>91</element>
-                    </member>
-                    <member name="mode">ONE_TIME</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
         <member name="ID">D9221_04_SP10</member>
         <member name="actions">
             <element>
@@ -7283,7 +7413,7 @@
                         <element>
                             <object name="ActionSpawn">
                                 <member name="spawnLocationGroupIDs">
-                                    <element>101</element>
+                                    <element>103</element>
                                 </member>
                                 <member name="mode">ONE_TIME</member>
                             </object>
@@ -8106,9 +8236,8 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>1010</element>
+                        <element>2</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
                 </object>
             </element>
             <element>
@@ -8117,9 +8246,8 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>1011</element>
+                        <element>3</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
                 </object>
             </element>
             <element>
@@ -8128,9 +8256,17 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>1012</element>
+                        <element>1</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP12</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -8139,9 +8275,8 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>1013</element>
+                        <element>4</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
                 </object>
             </element>
             <element>
@@ -8150,9 +8285,8 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>1014</element>
+                        <element>2</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
                 </object>
             </element>
         </member>
@@ -8234,46 +8368,22 @@
                 </object>
             </element>
             <element>
-                <object name="ActionSpawn">
-                    <member name="spotID">82</member>
-                    <member name="transformScriptID">transforma_slgMultiply</member>
-                    <member name="transformScriptParams">
-                        <element>1</element>
-                        <element>1082</element>
-                    </member>
-                    <member name="mode">ONE_TIME</member>
-                    <member name="defeatActions">
-                        <element>
-                            <object name="ActionUpdateZoneFlags">
-                                <member name="type">ZONE</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>82</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D9221_05_SP1082</member>
+                    <member name="sourceContext">NONE</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D9221_05_SP1081</member>
+                    <member name="sourceContext">NONE</member>
+                    <member name="location">ZONE</member>
                 </object>
             </element>
             <element>
                 <object name="ActionSpawn">
-                    <member name="spotID">81</member>
-                    <member name="transformScriptID">transforma_slgMultiply</member>
-                    <member name="transformScriptParams">
-                        <element>1</element>
-                        <element>1081</element>
-                    </member>
-                    <member name="mode">ONE_TIME</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spotID">84</member>
-                    <member name="transformScriptID">transforma_slgMultiply</member>
-                    <member name="transformScriptParams">
-                        <element>1</element>
+                    <member name="spawnLocationGroupIDs">
                         <element>84</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
@@ -8324,22 +8434,13 @@
                 </object>
             </element>
             <element>
-                <object name="ActionSpawn">
-                    <member name="spotID">83</member>
-                    <member name="transformScriptID">transforma_slgMultiply</member>
-                    <member name="transformScriptParams">
-                        <element>1</element>
-                        <element>1083</element>
-                    </member>
-                    <member name="mode">ONE_TIME</member>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D9221_05_SP1083</member>
                 </object>
             </element>
             <element>
                 <object name="ActionSpawn">
-                    <member name="spotID">85</member>
-                    <member name="transformScriptID">transforma_slgMultiply</member>
-                    <member name="transformScriptParams">
-                        <element>1</element>
+                    <member name="spawnLocationGroupIDs">
                         <element>85</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
@@ -8376,7 +8477,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">D9221_05_920464_01</member>
-		<member name="next">D9221_05_920464_02</member>
+        <member name="next">D9221_05_920464_02</member>
         <member name="actions">
             <element>
                 <object name="ActionSetNPCState">
@@ -8401,22 +8502,22 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">D9221_05_920464_02</member>
-		<member name="conditions">
-			<element>
-				<object name="EventCondition">
-					<member name="type">NPC_STATE</member>
-					<member name="value1">920464</member>
-					<member name="value2">3</member>
-				</object>
-			</element>
-			<element>
-				<object name="EventCondition">
-					<member name="type">NPC_STATE</member>
-					<member name="value1">920465</member>
-					<member name="value2">3</member>
-				</object>
-			</element>
-		</member>
+        <member name="conditions">
+            <element>
+                <object name="EventCondition">
+                    <member name="type">NPC_STATE</member>
+                    <member name="value1">920464</member>
+                    <member name="value2">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventCondition">
+                    <member name="type">NPC_STATE</member>
+                    <member name="value1">920465</member>
+                    <member name="value2">3</member>
+                </object>
+            </element>
+        </member>
         <member name="actions">
             <element>
                 <object name="ActionSetNPCState">
@@ -8454,7 +8555,7 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">D9221_05_920465_01</member>
-		<member name="next">D9221_05_920464_02</member>
+        <member name="next">D9221_05_920464_02</member>
         <member name="actions">
             <element>
                 <object name="ActionSetNPCState">
@@ -8511,9 +8612,8 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>100</element>
+                        <element>7</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
                             <object name="ActionSetNPCState">
@@ -8535,7 +8635,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>2</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -8559,13 +8659,40 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">D9221_05_SP02_01</member>
+		<member name="conditions">
+			<element>
+				<object name="EventFlagCondition">
+					<member name="type">ZONE_FLAGS</member>
+					<member name="compareMode">LT_OR_NAN</member>
+					<member name="flagStates">
+						<pair>
+							<key>28</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+		</member>
         <member name="actions">
             <element>
-                <object name="ActionSpawn">
-                    <member name="spawnLocationGroupIDs">
-                        <element>102</element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>28</key>
+                            <value>1</value>
+                        </pair>
                     </member>
-                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spotID">2</member>
+                    <member name="transformScriptID">transforma_slgMultiply</member>
+                    <member name="transformScriptParams">
+                        <element>1</element>
+                        <element>28</element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -8579,7 +8706,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>3</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -8604,9 +8731,8 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>300</element>
+                        <element>6</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
                             <object name="ActionSetNPCState">
@@ -8628,7 +8754,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>4</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -8652,7 +8778,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>6</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -8676,7 +8802,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>10</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -8688,7 +8814,7 @@
                         </element>
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D9221_05_SP11_01</member>
+                                <member name="eventID">D9221_05_SP11</member>
                                 <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
@@ -8699,7 +8825,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D9221_05_SP11_01</member>
+        <member name="ID">D9221_05_SP11</member>
         <member name="actions">
             <element>
                 <object name="ActionSpawn">
@@ -8707,7 +8833,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>11</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                 </object>
@@ -8723,9 +8849,8 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>12</element>
+                        <element>5</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
@@ -8748,9 +8873,8 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>1012</element>
+                        <element>8</element>
                     </member>
-                    <member name="mode">ONE_TIME</member>
                 </object>
             </element>
         </member>
@@ -8764,7 +8888,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>13</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                 </object>
@@ -8780,7 +8904,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>14</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -8836,7 +8960,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>2</element>
-                        <element>15</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                 </object>
@@ -8877,7 +9001,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>2</element>
-                        <element>17</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                 </object>
@@ -8893,7 +9017,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>71</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -9153,7 +9277,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>72</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -9383,7 +9507,45 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>81</element>
+                        <element>1</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP1081</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>80</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>80</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1081</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                 </object>
@@ -9399,9 +9561,37 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>82</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP1082</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spotID">82</member>
+                    <member name="transformScriptID">transforma_slgMultiply</member>
+                    <member name="transformScriptParams">
+                        <element>1</element>
+                        <element>29</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>82</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -9415,7 +9605,45 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>83</element>
+                        <element>1</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP1083</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>80</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>80</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1083</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                 </object>
@@ -9431,7 +9659,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>91</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -9691,7 +9919,7 @@
                     <member name="transformScriptID">transforma_slgMultiply</member>
                     <member name="transformScriptParams">
                         <element>1</element>
-                        <element>92</element>
+                        <element>1</element>
                     </member>
                     <member name="mode">ONE_TIME</member>
                     <member name="defeatActions">
@@ -9905,6 +10133,3011 @@
                             <object name="ActionSetNPCState">
                                 <member name="actorID">920419</member>
                                 <member name="state">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_NSSR2</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_INSTANCE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>20</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920461</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920462</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920463</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920452</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_920418</member>
+        <member name="next">D9221_05_EF018</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>461</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>20</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">920418</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>50</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_PR005</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>20</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5333</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_PR003</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>20</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_PR002</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">510</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">838</member>
+                                <member name="value2">7</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5333</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_PR004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">510</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">838</member>
+                                <member name="value2">7</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_EF020</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">510</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_EF018</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148278</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D9221_05_PR003</member>
+        <member name="messageID">148721</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D9221_05_SP_MID_01</member>
+                    <member name="messageID">148722</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next"/>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="value1">920418</member>
+                                            <member name="value2">2</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">148277</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D9221_05_PR002</member>
+        <member name="messageID">148283</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D9221_05_MS015</member>
+                    <member name="messageID">148284</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next"/>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>108</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D9221_05_IF10</member>
+                    <member name="messageID">148288</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next"/>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="value1">920418</member>
+                                            <member name="value2">2</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">148277</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_MS015</member>
+        <member name="next">D9221_05_SC002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>148281</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">510</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5333</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2000</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_DAISOUJOU_DF01</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D9221_05_SC002</member>
+        <member name="next">D9221_05_OD10</member>
+        <member name="sceneID">2050</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_DAISOUJOU_SE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148285</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_DAISOUJOU_SE_01</member>
+        <member name="conditions">
+            <element>
+                <object name="EventCondition">
+                    <member name="type">STATUS_ACTIVE</member>
+                    <member name="value1">2148</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">EQUAL</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148282</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_DAISOUJOU_DF01</member>
+        <member name="next">D9221_05_DAISOUJOU_FAIL</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_05_DAISOUJOU_FAIL</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2152</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_DAISOUJOU_SP02</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>108</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>108</key>
+                                        <value>3</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_DAISOUJOU_SP02</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">EQUAL</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>3</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2149</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2001</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_DAISOUJOU_DF02</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148286</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                    <member name="delay">150</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_DAISOUJOU_DF02</member>
+        <member name="next">D9221_05_DAISOUJOU_FAIL</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_05_DAISOUJOU_FAIL</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2152</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_DAISOUJOU_SP03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>108</key>
+                                        <value>3</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2149</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>108</key>
+                                        <value>4</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_DAISOUJOU_SP03</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">EQUAL</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>3</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>4</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2150</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2002</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_DAISOUJOU_DF02</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148294</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                    <member name="delay">150</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                    <member name="delay">300</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_DAISOUJOU_DF03</member>
+        <member name="next">D9221_05_DAISOUJOU_FAIL</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_05_DAISOUJOU_FAIL</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2152</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_DAISOUJOU_SUCCESS</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2150</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>108</key>
+                                        <value>4</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_SC001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2151</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>108</key>
+                                        <value>4</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_DAISOUJOU_SUCCESS</member>
+        <member name="next">D9221_05_SC001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2151</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">929492</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920422</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">2042</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_DAISOUJOU_FAIL</member>
+        <member name="next">D9221_05_SC001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920422</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2152</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148287</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                    <member name="delay">300</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D9221_05_SC001</member>
+        <member name="sceneID">12050</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_EF020</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148279</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_2042</member>
+        <member name="next">D9221_05_2042_05</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_05_2042_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_2042_02</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PLUGIN</member>
+                                <member name="value1">70</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_2042_03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2151</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_2042_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148289</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_2042_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148291</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_2042_03</member>
+        <member name="branchScriptID">branch_randomWeighted</member>
+        <member name="branchScriptParams">
+            <element>108</element>
+            <element>892</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_05_2042_04a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_2042_04b</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_2042_04a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148290</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">PLUGIN</member>
+                    <member name="ID">70</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_2042_04b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148293</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">101072</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_2042_05</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148292</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_MS022</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>148066</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148094</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D9221_05_PR004</member>
+        <member name="messageID">148275</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D9221_05_IF10</member>
+                    <member name="messageID">148276</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next"/>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="value1">920418</member>
+                                            <member name="value2">2</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">148277</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_IF10</member>
+        <member name="next">D9221_05_SP_MID_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>148280</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">510</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP_MID_01</member>
+        <member name="next">D9221_05_OD10</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>51</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_02</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>52</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>52</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_02</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_SP_MID_02</member>
+        <member name="branchScriptID">branch_randomWeighted</member>
+        <member name="branchScriptParams">
+            <element>60</element>
+            <element>20</element>
+            <element>20</element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>52</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_05_SP_MID_02a</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_SP_MID_02b</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_SP_MID_02c</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP_MID_02a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>52</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>51</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_03</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>52</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>52</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_03</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP_MID_02b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>52</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>510</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>51</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_03</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>520</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>52</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_03</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP_MID_03</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>51</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>52</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1550</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_04</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_04b</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP_MID_04</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>502</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1650</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>502</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_END</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- Nyarlathotep -->
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP_MID_04b</member>
+        <member name="conditions">
+            <element>
+                <object name="EventCondition">
+                    <member name="type">MOON_PHASE</member>
+                    <member name="compareMode">EXISTS</member>
+                    <member name="value1">256</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>503</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>504</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>503</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>503</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_END</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>504</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>504</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP_MID_END</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP_MID_END</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>502</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>503</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>504</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">929492</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920422</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_OD10</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlayBGM">
+                    <member name="musicID">127</member>
+                    <member name="fadeInDelay">1</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920418</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>50</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D9221_05_SP05_00</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_SP05_00</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_05_SP05_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_SP05_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_SP05_03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>3</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_SP05_03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>4</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_SP05_05</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>5</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>50</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_01a</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_01a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>53</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_01b</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_01b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1053</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_01c</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_01c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1050</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">929492</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_03</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1150</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_03a</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_03a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1153</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_03b</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_03b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1253</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_03c</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_03c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1250</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">929492</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_05</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1350</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_05a</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_05a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1353</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_05b</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_05b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1453</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_05_SP05_05c</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_SP05_05c</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1450</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionSetNPCState">
+                                <member name="actorID">929492</member>
+                                <member name="state">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D9221_05_PR005</member>
+        <member name="messageID">148718</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D9221_05_MS026</member>
+                    <member name="messageID">148719</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next"/>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>108</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D9221_05_SP_MID_01</member>
+                    <member name="messageID">148720</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next"/>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">NPC_STATE</member>
+                                            <member name="value1">920418</member>
+                                            <member name="value2">2</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">148277</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_MS026</member>
+        <member name="next">D9221_05_SC002</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>108</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>148723</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>5333</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>108</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_05_11014</member>
+        <member name="next">D9221_05_PA023</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">929492</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_05_PR006</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2151</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D9221_05_PR006</member>
+        <member name="messageID">148295</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D9221_05_PA023</member>
+                    <member name="messageID">148296</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">148297</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_05_PA023</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">922101</member>
+                    <member name="spotID">50014</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- 9220110 -->
+    <object name="EventPrompt">
+        <member name="ID">D9221_06_SP_BOSS</member>
+        <member name="messageID">17</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D9221_06_SP_BOSS_01</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D9221_06_SP_BOSS_01</member>
+        <member name="next">D9221_06_SP_BOSS_02</member>
+        <member name="sceneID">2049</member>
+        <member name="unknown">1</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_06_SP_BOSS_ZC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_06_SP_BOSS_02a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_SP_BOSS_02</member>
+        <member name="next">D9221_06_SP_BOSS_ZC</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_SP_BOSS_END_ZF</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_SP_BOSS_END</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_SP_BOSS_TR01</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_SP_BOSS_02a</member>
+        <member name="next">D9221_06_SP_BOSS_ZC</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_TRUE_GENBU</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>4</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_TRUE_GENBU_END</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_SP_BOSS_ZC</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">0</member>
+                    <member name="spotID">50002</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D9221_06_TRUE_GENBU</member>
+        <member name="next">D9221_06_TRUE_GENBU_02</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_06_TRUE_GENBU_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_06_TRUE_GENBU_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D9221_06_TRUE_GENBU_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>6</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_TRUE_GENBU_00</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_TRUE_GENBU</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_TRUE_GENBU_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_TRUE_GENBU</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>5</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>5</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_TRUE_GENBU_END</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>6</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_TRUE_GENBU_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>148702</element>
+                    </member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">148701</member>
+                    <member name="effectType">3</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>7</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D9221_06_TRUE_GENBU_END</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_TRUE_GENBU_END</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>4</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>5</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>7</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D9221_06_SP_BOSS_END_ZF</member>
+                    <member name="sourceContext">NONE</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D9221_06_SP_BOSS_END</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D9221_06_SP_BOSS_TR02</member>
+                    <member name="sourceContext">NONE</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_SP_BOSS_END_ZF</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">3401</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1</member>
+                    <member name="state">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D9221_06_SP_BOSS_END</member>
+        <member name="sceneID">12049</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D9221_Q846</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>20</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">846</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">558</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_Q846</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">2035</member>
+                    <member name="state">1</member>
+                    <member name="sourceClientOnly">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_Q846_00</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">2035</member>
+                    <member name="state">0</member>
+                    <member name="sourceClientOnly">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">558</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_SP_BOSS_TR01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210011</element>
+                        <element>92210012</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210011</element>
+                        <element>92210012</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210011</element>
+                        <element>92210012</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">103</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210011</element>
+                        <element>92210012</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">104</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210011</element>
+                        <element>92210012</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">105</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D9221_06_SP_BOSS_TR02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210013</element>
+                        <element>92210014</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210013</element>
+                        <element>92210014</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210013</element>
+                        <element>92210014</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">103</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210013</element>
+                        <element>92210014</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">104</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>92210013</element>
+                        <element>92210014</element>
+                        <element>9220</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">105</member>
                             </object>
                         </element>
                     </member>
