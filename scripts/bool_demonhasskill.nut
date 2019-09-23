@@ -19,8 +19,9 @@ function check(source, cState, dState, zone, value1, value2, params)
     {
         local id = params[i].tointeger();
 
-        foreach(skillID in demon.GetLearnedSkills())
+        for(local k = 0; k < 8; k++)
         {
+            local skillID = demon.GetLearnedSkillsByIndex(k);
             if(skillID == id)
             {
                 return 0;
