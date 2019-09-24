@@ -4486,7 +4486,7 @@
         <member name="ID">Z110110_2355</member>
         <member name="next">Z110110_PR023</member>
         <member name="branches">
-            <!--             <element>
+            <element>
                 <object>
                     <member name="next">Z110110_2355_JOIN_G1</member>
                     <member name="conditions">
@@ -4500,7 +4500,7 @@
                         </element>
                     </member>
                 </object>
-            </element> -->
+            </element>
             <element>
                 <object>
                     <member name="next">Z110110_2355_JOIN_WC</member>
@@ -4569,6 +4569,53 @@
                             <object name="EventCondition">
                                 <member name="type">LEVEL</member>
                                 <member name="value1">65</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z110110_2355_JOIN_G1</member>
+        <member name="next">Z30102_MS007</member>
+        <member name="branchScriptID">branch_dungeonTrialResult</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z110110_2355_JOIN_G1_01</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z110110_2355_JOIN_G1_01</member>
+        <member name="next">Z110110_PR023</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">event_instanceJoin</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">10902</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">40</member>
                             </object>
                         </element>
                     </member>
@@ -4706,11 +4753,12 @@
                     <member name="messageID">157135</member>
                 </object>
             </element>
-            <!--             <element>
+            <element>
                 <object name="EventChoice">
+                    <member name="next">Z110110_PR024_G1</member>
                     <member name="messageID">157137</member>
                 </object>
-            </element> -->
+            </element>
             <element>
                 <object name="EventChoice">
                     <member name="next">Z110110_PR026</member>
@@ -4974,6 +5022,148 @@
                 <object name="ActionZoneInstance">
                     <member name="mode">CREATE</member>
                     <member name="instanceID">10903</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z110110_PR024_G1</member>
+        <member name="messageID">157140</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z110110_PR009_G1</member>
+                    <member name="messageID">157177</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z30102_MS008</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">5379</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z110110_PR023</member>
+                    <member name="messageID">157141</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">157139</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z110110_PR009_G1</member>
+        <member name="next">Z30102_MS007</member>
+        <member name="branchScriptID">branch_dungeonTrialResult</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z110110_PR009_G1_01</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z110110_PR009_G1_01</member>
+        <member name="messageID">157507</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z110110_SILVER_G1</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z70103_MS009</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">592</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z70103_LL</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">LEVEL</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">40</member>
+                                            <member name="value2">99</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z110110_SILVER_G1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>592</key>
+                            <value>-1</value>
+                        </pair>
+                        <pair>
+                            <key>5379</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">10902</member>
+                    <member name="variantID">20</member>
                 </object>
             </element>
             <element>

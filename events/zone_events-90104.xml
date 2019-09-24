@@ -219,9 +219,65 @@
         </member>
     </object>
     <object name="Event">
-        <!-- todo: Conditions missing -->
-        <!-- condition: unknown -->
         <member name="ID">Z90104_2003A</member>
+        <member name="next">Z90104_2003A_MAIN</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z90104_JOIN_G1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="compareMode">EXISTS</member>
+                                <member name="value1">1</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_instanceJoin</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">6201</member>
+                                <member name="value2">6203</member>
+                                <member name="compareMode">BETWEEN</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z90104_JOIN_G1</member>
+        <member name="next">Z30102_MS007</member>
+        <member name="branchScriptID">branch_dungeonTrialResult</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z90104_JOIN_G1_01</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z90104_JOIN_G1_01</member>
         <member name="next">Z90104_2003A_MAIN</member>
         <member name="branches">
             <element>
@@ -239,18 +295,9 @@
                     </member>
                 </object>
             </element>
-            <element>
-                <object>
-                    <member name="next">Z90104_PR011</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <!-- todo: Conditions missing -->
-        <!-- condition: unknown -->
-        <!-- condition: unknown -->
-        <!-- <member name="next">Z90104_R2_PR050</member> -->
         <member name="ID">Z90104_2003A_MAIN</member>
         <member name="messageID">157133</member>
         <member name="choices">
@@ -258,63 +305,12 @@
                 <object name="EventChoice">
                     <member name="next">Z90104_R2_PR015</member>
                     <member name="messageID">157135</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z90104_R2_PR010</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z90104_R2_PR020</member>
-                            </object>
-                        </element>
-                    </member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">event_future</member>
+                    <member name="next">Z90104_2003A_G1</member>
                     <member name="messageID">157137</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice"/>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">157139</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z90104_R2_PR010</member>
-        <member name="messageID">157140</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice"/>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z90104_R2_PR011</member>
-                    <member name="messageID">157174</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice"/>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">event_future</member>
-                    <!-- <member name="next">Z90104_R2_PR030</member> -->
-                    <member name="messageID">157175</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z90104_2003A_MAIN</member>
-                    <member name="messageID">157141</member>
                 </object>
             </element>
             <element>
@@ -503,6 +499,310 @@
         </member>
     </object>
     <object name="EventPrompt">
+        <member name="ID">Z90104_2003A_G1</member>
+        <member name="messageID">157140</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90104_B_NMa_G1</member>
+                    <member name="messageID">157119</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">5314</member>
+                                <member name="value2">20</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">524</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z30102_MS005</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">5378</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90104_R2_PR011_G1</member>
+                    <member name="messageID">157174</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z30102_MS005</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">5378</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90104_2003A_MAIN</member>
+                    <member name="messageID">157141</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">157139</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z90104_B_NMa_G1</member>
+        <member name="messageID">157508</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90104_B_NMb_G1</member>
+                    <member name="messageID">139065</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90104_2003A_G1</member>
+                    <member name="messageID">139066</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z90104_B_NMb_G1</member>
+        <member name="next">Z30102_MS007</member>
+        <member name="branchScriptID">branch_dungeonTrialResult</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z90104_B_NMc_G1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z90104_B_NMc_G1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>524</key>
+                            <value>-1</value>
+                        </pair>
+                        <pair>
+                            <key>5314</key>
+                            <value>-20</value>
+                        </pair>
+                        <pair>
+                            <key>5378</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6203</member>
+                    <member name="variantID">19</member>
+                    <member name="mode">CREATE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="sourceContext">PARTY</member>
+                    <member name="messageID">139067</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z90104_R2_PR011_G1</member>
+        <member name="messageID">157502</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90104_B0_G1</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z90104_MS01a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="negate">true</member>
+                                            <member name="value1">524</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z90104_B0_G1</member>
+        <member name="next">Z30102_MS007</member>
+        <member name="branchScriptID">branch_dungeonTrialResult</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z90104_B1_G1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z30102_MS007</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z90104_B1_G1</member>
+        <member name="next">Z90104_B2_G1</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z90104_B_NM_G1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">MOON_PHASE</member>
+                                <member name="compareMode">EXISTS</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z90104_B2_G1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>524</key>
+                            <value>-1</value>
+                        </pair>
+                        <pair>
+                            <key>5378</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="variantID">19</member>
+                    <member name="transformScriptID">transforma_instanceRandom</member>
+                    <member name="transformScriptParams">
+                        <element>6201</element>
+                        <element>6202</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z90104_B_NM_G1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>524</key>
+                            <value>-1</value>
+                        </pair>
+                        <pair>
+                            <key>5378</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6203</member>
+                    <member name="variantID">19</member>
+                    <member name="mode">CREATE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
         <member name="ID">Z90104_R2_PR015</member>
         <member name="messageID">157140</member>
         <member name="choices">
@@ -548,38 +848,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="messageID">157141</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">157139</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z90104_R2_PR020</member>
-        <member name="messageID">157140</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z90104_R2_PR011</member>
-                    <member name="messageID">157174</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">157175</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
+                    <member name="next">Z90104_2003A_MAIN</member>
                     <member name="messageID">157141</member>
                 </object>
             </element>
@@ -628,157 +897,6 @@
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">157275</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z90104_R2_PR050</member>
-        <member name="messageID">157140</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z90104_R2_PR051</member>
-                    <member name="messageID">157174</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">157141</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">157139</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z90104_R2_PR051</member>
-        <member name="messageID">157508</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z90104_R2_MS005</member>
-                    <member name="messageID">1</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">2</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z90104_MS005</member>
-        <member name="next">Z90104_MS006</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">157375</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z90104_MS006</member>
-        <member name="next">Z90104_PA002</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">157275</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z90104_PA002</member>
-        <member name="actions">
-            <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">622101</member>
-                    <member name="spotID">50001</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z90104_PR011</member>
-        <member name="messageID">138002</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">139053</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z90104_PR012</member>
-                    <member name="messageID">139363</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">138027</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z90104_PR012</member>
-        <member name="messageID">138004</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z90104_EF008</member>
-                    <member name="messageID">138028</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">138029</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z90104_EF008</member>
-        <member name="next">Z90104_MS008</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">139361</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z90104_MS008</member>
-        <member name="next">Z90104_PA002</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">139362</member>
                     <member name="includeMessage">true</member>
                 </object>
             </element>
