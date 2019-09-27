@@ -31734,10 +31734,37 @@
                     </member>
                 </object>
             </element>
+            <element>
+                <object>
+                    <member name="next">N3401_APIF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INVENTORY_FREE</member>
+                                <member name="compareMode">LT</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
-    <object name="Event">
+    <object name="EventPerformActions">
         <member name="ID">N3401_AP001a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>999999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="branches">
             <element>
                 <object>
@@ -32118,24 +32145,37 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3401</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2463</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">N3401_AP00_540X</member>
         <member name="next">N3401_AP00_540X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_540X_0e</member>
@@ -32153,18 +32193,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_540X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32176,33 +32206,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_540X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32214,37 +32223,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_541X</member>
         <member name="next">N3401_AP00_541X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_541X_0e</member>
@@ -32262,18 +32246,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_541X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32285,33 +32259,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_541X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32323,37 +32276,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_548X</member>
         <member name="next">N3401_AP00_548X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_548X_0e</member>
@@ -32371,18 +32299,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_548X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32394,33 +32312,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_548X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32432,37 +32329,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_550X</member>
         <member name="next">N3401_AP00_550X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_550X_0e</member>
@@ -32480,18 +32352,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_550X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32503,33 +32365,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_550X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32541,37 +32382,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_552X</member>
         <member name="next">N3401_AP00_552X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_552X_0e</member>
@@ -32589,18 +32405,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_552X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32612,33 +32418,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_552X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32650,37 +32435,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_553X</member>
         <member name="next">N3401_AP00_553X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_553X_0e</member>
@@ -32698,18 +32458,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_553X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32721,33 +32471,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_553X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32759,37 +32488,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_510X</member>
         <member name="next">N3401_AP00_510X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_510X_0e</member>
@@ -32807,18 +32511,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_510X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32830,33 +32524,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_510X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32868,37 +32541,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_512X</member>
         <member name="next">N3401_AP00_512X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_512X_0e</member>
@@ -32916,18 +32564,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_512X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32939,33 +32577,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_512X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -32977,37 +32594,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_513X</member>
         <member name="next">N3401_AP00_513X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_513X_0e</member>
@@ -33025,18 +32617,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_513X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33048,33 +32630,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_513X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33086,37 +32647,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_620X</member>
         <member name="next">N3401_AP00_620X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_620X_0e</member>
@@ -33134,18 +32670,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_620X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33157,33 +32683,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_620X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33195,37 +32700,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_630X</member>
         <member name="next">N3401_AP00_630X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_630X_0e</member>
@@ -33243,18 +32723,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_630X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33266,33 +32736,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_630X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33304,37 +32753,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_6304</member>
         <member name="next">N3401_AP00_6304_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_6304_0e</member>
@@ -33352,18 +32776,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_6304_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33375,33 +32789,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_6304_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33413,37 +32806,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_6304a</member>
         <member name="next">N3401_AP00_6304a_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_6304a_0e</member>
@@ -33461,18 +32829,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_6304a_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33484,33 +32842,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_6304a_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33522,37 +32859,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_920X</member>
         <member name="next">N3401_AP00_920X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_920X_0e</member>
@@ -33570,18 +32882,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_920X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33593,33 +32895,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_920X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33631,37 +32912,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_922X</member>
         <member name="next">N3401_AP00_922X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_922X_1e</member>
@@ -33721,18 +32977,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_922X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="notify">true</member>
@@ -33742,35 +32988,14 @@
                         <element>150</element>
                         <element>20</element>
                     </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_922X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="notify">true</member>
@@ -33782,33 +33007,12 @@
                     </member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_922X_1</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="notify">true</member>
@@ -33820,33 +33024,12 @@
                     </member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_922X_1e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="notify">true</member>
@@ -33856,17 +33039,6 @@
                         <element>180</element>
                         <element>21</element>
                     </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
                 </object>
             </element>
         </member>
@@ -33875,20 +33047,6 @@
         <member name="ID">N3401_AP00_570X</member>
         <member name="next">N3401_AP00_570X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_570X_0e</member>
@@ -33906,18 +33064,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_570X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33929,33 +33077,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_570X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -33967,37 +33094,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_571X</member>
         <member name="next">N3401_AP00_571X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_571X_0e</member>
@@ -34015,18 +33117,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_571X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34038,33 +33130,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_571X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34076,37 +33147,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_572X</member>
         <member name="next">N3401_AP00_572X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_572X_0e</member>
@@ -34124,18 +33170,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_572X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34147,33 +33183,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_572X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34185,37 +33200,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_10901</member>
         <member name="next">N3401_AP00_10901_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_10901_0e</member>
@@ -34233,18 +33223,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_10901_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34256,33 +33236,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_10901_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34294,37 +33253,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_10902</member>
         <member name="next">N3401_AP00_10902_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_10902_0e</member>
@@ -34342,18 +33276,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_10902_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34365,33 +33289,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_10902_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34403,37 +33306,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_10903</member>
         <member name="next">N3401_AP00_10903_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_10903_0e</member>
@@ -34451,18 +33329,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_10903_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34474,33 +33342,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_10903_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34512,37 +33359,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="Event">
         <member name="ID">N3401_AP00_11703</member>
         <member name="next">N3401_AP00_11703_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">N3401_AP00_11703_1e</member>
@@ -34600,18 +33422,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_11703_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34621,35 +33433,14 @@
                         </pair>
                     </member>
                     <member name="notify">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_11703_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34661,33 +33452,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_11703_1</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34699,33 +33469,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_11703_1e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34735,17 +33484,6 @@
                         </pair>
                     </member>
                     <member name="notify">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
                 </object>
             </element>
         </member>
@@ -34754,20 +33492,6 @@
         <member name="ID">N3401_AP00_1300X</member>
         <member name="next">N3401_AP00_1300X_0</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">N3401_APIF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <!-- Lucifuge nerf -->
             <element>
                 <object>
@@ -34808,18 +33532,8 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_1300X_0</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34831,33 +33545,12 @@
                     <member name="notify">true</member>
                 </object>
             </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">N3401_AP00_1300X_0e</member>
+        <member name="next">N3401_AP_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="items">
@@ -34867,17 +33560,6 @@
                         </pair>
                     </member>
                     <member name="notify">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2463</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
                 </object>
             </element>
         </member>
