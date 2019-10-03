@@ -7,6 +7,7 @@
         </member>
         <member name="NPCs">
             <element>
+                <!-- ジャックランタン -->
                 <object name="ServerNPC">
                     <member name="ID">306</member>
                     <member name="SpotID">60060</member>
@@ -28,6 +29,7 @@
         </member>
         <member name="NPCs">
             <element>
+                <!-- ジャックランタン -->
                 <object name="ServerNPC">
                     <member name="ID">306</member>
                     <member name="Y">-3900</member>
@@ -42,6 +44,27 @@
                 </object>
             </element>
         </member>
+        <member name="Triggers">
+            <element>
+                <!-- Quest cooldown (defaults to 8 hours) -->
+                <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_SETUP</member>
+                    <member name="Actions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>20071001</key>
+                                        <value>28800</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="ServerZonePartial">
         <member name="ID">20071003</member>
@@ -49,8 +72,8 @@
             <element>100101</element>
         </member>
         <member name="NPCs">
-            <!-- ORIGINAL POSITION; moved to avoid clipping with NPC625 on the zone. -->
-            <!--<element>
+            <element>
+                <!-- ジャックランタン -->
                 <object name="ServerNPC">
                     <member name="ID">306</member>
                     <member name="SpotID">60115</member>
@@ -62,17 +85,19 @@
                         </element>
                     </member>
                 </object>
-            </element>-->
+            </element>
             <element>
+                <!-- ヤギミヤ -->
                 <object name="ServerNPC">
-                    <member name="ID">306</member>
-                    <member name="X">-44.65999985</member>
-                    <member name="Y">-9020.179688</member>
-                    <member name="Rotation">-1.570799947</member>
+                    <member name="ID">625</member>
+                    <member name="X">-44.66</member>
+                    <member name="Y">-9020.18</member>
+                    <member name="Rotation">-1.57</member>
+                    <!--<member name="SpotID">60115</member>-->
                     <member name="Actions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">EX200710_306</member>
+                                <member name="eventID">N625</member>
                             </object>
                         </element>
                     </member>
@@ -114,7 +139,7 @@
                     <object name="Spawn">
                         <member name="ID">20071001</member>
                         <member name="EnemyType">1773</member>
-                        <member name="Level">99</member>
+                        <member name="Level">20</member>
                         <member name="TalkResist">100</member>
                         <member name="XP">666</member>
                         <member name="DropSetIDs">
