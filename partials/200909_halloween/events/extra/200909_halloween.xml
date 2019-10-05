@@ -1318,6 +1318,27 @@
                 <object name="EventChoice">
                     <member name="next">EX200909_366_TALK</member>
                     <member name="messageID">450874</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX200909_366_TALK_EX</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="value1">613</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">PARTNER_ALIVE</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -1357,6 +1378,29 @@
         <member name="next">EX200909_366_TALK_PR</member>
         <member name="messageIDs">
             <element>450880</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX200909_366_TALK_EX</member>
+        <member name="next">EX200909_366_TALK_EX_HIGH</member>
+        <member name="messageIDs">
+            <element>550050</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX200909_366_TALK_EX_LOW</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTNER_FAMILIARITY</member>
+                                <member name="value1">8001</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -1401,6 +1445,20 @@
                     <member name="messageID">2</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX200909_366_TALK_EX_HIGH</member>
+        <member name="next">EX200909_366_MAIN_PR</member>
+        <member name="messageIDs">
+            <element>550051</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX200909_366_TALK_EX_LOW</member>
+        <member name="next">EX200909_366_MAIN_PR</member>
+        <member name="messageIDs">
+            <element>550052</element>
         </member>
     </object>
     <object name="EventPrompt">
