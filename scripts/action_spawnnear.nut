@@ -76,6 +76,7 @@ function run(source, cState, dState, zone, server, params)
         local aiState = enemy.GetAIState();
         aiState.SetStatus(AIStatus_t.WANDERING, true);
         aiState.SetDespawnWhenLost(false);
+        aiState.SetDespawnTimeout(0);
 
         return Result_t.SUCCESS;
     }
