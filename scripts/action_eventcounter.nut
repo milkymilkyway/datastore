@@ -9,7 +9,8 @@ function define(script)
 // - params[0]: event counter ID
 // - params[1]: value to change/set counter by
 // - params[2]: counter should be decreased if 1, set to params[1] if 2, flag mask (add) if 3
-// - params[3]: if 1, set the world counter instead
+// - params[3]: Option flags, if 1 set the world counter instead, if 2 set
+//   current clan on RelatedTo field
 function run(source, cState, dState, zone, server, params)
 {
     local syncManager = server.GetChannelSyncManager();
@@ -19,7 +20,7 @@ function run(source, cState, dState, zone, server, params)
     local characterUID = null;
     local counterValue = 1;
 
-    if(params.len() >= 4 && params[3] == 1)
+    if(params.len() >= 4 && (params[3].tointeger() & 1) != 0)
     {
         // Use world counter
         eCounter = syncManager.GetWorldEventCounter(params[0].tointeger());
@@ -58,6 +59,19 @@ function run(source, cState, dState, zone, server, params)
         }
     }
 
+    local relatedTo = eCounter != null ? eCounter.GetRelatedTo() : UUID();
+    if(params.len() >= 4 && (params[3].tointeger() & 2) != 0)
+    {
+        local character = cState != null ? cState.GetEntity() : null;
+        local clan = character != null ? character.GetClan().Get() : null;
+        if(clan == null)
+        {
+            return Result_t.FAIL;
+        }
+
+        relatedTo = clan.GetUUID();
+    }
+
     if(!eCounter || eCounter.GetUUID().IsNull())
     {
         if(!eCounter)
@@ -68,6 +82,7 @@ function run(source, cState, dState, zone, server, params)
         }
 
         eCounter.SetCounter(counterValue);
+        eCounter.SetRelatedTo(relatedTo);
 
         if(!PersistentObject.Register(eCounter, UUID()) || !eCounter.Insert(worldDB))
         {
@@ -91,13 +106,15 @@ function run(source, cState, dState, zone, server, params)
             counterValue = eCounter.GetCounter() + counterValue;
         }
 
-        if(eCounter.GetCounter() == counterValue)
+        if(eCounter.GetCounter() == counterValue &&
+            eCounter.GetRelatedTo() == relatedTo)
         {
             // Nothing to do
             return Result_t.SUCCESS;
         }
 
         eCounter.SetCounter(counterValue);
+        eCounter.SetRelatedTo(relatedTo);
 
         if(!eCounter.Update(worldDB))
         {
