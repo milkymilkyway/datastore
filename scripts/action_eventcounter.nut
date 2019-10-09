@@ -64,12 +64,10 @@ function run(source, cState, dState, zone, server, params)
     {
         local character = cState != null ? cState.GetEntity() : null;
         local clan = character != null ? character.GetClan().Get() : null;
-        if(clan == null)
+        if(clan != null)
         {
-            return Result_t.FAIL;
+            relatedTo = clan.GetUUID();
         }
-
-        relatedTo = clan.GetUUID();
     }
 
     if(!eCounter || eCounter.GetUUID().IsNull())
