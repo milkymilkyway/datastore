@@ -74,9 +74,8 @@ function run(source, cState, dState, zone, server, params)
     if(zoneManager.AddEnemiesToZone(enemyList, zone, true, true, ""))
     {
         local aiState = enemy.GetAIState();
-        aiState.SetStatus(AIStatus_t.WANDERING, true);
         aiState.SetDespawnWhenLost(false);
-        aiState.SetDespawnTimeout(0);
+        aiState.SetStatus(AIStatus_t.WANDERING, true);
 
         return Result_t.SUCCESS;
     }

@@ -8,7 +8,7 @@ function define(script)
 function prepare(eState, manager)
 {
     local aiState = eState.GetAIState();
-    aiState.SetStatus(AIStatus_t.WANDERING, true);
     aiState.SetDespawnWhenLost(false);
+    aiState.SetStatus(AIStatus_t.WANDERING, true);
     return 0;
 }
