@@ -85,7 +85,7 @@ function run(source, cState, dState, zone, server, params)
             else if(params[i] == "ADD_FLAG" || params[i] == "SUB_FLAG" ||
                 params[i] == "MULT_FLAG" || params[i] == "DIV_FLAG")
             {
-                otherVal = flagSource.GetFlagState(i + 1, 0, worldCID).tofloat();
+                otherVal = flagSource.GetFlagState(params[i + 1].tointeger(), 0, worldCID).tofloat();
             }
             else
             {

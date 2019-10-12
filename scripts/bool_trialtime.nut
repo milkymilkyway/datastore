@@ -1,6 +1,6 @@
 function define(script)
 {
-    script.Name = "bool_TrialTime";
+    script.Name = "bool_trialTime";
     script.Type = "EventCondition";
     return 0;
 }
@@ -17,7 +17,10 @@ function check(source, cState, dState, zone, value1, value2, params)
     {
         return -1;
     }
-
-    local time = progress.GetTimeTrialRecordsByIndex(value1);
+    if(value1 <= 0)
+    {
+        return -1;
+    }
+    local time = progress.GetTimeTrialRecordsByIndex(value1 - 1);
     return time != 0 && time <= value2 ? 0 : -1;
 }
