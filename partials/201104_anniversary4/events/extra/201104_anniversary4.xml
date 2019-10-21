@@ -11,7 +11,7 @@
                             <object name="EventCondition">
                                 <member name="type">INSTANCE_ACCESS</member>
                                 <member name="value1">6611</member>
-                                <member name="value2">6616</member>
+                                <member name="value2">6617</member>
                                 <member name="compareMode">BETWEEN</member>
                             </object>
                         </element>
@@ -100,6 +100,25 @@
             </element>
             <element>
                 <object name="EventChoice">
+                    <member name="next">EX20110401_394_MO7</member>
+                    <member name="messageID">178572</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>20110401</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
                     <member name="next">EX20110401_394_END</member>
                     <member name="messageID">178224</member>
                 </object>
@@ -146,6 +165,13 @@
         <member name="next">EX20110401_394_MO6_SET</member>
         <member name="messageIDs">
             <element>178412</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX20110401_394_MO7</member>
+        <member name="next">EX20110401_394_MO7_PR</member>
+        <member name="messageIDs">
+            <element>178573</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -257,6 +283,24 @@
         </member>
     </object>
     <object name="EventPrompt">
+        <member name="ID">EX20110401_394_MO7_PR</member>
+        <member name="messageID">178574</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX20110401_394_MO7_ITEM</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX20110401_394_MO_CANCEL</member>
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
         <member name="ID">EX20110401_394_MO_PR</member>
         <member name="messageID">178229</member>
         <member name="choices">
@@ -275,16 +319,58 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX20110401_394_ITEM</member>
-        <member name="next">EX20110401_394_ITEM_PR</member>
+        <member name="ID">EX20110401_394_MO7_ITEM</member>
+        <member name="next">EX20110401_394_MO7_ITEM_PR</member>
         <member name="messageIDs">
-            <element>178233</element>
+            <element>178241</element>
         </member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">EX20110401_394_MO_CANCEL</member>
         <member name="messageIDs">
             <element>178232</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX20110401_394_ITEM</member>
+        <member name="next">EX20110401_394_ITEM_PR</member>
+        <member name="messageIDs">
+            <element>178233</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX20110401_394_MO7_ITEM_PR</member>
+        <member name="messageID">178242</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX20110401_394_MO7_CONFIRM</member>
+                    <member name="messageID">178243</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX20110401_394_ITEM1_MI</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">12556</member>
+                                            <member name="value2">1</member>
+                                            <member name="compareMode">LT</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX20110401_394_ITEM1_CANCEL</member>
+                    <member name="messageID">178244</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -404,6 +490,25 @@
         </member>
     </object>
     <object name="EventNPCMessage">
+        <member name="ID">EX20110401_394_MO7_CONFIRM</member>
+        <member name="next">EX20110401_TO_D6617</member>
+        <member name="messageIDs">
+            <element>178246</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX20110401_394_ITEM1_MI</member>
+        <member name="messageIDs">
+            <element>178240</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX20110401_394_ITEM1_CANCEL</member>
+        <member name="messageIDs">
+            <element>178245</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
         <member name="ID">EX20110401_394_ITEM1_MO1</member>
         <member name="next">EX20110401_394_ITEM1</member>
         <member name="messageIDs">
@@ -510,17 +615,37 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX20110401_TO_D6617</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>12556</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6617</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6617</member>
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">EX20110401_394_ITEM1</member>
         <member name="next">EX20110401_394_ITEM1_PR</member>
         <member name="messageIDs">
             <element>178241</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX20110401_394_ITEM1_MI</member>
-        <member name="messageIDs">
-            <element>178240</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -856,12 +981,6 @@
         <member name="ID">EX20110401_394_ITEM1_MI2</member>
         <member name="messageIDs">
             <element>178277</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX20110401_394_ITEM1_CANCEL</member>
-        <member name="messageIDs">
-            <element>178245</element>
         </member>
     </object>
     <object name="EventNPCMessage">

@@ -112,6 +112,22 @@
                                 </member>
                             </object>
                         </element>
+                        <element>
+                            <object>
+                                <member name="next">D66XX_BOSS_SPAWN</member>
+                                <member name="queueNext">D66XX_BOSS_ROOM_ENTER2</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_currentInstance</member>
+                                            <member name="params">
+                                                <element>6617</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
@@ -451,6 +467,56 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">D66XX_BOSS_SPAWN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnGroupIDs">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D66XX_BOSS_ROOM_ENTER2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">D6603_BOSS_DA_MOV</member>
         <member name="next">D6603_BOSS_DA_MOV_1</member>
@@ -501,59 +567,9 @@
             </element>
         </member>
     </object>
-    <object name="EventPerformActions">
-        <member name="ID">D66XX_BOSS_SPAWN</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="flagStates">
-                        <pair>
-                            <key>1</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionSpawn">
-                    <member name="spawnGroupIDs">
-                        <pair>
-                            <key>1</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="mode">ONE_TIME</member>
-                </object>
-            </element>
-        </member>
-        <member name="conditions">
-            <element>
-                <object name="EventFlagCondition">
-                    <member name="type">ZONE_FLAGS</member>
-                    <member name="compareMode">LT_OR_NAN</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>1</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPlayScene">
         <member name="ID">D66XX_BOSS_DA_MOV</member>
         <member name="sceneID">12022</member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D66XX_BOSS_ROOM_ENTER2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionZoneChange">
-                    <member name="spotID">50001</member>
-                </object>
-            </element>
-        </member>
     </object>
     <object name="EventPlayScene">
         <member name="ID">D6612_BOSS_DA_MOV</member>
@@ -4336,6 +4352,58 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6617_BOSS_DA_LOOT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>66170001</element>
+                        <element>66170002</element>
+                        <element>66170003</element>
+                        <element>66170004</element>
+                    </member>
+                    <member name="isBossBox">true</member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">100</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">101</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">102</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">103</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">104</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="transformScriptID">transforma_addDropsetRandom</member>
+                    <member name="transformScriptParams">
+                        <element>66170005</element>
+                        <element>45</element>
+                        <element>66170006</element>
+                        <element>50</element>
+                        <element>66170007</element>
+                        <element>5</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPrompt">
         <member name="ID">D66XX_EXIT</member>
         <member name="messageID">23</member>
@@ -4359,6 +4427,7 @@
                                                 <element>6614</element>
                                                 <element>6615</element>
                                                 <element>6616</element>
+                                                <element>6617</element>
                                             </member>
                                         </object>
                                     </element>
