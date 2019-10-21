@@ -8,9 +8,11 @@ function define(script)
 // Create/Modify an event counter
 // - params[0]: event counter ID
 // - params[1]: value to change/set counter by
-// - params[2]: counter should be decreased if 1, set to params[1] if 2, flag mask (add) if 3
+// - params[2]: counter should be decreased if 1, set to params[1] if 2, flag
+//   mask (add) if 3
 // - params[3]: Option flags, if 1 set the world counter instead, if 2 set
-//   current clan on RelatedTo field
+//   current clan on RelatedTo field, if 4 retrieve value from zone character
+//   flag matching param 1 instead
 function run(source, cState, dState, zone, server, params)
 {
     local syncManager = server.GetChannelSyncManager();
@@ -18,13 +20,22 @@ function run(source, cState, dState, zone, server, params)
 
     local eCounter = null;
     local characterUID = null;
-    local counterValue = 1;
+    local counterValue = params.len() >= 2 ? params[1].tointeger() : 1;
+
+    if(params.len() >= 4 && (params[3].tointeger() & 4) != 0)
+    {
+        if(cState == null || zone == null)
+        {
+            return Result_t.FAIL;
+        }
+
+        counterValue = zone.GetFlagState(counterValue, 0, cState.GetWorldCID());
+    }
 
     if(params.len() >= 4 && (params[3].tointeger() & 1) != 0)
     {
         // Use world counter
         eCounter = syncManager.GetWorldEventCounter(params[0].tointeger());
-        counterValue = params[1].tointeger();
         characterUID = UUID();
     }
     else
@@ -37,10 +48,6 @@ function run(source, cState, dState, zone, server, params)
         }
     
         eCounter = cState.GetEventCounter(params[0].tointeger(), true);
-        if(params.len() >= 2)
-        {
-            counterValue = params[1].tointeger();
-        }
 
         characterUID = character.GetUUID();
     }
