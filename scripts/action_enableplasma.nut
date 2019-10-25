@@ -6,10 +6,31 @@ function define(script)
 }
 
 // Enable the supplied plasmas in the current zone
-// - params[0]: Plasma IDs
+// - params[0]+: Plasma IDs (if first entry is RANDOM, pick one)
 function run(source, cState, dState, zone, server, params)
 {
-    if(zone != null)
+    if(zone == null || params.len() == 0)
+    {
+        return Result_t.FAIL;
+    }
+
+    if(params[0] == "RANDOM")
+    {
+        if(params.len() < 2)
+        {
+            return Result_t.FAIL;
+        }
+
+        local pState = zone.GetPlasma(
+            params[Randomizer.RNG(1, params.len() - 1)].tointeger());
+        if(pState == 0)
+        {
+            return Result_t.FAIL;
+        }
+
+        pState.Toggle(true, true);
+    }
+    else
     {
         for(local i = 0; i < params.len(); i++)
         {
@@ -21,9 +42,7 @@ function run(source, cState, dState, zone, server, params)
 
             pState.Toggle(true, true);
         }
-
-        return Result_t.SUCCESS;
     }
 
-    return Result_t.FAIL;
+    return Result_t.SUCCESS;
 }
