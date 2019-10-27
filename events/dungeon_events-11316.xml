@@ -309,6 +309,27 @@
                 </object>
             </element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D11316_3006_PRIZE_BOOST</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">D11316_TO_241001</member>
@@ -443,6 +464,25 @@
         <member name="next">D11316_3006_PRIZE_DRUMROLL_END</member>
         <member name="messageIDs">
             <element>1193094</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D11316_3006_PRIZE_BOOST</member>
+        <member name="next">D11316_3006_PRIZE_DRUMROLL</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>102</element>
+                        <element>102</element>
+                        <element>MULT</element>
+                        <element>1.2</element>
+                        <element>CEIL</element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -996,7 +1036,7 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">D11316_3006_PRIZE_ITEM_MIN</member>
-        <member name="next">D11316_3006_PRIZE_END</member>
+        <member name="next">D11316_3006_PRIZE_ITEM_MIN_SET</member>
         <member name="messageIDs">
             <element>1193089</element>
         </member>
@@ -1037,6 +1077,23 @@
         <member name="transformScriptParams">
             <element>102</element>
             <element>CHARACTER</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D11316_3006_PRIZE_ITEM_MIN_SET</member>
+        <member name="next">D11316_3006_PRIZE_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>102</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
