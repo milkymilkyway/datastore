@@ -5350,6 +5350,54 @@
             </element>
         </member>
     </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z40101_366</member>
+        <member name="next">Z40101_366_00</member>
+        <member name="messageID">400401</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z40101_366_00</member>
+        <member name="messageID">181211</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40101_366_02</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40101_366_01</member>
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z40101_366_01</member>
+        <member name="messageID">400403</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z40101_366_02</member>
+        <member name="next">Z40101_366_03</member>
+        <member name="messageID">400402</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z40101_366_03</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">10014</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">Z40101_391</member>
         <member name="next">Z40101_391_000a</member>
@@ -7070,13 +7118,20 @@
     </object>
     <object name="Event">
         <member name="ID">Z40101_3301</member>
-        <!-- todo: Conditions missing -->
         <member name="next">Z40101_NM056</member>
         <member name="branches">
             <element>
                 <object>
                     <member name="next">Z40101_NM060</member>
-                    <!-- condition: unknown -->
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">835</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -7123,12 +7178,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateFlag">
-                    <member name="flagType">VALUABLE</member>
-                    <member name="ID">480</member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionZoneChange">
                     <member name="zoneID">40104</member>
                     <member name="spotID">50000</member>
@@ -7155,6 +7204,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z40101_NM057</member>
                     <member name="messageID">111444</member>
                 </object>
             </element>
@@ -7170,6 +7220,47 @@
         <member name="ID">Z40101_NM061</member>
         <member name="messageIDs">
             <element>111525</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z40101_Q833</member>
+		<member name="branches">
+			<element>
+				<object>
+					<member name="next">Z40101_Q833_01</member>
+					<member name="conditions">
+						<element>
+							<object name="EventCondition">
+								<member name="type">QUEST_PHASE</member>
+								<member name="value1">833</member>
+								<member name="value2">0</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z40101_Q833_01</member>
+        <member name="next">Z40101_Q833_02</member>
+        <member name="playerSource">true</member>
+        <member name="messageID">400001</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z40101_Q833_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">10001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="Event">
@@ -8801,29 +8892,6 @@
                 <object name="ActionZoneChange">
                     <member name="zoneID">260101</member>
                     <member name="spotID">50001</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventMultitalk">
-        <member name="ID">Z40101_UNMAP_ML001</member>
-        <member name="next">Z40101_UNMAP_PA032</member>
-        <member name="playerSource">true</member>
-        <member name="messageID">400001</member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z40101_UNMAP_PA032</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateFlag">
-                    <member name="flagType">VALUABLE</member>
-                    <member name="ID">481</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">1000102</member>
-                    <member name="spotID">50000</member>
                 </object>
             </element>
         </member>
