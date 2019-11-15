@@ -192,8 +192,17 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201212_3356_OTHER</member>
+                    <member name="next">EX201212_3356_TRANSFORM</member>
                     <member name="messageID">1052784</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">722</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -372,8 +381,8 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201212_3356_OTHER</member>
-        <member name="next">EX201212_3356_OTHER_PR</member>
+        <member name="ID">EX201212_3356_TRANSFORM</member>
+        <member name="next">EX201212_3356_TRANSFORM_PR</member>
         <member name="messageIDs">
             <element>1052787</element>
         </member>
@@ -496,17 +505,26 @@
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201212_3356_OTHER_PR</member>
+        <member name="ID">EX201212_3356_TRANSFORM_PR</member>
         <member name="messageID">1052788</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201212_3356_OTHER_SUCCESS</member>
+                    <member name="next">EX201212_3356_TRANSFORM_SUCCESS</member>
                     <member name="messageID">1</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">EX201212_3356_OTHER_FAIL</member>
+                                <member name="next">EX201212_3356_TRANSFORM_FAIL</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="value1">1</member>
+                                            <member name="value2">9</member>
+                                            <member name="scriptID">bool_random</member>
+                                        </object>
+                                    </element>
+                                </member>
                             </object>
                         </element>
                     </member>
@@ -514,7 +532,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201212_3356_OTHER_END</member>
+                    <member name="next">EX201212_3356_TRANSFORM_END</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
@@ -564,22 +582,48 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_eventCounter</member>
+                    <member name="params">
+                        <element>20121204</element>
+                        <element>0</element>
+                        <element>2</element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201212_3356_OTHER_SUCCESS</member>
+        <member name="ID">EX201212_3356_TRANSFORM_SUCCESS</member>
         <member name="messageIDs">
             <element>1052789</element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201212_3356_TRANSFORM1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_3356_TRANSFORM2</member>
+                </object>
+            </element>
+        </member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201212_3356_OTHER_FAIL</member>
+        <member name="ID">EX201212_3356_TRANSFORM_FAIL</member>
         <member name="messageIDs">
             <element>1052790</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201212_3356_OTHER_END</member>
+        <member name="ID">EX201212_3356_TRANSFORM_END</member>
         <member name="messageIDs">
             <element>1052791</element>
         </member>
@@ -595,6 +639,38 @@
         <member name="ID">EX201212_3356_QUEST1_CANCEL</member>
         <member name="messageIDs">
             <element>1052768</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3356_TRANSFORM1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>3051</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3356_TRANSFORM2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>3052</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -698,6 +774,16 @@
                     <member name="includeMessage">true</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_eventCounter</member>
+                    <member name="params">
+                        <element>20121204</element>
+                        <element>0</element>
+                        <element>2</element>
+                    </member>
+                </object>
+            </element>
         </member>
         <member name="branches">
             <element>
@@ -755,6 +841,20 @@
             </element>
             <element>
                 <object>
+                    <member name="next">EX201212_3357_REWARD</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">EVENT_COUNTER</member>
+                                <member name="value1">20121203</member>
+                                <member name="value2">10</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">EX201212_3357_Q722</member>
                     <member name="conditions">
                         <element>
@@ -788,6 +888,13 @@
         <member name="next">EX201212_3357_MAIN_PR</member>
         <member name="messageIDs">
             <element>1053900</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD</member>
+        <member name="next">EX201212_3357_REWARD_PR</member>
+        <member name="messageIDs">
+            <element>1153156</element>
         </member>
     </object>
     <object name="Event">
@@ -1294,7 +1401,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201212_3357_MO</member>
+                    <member name="next">EX201212_3357_MO_REMAINING_SET</member>
                     <member name="messageID">1053904</member>
                     <member name="branches">
                         <element>
@@ -1342,6 +1449,55 @@
             <element>
                 <object name="EventChoice">
                     <member name="messageID">1053906</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201212_3357_REWARD_PR</member>
+        <member name="messageID">1153157</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_REWARD_CONFIRM</member>
+                    <member name="messageID">1153158</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_REWARD_IF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="value1">3</member>
+                                            <member name="compareMode">LT</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">1153159</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_REWARD_REJECT1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_REWARD_REJECT2</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="branchScriptID">branch_randomSplit</member>
+                    <member name="branchScriptParams">
+                        <element>2</element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -1420,53 +1576,32 @@
             <element>1053907</element>
         </member>
     </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_MO</member>
-        <member name="next">EX201212_3357_MO_RANK1_PR</member>
-        <member name="messageIDs">
-            <element>1053923</element>
-        </member>
-        <member name="branches">
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_MO_REMAINING_SET</member>
+        <member name="next">EX201212_3357_MO_REMAINING</member>
+        <member name="actions">
             <element>
-                <object>
-                    <member name="next">EX201212_3357_MO_RANK2_PR</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">LEVEL</member>
-                                <member name="value1">21</member>
-                                <member name="value2">40</member>
-                                <member name="compareMode">BETWEEN</member>
-                            </object>
-                        </element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagCopy</member>
+                    <member name="params">
+                        <element>20121203</element>
+                        <element>3357</element>
+                        <element>EVENT_COUNTER</element>
+                        <element>CHARACTER</element>
                     </member>
                 </object>
             </element>
             <element>
-                <object>
-                    <member name="next">EX201212_3357_MO_RANK3_PR</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">LEVEL</member>
-                                <member name="value1">41</member>
-                                <member name="value2">60</member>
-                                <member name="compareMode">BETWEEN</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201212_3357_MO_RANK4_PR</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">LEVEL</member>
-                                <member name="value1">61</member>
-                            </object>
-                        </element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>3357</element>
+                        <element>3357</element>
+                        <element>MULT</element>
+                        <element>-1</element>
+                        <element>ADD</element>
+                        <element>10</element>
                     </member>
                 </object>
             </element>
@@ -1484,6 +1619,33 @@
         <member name="next">EX201212_3357_MO_ACCESS_PR</member>
         <member name="messageIDs">
             <element>1053915</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD_CONFIRM</member>
+        <member name="next">EX201212_3357_REWARD_END</member>
+        <member name="messageIDs">
+            <element>1153160</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD_IF</member>
+        <member name="messageIDs">
+            <element>1153161</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD_REJECT1</member>
+        <member name="next">EX201212_3357_REWARD_REJECT1_PR</member>
+        <member name="messageIDs">
+            <element>1153162</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD_REJECT2</member>
+        <member name="next">EX201212_3357_REWARD_REJECT2_PR</member>
+        <member name="messageIDs">
+            <element>1153300</element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -1674,6 +1836,460 @@
                     <member name="messageID">1053910</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventExNPCMessage">
+        <member name="ID">EX201212_3357_MO_REMAINING</member>
+        <member name="next">EX201212_3357_MO_RANK1_PR</member>
+        <member name="messageID">1153167</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_MO_RANK2_PR</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">21</member>
+                                <member name="value2">40</member>
+                                <member name="compareMode">BETWEEN</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_MO_RANK3_PR</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">41</member>
+                                <member name="value2">60</member>
+                                <member name="compareMode">BETWEEN</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_MO_RANK4_PR</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">61</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="transformScriptID">transforme_flag</member>
+        <member name="transformScriptParams">
+            <element>3357</element>
+            <element>CHARACTER</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201212_3357_MO_REPEAT_PR</member>
+        <member name="messageID">1153081</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_MO_REPEAT_CONFIRM</member>
+                    <member name="messageID">1153078</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_MP</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">COMP_DEMON</member>
+                                            <member name="value1">3856</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="value1">3856</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_MO_REPEAT_LOCKED</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">PARTNER_LOCKED</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_MO_REPEAT_CANCEL</member>
+                    <member name="messageID">1153059</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201212_3357_MO_ACCESS_PR</member>
+        <member name="messageID">1053916</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_MO_JOIN</member>
+                    <member name="messageID">1053917</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_MO_JOIN_FAIL</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INSTANCE_ACCESS</member>
+                                            <member name="value1">6426</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_MO_JOIN_CANCEL</member>
+                    <member name="messageID">1053918</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_REWARD_END</member>
+        <member name="next">EX201212_3357_REWARD_RESET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
+                    <member name="items">
+                        <pair>
+                            <key>12206</key>
+                            <value>10</value>
+                        </pair>
+                        <pair>
+                            <key>12207</key>
+                            <value>10</value>
+                        </pair>
+                        <pair>
+                            <key>152</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201212_3357_REWARD_REJECT1_PR</member>
+        <member name="messageID">1153162</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_REWARD_REJECT1_CONFIRM</member>
+                    <member name="messageID">1153163</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_REWARD_REJECT1_CANCEL</member>
+                    <member name="messageID">1153164</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_REWARD_IF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="value1">3</member>
+                                            <member name="compareMode">LT</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201212_3357_REWARD_REJECT2_PR</member>
+        <member name="messageID">1153300</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_REWARD_REJECT2_CONFIRM</member>
+                    <member name="messageID">1153303</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_REWARD_REJECT2_CANCEL</member>
+                    <member name="messageID">1153304</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_REWARD_IF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="value1">3</member>
+                                            <member name="compareMode">LT</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_QUEST_REWARD1</member>
+        <member name="next">EX201212_3357_Q722_FIN1</member>
+        <member name="messageIDs">
+            <element>1053891</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_Q723_FIN1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">723</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_QUEST_REWARD2</member>
+        <member name="next">EX201212_3357_Q722_FIN2</member>
+        <member name="messageIDs">
+            <element>1053892</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_Q723_FIN2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">723</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_XP</member>
+        <member name="next">EX201212_3357_XP_FULL</member>
+        <member name="messageIDs">
+            <element>1053952</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_XP_SOLO</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="compareMode">EXISTS</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_XP_INVALID</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="value1">3856</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_XP_INVALID</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="value1">3873</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_TRADE01</member>
+        <member name="next">EX201212_3357_TRADE01_PR</member>
+        <member name="messageIDs">
+            <element>1053973</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_TRADE02</member>
+        <member name="next">EX201212_3357_TRADE02_PR</member>
+        <member name="messageIDs">
+            <element>1053976</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_TRADE03</member>
+        <member name="next">EX201212_3357_TRADE03_PR</member>
+        <member name="messageIDs">
+            <element>1053979</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_TRADE04</member>
+        <member name="next">EX201212_3357_TRADE04_PR</member>
+        <member name="messageIDs">
+            <element>1053982</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_TRADE05</member>
+        <member name="next">EX201212_3357_TRADE05_PR</member>
+        <member name="messageIDs">
+            <element>1053985</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201212_3357_TRADE_PR2</member>
+        <member name="messageID">1053938</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_TRADE_PR</member>
+                    <member name="messageID">1053951</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_TRADE06</member>
+                    <member name="messageID">1053945</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_TRADE07</member>
+                    <member name="messageID">1053946</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_TRADE08</member>
+                    <member name="messageID">1053947</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_TRADE09</member>
+                    <member name="messageID">1053948</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_TRADE10</member>
+                    <member name="messageID">1153001</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_TRADE11</member>
+                    <member name="messageID">1153002</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">1053949</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_PARTY_JOIN</member>
+        <member name="messageIDs">
+            <element>1053911</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">event_instanceJoin</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">6420</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_PARTY_JOIN_FAIL</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1053912</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_PARTY_JOIN_CANCEL</member>
+        <member name="messageIDs">
+            <element>1053913</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -1904,464 +2520,6 @@
             </element>
         </member>
     </object>
-    <object name="EventPrompt">
-        <member name="ID">EX201212_3357_MO_REPEAT_PR</member>
-        <member name="messageID">1153081</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_MO_REPEAT_CONFIRM</member>
-                    <member name="messageID">1153078</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">EX201212_3357_MP</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">COMP_DEMON</member>
-                                            <member name="value1">3856</member>
-                                        </object>
-                                    </element>
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">SUMMONED</member>
-                                            <member name="value1">3856</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">EX201212_3357_MO_REPEAT_LOCKED</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">PARTNER_LOCKED</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_MO_REPEAT_CANCEL</member>
-                    <member name="messageID">1153059</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">EX201212_3357_MO_ACCESS_PR</member>
-        <member name="messageID">1053916</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_MO_JOIN</member>
-                    <member name="messageID">1053917</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">EX201212_3357_MO_JOIN_FAIL</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">INSTANCE_ACCESS</member>
-                                            <member name="value1">6426</member>
-                                            <member name="negate">true</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_MO_JOIN_CANCEL</member>
-                    <member name="messageID">1053918</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_QUEST_REWARD1</member>
-        <member name="next">EX201212_3357_Q722_FIN1</member>
-        <member name="messageIDs">
-            <element>1053891</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">EX201212_3357_Q723_FIN1</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_ACTIVE</member>
-                                <member name="value1">723</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_QUEST_REWARD2</member>
-        <member name="next">EX201212_3357_Q722_FIN2</member>
-        <member name="messageIDs">
-            <element>1053892</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">EX201212_3357_Q723_FIN2</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_ACTIVE</member>
-                                <member name="value1">723</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_XP</member>
-        <member name="next">EX201212_3357_XP_FULL</member>
-        <member name="messageIDs">
-            <element>1053952</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">EX201212_3357_XP_SOLO</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">SUMMONED</member>
-                                <member name="compareMode">EXISTS</member>
-                                <member name="negate">true</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201212_3357_XP_INVALID</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">SUMMONED</member>
-                                <member name="value1">3856</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201212_3357_XP_INVALID</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">SUMMONED</member>
-                                <member name="value1">3873</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_TRADE01</member>
-        <member name="next">EX201212_3357_TRADE01_PR</member>
-        <member name="messageIDs">
-            <element>1053973</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_TRADE02</member>
-        <member name="next">EX201212_3357_TRADE02_PR</member>
-        <member name="messageIDs">
-            <element>1053976</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_TRADE03</member>
-        <member name="next">EX201212_3357_TRADE03_PR</member>
-        <member name="messageIDs">
-            <element>1053979</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_TRADE04</member>
-        <member name="next">EX201212_3357_TRADE04_PR</member>
-        <member name="messageIDs">
-            <element>1053982</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_TRADE05</member>
-        <member name="next">EX201212_3357_TRADE05_PR</member>
-        <member name="messageIDs">
-            <element>1053985</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">EX201212_3357_TRADE_PR2</member>
-        <member name="messageID">1053938</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_TRADE_PR</member>
-                    <member name="messageID">1053951</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_TRADE06</member>
-                    <member name="messageID">1053945</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_TRADE07</member>
-                    <member name="messageID">1053946</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_TRADE08</member>
-                    <member name="messageID">1053947</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_TRADE09</member>
-                    <member name="messageID">1053948</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_TRADE10</member>
-                    <member name="messageID">1153001</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">EX201212_3357_TRADE11</member>
-                    <member name="messageID">1153002</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">1053949</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_PARTY_JOIN</member>
-        <member name="messageIDs">
-            <element>1053911</element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">event_instanceJoin</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INSTANCE_ACCESS</member>
-                                <member name="value1">6420</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">EX201212_3357_PARTY_JOIN_FAIL</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1053912</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_PARTY_JOIN_CANCEL</member>
-        <member name="messageIDs">
-            <element>1053913</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_MO_CONFIRM</member>
-        <member name="messageIDs">
-            <element>1053930</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">EX201212_3357_MO_RANK1_END</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>800</key>
-                            <value>-20</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1153082</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneInstance">
-                    <member name="instanceID">6426</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneInstance">
-                    <member name="instanceID">6426</member>
-                    <member name="mode">JOIN</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_MO_MI</member>
-        <member name="messageIDs">
-            <element>1053931</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_MO_MD</member>
-        <member name="messageIDs">
-            <element>1053933</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_MO_CANCEL</member>
-        <member name="messageIDs">
-            <element>1053932</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">EX201212_3357_MO_RANK2_END</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>800</key>
-                            <value>-50</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1153083</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneInstance">
-                    <member name="instanceID">6426</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneInstance">
-                    <member name="instanceID">6426</member>
-                    <member name="mode">JOIN</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">EX201212_3357_MO_RANK3_END</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>800</key>
-                            <value>-200</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1153084</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneInstance">
-                    <member name="instanceID">6426</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneInstance">
-                    <member name="instanceID">6426</member>
-                    <member name="mode">JOIN</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">EX201212_3357_MO_RANK4_END</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>800</key>
-                            <value>-500</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1153085</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneInstance">
-                    <member name="instanceID">6426</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionZoneInstance">
-                    <member name="instanceID">6426</member>
-                    <member name="mode">JOIN</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventNPCMessage">
         <member name="ID">EX201212_3357_MO_REPEAT_CONFIRM</member>
         <member name="next">EX201212_3357_Q723_START</member>
@@ -2438,6 +2596,49 @@
         <member name="ID">EX201212_3357_MO_JOIN_CANCEL</member>
         <member name="messageIDs">
             <element>1053922</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_REWARD_RESET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_eventCounter</member>
+                    <member name="params">
+                        <element>20121203</element>
+                        <element>0</element>
+                        <element>2</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD_REJECT1_CONFIRM</member>
+        <member name="next">EX201212_3357_REWARD_RESET</member>
+        <member name="messageIDs">
+            <element>1153165</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD_REJECT1_CANCEL</member>
+        <member name="next">EX201212_3357_REWARD_END</member>
+        <member name="messageIDs">
+            <element>1153166</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD_REJECT2_CONFIRM</member>
+        <member name="next">EX201212_3357_REWARD_RESET</member>
+        <member name="messageIDs">
+            <element>1153301</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_REWARD_REJECT2_CANCEL</member>
+        <member name="next">EX201212_3357_REWARD_END</member>
+        <member name="messageIDs">
+            <element>1153302</element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -2892,6 +3093,158 @@
             <element>1153006</element>
         </member>
     </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_MO_CONFIRM</member>
+        <member name="messageIDs">
+            <element>1053930</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_MO_RANK1_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>800</key>
+                            <value>-20</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1153082</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6426</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6426</member>
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_MO_MI</member>
+        <member name="messageIDs">
+            <element>1053931</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_MO_MD</member>
+        <member name="messageIDs">
+            <element>1053933</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_MO_CANCEL</member>
+        <member name="messageIDs">
+            <element>1053932</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_MO_RANK2_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>800</key>
+                            <value>-50</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1153083</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6426</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6426</member>
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_MO_RANK3_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>800</key>
+                            <value>-200</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1153084</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6426</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6426</member>
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_MO_RANK4_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>800</key>
+                            <value>-500</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1153085</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6426</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">6426</member>
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPerformActions">
         <member name="ID">EX201212_3357_Q723_START</member>
         <member name="actions">
@@ -2905,6 +3258,16 @@
                 <object name="ActionStageEffect">
                     <member name="messageID">1052829</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_eventCounter</member>
+                    <member name="params">
+                        <element>20121204</element>
+                        <element>0</element>
+                        <element>2</element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -3089,7 +3452,7 @@
                     <member name="items">
                         <pair>
                             <key>5603</key>
-                            <value>1</value>
+                            <value>10</value>
                         </pair>
                         <pair>
                             <key>12878</key>
@@ -3115,7 +3478,7 @@
                     <member name="items">
                         <pair>
                             <key>5737</key>
-                            <value>1</value>
+                            <value>10</value>
                         </pair>
                         <pair>
                             <key>12878</key>

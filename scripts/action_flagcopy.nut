@@ -10,7 +10,8 @@ function define(script)
 // - params[0]: Source key (or type)
 // - params[1]: Destination key
 // - params[2]: Source flag type: ZONE (default), INSTANCE,
-//   CHARACTER, INSTANCE_CHARACTER, STATUS, STATUS_CHAR, STATUS_DEMON
+//   CHARACTER, INSTANCE_CHARACTER, STATUS, STATUS_CHAR, STATUS_DEMON,
+//   EVENT_COUNTER or WORLD_COUNTER
 // - params[3]: Destination flag type: ZONE (default), INSTANCE,
 //   CHARACTER or INSTANCE_CHARACTER
 function run(source, cState, dState, zone, server, params)
@@ -33,7 +34,8 @@ function run(source, cState, dState, zone, server, params)
     }
     else if(worldCID <= 0 &&
         (sType == "CHARACTER" || sType == "INSTANCE_CHARACTER" ||
-        dType == "CHARACTER" || dType == "INSTANCE_CHARACTER"))
+        dType == "CHARACTER" || dType == "INSTANCE_CHARACTER" ||
+        sType == "EVENT_COUNTER"))
     {
         return Result_t.FAIL;
     }
@@ -76,6 +78,24 @@ function run(source, cState, dState, zone, server, params)
     {
         value = zone.GetZoneInstance().GetFlagState(sKey, 0,
             sType == "INSTANCE" ? 0 : worldCID);
+    }
+    else if(sType == "EVENT_COUNTER")
+    {
+        local counter = cState.GetEventCounter(sKey, false);
+        value = counter != null ? counter.GetCounter() : 0;
+    }
+    else if(sType == "WORLD_COUNTER")
+    {
+        local syncManager = server.GetChannelSyncManager();
+        local counter = syncManager.GetWorldEventCounter(sKey);
+        if(counter)
+        {
+            value = counter.GetCounter();
+        }
+        else
+        {
+            return Result_t.FAIL;
+        }
     }
     else
     {
