@@ -28,7 +28,7 @@ function run(source, cState, dState, zone, server, params)
     post.SetTimestamp(clock.SystemTime);
     if(params.len() >= 2)
     {
-        post.SetGiftMessage(params[1].tointeger());
+        post.SetDistributionMessageID(params[1].tointeger());
     }
 
     post.SetType(params[0].tointeger());

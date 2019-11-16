@@ -416,6 +416,58 @@
             </element>
         </member>
     </object>
+    <object name="Event">
+        <member name="ID">DAILY_SPECIAL_GIFT</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">DAILY_SPECIAL_GIFT1156</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="negate">true</member>
+                                <member name="scriptID">bool_cooldown</member>
+                                <member name="params">
+                                    <element>20131201</element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">1156</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">DAILY_SPECIAL_GIFT1156</member>
+        <member name="next">DAILY_SPECIAL_GIFT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>20131201</element>
+                        <element>4</element>
+                        <element>30</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_postItem</member>
+                    <member name="params">
+                        <element>21484</element>
+                        <element>1507</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPerformActions">
         <member name="ID">INVOKE_LAW</member>
         <member name="actions">
