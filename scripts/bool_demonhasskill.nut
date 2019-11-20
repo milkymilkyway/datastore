@@ -36,9 +36,10 @@ function check(source, cState, dState, zone, value1, value2, params)
             }
         }
 
-        foreach(iSkillRef in demon.GetInheritedSkills())
+        local iSkillCount = demon.InheritedSkillsCount();
+        for(local k = 0; k < iSkillCount; k++)
         {
-            local iSkill = iSkillRef.Get();
+            local iSkill = demon.GetInheritedSkillsByIndex(k).Get();
             if(iSkill != null && iSkill.GetSkill() == id)
             {
                 return 0;
