@@ -16,8 +16,8 @@ function transform(source, cState, dState, zone, params)
     }
     local pairs = params.len() / 2;
     local selected = (Randomizer.RNG(0, pairs - 1) * 2);
-    action.setZoneID(params[selected.tointeger()]);
-    action.setSpotID(params[(selected).tointeger() + 1]);
+    action.SetZoneID(params[selected].tointeger());
+    action.SetSpotID(params[selected + 1].tointeger());
 
     return 0;
 }

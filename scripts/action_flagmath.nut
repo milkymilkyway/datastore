@@ -22,6 +22,10 @@ function define(script)
 //   DIV_FLAG: Divides next key flag value
 //   FLOOR: Rounds the current value down
 //   CEIL: Rounds the current value up
+//   MOD: Performs modulo on next value
+//   MOD_FLAG: Performs modulo on next key flag value
+//   BITAND: Performs Bitwise and operation on next value
+//   BITAND_FLAG: Performs Bitwise and operation on next key flag value
 function run(source, cState, dState, zone, server, params)
 {
     local worldCID = cState != null ? cState.GetWorldCID() : 0;
@@ -83,7 +87,8 @@ function run(source, cState, dState, zone, server, params)
                 otherVal += params[i + 1].tofloat();
             }
             else if(params[i] == "ADD_FLAG" || params[i] == "SUB_FLAG" ||
-                params[i] == "MULT_FLAG" || params[i] == "DIV_FLAG")
+                params[i] == "MULT_FLAG" || params[i] == "DIV_FLAG" || 
+                params[i] == "MOD_FLAG" || params[i] == "BITAND_FLAG")
             {
                 otherVal = flagSource.GetFlagState(params[i + 1].tointeger(), 0, worldCID).tofloat();
             }
@@ -108,7 +113,14 @@ function run(source, cState, dState, zone, server, params)
             {
                 value /= otherVal;
             }
-
+            else if(params[i] == "MOD" || params[i] == "MOD_FLAG")
+            {
+                value %= otherVal;
+            }
+            else if(params[i] == "BITAND" || params[i] == "BITAND_FLAG")
+            {
+                value = value & otherVal;
+            }
             i += 2;
         }
     }

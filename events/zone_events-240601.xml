@@ -372,9 +372,51 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z240601_662</member>
-        <member name="next">Z240601_PR025</member>
+        <member name="next">Z240601_662_03</member>
         <member name="messageIDs">
             <element>954000</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z240601_662_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">729</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z240601_662_01</member>
+        <member name="next">Z240601_662_02</member>
+        <member name="messageIDs">
+            <element>954001</element>
+            <element>954002</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z240601_662_02</member>
+        <member name="next">Z240601_662_03</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">729</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z240601_662_03</member>
+        <member name="next">Z240601_PR025</member>
+        <member name="messageIDs">
             <element>954003</element>
         </member>
     </object>
@@ -384,14 +426,13 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">event_future</member>
+                    <member name="next">Z240601_NM013a</member>
                     <member name="messageID">954100</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">event_future</member>
-                    <!--<member name="next">Z240601_NM013</member>-->
+                    <member name="next">Z240601_NM013</member>
                     <member name="messageID">954101</member>
                 </object>
             </element>
@@ -403,7 +444,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">event_future</member>
+                    <member name="next">Z240601_662_EXCHANGE</member>
                     <member name="messageID">954103</member>
                 </object>
             </element>
@@ -516,6 +557,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
+                    <member name="next">Z240601_I10619</member>
                     <member name="messageID">954106</member>
                 </object>
             </element>
@@ -540,6 +582,670 @@
         <member name="messageIDs">
             <element>954002</element>
         </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z240601_NM013a</member>
+        <member name="next">Z240601_PR026a</member>
+        <member name="messageIDs">
+            <element>954004</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z240601_PR026a</member>
+        <member name="messageID">954004</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_I10618</member>
+                    <member name="messageID">954106</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_NM014</member>
+                    <member name="messageID">954107</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z240601_I10618</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">10618</member>
+                    <member name="variantID">10618</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">Z240601_I10618_JOIN</member>
+                    <member name="sourceContext">PARTY</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z240601_I10618_JOIN</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_currentZone</member>
+                    <member name="params">
+                        <element>240601</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">10618</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z240601_I10619</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">10619</member>
+                    <member name="variantID">10619</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">Z240601_I10619_JOIN</member>
+                    <member name="sourceContext">PARTY</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z240601_I10619_JOIN</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_currentZone</member>
+                    <member name="params">
+                        <element>240601</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">10619</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z240601_662_EXCHANGE</member>
+        <member name="messageID">954003</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_COIN</member>
+                    <member name="messageID">954114</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_LAW</member>
+                    <member name="messageID">954115</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_NEUTRAL</member>
+                    <member name="messageID">954116</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_CHAOS</member>
+                    <member name="messageID">954117</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_PR025</member>
+                    <member name="messageID">954113</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">954105</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_COIN</member>
+        <member name="menuType">808</member>
+        <member name="shopID">369</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z240601_662_LAW</member>
+        <member name="messageID">954003</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_HERALD</member>
+                    <member name="messageID">954118</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_ENTITY</member>
+                    <member name="messageID">954119</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_DEITY</member>
+                    <member name="messageID">954120</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_VILE</member>
+                    <member name="messageID">954121</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_AVIAN</member>
+                    <member name="messageID">954122</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_MEGAMI</member>
+                    <member name="messageID">954123</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_AMATSUKAMI</member>
+                    <member name="messageID">954124</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_LAW_01</member>
+                    <member name="messageID">954155</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_EXCHANGE</member>
+                    <member name="messageID">954113</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z240601_662_LAW_01</member>
+        <member name="messageID">954003</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_RAPTOR</member>
+                    <member name="messageID">954125</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_DIVINE</member>
+                    <member name="messageID">954126</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_JAKI</member>
+                    <member name="messageID">954127</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_FLIGHT</member>
+                    <member name="messageID">954128</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_YOMA</member>
+                    <member name="messageID">954129</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_JIRAE</member>
+                    <member name="messageID">954130</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_LAW</member>
+                    <member name="messageID">954156</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_EXCHANGE</member>
+                    <member name="messageID">954113</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_HERALD</member>
+        <member name="menuType">808</member>
+        <member name="shopID">370</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_ENTITY</member>
+        <member name="menuType">808</member>
+        <member name="shopID">371</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_DEITY</member>
+        <member name="menuType">808</member>
+        <member name="shopID">372</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_VILE</member>
+        <member name="menuType">808</member>
+        <member name="shopID">373</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_AVIAN</member>
+        <member name="menuType">808</member>
+        <member name="shopID">374</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_MEGAMI</member>
+        <member name="menuType">808</member>
+        <member name="shopID">375</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_AMATSUKAMI</member>
+        <member name="menuType">808</member>
+        <member name="shopID">376</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_RAPTOR</member>
+        <member name="menuType">808</member>
+        <member name="shopID">377</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_DIVINE</member>
+        <member name="menuType">808</member>
+        <member name="shopID">378</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_JAKI</member>
+        <member name="menuType">808</member>
+        <member name="shopID">379</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_FLIGHT</member>
+        <member name="menuType">808</member>
+        <member name="shopID">380</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_YOMA</member>
+        <member name="menuType">808</member>
+        <member name="shopID">381</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_JIRAE</member>
+        <member name="menuType">808</member>
+        <member name="shopID">382</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z240601_662_NEUTRAL</member>
+        <member name="messageID">954003</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_REAPER</member>
+                    <member name="messageID">954131</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_HOLY_BEAST</member>
+                    <member name="messageID">954132</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_BEAST</member>
+                    <member name="messageID">954133</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_FAIRY</member>
+                    <member name="messageID">954134</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_ELEMENTAL</member>
+                    <member name="messageID">954135</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_FIEND</member>
+                    <member name="messageID">954136</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_MITAMA</member>
+                    <member name="messageID">954137</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_NEUTRAL_01</member>
+                    <member name="messageID">954155</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_EXCHANGE</member>
+                    <member name="messageID">954113</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z240601_662_NEUTRAL_01</member>
+        <member name="messageID">954003</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_GENMA</member>
+                    <member name="messageID">954138</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_WILDER</member>
+                    <member name="messageID">954139</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_SNAKE</member>
+                    <member name="messageID">954140</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_NOCTURNE</member>
+                    <member name="messageID">954141</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_AVATAR</member>
+                    <member name="messageID">954142</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_NEUTRAL</member>
+                    <member name="messageID">954156</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_EXCHANGE</member>
+                    <member name="messageID">954113</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_REAPER</member>
+        <member name="menuType">808</member>
+        <member name="shopID">383</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_HOLY_BEAST</member>
+        <member name="menuType">808</member>
+        <member name="shopID">384</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_BEAST</member>
+        <member name="menuType">808</member>
+        <member name="shopID">385</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_FAIRY</member>
+        <member name="menuType">808</member>
+        <member name="shopID">386</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_ELEMENTAL</member>
+        <member name="menuType">808</member>
+        <member name="shopID">387</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_FIEND</member>
+        <member name="menuType">808</member>
+        <member name="shopID">388</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_MITAMA</member>
+        <member name="menuType">808</member>
+        <member name="shopID">389</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_GENMA</member>
+        <member name="menuType">808</member>
+        <member name="shopID">390</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_WILDER</member>
+        <member name="menuType">808</member>
+        <member name="shopID">391</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_SNAKE</member>
+        <member name="menuType">808</member>
+        <member name="shopID">392</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_NOCTURNE</member>
+        <member name="menuType">808</member>
+        <member name="shopID">393</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_AVATAR</member>
+        <member name="menuType">808</member>
+        <member name="shopID">394</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z240601_662_CHAOS</member>
+        <member name="messageID">954003</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_FOUL</member>
+                    <member name="messageID">954143</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_BRUTE</member>
+                    <member name="messageID">954144</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_HAUNT</member>
+                    <member name="messageID">954145</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_DRAGON</member>
+                    <member name="messageID">954146</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_FALLEN</member>
+                    <member name="messageID">954147</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_FEMME</member>
+                    <member name="messageID">954148</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_KUNITSUKAMI</member>
+                    <member name="messageID">954149</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_CHAOS_01</member>
+                    <member name="messageID">954155</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_EXCHANGE</member>
+                    <member name="messageID">954113</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z240601_662_CHAOS_01</member>
+        <member name="messageID">954003</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_LADY</member>
+                    <member name="messageID">954150</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_DRAKE</member>
+                    <member name="messageID">954151</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_KISHIN</member>
+                    <member name="messageID">954152</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_FURY</member>
+                    <member name="messageID">954153</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_TYRANT</member>
+                    <member name="messageID">954154</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_CHAOS</member>
+                    <member name="messageID">954156</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z240601_662_EXCHANGE</member>
+                    <member name="messageID">954113</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_FOUL</member>
+        <member name="menuType">808</member>
+        <member name="shopID">395</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_BRUTE</member>
+        <member name="menuType">808</member>
+        <member name="shopID">396</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_HAUNT</member>
+        <member name="menuType">808</member>
+        <member name="shopID">397</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_DRAGON</member>
+        <member name="menuType">808</member>
+        <member name="shopID">398</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_FALLEN</member>
+        <member name="menuType">808</member>
+        <member name="shopID">399</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_FEMME</member>
+        <member name="menuType">808</member>
+        <member name="shopID">400</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_KUNITSUKAMI</member>
+        <member name="menuType">808</member>
+        <member name="shopID">401</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_LADY</member>
+        <member name="menuType">808</member>
+        <member name="shopID">402</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_DRAKE</member>
+        <member name="menuType">808</member>
+        <member name="shopID">403</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_KISHIN</member>
+        <member name="menuType">808</member>
+        <member name="shopID">404</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_FURY</member>
+        <member name="menuType">808</member>
+        <member name="shopID">405</member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240601_662_TYRANT</member>
+        <member name="menuType">808</member>
+        <member name="shopID">406</member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z240601_TOWER</member>
