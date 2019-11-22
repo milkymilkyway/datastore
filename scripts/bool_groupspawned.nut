@@ -6,7 +6,7 @@ function define(script)
 }
 
 // Check if the supplied spawn (location) group has any living enemies
-// - value1: current zone ID (for verification)
+// - value1: current zone ID (for verification) or 0 for any
 // - value2: spawn group ID, ignored if params specified
 // - params[0]: Optional specifier of SpawnGroup or SpawnLocationGroup,
 //   defaults to SpawnLocationGroup
@@ -15,7 +15,7 @@ function define(script)
 function check(source, cState, dState, zone, value1, value2, params)
 {
     local slg = params.len() == 0 || params[0] != "SpawnGroup";
-    if(zone != null && zone.GetDefinitionID() == value1)
+    if(zone != null && (value1 == 0 || zone.GetDefinitionID() == value1))
     {
         if(params.len() > 1)
         {
