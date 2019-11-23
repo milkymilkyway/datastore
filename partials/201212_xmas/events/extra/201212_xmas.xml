@@ -1,4 +1,178 @@
 <objects>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_580</member>
+        <member name="next">EX201212_580_PR</member>
+        <member name="messageIDs">
+            <element>1052802</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201212_580_PR</member>
+        <member name="messageID">1052827</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_580_BUY</member>
+                    <member name="messageID">1052803</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_580_INFO</member>
+                    <member name="messageID">1052804</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_580_TALK1</member>
+                    <member name="messageID">1052805</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201212_580_GIFT_IF</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="value1">1</member>
+                                            <member name="compareMode">LT</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="value1">20121202</member>
+                                            <member name="negate">true</member>
+                                            <member name="scriptID">bool_counterValue</member>
+                                            <member name="params">
+                                                <element>1</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201212_580_GIFT</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="value1">20121202</member>
+                                            <member name="negate">true</member>
+                                            <member name="scriptID">bool_counterValue</member>
+                                            <member name="params">
+                                                <element>1</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201212_580_TALK2</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="value1">50</member>
+                                            <member name="value2">50</member>
+                                            <member name="scriptID">bool_random</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">1052806</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_580_BUY</member>
+        <member name="next">Z240201_BUY_621</member>
+        <member name="messageIDs">
+            <element>1052807</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_580_INFO</member>
+        <member name="next">EX201212_580_PR</member>
+        <member name="messageIDs">
+            <element>1052808</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_580_TALK1</member>
+        <member name="next">EX201212_580_PR</member>
+        <member name="messageIDs">
+            <element>1052809</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_580_GIFT_IF</member>
+        <member name="next">EX201212_580_PR</member>
+        <member name="messageIDs">
+            <element>1052825</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_580_GIFT</member>
+        <member name="next">EX201212_580_GIFT_END</member>
+        <member name="messageIDs">
+            <element>1052824</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_580_TALK2</member>
+        <member name="next">EX201212_580_PR</member>
+        <member name="messageIDs">
+            <element>1052810</element>
+        </member>
+    </object>
+    <object name="EventOpenMenu">
+        <member name="ID">Z240201_BUY_621</member>
+        <member name="next">EX201212_580_BUY_DONE</member>
+        <member name="menuType">175</member>
+        <member name="shopID">621</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_580_GIFT_END</member>
+        <member name="next">EX201212_580_PR</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
+                    <member name="items">
+                        <pair>
+                            <key>9554</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_eventCounter</member>
+                    <member name="params">
+                        <element>20121202</element>
+                        <element>0</element>
+                        <element>3</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_580_BUY_DONE</member>
+        <member name="messageIDs">
+            <element>1052815</element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">EX201212_3356</member>
         <member name="next">EX201212_3356_MAIN</member>
@@ -820,7 +994,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z240201_3357_LEAVE</member>
+                    <member name="next">EX201212_3357_LEAVE_PR</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -888,6 +1062,80 @@
         <member name="next">EX201212_3357_MAIN_PR</member>
         <member name="messageIDs">
             <element>1053900</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">EX201212_3357_LEAVE_PR</member>
+        <member name="messageID">1053934</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_LEAVE_CONFIRM</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_MP</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">COMP_DEMON</member>
+                                            <member name="value1">3856</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="value1">3856</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="value1">3873</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">EX201212_3357_MP</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">COMP_DEMON</member>
+                                            <member name="value1">3873</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="value1">3856</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">SUMMONED</member>
+                                            <member name="value1">3873</member>
+                                            <member name="negate">true</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">EX201212_3357_LEAVE_CANCEL</member>
+                    <member name="messageID">2</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -1442,7 +1690,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z240201_3357</member>
+                    <member name="next">EX201212_3357_LEAVE_PR</member>
                     <member name="messageID">1053905</member>
                 </object>
             </element>
@@ -1451,6 +1699,89 @@
                     <member name="messageID">1053906</member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_LEAVE_CONFIRM</member>
+        <member name="next">EX201212_3357_LEAVE_SPLIT</member>
+        <member name="messageIDs">
+            <element>1053935</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_LOCKED</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTNER_LOCKED</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="value1">3856</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_LEAVE_DEMON</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="value1">3856</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_LOCKED</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTNER_LOCKED</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="value1">3873</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_3357_LEAVE_DEMON</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="value1">3873</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_MP</member>
+        <member name="messageIDs">
+            <element>1153111</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_LEAVE_CANCEL</member>
+        <member name="messageIDs">
+            <element>1053936</element>
         </member>
     </object>
     <object name="EventPrompt">
@@ -1619,6 +1950,82 @@
         <member name="next">EX201212_3357_MO_ACCESS_PR</member>
         <member name="messageIDs">
             <element>1053915</element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">EX201212_3357_LEAVE_SPLIT</member>
+        <member name="next">EX201212_TO_20101</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201212_TO_50101</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">481</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_TO_100101</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">482</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201212_TO_130101</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">483</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201212_3357_LOCKED</member>
+        <member name="messageIDs">
+            <element>1153294</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_3357_LEAVE_DEMON</member>
+        <member name="next">EX201212_3357_LEAVE_SPLIT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateCOMP">
+                    <member name="removeDemons">
+                        <pair>
+                            <key>0</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1153176</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -1975,6 +2382,78 @@
                 <object name="EventChoice">
                     <member name="next">EX201212_3357_MO_JOIN_CANCEL</member>
                     <member name="messageID">1053918</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_TO_20101</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">480</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">20101</member>
+                    <member name="spotID">51006</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_TO_50101</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">481</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">50101</member>
+                    <member name="spotID">51023</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_TO_100101</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">482</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">100101</member>
+                    <member name="spotID">51354</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">EX201212_TO_130101</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">483</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">130101</member>
+                    <member name="spotID">51054</member>
                 </object>
             </element>
         </member>
@@ -2540,12 +3019,6 @@
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201212_3357_MP</member>
-        <member name="messageIDs">
-            <element>1153111</element>
         </member>
     </object>
     <object name="EventNPCMessage">
