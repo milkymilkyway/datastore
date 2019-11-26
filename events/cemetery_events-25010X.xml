@@ -1,6 +1,7 @@
 ﻿<objects>
     <!-- 
         valuables
+        548 Loop guard.
         549 Middle; north entrance used.
         550 North east area cleared.
         551 West area cleared.
@@ -4026,10 +4027,36 @@
         </member>
     </object>
     <!-- 250102 -->
+    <object name="EventPerformActions">
+        <member name="ID">Z25010X_CLEAN</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">548</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">Z250102_ZC01</member>
         <member name="next">Z250102_ZC01a</member>
         <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z25010X_CLEAN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">548</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object>
                     <member name="next">Z250102_ZC01b</member>
@@ -4068,6 +4095,13 @@
                 </object>
             </element>
             <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">548</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionAddRemoveStatus">
                     <member name="statusStacks">
                         <pair>
@@ -4096,6 +4130,12 @@
                 </object>
             </element>
             <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">548</member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionAddRemoveStatus">
                     <member name="statusStacks">
                         <pair>
@@ -4116,6 +4156,114 @@
         </member>
     </object>
     <!-- 250103 -->
+    <object name="Event">
+        <member name="ID">Z250103_ZC03</member>
+        <member name="next">Z250103_ZC03a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z25010X_CLEAN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">548</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z250103_ZC03a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">2064</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">548</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2135</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                    <member name="allowNull">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">250102</member>
+                    <member name="spotID">50213</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z250103_ZC04</member>
+        <member name="next">Z250103_ZC04a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z25010X_CLEAN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">548</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z250103_ZC04a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionPlaySoundEffect">
+                    <member name="soundID">2064</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">548</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2135</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                    <member name="allowNull">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">250104</member>
+                    <member name="spotID">50213</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPerformActions">
         <member name="ID">Z250103_RESET</member>
         <member name="conditions">
@@ -5249,6 +5397,20 @@
         <member name="branches">
             <element>
                 <object>
+                    <member name="next">Z25010X_CLEAN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">548</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">Z250104_ZC01b</member>
                     <member name="conditions">
                         <element>
@@ -5285,6 +5447,13 @@
                 </object>
             </element>
             <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">548</member>
+                    <member name="remove">true</member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionAddRemoveStatus">
                     <member name="statusStacks">
                         <pair>
@@ -5310,6 +5479,12 @@
             <element>
                 <object name="ActionPlaySoundEffect">
                     <member name="soundID">2064</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">548</member>
                 </object>
             </element>
             <element>

@@ -1,5 +1,70 @@
 ﻿<objects>
     <!-- 01, 02, 07, 08 -->
+    <object name="Event">
+        <member name="ID">D1000X_01_LAZY</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1000X_01_NPC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D1000X_01_NPC</member>
+        <member name="next">D1000X_01_NPC_0</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D1000X_01_NPC_1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">835</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1000X_01_NPC_0</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">482</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1000X_01_NPC_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">483</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
         <member name="ID">D1000X_3345</member>
         <member name="next">D1000X_3345_01</member>
@@ -147,15 +212,21 @@
         <member name="ID">D1000X_01_DF01</member>
         <member name="actions">
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1</member>
-                    <member name="state">1</member>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">2</member>
-                    <member name="state">1</member>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D1000X_01_NPC</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
                 </object>
             </element>
             <element>
@@ -200,15 +271,21 @@
         <member name="ID">D1000X_07_DF01</member>
         <member name="actions">
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1</member>
-                    <member name="state">1</member>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">2</member>
-                    <member name="state">1</member>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D1000X_01_NPC</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
                 </object>
             </element>
             <element>
@@ -253,15 +330,21 @@
         <member name="ID">D1000X_08_DF01</member>
         <member name="actions">
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1</member>
-                    <member name="state">1</member>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">2</member>
-                    <member name="state">1</member>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D1000X_01_NPC</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
                 </object>
             </element>
             <element>
@@ -521,6 +604,17 @@
             </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_INSTANCE</member>
                     <member name="flagStates">
                         <pair>
@@ -532,8 +626,7 @@
             </element>
             <element>
                 <object name="ActionZoneChange">
-                    <member name="zoneID">1000102</member>
-                    <member name="dynamicMapID">10001003</member>
+                    <member name="zoneID">0</member>
                     <member name="spotID">50000</member>
                 </object>
             </element>
@@ -549,6 +642,17 @@
                 </object>
             </element>
             <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionUpdateQuest">
                     <member name="questID">833</member>
                     <member name="phase">1</member>
@@ -556,8 +660,7 @@
             </element>
             <element>
                 <object name="ActionZoneChange">
-                    <member name="zoneID">1000102</member>
-                    <member name="dynamicMapID">10001003</member>
+                    <member name="zoneID">0</member>
                     <member name="spotID">50000</member>
                 </object>
             </element>
@@ -762,15 +865,21 @@
                             </object>
                         </element>
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">1</member>
-                                <member name="state">1</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
                             </object>
                         </element>
                         <element>
-                            <object name="ActionSetNPCState">
-                                <member name="actorID">2</member>
-                                <member name="state">1</member>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1000X_01_NPC</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                         <element>
@@ -1014,12 +1123,12 @@
     <object name="EventMultitalk">
         <member name="ID">D1000X_03_ML002a</member>
         <member name="next">D1000X_03_PA01</member>
-        <member name="messageID">8100201</member>
+        <member name="messageID">5700161</member>
     </object>
     <object name="EventMultitalk">
         <member name="ID">D1000X_03_ML002b</member>
         <member name="next">D1000X_03_PA01</member>
-        <member name="messageID">8100202</member>
+        <member name="messageID">5700162</member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">D1000X_03_PA01</member>
@@ -1214,9 +1323,10 @@
         <member name="ID">D1000X_06_SP01</member>
         <member name="actions">
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1</member>
-                    <member name="state">0</member>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">480</member>
+                    <member name="remove">true</member>
                 </object>
             </element>
             <element>
@@ -1256,6 +1366,23 @@
                 <object name="ActionStageEffect">
                     <member name="messageID">181130</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">230101</member>
+                    <member name="spotID">50505</member>
                 </object>
             </element>
         </member>
