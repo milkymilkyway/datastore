@@ -18,7 +18,7 @@ function run(source, cState, dState, zone, server, params)
         for(local i = 0; i < j; i++)
         {
             local pState = zone.GetPlasma(pStart + i);
-            if(pState == 0)
+            if(pState == null)
             {
                 continue;
             }

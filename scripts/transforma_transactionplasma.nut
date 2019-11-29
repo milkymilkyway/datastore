@@ -53,7 +53,7 @@ function transform(source, cState, dState, zone, params)
         else
         {
             local pState = zone.GetPlasma(spot);
-            if(pState == 0)
+            if(pState == null)
             {
                 return -1;
             }

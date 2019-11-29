@@ -14,7 +14,7 @@ function run(source, cState, dState, zone, server, params)
         for(local i = 0; i < params.len(); i++)
         {
             local pState = zone.GetPlasma(params[i].tointeger());
-            if(pState == 0)
+            if(pState == null)
             {
                 return Result_t.FAIL;
             }
