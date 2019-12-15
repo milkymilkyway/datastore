@@ -1821,8 +1821,8 @@
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
-                    <member name="zoneID">1090303</member>
-                    <member name="spotID">50002</member>
+                    <member name="zoneID">1090302</member>
+                    <member name="spotID">50005</member>
                 </object>
             </element>
         </member>
@@ -9705,7 +9705,7 @@
                                 <member name="setMode">INCREMENT</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>112</key>
+                                        <key>111</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -9769,6 +9769,7 @@
     </object>
     <object name="Event">
         <member name="ID">D1090X_1090301_11041</member>
+		<member name="next">D1090X_1090301_11041a</member>
         <member name="branches">
             <element>
                 <object>
@@ -9796,7 +9797,7 @@
                         <element>
                             <object name="EventFlagCondition">
                                 <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">GTE</member>
+                                <member name="compareMode">EQUAL</member>
                                 <member name="flagStates">
                                     <pair>
                                         <key>10</key>
@@ -10371,7 +10372,7 @@
                     <member name="type">ZONE_FLAGS</member>
                     <member name="flagStates">
                         <pair>
-                            <key>112</key>
+                            <key>111</key>
                             <value>2</value>
                         </pair>
                     </member>
@@ -10652,6 +10653,7 @@
             <element>
                 <object name="EventFlagCondition">
                     <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">GTE</member>
                     <member name="flagStates">
                         <pair>
                             <key>111</key>
@@ -10703,19 +10705,6 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">D1090X_1090301_OD07b</member>
-        <member name="conditions">
-            <element>
-                <object name="EventFlagCondition">
-                    <member name="type">ZONE_FLAGS</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>111</key>
-                            <value>2</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -10756,6 +10745,7 @@
             <element>
                 <object name="EventFlagCondition">
                     <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">GTE</member>
                     <member name="flagStates">
                         <pair>
                             <key>111</key>
@@ -15072,6 +15062,12 @@
                                             <member name="state">2</member>
                                         </object>
                                     </element>
+                                    <element>
+                                        <object name="ActionSetNPCState">
+                                            <member name="actorID">1090526</member>
+                                            <member name="state">2</member>
+                                        </object>
+                                    </element>
                                 </member>
                             </object>
                         </element>
@@ -15748,7 +15744,7 @@
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">1090212</member>
-                    <member name="state">2</member>
+                    <member name="state">3</member>
                 </object>
             </element>
             <element>
@@ -15790,7 +15786,7 @@
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">1090223</member>
-                    <member name="state">1</member>
+                    <member name="state">3</member>
                 </object>
             </element>
         </member>
@@ -18415,6 +18411,348 @@
         </member>
     </object>
     <object name="EventPerformActions">
+        <member name="ID">D1090X_1090304_SP81a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>81</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>81</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>81</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>81</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090304_SP81</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090304_SP82a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>82</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>82</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>82</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>82</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090304_SP82</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090304_SP83a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>83</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>83</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>83</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>83</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090304_SP83</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090304_SP84a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>84</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>84</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>84</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>84</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090304_SP84</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090304_SP85a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>85</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>85</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>85</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>85</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090304_SP85</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1090X_1090304_SP86a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>86</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>86</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>86</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>86</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1090X_1090304_SP86</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
         <member name="ID">D1090X_1090304_SP91</member>
         <member name="conditions">
             <element>
@@ -19325,14 +19663,14 @@
             </element>
             <element>
                 <object name="ActionStartEvent">
-                    <member name="eventID">D1090X_1090304_SP82</member>
+                    <member name="eventID">D1090X_1090304_SP82a</member>
                     <member name="sourceContext">NONE</member>
                     <member name="location">ZONE</member>
                 </object>
             </element>
             <element>
                 <object name="ActionStartEvent">
-                    <member name="eventID">D1090X_1090304_SP83</member>
+                    <member name="eventID">D1090X_1090304_SP83a</member>
                     <member name="sourceContext">NONE</member>
                     <member name="location">ZONE</member>
                 </object>
@@ -19340,13 +19678,13 @@
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">1090212</member>
-                    <member name="state">1</member>
+                    <member name="state">3</member>
                 </object>
             </element>
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">1090405</member>
-                    <member name="state">1</member>
+                    <member name="state">2</member>
                 </object>
             </element>
         </member>
@@ -19477,21 +19815,21 @@
             </element>
             <element>
                 <object name="ActionStartEvent">
-                    <member name="eventID">D1090X_1090304_SP84</member>
+                    <member name="eventID">D1090X_1090304_SP84a</member>
                     <member name="sourceContext">NONE</member>
                     <member name="location">ZONE</member>
                 </object>
             </element>
             <element>
                 <object name="ActionStartEvent">
-                    <member name="eventID">D1090X_1090304_SP85</member>
+                    <member name="eventID">D1090X_1090304_SP85a</member>
                     <member name="sourceContext">NONE</member>
                     <member name="location">ZONE</member>
                 </object>
             </element>
             <element>
                 <object name="ActionStartEvent">
-                    <member name="eventID">D1090X_1090304_SP86</member>
+                    <member name="eventID">D1090X_1090304_SP86a</member>
                     <member name="sourceContext">NONE</member>
                     <member name="location">ZONE</member>
                 </object>
@@ -19499,7 +19837,7 @@
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">1090213</member>
-                    <member name="state">1</member>
+                    <member name="state">3</member>
                 </object>
             </element>
             <element>
@@ -19614,7 +19952,7 @@
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">1090211</member>
-                    <member name="state">1</member>
+                    <member name="state">3</member>
                 </object>
             </element>
             <element>

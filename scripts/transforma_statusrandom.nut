@@ -19,7 +19,7 @@ function transform(source, cState, dState, zone, params)
     local r = Randomizer.RNG(0, ((params.len() / 2) - 1));
     local status = params[r].tointeger();
     local stack = params[r + 1].tointeger();
-    action.SetStatusStacks(status, stack);
+    action.SetStatusStacksEntry(status, stack);
 
     return 0;
 }
