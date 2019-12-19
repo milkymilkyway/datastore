@@ -45,7 +45,7 @@ function start(api, character, coins, out)
     reels[1] = Randomizer.RNG(0, 14);
     reels[2] = Randomizer.RNG(0, 14);
 
-    api.SetResponse(out, "cost", COIN_COST.tostring());
+    api.SetResponse(out, "coinCost", COIN_COST.tostring());
     api.SetResponse(out, "reel1", reels[0].tostring());
     api.SetResponse(out, "reel2", reels[1].tostring());
     api.SetResponse(out, "reel3", reels[2].tostring());
