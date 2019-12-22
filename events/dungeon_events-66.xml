@@ -536,7 +536,6 @@
             </element>
         </member>
     </object>
-    <!-- 6603 -->
     <object name="EventPrompt">
         <member name="ID">D66XX_BOSS_DOOR</member>
         <member name="messageID">17</member>
@@ -5000,6 +4999,1202 @@
                 <object name="ActionZoneChange">
                     <member name="zoneID">150102</member>
                     <member name="spotID">50006</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D6608_BOSS_DOOR</member>
+        <member name="messageID">17</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D6608_BOSS_SPAWN_SPLIT</member>
+                    <member name="messageID">13</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D6608_BOSS_EXTEND_PR</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">12129</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>2</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">D6608_BOSS_FAKE</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">12092</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="compareMode">LT_OR_NAN</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>3</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">14</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D6608_BOSS_SPAWN_SPLIT</member>
+        <member name="next">D6608_BOSS_SPAWN_MOV</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6609_BOSS_SPAWN_MOV</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>6609</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D6608_BOSS_EXTEND_PR</member>
+        <member name="messageID">650773</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D6608_BOSS_EXTEND_END</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D6608_BOSS_EXTEND_FAIL</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D6608_BOSS_SPAWN_SPLIT</member>
+                    <member name="messageID">2</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D6608_BOSS_FAKE</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">12092</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D6608_BOSS_FAKE</member>
+        <member name="messageID">650763</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D6608_BOSS_FAKE_END</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D6608_BOSS_FAKE_FAIL</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>1</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">D6608_BOSS_FAKE_FAIL</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_cooldown</member>
+                                            <member name="params">
+                                                <element>-6608</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D6608_BOSS_SPAWN_SPLIT</member>
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D6608_BOSS_SPAWN_MOV</member>
+        <member name="next">D6608_BOSS_DA_MOV</member>
+        <member name="queueNext">D6608_BOSS_ROOM_ENTER</member>
+        <member name="sceneID">2016</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6608_BOSS_SPAWN_WEAK</member>
+                    <member name="queueNext">D6608_BOSS_ROOM_ENTER</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D6608_BOSS_SPAWN</member>
+                    <member name="queueNext">D6608_BOSS_ROOM_ENTER</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D6608_BOSS_ROOM_ENTER</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D6609_BOSS_SPAWN_MOV</member>
+        <member name="next">D6609_BOSS_DA_MOV</member>
+        <member name="queueNext">D6608_BOSS_ROOM_ENTER</member>
+        <member name="sceneID">2017</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6609_BOSS_SPAWN_WEAK</member>
+                    <member name="queueNext">D6608_BOSS_ROOM_ENTER</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D6609_BOSS_SPAWN</member>
+                    <member name="queueNext">D6608_BOSS_ROOM_ENTER</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D6608_BOSS_ROOM_ENTER</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_EXTEND_END</member>
+        <member name="next">D6608_BOSS_SPAWN_SPLIT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>12129</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650774</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6608_BOSS_FAKE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">12092</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_EXTEND_FAIL</member>
+        <member name="next">D6608_BOSS_SPAWN_SPLIT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650771</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_FAKE_END</member>
+        <member name="next">D6608_BOSS_SPAWN_SPLIT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>12092</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>3</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_FAKE_FAIL</member>
+        <member name="next">D6608_BOSS_SPAWN_SPLIT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650765</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D6608_BOSS_DA_MOV</member>
+        <member name="sceneID">12016</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_ROOM_ENTER</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_SPAWN_WEAK</member>
+        <member name="next">D6608_TIMER_SET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>101</element>
+                        <element>102</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6608_BOSS_DA_MOV</member>
+                                <member name="sourceContext">ALL</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6608_BOSS_DA</member>
+                                <member name="sourceContext">NONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6608_TIMER_SET_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_SPAWN</member>
+        <member name="next">D6608_TIMER_SET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                        <element>2</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6608_BOSS_DA_MOV</member>
+                                <member name="sourceContext">ALL</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6608_BOSS_DA</member>
+                                <member name="sourceContext">NONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6608_TIMER_SET_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D6609_BOSS_DA_MOV</member>
+        <member name="sceneID">12017</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6609_BOSS_SPAWN_WEAK</member>
+        <member name="next">D6608_TIMER_SET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>101</element>
+                        <element>102</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6609_BOSS_DA_MOV</member>
+                                <member name="sourceContext">ALL</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6609_BOSS_DA</member>
+                                <member name="sourceContext">NONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6608_TIMER_SET_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6609_BOSS_SPAWN</member>
+        <member name="next">D6608_TIMER_SET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                        <element>2</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6609_BOSS_DA_MOV</member>
+                                <member name="sourceContext">ALL</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6609_BOSS_DA</member>
+                                <member name="sourceContext">NONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6608_TIMER_SET_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_TIMER_SET</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">1800</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6608_BOSS_WARN</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="sourceContext">NONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">2100</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6608_BOSS_LEAVE</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="sourceContext">NONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_TIMER_SET_EX</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3600</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6608_BOSS_WARN</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="sourceContext">NONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3900</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D6608_BOSS_LEAVE</member>
+                            </object>
+                        </element>
+                    </member>
+                    <member name="sourceContext">NONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_DA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>66080001</element>
+                    </member>
+                    <member name="isBossBox">true</member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">3</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">4</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">5</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">6</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                    <member name="actorID">661001</member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D6608_BOSS_WARN</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6608_BOSS_WARN1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D6608_BOSS_WARN2</member>
+                </object>
+            </element>
+        </member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_WARN1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650754</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_WARN2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650755</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6608_BOSS_LEAVE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                        <element>2</element>
+                        <element>101</element>
+                        <element>102</element>
+                    </member>
+                    <member name="mode">DESPAWN</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                    <member name="actorID">661001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650756</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6609_BOSS_DA</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="dropSetIDs">
+                        <element>66090001</element>
+                    </member>
+                    <member name="isBossBox">true</member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">3</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">4</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">5</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">6</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                    <member name="actorID">661001</member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D6609_BOSS_WARN</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D6609_BOSS_WARN1</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D6609_BOSS_WARN2</member>
+                </object>
+            </element>
+        </member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6609_BOSS_WARN1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650757</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6609_BOSS_WARN2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650758</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D6609_BOSS_LEAVE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                        <element>2</element>
+                        <element>101</element>
+                        <element>102</element>
+                    </member>
+                    <member name="mode">DESPAWN</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                    <member name="actorID">661001</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">650759</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                </object>
+            </element>
+        </member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
         </member>
