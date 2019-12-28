@@ -38,7 +38,7 @@ local PREDICT_WINNINGS = [ 77777, 11111, 666666, 26, 22, 18, 14, 14, 12, 12,
 
 // Maximum number of times a prediction can be made per round
 local PREDICT_LIMITS = [ 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
-                         10, 10, 10, 7, 10, 10, 10, 5, 1, 1,
+                         10, 10, 10, 7, 4, 10, 10, 5, 1, 1,
                          1, 1, 1, 1 ];
 
 // Default starting jackpot
@@ -162,7 +162,7 @@ function draw(api, session, params, out)
                         // Fallen angels (captain, 1-7)
                         20, 21, 22, 23, 24, 25, 26, 27 ];
 
-    // Kino cheats by slipping in an additional devil card each time you win
+    // Kino cheats by slipping in additional devil cards each time you win
     // You don't become a successful street swindler by playing fair :)
     for(local i = 0; i < wins; i++)
     {
@@ -170,6 +170,10 @@ function draw(api, session, params, out)
         if(i >= 3)
         {
             allCards.append(Randomizer.RNG(20, 27));
+            if(i >= 6)
+            {
+                allCards.append(Randomizer.RNG(20, 27));
+            }
         }
     }
 
