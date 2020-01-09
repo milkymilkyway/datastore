@@ -31,7 +31,6 @@ function check(source, cState, dState, zone, value1, value2, params)
         {
             if(params[i] == "SpawnGroupID")
             {
-                local vals = split(params[i + 1], ",");
                 if(params[i + 1].tointeger() != eBase.GetSpawnGroupID())
                 {
                     return -1;
