@@ -5589,26 +5589,62 @@
         </member>
     </object>
     <!-- Ending: I'm not the only one -->
-    <object name="EventMultitalk">
+    <object name="EventPerformActions">
         <member name="ID">Q335_ENDING</member>
+		<member name="conditions">
+			<element>
+				<object name="EventCondition">
+					<member name="type">QUEST_ACTIVE</member>
+					<member name="value1">335</member>
+					<member name="value2">1</member>
+				</object>
+			</element>
+		</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>335</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+			<element>
+				<object name="ActionStartEvent">
+					<member name="eventID">Q335_FIN_01</member>
+					<member name="sourceContext">ALL</member>
+					<member name="location">ZONE</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Q335_FIN_01</member>
         <member name="next">Q335_FIN_02</member>
         <member name="messageID">9102001</member>
-        <member name="playerSource">true</member>
-        <member name="conditions">
-            <element>
-                <object name="EventCondition">
-                    <member name="type">QUEST_ACTIVE</member>
-                    <member name="value1">335</member>
-                    <member name="value2">1</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventCondition">
-                    <member name="type">QUEST_COMPLETE</member>
-                    <member name="value1">335</member>
-                </object>
-            </element>
-        </member>
+		<member name="conditions">
+			<element>
+				<object name="EventCondition">
+					<member name="type">QUEST_ACTIVE</member>
+					<member name="value1">335</member>
+					<member name="value2">1</member>
+				</object>
+			</element>
+			<element>
+				<object name="EventFlagCondition">
+					<member name="type">ZONE_CHARACTER_FLAGS</member>
+					<member name="flagStates">
+						<pair>
+							<key>335</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+		</member>
     </object>
     <object name="EventPlayScene">
         <member name="ID">Q335_FIN_02</member>
@@ -5617,6 +5653,15 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Q335_FIN_03</member>
+		<member name="conditions">
+			<element>
+				<object name="EventCondition">
+					<member name="type">QUEST_ACTIVE</member>
+					<member name="value1">335</member>
+					<member name="value2">1</member>
+				</object>
+			</element>
+		</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
