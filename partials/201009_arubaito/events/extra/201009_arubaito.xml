@@ -18,18 +18,19 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HELP_FIRSTSTEP</member>
+                    <member name="next">EX201009_324_HELP</member>
                     <member name="messageID">750374</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">EX201009_324_HELP_SECONDSTEP</member>
+                                <member name="next">EX201009_324_HELP_CD</member>
                                 <member name="conditions">
                                     <element>
-                                        <object name="EventCondition">
-                                            <member name="type">VALUABLE</member>
-                                            <member name="value1">198</member>
-                                            <member name="value2">1</member>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_cooldown</member>
+                                            <member name="params">
+                                                <element>20100901</element>
+                                            </member>
                                         </object>
                                     </element>
                                 </member>
@@ -40,7 +41,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_CHECKMSG</member>
+                    <member name="next">EX201009_324_ITEM_CHECKMSG</member>
                     <member name="messageID">750375</member>
                     <member name="conditions">
                         <element>
@@ -54,7 +55,7 @@
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">EX201009_324_HANDITEM_CD</member>
+                                <member name="next">EX201009_324_ITEM_CD</member>
                                 <member name="conditions">
                                     <element>
                                         <object name="EventScriptCondition">
@@ -99,29 +100,138 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HELP_FIRSTSTEP</member>
-        <member name="next">EX201009_324_HELP_VALUABLE</member>
+        <member name="ID">EX201009_324_HELP</member>
+        <member name="next">EX201009_324_PR</member>
         <member name="messageIDs">
             <element>750384</element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201009_324_HELP_VALUABLE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">198</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HELP_SECONDSTEP</member>
+        <member name="ID">EX201009_324_HELP_CD</member>
         <member name="next">EX201009_324_PR</member>
         <member name="messageIDs">
             <element>750383</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_CHECKMSG</member>
-        <member name="next">EX201009_324_HANDITEM_CHECK</member>
+        <member name="ID">EX201009_324_ITEM_CHECKMSG</member>
+        <member name="next">EX201009_324_ITEM_PASS</member>
         <member name="messageIDs">
             <element>750381</element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">EX201009_324_MI</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">705</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">703</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">702</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">3611</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">3613</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">3616</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">283</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">277</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">ITEM</member>
+                                <member name="value1">301</member>
+                                <member name="value2">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">EX201009_324_IF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INVENTORY_FREE</member>
+                                <member name="value1">1</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_CD</member>
-        <member name="next">EX201009_324_PR</member>
+        <member name="ID">EX201009_324_ITEM_CD</member>
         <member name="messageIDs">
             <element>750382</element>
         </member>
@@ -149,185 +259,32 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">EX201009_324_HANDITEM_CHECK</member>
-        <member name="next">EX201009_324_HANDITEM_NOITEM</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">705</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">703</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">702</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">3611</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">3613</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">3616</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">283</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">277</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_CHECKINV</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">ITEM</member>
-                                <member name="value1">301</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_NOITEM</member>
-        <member name="next">EX201009_324_PR</member>
-        <member name="messageIDs">
-            <element>750419</element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_CHECKINV</member>
-        <member name="next">EX201009_324_HANDITEM_FULL</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">EX201009_324_HANDITEM_PASS</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_FULL</member>
-        <member name="next">EX201009_324_PR</member>
-        <member name="messageIDs">
-            <element>750388</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_PASS</member>
-        <member name="next">EX201009_324_HANDITEM_PR</member>
+        <member name="ID">EX201009_324_ITEM_PASS</member>
+        <member name="next">EX201009_324_ITEM_PR</member>
         <member name="messageIDs">
             <element>750390</element>
         </member>
     </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201009_324_MI</member>
+        <member name="messageIDs">
+            <element>750419</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201009_324_IF</member>
+        <member name="messageIDs">
+            <element>750388</element>
+        </member>
+    </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_PR</member>
+        <member name="ID">EX201009_324_ITEM_PR</member>
         <member name="messageID">750391</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_RUBY01</member>
+                    <member name="next">EX201009_324_ITEM1</member>
                     <member name="messageID">750392</member>
                     <member name="conditions">
                         <element>
@@ -342,7 +299,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_SAPP01</member>
+                    <member name="next">EX201009_324_ITEM2</member>
                     <member name="messageID">750393</member>
                     <member name="conditions">
                         <element>
@@ -357,7 +314,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_PEARL01</member>
+                    <member name="next">EX201009_324_ITEM3</member>
                     <member name="messageID">750394</member>
                     <member name="conditions">
                         <element>
@@ -372,7 +329,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_BLOOD01</member>
+                    <member name="next">EX201009_324_ITEM4</member>
                     <member name="messageID">750395</member>
                     <member name="conditions">
                         <element>
@@ -387,7 +344,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_SACRI01</member>
+                    <member name="next">EX201009_324_ITEM5</member>
                     <member name="messageID">750396</member>
                     <member name="conditions">
                         <element>
@@ -402,7 +359,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_DEVO01</member>
+                    <member name="next">EX201009_324_ITEM6</member>
                     <member name="messageID">750397</member>
                     <member name="conditions">
                         <element>
@@ -417,7 +374,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_LETHE01</member>
+                    <member name="next">EX201009_324_ITEM7</member>
                     <member name="messageID">750398</member>
                     <member name="conditions">
                         <element>
@@ -432,7 +389,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_EXP01</member>
+                    <member name="next">EX201009_324_ITEM8</member>
                     <member name="messageID">750399</member>
                     <member name="conditions">
                         <element>
@@ -447,7 +404,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_MASTE01</member>
+                    <member name="next">EX201009_324_ITEM9</member>
                     <member name="messageID">750400</member>
                     <member name="conditions">
                         <element>
@@ -462,247 +419,261 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_LEAVE</member>
+                    <member name="next">EX201009_324_ITEM_LEAVE</member>
                     <member name="messageID">750401</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_RUBY01</member>
-        <member name="next">EX201009_324_HANDITEM_RUBY02</member>
+        <member name="ID">EX201009_324_ITEM1</member>
+        <member name="next">EX201009_324_ITEM1_PR</member>
         <member name="messageIDs">
             <element>750406</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_SAPP01</member>
-        <member name="next">EX201009_324_HANDITEM_SAPP02</member>
+        <member name="ID">EX201009_324_ITEM2</member>
+        <member name="next">EX201009_324_ITEM2_PR</member>
         <member name="messageIDs">
             <element>750407</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_PEARL01</member>
-        <member name="next">EX201009_324_HANDITEM_PEARL02</member>
+        <member name="ID">EX201009_324_ITEM3</member>
+        <member name="next">EX201009_324_ITEM3_PR</member>
         <member name="messageIDs">
             <element>750408</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_BLOOD01</member>
-        <member name="next">EX201009_324_HANDITEM_BLOOD02</member>
+        <member name="ID">EX201009_324_ITEM4</member>
+        <member name="next">EX201009_324_ITEM4_PR</member>
         <member name="messageIDs">
             <element>750409</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_SACRI01</member>
-        <member name="next">EX201009_324_HANDITEM_SACRI02</member>
+        <member name="ID">EX201009_324_ITEM5</member>
+        <member name="next">EX201009_324_ITEM5_PR</member>
         <member name="messageIDs">
             <element>750410</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_DEVO01</member>
-        <member name="next">EX201009_324_HANDITEM_DEVO02</member>
+        <member name="ID">EX201009_324_ITEM6</member>
+        <member name="next">EX201009_324_ITEM6_PR</member>
         <member name="messageIDs">
             <element>750411</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_LETHE01</member>
-        <member name="next">EX201009_324_HANDITEM_LETHE02</member>
+        <member name="ID">EX201009_324_ITEM7</member>
+        <member name="next">EX201009_324_ITEM7_PR</member>
         <member name="messageIDs">
             <element>750412</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_EXP01</member>
-        <member name="next">EX201009_324_HANDITEM_EXP02</member>
+        <member name="ID">EX201009_324_ITEM8</member>
+        <member name="next">EX201009_324_ITEM8_PR</member>
         <member name="messageIDs">
             <element>750413</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_MASTE01</member>
-        <member name="next">EX201009_324_HANDITEM_MASTE02</member>
+        <member name="ID">EX201009_324_ITEM9</member>
+        <member name="next">EX201009_324_ITEM9_PR</member>
         <member name="messageIDs">
             <element>750414</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_LEAVE</member>
-        <member name="next">EX201009_324_PR</member>
+        <member name="ID">EX201009_324_ITEM_LEAVE</member>
         <member name="messageIDs">
             <element>750402</element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_RUBY02</member>
+        <member name="ID">EX201009_324_ITEM1_PR</member>
         <member name="messageID">750488</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_RUBY03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM1_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_SAPP02</member>
+        <member name="ID">EX201009_324_ITEM2_PR</member>
         <member name="messageID">750489</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_SAPP03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM2_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_PEARL02</member>
+        <member name="ID">EX201009_324_ITEM3_PR</member>
         <member name="messageID">750490</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_PEARL03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM3_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_BLOOD02</member>
+        <member name="ID">EX201009_324_ITEM4_PR</member>
         <member name="messageID">750491</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_BLOOD03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM4_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_SACRI02</member>
+        <member name="ID">EX201009_324_ITEM5_PR</member>
         <member name="messageID">750492</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_SACRI03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM5_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_DEVO02</member>
+        <member name="ID">EX201009_324_ITEM6_PR</member>
         <member name="messageID">750493</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_DEVO03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM6_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_LETHE02</member>
+        <member name="ID">EX201009_324_ITEM7_PR</member>
         <member name="messageID">750494</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_LETHE03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM7_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_EXP02</member>
+        <member name="ID">EX201009_324_ITEM8_PR</member>
         <member name="messageID">750495</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_EXP03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM8_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">EX201009_324_HANDITEM_MASTE02</member>
+        <member name="ID">EX201009_324_ITEM9_PR</member>
         <member name="messageID">750496</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_MASTE03</member>
+                    <member name="next">EX201009_324_ITEM_CONFIRM</member>
+                    <member name="queueNext">EX201009_324_ITEM9_END</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">EX201009_324_HANDITEM_NOTHAND</member>
+                    <member name="next">EX201009_324_ITEM_CANCEL</member>
                     <member name="messageID">2</member>
                 </object>
             </element>
         </member>
     </object>
+    <object name="EventNPCMessage">
+        <member name="ID">EX201009_324_ITEM_CONFIRM</member>
+        <member name="messageIDs">
+            <element>750418</element>
+        </member>
+    </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_RUBY03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM1_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -728,15 +699,14 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_NOTHAND</member>
-        <member name="next">EX201009_324_HANDITEM_PR</member>
+        <member name="ID">EX201009_324_ITEM_CANCEL</member>
         <member name="messageIDs">
             <element>750420</element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_SAPP03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM2_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -762,8 +732,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_PEARL03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM3_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -789,8 +759,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_BLOOD03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM4_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -816,8 +786,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_SACRI03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM5_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -843,8 +813,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_DEVO03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM6_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -870,8 +840,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_LETHE03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM7_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -897,8 +867,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_EXP03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM8_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -924,8 +894,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_MASTE03</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD</member>
+        <member name="ID">EX201009_324_ITEM9_END</member>
+        <member name="next">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -951,14 +921,13 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_REWARD</member>
-        <member name="next">EX201009_324_HANDITEM_REWARD_END</member>
+        <member name="ID">EX201009_324_ITEM_END</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRandomWeighted</member>
                     <member name="params">
-                        <element>20100901</element>
+                        <element>102</element>
                         <element>CHARACTER</element>
                         <element>1</element>
                         <element>1</element>
@@ -1018,34 +987,18 @@
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="flagStates">
                         <pair>
-                            <key>20100902</key>
+                            <key>103</key>
                             <value>1</value>
                         </pair>
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">EX201009_324_HANDITEM_REWARD_END</member>
-        <member name="next">EX201009_324_HANDITEM_END</member>
-        <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="notify">true</member>
                     <member name="transformScriptID">transforma_addItemFlagRange</member>
                     <member name="transformScriptParams">
                         <element>100</element>
-                        <element>1</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>20100901</element>
                         <element>1</element>
                     </member>
                 </object>
@@ -1063,12 +1016,6 @@
                     <member name="duration">72000</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">EX201009_324_HANDITEM_END</member>
-        <member name="messageIDs">
-            <element>750418</element>
         </member>
     </object>
 </objects>
