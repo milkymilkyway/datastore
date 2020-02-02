@@ -29,7 +29,304 @@ flag 3: Round 2; 0 or 1
 flag 100: Rounds 1/3/5 waves killed
 flag 101: Rounds 2/4 waves killed
 flag 102: Rounds completed
+flag 400+: Status effects to apply
 -->
+    <object name="Event">
+        <member name="ID">D10619_STATUS_REAPPLY</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_player</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D10619_STATUS_REAPPLY_1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>400</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D10619_STATUS_REAPPLY_1</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2981</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D10619_STATUS_REAPPLY_2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>401</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D10619_STATUS_REAPPLY_2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2982</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D10619_STATUS_REAPPLY_3a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>402</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D10619_STATUS_REAPPLY_3b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>402</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D10619_STATUS_REAPPLY_3a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2983</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D10619_STATUS_REAPPLY_4a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>403</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D10619_STATUS_REAPPLY_4b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>403</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D10619_STATUS_REAPPLY_3b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2984</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D10619_STATUS_REAPPLY_4a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>403</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D10619_STATUS_REAPPLY_4b</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>403</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D10619_STATUS_REAPPLY_4a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2985</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2988</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">PARTNER</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D10619_STATUS_REAPPLY_4b</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2986</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2989</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">PARTNER</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
         <member name="ID">D10619_1200001</member>
         <member name="branches">
@@ -5718,6 +6015,17 @@ flag 102: Rounds completed
                     <member name="location">ZONE</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>400</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -5742,6 +6050,17 @@ flag 102: Rounds completed
                     <member name="targetType">SOURCE</member>
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>401</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
         </member>
@@ -5789,6 +6108,17 @@ flag 102: Rounds completed
                     <member name="location">ZONE</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>402</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -5813,6 +6143,17 @@ flag 102: Rounds completed
                     <member name="targetType">SOURCE</member>
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>402</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
         </member>
@@ -5873,6 +6214,17 @@ flag 102: Rounds completed
                     <member name="location">ZONE</member>
                 </object>
             </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>403</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -5910,6 +6262,17 @@ flag 102: Rounds completed
                     <member name="targetType">PARTNER</member>
                     <member name="sourceContext">ALL</member>
                     <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>403</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
         </member>

@@ -1710,7 +1710,15 @@
             <element>
                 <object>
                     <member name="next">Z200101_455_COC8</member>
-                    <!-- condition: unknown -->
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">909</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>
@@ -3450,14 +3458,36 @@
         <member name="ID">Z200101_459_COC10_18</member>
         <member name="actions">
             <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">590601</member>
-                    <member name="spotID">50000</member>
+                <object name="ActionZoneInstance">
+                    <member name="mode">CREATE</member>
+                    <member name="instanceID">5906</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="mode">JOIN</member>
+                    <member name="instanceID">5906</member>
                 </object>
             </element>
         </member>
     </object>
-    <!-- todo: 167045, 167046, 167047 for instance creation in phase 1. -->
+    <object name="EventPrompt">
+        <member name="ID">Z200101_COC10_I5906</member>
+        <member name="messageID">167045</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z200101_459_COC10_18</member>
+                    <member name="messageID">167046</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">167047</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPrompt">
         <member name="ID">Z200101_459_COC10_19</member>
         <member name="messageID">167018</member>
@@ -4313,7 +4343,6 @@
             </element>
         </member>
     </object>
-
     <object name="EventMultitalk">
         <member name="ID">Z200101_ML025</member>
         <member name="next">Z200101_PR020</member>

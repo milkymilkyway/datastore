@@ -2014,6 +2014,18 @@
                                 <member name="value2">2</member>
                             </object>
                         </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">QUEST_FLAGS</member>
+                                <member name="value1">310</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>12</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                     <member name="branches">
                         <element>
@@ -23445,6 +23457,70 @@
         <member name="ID">Z20101_406_Q607_0007c</member>
         <member name="messageIDs">
             <element>175762</element>
+        </member>
+    </object>
+    <!-- COC 9 -->
+    <object name="Event">
+        <member name="ID">Z10101_453_COC9</member>
+        <member name="next">Z10101_453_COC9_00m</member>
+        <member name="conditions">
+            <element>
+                <object name="EventCondition">
+                    <member name="type">QUEST_PHASE</member>
+                    <member name="value1">910</member>
+                    <member name="value2">0</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z10101_453_COC9_00w</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">GENDER</member>
+                                <member name="value1">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z10101_453_COC9_00m</member>
+        <member name="next">Z10101_453_COC9_01</member>
+        <member name="playerSource">true</member>
+        <member name="messageID">200301</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z10101_453_COC9_00w</member>
+        <member name="next">Z10101_453_COC9_01</member>
+        <member name="playerSource">true</member>
+        <member name="messageID">200302</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z10101_453_COC9_01</member>
+        <member name="next">Z10101_453_COC9_02</member>
+        <member name="playerSource">true</member>
+        <member name="messageID">200303</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z10101_453_COC9_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">166072</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">910</member>
+                    <member name="phase">1</member>
+                </object>
+            </element>
         </member>
     </object>
 </objects>
