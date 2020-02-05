@@ -66,7 +66,7 @@ function run(source, cState, dState, zone, server, params)
     }
 
     local value = flagSource.GetFlagState(inKey, 0, worldCID).tofloat();
-    for(local i = 3; i < params.len() - 1;)
+    for(local i = 3; i < params.len();)
     {
         if(params[i] == "FLOOR")
         {
@@ -77,6 +77,10 @@ function run(source, cState, dState, zone, server, params)
         {
             value = ceil(value);
             i++;
+        }
+        else if(i >= params.len() - 1)
+        {
+            break;
         }
         else
         {
