@@ -40,13 +40,13 @@ function run(source, cState, dState, zone, server, params)
     if(sType == "ZONE" || sType == "CHARACTER")
     {
         local value = zone.GetFlagState(inKey, outValue, sType == "ZONE" ? 0 : worldCID);
-        zone.SetFlagState(value, outValue, sType == "ZONE" ? 0 : worldCID);
+        zone.SetFlagState(value, outValue, dType == "ZONE" ? 0 : worldCID);
     }
     else if(sType == "INSTANCE" || sType == "INSTANCE_CHARACTER")
     {
         local value = zone.GetZoneInstance().GetFlagState(inKey, outValue, sType == "INSTANCE" ? 0 : worldCID);
         zone.GetZoneInstance().SetFlagState(value, outValue,
-            sType == "INSTANCE" ? 0 : worldCID);
+            dType == "INSTANCE" ? 0 : worldCID);
     }
     else
     {
