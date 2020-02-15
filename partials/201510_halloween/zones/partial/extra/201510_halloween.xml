@@ -382,25 +382,26 @@
             <element>10902004</element>
             <element>10903005</element>
         </member>
-        <member name="NPCs">
+        <member name="Triggers">
             <element>
-                <!-- 黄金の光 -->
-                <object name="ServerNPC">
-                    <member name="ID">3401</member>
-                    <member name="ActorID">3401</member>
-                    <member name="State">0</member>
-                    <member name="SpotID">67001</member>
+                <object name="ServerZoneTrigger">
+                    <member name="Trigger">ON_SETUP</member>
                     <member name="Actions">
                         <element>
-                            <object name="ActionStartEvent">
-                                <member name="eventID">EX201510_3401</member>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE_INSTANCE</member>
+                                <member name="setMode">INCREMENT</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3401</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
-        </member>
-        <member name="Triggers">
             <element>
                 <object name="ServerZoneTrigger">
                     <member name="Trigger">ON_FLAG_SET</member>

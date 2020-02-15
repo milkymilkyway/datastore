@@ -324,64 +324,44 @@
             <element>1183166</element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">EX20150601_3401</member>
-        <member name="next">N3401_AP001</member>
-        <member name="branches">
+    <object name="EventPerformActions">
+        <member name="ID">EX20150601_3401_INCREMENT</member>
+        <member name="actions">
             <element>
-                <object>
-                    <member name="next">N3401_AP001</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">STATUS_ACTIVE</member>
-                                <member name="value1">2463</member>
-                            </object>
-                        </element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>20150601</key>
+                            <value>1</value>
+                        </pair>
                     </member>
                 </object>
             </element>
             <element>
-                <object>
-                    <member name="next">N3401_AP001</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>999999</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">EX20150601_3401_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="value1">2</member>
-                                <member name="compareMode">LT</member>
-                            </object>
-                        </element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3401</key>
+                            <value>1</value>
+                        </pair>
                     </member>
                 </object>
             </element>
         </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">EX20150601_3401_IF</member>
-        <member name="actions">
+        <member name="conditions">
             <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">130758</member>
-                    <member name="includeMessage">true</member>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_INSTANCE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>20150601</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
         </member>

@@ -33231,6 +33231,25 @@
             </element>
             <element>
                 <object>
+                    <member name="next">N3401_AP_EXTRA</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3401</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">N3401_APIF</member>
                     <member name="conditions">
                         <element>
@@ -34571,6 +34590,55 @@
                 <object name="ActionStageEffect">
                     <member name="messageID">130757</member>
                     <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP_EXTRA</member>
+        <member name="next">N3401_AP001a</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagCopy</member>
+                    <member name="params">
+                        <element>3401</element>
+                        <element>3401</element>
+                        <element>INSTANCE</element>
+                        <element>CHARACTER</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3401</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N3401_APIF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="value1">3401</member>
+                                <member name="negate">true</member>
+                                <member name="scriptID">bool_flagCompare</member>
+                                <member name="params">
+                                    <element>CHARACTER</element>
+                                    <element>INVENTORY</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>

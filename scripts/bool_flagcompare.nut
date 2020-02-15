@@ -10,10 +10,11 @@ function define(script)
 // - value2: Flag key 2
 // - params[0]: Flag types: ZONE (default), INSTANCE, CHARACTER or
 //   INSTANCE_CHARACTER
-// - params[1]: Optional dynamic flag types: ZONE, INSTANCE, CHARACTER or
-//   INSTANCE_CHARACTER. If set take the value from value1's flag and use it as
-//   a key of this type to compare against value2 directly (useful for dynamic
-//   flag checking)
+// - params[1]: INVENTORY or optional dynamic flag types: ZONE, INSTANCE,
+//   CHARACTER, INSTANCE_CHARACTER. If INVENTORY, the flag value must exceed
+//   the amount of space left in the inventory. Otherwise if set, take the
+//   value from value1's flag and use it as a key of this type to compare
+//   against value2 directly (useful for dynamic flag checking)
 function check(source, cState, dState, zone, value1, value2, params)
 {
     if(zone == null)
@@ -48,7 +49,30 @@ function check(source, cState, dState, zone, value1, value2, params)
         return -1;
     }
 
-    if(params.len() == 2)
+    if(params.len() == 2 && params[1] == "INVENTORY")
+    {
+        local character = cState != null ? cState.GetEntity() : null;
+        local inventory = character != null
+            ? character.GetItemBoxesByIndex(0).Get() : null;
+        if(inventory == null)
+        {
+            return -1;
+        }
+
+        local emptyCount = 0;
+        for(local i = 0; i < 50; i++)
+        {
+            local item = inventory.GetItemsByIndex(i).Get();
+            if(item == null)
+            {
+                emptyCount++;
+            }
+        }
+
+        return emptyCount >= flagSource.GetFlagState(value1, 0, worldCID)
+            ? 0 : -1;
+    }
+    else if(params.len() == 2)
     {
         local dynamicKey = flagSource.GetFlagState(value1, 0, worldCID);
 
