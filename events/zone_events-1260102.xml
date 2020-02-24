@@ -1,52 +1,1369 @@
 ﻿<objects>
-    <object name="Event">
-        <member name="ID">Z1260102_648</member>
-        <!-- todo: Conditions missing -->
-        <member name="next">Z1260102_NM001</member>
-        <member name="branches">
+    <!-- 01 -->
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_01_NM001</member>
+        <member name="next">D12601_01_PR001</member>
+        <member name="messageIDs">
+            <element>215063</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D12601_01_PR001</member>
+        <member name="messageID">215064</member>
+        <member name="choices">
             <element>
-                <object>
-                    <member name="next">Z1260102_NM004</member>
-                    <!-- condition: unknown -->
+                <object name="EventChoice">
+                    <member name="next">D12601_01_NM002</member>
+                    <member name="messageID">215065</member>
                 </object>
             </element>
             <element>
-                <object>
-                    <member name="next">Z1260102_NM005</member>
-                    <!-- condition: unknown -->
+                <object name="EventChoice">
+                    <member name="next">D12601_01_NM003</member>
+                    <member name="messageID">215066</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z1260102_NM001</member>
-        <member name="next">Z1260102_PR001</member>
+        <member name="ID">D12601_01_NM002</member>
+        <member name="next">D12601_01_SC001</member>
         <member name="messageIDs">
-            <element>215004</element>
+            <element>215067</element>
         </member>
     </object>
-    <object name="EventPrompt">
-        <member name="ID">Z1260102_PR001</member>
-        <!-- todo: Conditions missing -->
-        <member name="messageID">215005</member>
-        <member name="choices">
+    <object name="EventPlayScene">
+        <member name="ID">D12601_01_SC001</member>
+        <member name="next">D12601_01_PA001</member>
+        <member name="sceneID">12102</member>
+        <member name="unknown">1</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_01_PA001</member>
+        <member name="actions">
             <element>
-                <object name="EventChoice">
-                    <member name="next">Z1260102_NM002</member>
-                    <member name="messageID">215006</member>
-                    <member name="branches">
+                <object name="ActionZoneChange">
+                    <member name="zoneID">1260102</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_01_NM003</member>
+        <member name="messageIDs">
+            <element>215068</element>
+        </member>
+    </object>
+    <!-- 02 Abaddon -->
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP01</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215001</member>
+                    <member name="effectType">4</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215002</member>
+                    <member name="effectType">3</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
                         <element>
-                            <object>
-                                <member name="next">Z1260102_NM003</member>
-                                <!-- condition: unknown -->
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_02_DF01</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
             <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>8</element>
+                        <element>9</element>
+                        <element>10</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">30</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_02_MEAL_ORDER</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_DF01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215003</member>
+                    <member name="effectType">3</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">2</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_disableSpawnGroup</member>
+                    <member name="params">
+                        <element>2</element>
+                        <element>3</element>
+                        <element>4</element>
+                        <element>5</element>
+                        <element>6</element>
+                        <element>7</element>
+                        <element>8</element>
+                        <element>9</element>
+                        <element>10</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_MEAL_ORDER</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">15</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_02_MEAL_ORDER2</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>3</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP02_NORTH</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP02_WEST</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP02_SOUTH</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP02_NORTH</member>
+        <member name="next">D12601_02_SP03_SW</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">1203</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">1203</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP02_WEST</member>
+        <member name="next">D12601_02_SP03_NS</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">1202</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">1202</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP02_SOUTH</member>
+        <member name="next">D12601_02_SP03_NW</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="spotID">1201</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                    <member name="spotID">1201</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_02_SP03_SW</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP03_SOUTH</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP03_WEST</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_02_SP03_NS</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP03_NORTH</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP03a_SOUTH</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_02_SP03_NW</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>2</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP03a_NORTH</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_SP03a_WEST</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP03_SOUTH</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                    <member name="spotID">1301</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>5</element>
+                    </member>
+                    <member name="spotID">1301</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="spotID">1402</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                    <member name="spotID">1402</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP03_WEST</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                    <member name="spotID">1302</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>5</element>
+                    </member>
+                    <member name="spotID">1302</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="spotID">1402</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                    <member name="spotID">1402</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP03_NORTH</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                    <member name="spotID">1303</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>5</element>
+                    </member>
+                    <member name="spotID">1303</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="spotID">1401</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                    <member name="spotID">1401</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP03a_SOUTH</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                    <member name="spotID">1301</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>5</element>
+                    </member>
+                    <member name="spotID">1301</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="spotID">1403</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                    <member name="spotID">1403</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP03a_WEST</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                    <member name="spotID">1302</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>5</element>
+                    </member>
+                    <member name="spotID">1302</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="spotID">1403</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                    <member name="spotID">1403</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_SP03a_NORTH</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                    <member name="spotID">1303</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>5</element>
+                    </member>
+                    <member name="spotID">1303</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                    <member name="spotID">1402</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                    <member name="spotID">1402</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_MEAL_ORDER2</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">15</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_02_GORGE</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215059</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE</member>
+        <member name="next">D12601_02_GORGE_00</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">30</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_02_MEAL_ORDER</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215069</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                        <element>3</element>
+                        <element>4</element>
+                        <element>5</element>
+                        <element>6</element>
+                        <element>7</element>
+                    </member>
+                    <member name="mode">DESPAWN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_02_GORGE_00</member>
+        <member name="next">D12601_02_GORGE_2504</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>29</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>30</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>31</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>32</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>33</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>34</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_GORGE_2505</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>29</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>30</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>31</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>32</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>33</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>34</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_GORGE_2506</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>32</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>30</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>31</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>29</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>33</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>34</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_GORGE_2507</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>31</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>30</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>29</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>32</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>33</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>34</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_GORGE_2508</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>34</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>30</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>31</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>32</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>33</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>29</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_GORGE_2509</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>30</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>29</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>31</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>32</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>33</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>34</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_GORGE_2510</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>33</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>30</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>31</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>32</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>29</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>34</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2504</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_02_GORGE_2504a</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2504a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5228</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2504</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2505</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_02_GORGE_2505a</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2505a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5228</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2505</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2506</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_02_GORGE_2506a</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2506a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5228</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2506</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2507</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_02_GORGE_2507a</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2507a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5228</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2507</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2508</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_02_GORGE_2508a</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2508a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5228</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2508</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2509</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_02_GORGE_2509a</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2509a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5228</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2509</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2510</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_02_GORGE_2510a</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_GORGE_2510a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5228</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2510</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_02_648</member>
+        <member name="next">D12601_02_NM001</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_02_648_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1002</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_NM001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_02_NM004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">1</member>
+                                <member name="value2">-1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_02_NM001</member>
+        <member name="next">D12601_02_PR001</member>
+        <member name="messageIDs">
+            <element>215004</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D12601_02_PR001</member>
+        <member name="messageID">215005</member>
+        <member name="choices">
+            <element>
                 <object name="EventChoice">
+                    <member name="next">D12601_02_NM002</member>
+                    <member name="messageID">215006</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D12601_02_TR00</member>
                     <member name="messageID">215007</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -57,19 +1374,40 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z1260102_NM002</member>
-        <member name="next">Z1260102_PR002</member>
+        <member name="ID">D12601_02_NM002</member>
+        <member name="next">D12601_02_PR002</member>
         <member name="messageIDs">
             <element>215009</element>
         </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_02_SC001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z1260102_PR002</member>
+        <member name="ID">D12601_02_PR002</member>
         <member name="messageID">130305</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z1260102_SC001</member>
+                    <member name="next">D12601_02_648_00</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
@@ -80,186 +1418,181 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_648_00</member>
+        <member name="next">D12601_02_SC001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1001</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPlayScene">
-        <member name="ID">Z1260102_SC001</member>
-        <member name="next">Z1260102_PA001</member>
+        <member name="ID">D12601_02_SC001</member>
+        <member name="next">D12601_02_PA001</member>
         <member name="sceneID">2103</member>
         <member name="unknown">1</member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z1260102_PA001</member>
+        <member name="ID">D12601_02_PA001</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateFlag">
-                    <member name="flagType">VALUABLE</member>
-                    <member name="ID">410</member>
-                    <member name="remove">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateFlag">
-                    <member name="flagType">VALUABLE</member>
-                    <member name="ID">411</member>
-                    <member name="remove">true</member>
-                </object>
-            </element>
             <element>
                 <object name="ActionZoneChange">
                     <member name="zoneID">1260103</member>
-                    <member name="destinationX">92900</member>
-                    <member name="destinationY">0</member>
-                    <member name="destinationRotation">3.14</member>
+                    <member name="spotID">50101</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z1260102_NM003</member>
-        <member name="next">Z1260102_SC001</member>
-        <member name="messageIDs">
-            <element>215009</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z1260102_NM004</member>
+        <member name="ID">D12601_02_NM004</member>
         <member name="messageIDs">
             <element>215062</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z1260102_NM005</member>
-        <member name="next">Z1260102_PR003</member>
+        <member name="ID">D12601_02_TR00</member>
+        <member name="next">D12601_02_TR01</member>
         <member name="messageIDs">
-            <element>215004</element>
+            <element>215010</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_TR01</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1002</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1002</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215011</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>12600</element>
+                        <element>126010000</element>
+                        <element>126010001</element>
+                        <element>126010002</element>
+                    </member>
+                    <member name="bossGroupID">1</member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">1001</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">1002</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">1003</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">1004</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">1005</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_02_648_01</member>
+        <member name="next">D12601_02_648_02</member>
+        <member name="messageIDs">
+            <element>215012</element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z1260102_PR003</member>
-        <member name="messageID">215005</member>
+        <member name="ID">D12601_02_648_02</member>
+        <member name="messageID">215012</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z1260102_NM003</member>
-                    <member name="messageID">215006</member>
+                    <member name="next">D12601_02_648_04</member>
+                    <member name="messageID">215013</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="messageID">0</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">215008</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_EF001</member>
-        <!-- todo: Conditions missing -->
-        <member name="next">Z1260102_UNMAP_EF001</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215059</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215069</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionDisplayMessage">
-                    <member name="messageIDs">
-                        <element>215059</element>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">Z1260102_UNMAP_EF002</member>
-                    <!-- condition: unknown -->
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_EF002</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215059</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215069</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_EF005</member>
-        <!-- todo: Conditions missing -->
-        <member name="next">Z1260102_UNMAP_MS004</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215003</member>
-                    <member name="effectType">3</member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">Z1260102_UNMAP_MS005</member>
-                    <!-- condition: unknown -->
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_MS004</member>
-        <member name="next">Z1260102_UNMAP_NM006</member>
-        <member name="actions">
-            <element>
-                <object name="ActionDisplayMessage">
-                    <member name="messageIDs">
-                        <element>215003</element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_MS005</member>
-        <member name="next">Z1260102_UNMAP_PA003</member>
-        <member name="actions">
-            <element>
-                <object name="ActionDisplayMessage">
-                    <member name="messageIDs">
-                        <element>215003</element>
-                    </member>
+                    <member name="next">D12601_02_648_03</member>
+                    <member name="messageID">215014</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z1260102_UNMAP_NM006</member>
-        <member name="next">Z1260102_UNMAP_PA003</member>
+        <member name="ID">D12601_02_648_03</member>
         <member name="messageIDs">
-            <element>215062</element>
+            <element>215016</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_02_648_04</member>
+        <member name="next">D12601_02_648_05</member>
+        <member name="messageIDs">
+            <element>215015</element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_PA003</member>
+        <member name="ID">D12601_02_648_05</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">260101</member>
+                    <member name="spotID">50002</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_02_UNMAP_PA003</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateFlag">
@@ -287,26 +1620,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_EF006</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215001</member>
-                    <member name="effectType">4</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215002</member>
-                    <member name="effectType">3</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_MS008</member>
+        <member name="ID">D12601_02_UNMAP_MS008</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -317,8 +1631,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_EF009</member>
-        <member name="next">Z1260102_UNMAP_MS004</member>
+        <member name="ID">D12601_02_UNMAP_EF009</member>
+        <member name="next">D12601_02_UNMAP_MS004</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -329,8 +1643,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_MS010</member>
-        <member name="next">Z1260102_UNMAP_EF002</member>
+        <member name="ID">D12601_02_UNMAP_MS010</member>
+        <member name="next">D12601_02_UNMAP_EF002</member>
         <member name="actions">
             <element>
                 <object name="ActionDisplayMessage">
@@ -342,13 +1656,1736 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z1260102_UNMAP_EF010</member>
-        <member name="next">Z1260102_UNMAP_MS005</member>
+        <member name="ID">D12601_02_UNMAP_EF010</member>
+        <member name="next">D12601_02_UNMAP_MS005</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">215003</member>
                     <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- 03 Mother Harlot -->
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_SP01</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215022</member>
+                    <member name="effectType">4</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215023</member>
+                    <member name="effectType">3</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>1</element>
+                    </member>
+                    <member name="mode">ONE_TIME</member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_DF01</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>3</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>5</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>6</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>7</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>8</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>9</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>10</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>11</element>
+                        <element>12</element>
+                        <element>13</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">15</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_SP02</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSpawn">
+                    <member name="spawnLocationGroupIDs">
+                        <element>2</element>
+                    </member>
+                    <member name="defeatActions">
+                        <element>
+                            <object name="ActionUpdateZoneFlags">
+                                <member name="type">ZONE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_DF01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215024</member>
+                    <member name="effectType">3</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">2</member>
+                    <member name="state">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_disableSpawnGroup</member>
+                    <member name="params">
+                        <element>2</element>
+                        <element>3</element>
+                        <element>4</element>
+                        <element>5</element>
+                        <element>6</element>
+                        <element>7</element>
+                        <element>8</element>
+                        <element>9</element>
+                        <element>10</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING</member>
+        <member name="next">D12601_03_LIGHTNING_00</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215058</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">50</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">23</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_SP02</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_SUPER_LIGHTNING</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">101</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">102</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">103</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">104</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_00</member>
+        <member name="branchScriptID">branch_randomSplit</member>
+        <member name="branchScriptParams">
+            <element>8</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_WEAK_01</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_WEAK_02</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_WEAK_03</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_WEAK_04</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_STRONG_01</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_STRONG_02</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_STRONG_03</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_STRONG_04</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_01</member>
+        <member name="next">D12601_03_LIGHTNING_WEAK_01a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_SUPER_LIGHTNING</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">101</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">102</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">103</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">104</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_WEAK_02</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">101</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_01a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_LIGHTNING_WEAK_01_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING_WEAK_01_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_01_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5273</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1120</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_01_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5273</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1111</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_02</member>
+        <member name="next">D12601_03_LIGHTNING_WEAK_02a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_WEAK_03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">102</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_02a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_LIGHTNING_WEAK_02_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING_WEAK_02_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_02_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5274</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1120</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_02_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5274</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1111</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_03</member>
+        <member name="next">D12601_03_LIGHTNING_WEAK_03a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_WEAK_04</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">103</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_03a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_LIGHTNING_WEAK_03_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING_WEAK_03_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_03_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5275</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1120</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_03_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5275</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1111</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_04</member>
+        <member name="next">D12601_03_LIGHTNING_WEAK_04a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_WEAK_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">104</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_04a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_LIGHTNING_WEAK_04_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING_WEAK_04_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_04_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5276</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1120</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_WEAK_04_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5276</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1111</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_01</member>
+        <member name="next">D12601_03_LIGHTNING_STRONG_01a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_SUPER_LIGHTNING</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">101</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">102</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">103</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">104</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_STRONG_02</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">101</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_01a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_LIGHTNING_STRONG_01_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING_STRONG_01_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_01_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5273</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1121</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_01_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5273</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1112</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_02</member>
+        <member name="next">D12601_03_LIGHTNING_STRONG_02a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_STRONG_03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">102</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_02a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_LIGHTNING_STRONG_02_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING_STRONG_02_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_02_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5274</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1121</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_02_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5274</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1112</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_03</member>
+        <member name="next">D12601_03_LIGHTNING_STRONG_03a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_STRONG_04</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">103</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_03a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_LIGHTNING_STRONG_03_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING_STRONG_03_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_03_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5275</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1121</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_03_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5275</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1112</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_04</member>
+        <member name="next">D12601_03_LIGHTNING_STRONG_04a</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_LIGHTNING_STRONG_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">104</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_04a</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_LIGHTNING_STRONG_04_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_LIGHTNING_STRONG_04_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_04_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5276</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1121</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_LIGHTNING_STRONG_04_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5276</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1112</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_SUPER_LIGHTNING</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_03_SUPER_LIGHTNING_PREPARE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionDelay">
+                    <member name="duration">3</member>
+                    <member name="actions">
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D12601_03_SUPER_LIGHTNING_FIRE</member>
+                                <member name="sourceContext">ENEMIES</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_SUPER_LIGHTNING_PREPARE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5250</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1121</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_SUPER_LIGHTNING_FIRE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">5250</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_triggerSkill</member>
+                    <member name="params">
+                        <element>1113</element>
+                    </member>
+                    <member name="sourceContext">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12601_03_650</member>
+        <member name="next">D12601_03_NM001</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_650_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1002</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_NM001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_03_NM004</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">NPC_STATE</member>
+                                <member name="value1">1</member>
+                                <member name="value2">-1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_03_NM001</member>
+        <member name="next">D12601_03_PR001</member>
+        <member name="messageIDs">
+            <element>215025</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D12601_03_PR001</member>
+        <member name="messageID">215027</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D12601_03_NM002</member>
+                    <member name="messageID">215028</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D12601_03_TR00</member>
+                    <member name="messageID">215029</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">215030</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_03_NM002</member>
+        <member name="next">D12601_03_PR002</member>
+        <member name="messageIDs">
+            <element>215031</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_03_SC001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D12601_03_PR002</member>
+        <member name="messageID">130305</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D12601_03_650_00</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_650_00</member>
+        <member name="next">D12601_03_SC001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1001</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D12601_03_SC001</member>
+        <member name="next">D12601_03_PA001</member>
+        <member name="sceneID">12103</member>
+        <member name="unknown">1</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_PA001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">1260104</member>
+                    <member name="spotID">50201</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_03_NM004</member>
+        <member name="messageIDs">
+            <element>215026</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_03_TR00</member>
+        <member name="next">D12601_03_TR01</member>
+        <member name="messageIDs">
+            <element>215032</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_TR01</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1002</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1002</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215033</member>
+                    <member name="includeMessage">true</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>12600</element>
+                        <element>126010000</element>
+                        <element>126010001</element>
+                        <element>126010002</element>
+                        <element>126010003</element>
+                    </member>
+                    <member name="bossGroupID">1</member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2001</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">2002</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">2003</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">2004</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="SpotID">2005</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_03_650_01</member>
+        <member name="next">D12601_03_650_02</member>
+        <member name="messageIDs">
+            <element>215034</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D12601_03_650_02</member>
+        <member name="messageID">215034</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D12601_03_650_04</member>
+                    <member name="messageID">215035</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D12601_03_650_03</member>
+                    <member name="messageID">215036</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_03_650_03</member>
+        <member name="messageIDs">
+            <element>215038</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">D12601_03_650_04</member>
+        <member name="next">D12601_02_648_05</member>
+        <member name="messageIDs">
+            <element>215037</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_03_UNMAP_EF001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215024</member>
+                    <member name="effectType">3</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">411</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">410</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="items">
+                        <pair>
+                            <key>38106</key>
+                            <value>10</value>
+                        </pair>
+                    </member>
+                    <member name="notify">true</member>
                 </object>
             </element>
         </member>
