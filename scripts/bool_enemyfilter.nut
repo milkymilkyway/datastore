@@ -27,39 +27,57 @@ function check(source, cState, dState, zone, value1, value2, params)
         }
 
         // Additional params must match (key/value pair)
-        for(local i = 0; i < (params.len() - 1); )
+        if(params.len() > 0)
         {
-            if(params[i] == "SpawnGroupID")
+            for(local i = 0; i < (params.len() - 1); )
             {
-                if(params[i + 1].tointeger() != eBase.GetSpawnGroupID())
+                if(params[i] == "TypeAny")
                 {
-                    return -1;
-                }
-            }
-            else if(params[i] == "SpawnGroupIDAny")
-            {
-                local any = false;
+                    local any = false;
 
-                local vals = split(params[i + 1], ",");
-                foreach(sgStr in vals)
+                    local vals = split(params[i + 1], ",");
+                    foreach(sgStr in vals)
+                    {
+                        any = any || sgStr.tointeger() == eBase.GetType();
+                    }
+
+                    if(!any)
+                    {
+                        return -1;
+                    }
+                }
+                else if(params[i] == "SpawnGroupID")
                 {
-                    any = any || sgStr.tointeger() == eBase.GetSpawnGroupID();
+                    if(params[i + 1].tointeger() != eBase.GetSpawnGroupID())
+                    {
+                        return -1;
+                    }
+                }
+                else if(params[i] == "SpawnGroupIDAny")
+                {
+                    local any = false;
+
+                    local vals = split(params[i + 1], ",");
+                    foreach(sgStr in vals)
+                    {
+                        any = any || sgStr.tointeger() == eBase.GetSpawnGroupID();
+                    }
+
+                    if(!any)
+                    {
+                        return -1;
+                    }
+                }
+                else if(params[i] == "SpawnLocationGroupID")
+                {
+                    if(params[i + 1].tointeger() != eBase.GetSpawnLocationGroupID())
+                    {
+                        return -1;
+                    }
                 }
 
-                if(!any)
-                {
-                    return -1;
-                }
+                i += 2;
             }
-            else if(params[i] == "SpawnLocationGroupID")
-            {
-                if(params[i + 1].tointeger() != eBase.GetSpawnLocationGroupID())
-                {
-                    return -1;
-                }
-            }
-
-            i += 2;
         }
 
         return 0;
