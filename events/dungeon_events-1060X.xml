@@ -54,8 +54,65 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">D1060X_EXIT_01</member>
+                    <member name="next">D1060X_TO_240601</member>
                     <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D1060X_TO_240401</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>20130401</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">D1060X_EXIT2</member>
+        <member name="messageID">1156342</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">D1060X_TO_240601</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D1060X_TO_240401</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>20130401</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -66,7 +123,18 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D1060X_EXIT_01</member>
+        <member name="ID">D1060X_TO_240401</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">240401</member>
+                    <member name="spotID">50001</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1060X_TO_240601</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -76,26 +144,9 @@
             </element>
         </member>
     </object>
-    <object name="EventPrompt">
-        <member name="ID">D1060X_R2_PR002</member>
-        <member name="messageID">1156342</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">D1060X_EXIT_01</member>
-                    <member name="messageID">1</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">2</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <!-- Door 1 -->
     <object name="EventPrompt">
-        <member name="ID">D10601_PR001</member>
+        <member name="ID">D10601_2062</member>
         <member name="messageID">1156340</member>
         <member name="choices">
             <element>
@@ -111,7 +162,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">D1060X_R2_PR002</member>
+                    <member name="next">D1060X_EXIT2</member>
                     <member name="messageID">1156341</member>
                 </object>
             </element>
@@ -4509,36 +4560,8 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">D10604_R2_PR003</member>
+                    <member name="next">D1060X_EXIT2</member>
                     <member name="messageID">1156341</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">D10604_R2_PR003</member>
-        <member name="messageID">1156342</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">D10604_R2_PA001</member>
-                    <member name="messageID">1</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">2</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D10604_R2_PA001</member>
-        <member name="actions">
-            <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">240601</member>
-                    <member name="spotID">50001</member>
                 </object>
             </element>
         </member>
@@ -6456,36 +6479,8 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">D10606_R2_PR006</member>
+                    <member name="next">D1060X_EXIT2</member>
                     <member name="messageID">1156341</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">D10606_R2_PR006</member>
-        <member name="messageID">1156342</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">D10606_R2_PA001</member>
-                    <member name="messageID">1</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">2</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D10606_R2_PA001</member>
-        <member name="actions">
-            <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">240601</member>
-                    <member name="spotID">50001</member>
                 </object>
             </element>
         </member>
@@ -10273,7 +10268,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">D1060X_R2_PR002</member>
+                    <member name="next">D1060X_EXIT2</member>
                     <member name="messageID">1156341</member>
                 </object>
             </element>
@@ -11623,12 +11618,12 @@
     </object>
     <!-- Door 666 -->
     <object name="EventPrompt">
-        <member name="ID">D10609_PR002</member>
+        <member name="ID">D10609_BOSS_DOOR</member>
         <member name="messageID">1156603</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">D10609_SP01</member>
+                    <member name="next">D10609_BOSS_DOOR_START</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
@@ -11640,7 +11635,7 @@
         </member>
     </object>
     <object name="Event">
-        <member name="ID">D10609_SP01</member>
+        <member name="ID">D10609_BOSS_DOOR_START</member>
         <member name="next">D10609_SC001</member>
         <member name="branches">
             <element>
@@ -12444,13 +12439,33 @@
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">D10609_PR001</member>
+        <member name="ID">D10609_EXIT</member>
         <member name="messageID">1156345</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">D1060X_EXIT_01</member>
+                    <member name="next">D1060X_TO_240601</member>
                     <member name="messageID">1156341</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D1060X_TO_240401</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventFlagCondition">
+                                            <member name="type">ZONE_FLAGS</member>
+                                            <member name="flagStates">
+                                                <pair>
+                                                    <key>20130401</key>
+                                                    <value>1</value>
+                                                </pair>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
