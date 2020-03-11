@@ -5,8 +5,7 @@ function define(script)
     return 0;
 }
 
-// Trigger a skill on the current source entity that is AI controlled (only
-// works with specific custom AI types)
+// Trigger a skill on the current source entity (AI controlled or not)
 // - params[0]: Skill ID to trigger
 function run(source, cState, dState, zone, server, params)
 {
@@ -16,12 +15,11 @@ function run(source, cState, dState, zone, server, params)
     }
 
     local aiState = source.GetAIState();
-    if(aiState == null)
-    {
-        return Result_t.FAIL;
-    }
 
-    aiState.SetActionOverridesEntry("TriggerSkill", params[0].tointeger());
+    local aiManager = server.GetAIManager();
+    aiManager.QueueUseSkillCommand(source, params[0].tointeger(),
+        aiState != null ? aiState.GetTargetEntityID() : 0,
+        false);
 
     return Result_t.SUCCESS;
 }
