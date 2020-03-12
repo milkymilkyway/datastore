@@ -235,6 +235,24 @@
             </element>
             <element>
                 <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>7301</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">Z730101_EF001</member>
                     <member name="conditions">
                         <element>
@@ -443,6 +461,20 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">Z730101_SP001</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">EQUAL</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>7301</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -1458,6 +1490,94 @@
                             <value>1</value>
                         </pair>
                     </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z730101_FAIL</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>7301</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>7301</key>
+                            <value>2</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_disableSpawnGroup</member>
+                    <member name="params">
+                        <element>1</element>
+                        <element>2</element>
+                        <element>3</element>
+                        <element>4</element>
+                        <element>7</element>
+                        <element>8</element>
+                        <element>9</element>
+                        <element>10</element>
+                        <element>11</element>
+                        <element>12</element>
+                        <element>13</element>
+                        <element>14</element>
+                        <element>15</element>
+                        <element>16</element>
+                        <element>17</element>
+                        <element>18</element>
+                        <element>19</element>
+                        <element>20</element>
+                        <element>21</element>
+                        <element>22</element>
+                        <element>23</element>
+                        <element>24</element>
+                        <element>25</element>
+                        <element>26</element>
+                        <element>27</element>
+                        <element>28</element>
+                        <element>29</element>
+                        <element>30</element>
+                        <element>31</element>
+                        <element>700</element>
+                        <element>701</element>
+                        <element>702</element>
+                        <element>703</element>
+                        <element>704</element>
+                        <element>705</element>
+                    </member>
+                    <member name="sourceContext">NONE</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">731001</member>
+                    <member name="state">3</member>
+                    <member name="sourceContext">NONE</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">Z730101_PA003</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
                 </object>
             </element>
         </member>

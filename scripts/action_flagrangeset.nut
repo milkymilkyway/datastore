@@ -22,7 +22,7 @@ function run(source, cState, dState, zone, server, params)
 
     local key = params[0].tointeger();
     local listSize = params[1].tointeger();
-    local percentIncluded = params[2].tointeger() == 1;
+    local percentIncluded = params[2].tointeger() >= 1;
     local valueSize = 1 + listSize + (percentIncluded ? 1 : 0);
 
 	while(zone.GetFlagState(key, 0, worldCID) != 0)
@@ -36,7 +36,8 @@ function run(source, cState, dState, zone, server, params)
         if(percentIncluded)
         {
             local chance = params[i + (valueSize - 1)].tointeger();
-            setKey = chance >= 100 || chance >= Randomizer.RNG(1, 100);
+			local precision = (10 * pow(10, params[2].tointeger()));
+            setKey = chance >= precision || chance >= Randomizer.RNG(1, precision);
         }
 
         if(setKey)
