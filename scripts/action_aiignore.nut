@@ -17,13 +17,13 @@ function run(source, cState, dState, zone, server, params)
     local time = params.len() >= 1 ? params[0].tointeger() : 0;
     if(time > 0)
     {
-        source.SetStatusTimes(0x08,
+        source.SetStatusTimesEntry(0x80,
             server.GetServerTime() + (time * 1000000));
     }
     else
     {
         // Ignore until cancelled
-        source.SetStatusTimes(0x80, 0);
+        source.SetStatusTimesEntry(0x80, 0);
     }
 
     return Result_t.SUCCESS;

@@ -9,7 +9,6 @@ function define(script)
 // - params[0]: Flag key
 // - params[1]: ZONE, INSTANCE, CHARACTER or INSTANCE_CHARACTER for flag type
 //   to set
-// - params[2]: Optionally use ActionUpdatePoints action instead if 1.
 function transform(source, cState, dState, zone, params)
 {
     local worldCID = cState != null ? cState.GetWorldCID() : 0;
@@ -39,14 +38,7 @@ function transform(source, cState, dState, zone, params)
         return -1;
     }
 
-    if(params.len() >= 3 && params[2].tointeger() == 1)
-    {
-        action.SetValue(flagSource.GetFlagState(params[0].tointeger(), 0, worldCID));
-    }
-    else
-    {
-        action.SetXP(flagSource.GetFlagState(params[0].tointeger(), 0, worldCID));
-    }
+    action.SetXP(flagSource.GetFlagState(params[0].tointeger(), 0, worldCID));
 
     return 0;
 }
