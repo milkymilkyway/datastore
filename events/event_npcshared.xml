@@ -8998,7 +8998,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">N265A_DS_SK374</member>
+                    <member name="next">N265A_DS_SK931</member>
                     <member name="messageID">202628</member>
                 </object>
             </element>
@@ -11492,7 +11492,7 @@
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">N265A_DS_SK374</member>
+        <member name="ID">N265A_DS_SK931</member>
         <member name="messageID">202632</member>
         <member name="choices">
             <element>
@@ -11516,12 +11516,12 @@
                         </element>
                         <element>
                             <object>
-                                <member name="next">N265A_DS_SK374a</member>
+                                <member name="next">N265A_DS_SK931a</member>
                                 <member name="conditions">
                                     <element>
                                         <object name="EventCondition">
                                             <member name="type">PARTNER_SKILL_LEARNED</member>
-                                            <member name="value1">374</member>
+                                            <member name="value1">931</member>
                                         </object>
                                     </element>
                                 </member>
@@ -11539,7 +11539,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">N265A_DS_SK374a</member>
+        <member name="ID">N265A_DS_SK931a</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -24950,6 +24950,34 @@
             </element>
             <element>
                 <object>
+                    <member name="next">N491_NM197a</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">318</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_ACTIVE</member>
+                                <member name="value1">318</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">75</member>
+                                <member name="compareMode">LT</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">N491_NM197</member>
                     <member name="conditions">
                         <element>
@@ -25325,6 +25353,40 @@
                     </member>
                 </object>
             </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N491_2_NM033</member>
+                    <member name="messageID">161894</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">318</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">N491_NM215</member>
+                    <member name="messageID">110676</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">N491_NM197a</member>
+        <member name="next">N491_PR071a</member>
+        <member name="messageIDs">
+            <element>110600</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">N491_PR071a</member>
+        <member name="messageID">110601</member>
+        <member name="choices">
             <element>
                 <object name="EventChoice">
                     <member name="next">N491_2_NM033</member>
@@ -33544,6 +33606,21 @@
             </element>
             <element>
                 <object>
+                    <member name="next">N3401_AP00_6221</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>6221</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">N3401_AP00_630X</member>
                     <member name="conditions">
                         <element>
@@ -34052,6 +34129,164 @@
                             <key>2524402</key>
                             <value>25</value>
                         </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP00_6221</member>
+        <member name="next">N3401_AP_FINALIZE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2524401</key>
+                            <value>21941</value>
+                        </pair>
+                        <pair>
+                            <key>2524402</key>
+                            <value>200</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N3401_AP00_6221_2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>6</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>22</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N3401_AP00_6221_1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>2</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>21</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N3401_AP00_6221_0</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>20</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP00_6221_0</member>
+        <member name="next">N3401_AP_FINALIZE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>2524402</element>
+                        <element>2524402</element>
+                        <element>MULT_FLAG</element>
+                        <element>20</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP00_6221_1</member>
+        <member name="next">N3401_AP_FINALIZE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>2524402</element>
+                        <element>2524402</element>
+                        <element>MULT_FLAG</element>
+                        <element>21</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N3401_AP00_6221_2</member>
+        <member name="next">N3401_AP_FINALIZE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>2524402</element>
+                        <element>2524402</element>
+                        <element>MULT_FLAG</element>
+                        <element>22</element>
                     </member>
                 </object>
             </element>

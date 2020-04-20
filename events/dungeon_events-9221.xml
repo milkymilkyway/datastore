@@ -4260,24 +4260,6 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next"/>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>10</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
                     <member name="next">D9221_01_921055_03a</member>
                     <member name="conditions">
                         <element>
@@ -4304,6 +4286,24 @@
                                 <member name="flagStates">
                                     <pair>
                                         <key>20</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>10</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -9574,6 +9574,20 @@
     </object>
     <object name="EventPerformActions">
         <member name="ID">D9221_05_SP82</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_INSTANCE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>20</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="actions">
             <element>
                 <object name="ActionSpawn">
@@ -10197,6 +10211,30 @@
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">920452</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920411</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920404</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920407</member>
+                    <member name="state">2</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">920451</member>
                     <member name="state">2</member>
                 </object>
             </element>
@@ -13000,10 +13038,21 @@
         <member name="ID">D9221_Q846</member>
         <member name="actions">
             <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1211388</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1211389</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+            <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">2035</member>
                     <member name="state">1</member>
-                    <member name="sourceClientOnly">true</member>
                 </object>
             </element>
         </member>
@@ -13012,16 +13061,45 @@
         <member name="ID">D9221_Q846_00</member>
         <member name="actions">
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">2035</member>
-                    <member name="state">0</member>
-                    <member name="sourceClientOnly">true</member>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1211390</member>
+                    <member name="includeMessage">true</member>
                 </object>
             </element>
             <element>
                 <object name="ActionUpdateFlag">
                     <member name="flagType">VALUABLE</member>
                     <member name="ID">558</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D62_Q846_2045_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">558</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">559</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">560</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
         </member>

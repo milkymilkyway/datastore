@@ -40,7 +40,6 @@ function transform(source, cState, dState, zone, params)
     }
 
     local zoneID = zone.GetDefinitionID().tointeger() + params[1].tointeger();
-    print("Boo!");
     local spotID = flagSource.GetFlagState(params[2].tointeger(), 0, worldCID).tointeger();
     action.SetZoneID(zoneID);
     action.SetSpotID(spotID);
