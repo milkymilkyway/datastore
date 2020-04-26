@@ -10,11 +10,13 @@ function define(script)
 // - value2: Flag key 2
 // - params[0]: Flag types: ZONE (default), INSTANCE, CHARACTER or
 //   INSTANCE_CHARACTER
-// - params[1]: INVENTORY or optional dynamic flag types: ZONE, INSTANCE,
-//   CHARACTER, INSTANCE_CHARACTER. If INVENTORY, the flag value must exceed
-//   the amount of space left in the inventory. Otherwise if set, take the
-//   value from value1's flag and use it as a key of this type to compare
-//   against value2 directly (useful for dynamic flag checking)
+// - params[1]: INVENTORY, EVENT_COUNTER or optional dynamic flag types: ZONE,
+//   INSTANCE, CHARACTER, INSTANCE_CHARACTER. If INVENTORY, the flag value must
+//   exceed the amount of space left in the inventory. If EVENT_COUNTER, the
+//   flag value must be greater than or equal to the counter matching value2.
+//   Otherwise if set, take the value from value1's flag and use it as a key
+//   of this type to compare against value2 directly (useful for dynamic flag
+//   checking)
 function check(source, cState, dState, zone, value1, value2, params)
 {
     if(zone == null)
@@ -71,6 +73,12 @@ function check(source, cState, dState, zone, value1, value2, params)
 
         return emptyCount >= flagSource.GetFlagState(value1, 0, worldCID)
             ? 0 : -1;
+    }
+    else if(params.len() == 2 && params[1] == "EVENT_COUNTER")
+    {
+        local counter = cState.GetEventCounter(value2, false);
+        return flagSource.GetFlagState(value1, 0, worldCID) >=
+            (counter != null ? counter.GetCounter() : 0) ? 0 : -1;
     }
     else if(params.len() == 2)
     {

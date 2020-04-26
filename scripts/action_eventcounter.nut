@@ -9,7 +9,7 @@ function define(script)
 // - params[0]: event counter ID
 // - params[1]: value to change/set counter by
 // - params[2]: counter should be decreased if 1, set to params[1] if 2, flag
-//   mask (add) if 3
+//   mask (add) if 3, floored at value if 4
 // - params[3]: Option flags, if 1 set the world counter instead, if 2 set
 //   current clan on RelatedTo field, if 4 retrieve value from zone character
 //   flag matching param 1 instead
@@ -104,6 +104,12 @@ function run(source, cState, dState, zone, server, params)
         {
             // Flag mask (add)
             counterValue = eCounter.GetCounter() | counterValue;
+        }
+        else if(params.len() == 3 && params[2].tointeger() == 4)
+        {
+            // Flooring
+            counterValue = eCounter.GetCounter() > counterValue
+                ? eCounter.GetCounter() : counterValue;
         }
         else
         {

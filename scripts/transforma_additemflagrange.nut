@@ -14,14 +14,14 @@ function define(script)
 function transform(source, cState, dState, zone, params)
 {
     local worldCID = cState != null ? cState.GetWorldCID() : 0;
-    if(params.len() < 2 || zone == null || worldCID == 0)
+    if(params.len() < 1 || zone == null || worldCID == 0)
     {
         return -1;
     }
 
     local key = params[0].tointeger();
-    local clearKeys = (params[1].tointeger() & 1) != 0;
-    local minMax = (params[1].tointeger() & 2) != 0;
+    local clearKeys = params.len() > 1 && (params[1].tointeger() & 1) != 0;
+    local minMax = params.len() > 1 && (params[1].tointeger() & 2) != 0;
     while(zone.GetFlagState(key, 0, worldCID) != 0 && zone.GetFlagState(key + 1, 0, worldCID) != 0 &&
         (!minMax || zone.GetFlagState(key + 2, 0, worldCID) != 0))
     {
