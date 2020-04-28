@@ -42,7 +42,7 @@
                         </element>
                         <element>
                             <object>
-                                <member name="next">D54_540101_548X_SG1_02a</member>
+                                <member name="next">D54_540101_548X_BOSS_LOOTa</member>
                                 <member name="conditions">
                                     <element>
                                         <object name="EventFlagCondition">
@@ -111,7 +111,14 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D54_540101_548X_SG1_00</member>
+                                <member name="eventID">D54_540101_548X_BOSS_LOOT</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D54_540101_548X_SG1_01</member>
                                 <member name="sourceContext">ALL</member>
                                 <member name="location">ZONE</member>
                             </object>
@@ -121,10 +128,14 @@
             </element>
         </member>
     </object>
+    <object name="EventPlayScene">
+        <member name="ID">D54_540101_548X_SG1_01</member>
+        <member name="next">D54_Q317_L</member>
+        <member name="sceneID">1032</member>
+    </object>
     <object name="EventPerformActions">
-        <member name="ID">D54_540101_548X_SG1_00</member>
-        <member name="next">D54_540101_548X_SG1_01</member>
-        <member name="actions">
+        <member name="ID">D54_540101_548X_BOSS_LOOT</member>
+        <member name="actions">        
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="flagStates">
@@ -167,46 +178,6 @@
                     <member name="mode">DESPAWN</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPlayScene">
-        <member name="ID">D54_540101_548X_SG1_01</member>
-        <member name="sceneID">1032</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D54_540101_548X_SG1_02</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">LT_OR_NAN</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>1800</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D54_540101_548X_SG1_02</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="flagStates">
-                        <pair>
-                            <key>1800</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionSetNPCState">
                     <member name="state">1</member>
@@ -240,54 +211,10 @@
                     <member name="isBossBox">true</member>
                     <member name="dropSetIDs">
                         <element>40000093</element>
-                        <element>5480</element>
-                    </member>
-                    <member name="locations">
-                        <element>
-                            <object>
-                                <member name="SpotID">5000</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionCreateLoot">
-                    <member name="isBossBox">true</member>
-                    <member name="dropSetIDs">
                         <element>40000094</element>
-                        <element>5480</element>
-                    </member>
-                    <member name="locations">
-                        <element>
-                            <object>
-                                <member name="SpotID">5000</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionCreateLoot">
-                    <member name="isBossBox">true</member>
-                    <member name="dropSetIDs">
                         <element>40000095</element>
-                        <element>5480</element>
-                    </member>
-                    <member name="locations">
-                        <element>
-                            <object>
-                                <member name="SpotID">5000</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionCreateLoot">
-                    <member name="isBossBox">true</member>
-                    <member name="dropSetIDs">
                         <element>40000096</element>
+                        <element>40000097</element>
                         <element>5480</element>
                     </member>
                     <member name="locations">
@@ -303,6 +230,70 @@
                 <object name="ActionCreateLoot">
                     <member name="isBossBox">true</member>
                     <member name="dropSetIDs">
+                        <element>40000093</element>
+                        <element>40000094</element>
+                        <element>40000095</element>
+                        <element>40000096</element>
+                        <element>40000097</element>
+                        <element>5480</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000093</element>
+                        <element>40000094</element>
+                        <element>40000095</element>
+                        <element>40000096</element>
+                        <element>40000097</element>
+                        <element>5480</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000093</element>
+                        <element>40000094</element>
+                        <element>40000095</element>
+                        <element>40000096</element>
+                        <element>40000097</element>
+                        <element>5480</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">5000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000093</element>
+                        <element>40000094</element>
+                        <element>40000095</element>
+                        <element>40000096</element>
                         <element>40000097</element>
                         <element>5480</element>
                     </member>
@@ -318,7 +309,7 @@
         </member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D54_540101_548X_SG1_02a</member>
+        <member name="ID">D54_540101_548X_BOSS_LOOTa</member>
         <member name="next">D54_540101_548X_10000_04a</member>
         <member name="sceneID">1032</member>
     </object>

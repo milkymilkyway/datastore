@@ -1,4 +1,4 @@
-﻿<objects>
+<objects>
     <object name="EventNPCMessage">
         <member name="ID">Z130101_200</member>
         <member name="next">Z130101_PR001</member>
@@ -3845,7 +3845,6 @@
             <element>161810</element>
         </member>
     </object>
-    <!-- todo: Invoke -->
     <object name="EventNPCMessage">
         <member name="ID">Z130101_286</member>
         <member name="next">Z130101_PR010</member>
@@ -6080,21 +6079,21 @@
                     </member>
                 </object>
             </element>
-            <!-- todo: Devil cameo
             <element>
                 <object>
                     <member name="next">Z130101_291_MB_010</member>
                     <member name="conditions">
                         <element>
-                            <object name="EventCondition">
-                                <member name="compareMode">EXISTS</member>
-                                <member name="type">STATUS_ACTIVE</member>
-                                <member name="value1">?</member>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_tokusei</member>
+                                <member name="params">
+                                    <element>9999999</element>
+                                </member>
                             </object>
                         </element>
                     </member>
                 </object>
-            </element>-->
+            </element>
             <element>
                 <object>
                     <member name="next">Z130101_291_MB_002</member>
@@ -13365,7 +13364,7 @@
     <object name="EventNPCMessage">
         <member name="ID">Z130101_386_Q601_001</member>
         <member name="messageIDs">
-            <element>103845</element>
+            <element>103854</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -13516,6 +13515,7 @@
     </object>
     <object name="Event">
         <member name="ID">Z130101_549</member>
+        <member name="next">Z130101_549_COC10_00</member>
         <member name="branches">
             <element>
                 <object>
@@ -13531,7 +13531,7 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">VALUABLE</member>
-                                <member name="value1">435</member>
+                                <member name="value1">414</member>
                                 <member name="value2">1</member>
                             </object>
                         </element>
@@ -13566,7 +13566,7 @@
                         <element>
                             <object name="EventCondition">
                                 <member name="type">VALUABLE</member>
-                                <member name="value1">435</member>
+                                <member name="value1">414</member>
                                 <member name="value2">1</member>
                             </object>
                         </element>
@@ -13581,6 +13581,62 @@
                             <object name="EventCondition">
                                 <member name="type">QUEST_COMPLETE</member>
                                 <member name="value1">909</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z130101_549_COC9_07</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">910</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">413</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z130101_549_COC9_02</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">910</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">414</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z130101_549_COC9_00</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_COMPLETE</member>
+                                <member name="value1">910</member>
                                 <member name="value2">0</member>
                             </object>
                         </element>
@@ -13623,7 +13679,7 @@
             <element>
                 <object name="ActionUpdateFlag">
                     <member name="flagType">VALUABLE</member>
-                    <member name="ID">435</member>
+                    <member name="ID">414</member>
                 </object>
             </element>
         </member>
@@ -13671,8 +13727,20 @@
     </object>
     <object name="EventMultitalk">
         <member name="ID">Z130101_549_COC7_09</member>
-        <member name="next">Z130101_549_COC7_10</member>
+        <member name="next">Z130101_549_COC7_09a</member>
         <member name="messageID">1300908</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z130101_549_COC7_09a</member>
+        <member name="next">Z130101_549_COC7_10</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">413</member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z130101_549_COC7_10</member>
@@ -13819,8 +13887,20 @@
     </object>
     <object name="EventMultitalk">
         <member name="ID">Z130101_549_COC8_06</member>
-        <member name="next">Z130101_549_COC8_07</member>
+        <member name="next">Z130101_549_COC8_06a</member>
         <member name="messageID">1300911</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z130101_549_COC8_06a</member>
+        <member name="next">Z130101_549_COC8_07</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">413</member>
+                </object>
+            </element>
+        </member>
     </object>
     <object name="EventPrompt">
         <member name="ID">Z130101_549_COC8_07</member>
@@ -13908,6 +13988,297 @@
     <object name="EventMultitalk">
         <member name="ID">Z130101_549_COC8_13</member>
         <member name="messageID">1300918</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_00</member>
+        <member name="next">Z130101_549_COC9_01</member>
+        <member name="messageID">1300919</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z130101_549_COC9_01</member>
+        <member name="messageID">166214</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC7_02</member>
+                    <member name="messageID">166217</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC7_02</member>
+                    <member name="messageID">166218</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_02</member>
+        <member name="next">Z130101_549_COC9_03</member>
+        <member name="messageID">1300922</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z130101_549_COC9_03</member>
+        <member name="messageID">166216</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC9_06</member>
+                    <member name="messageID">166065</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC8_08</member>
+                    <member name="messageID">166253</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC8_04</member>
+                    <member name="messageID">166355</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC9_12</member>
+                    <member name="messageID">166356</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC7_08</member>
+                    <member name="messageID">4</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_04</member>
+        <member name="next">Z130101_549_COC9_03</member>
+        <member name="messageID">1300912</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_05</member>
+        <member name="next">Z130101_549_COC9_03</member>
+        <member name="messageID">1300913</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_06</member>
+        <member name="next">Z130101_549_COC8_06a</member>
+        <member name="messageID">1300920</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_07</member>
+        <member name="next">Z130101_549_COC9_08</member>
+        <member name="messageID">1300923</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z130101_549_COC9_08</member>
+        <member name="messageID">166216</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC9_09</member>
+                    <member name="messageID">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC7_08</member>
+                    <member name="messageID">4</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_09</member>
+        <member name="next">Z130101_549_COC9_10</member>
+        <member name="messageID">1300924</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z130101_549_COC9_10</member>
+        <member name="messageID">166295</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC9_12</member>
+                    <member name="messageID">166336</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC9_11</member>
+                    <member name="messageID">166337</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_11</member>
+        <member name="messageID">1300926</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC9_12</member>
+        <member name="next">Z130101_549_COC9_13</member>
+        <member name="messageID">1300925</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z130101_549_COC9_13</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateFlag">
+                    <member name="flagType">VALUABLE</member>
+                    <member name="ID">435</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC10_00</member>
+        <member name="next">Z130101_549_COC10_01</member>
+        <member name="messageID">1300927</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z130101_549_COC10_01</member>
+        <member name="messageID">166214</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC7_02</member>
+                    <member name="messageID">166217</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC7_02</member>
+                    <member name="messageID">166218</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC10_02</member>
+        <member name="next">Z130101_549_COC10_03</member>
+        <member name="messageID">1300922</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z130101_549_COC10_03</member>
+        <member name="messageID">166216</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC10_06</member>
+                    <member name="messageID">166065</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC8_08</member>
+                    <member name="messageID">166253</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC8_04</member>
+                    <member name="messageID">166355</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC9_12</member>
+                    <member name="messageID">166356</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC7_08</member>
+                    <member name="messageID">4</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC10_04</member>
+        <member name="next">Z130101_549_COC10_03</member>
+        <member name="messageID">1300912</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC10_05</member>
+        <member name="next">Z130101_549_COC10_03</member>
+        <member name="messageID">1300913</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC10_06</member>
+        <member name="next">Z130101_549_COC8_06a</member>
+        <member name="messageID">1300928</member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC10_07</member>
+        <member name="next">Z130101_549_COC10_08</member>
+        <member name="messageID">1300931</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z130101_549_COC10_08</member>
+        <member name="messageID">166216</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC10_09</member>
+                    <member name="messageID">3</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC7_08</member>
+                    <member name="messageID">4</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC10_09</member>
+        <member name="next">Z130101_549_COC10_10</member>
+        <member name="messageID">1300932</member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z130101_549_COC10_10</member>
+        <member name="messageID">166295</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC9_12</member>
+                    <member name="messageID">166336</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z130101_549_COC10_12</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">QUEST_COMPLETE</member>
+                                            <member name="value1">911</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z130101_549_COC9_11</member>
+                    <member name="messageID">166337</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventMultitalk">
+        <member name="ID">Z130101_549_COC10_12</member>
+        <member name="next">Z130101_549_COC9_13</member>
+        <member name="messageID">1300930</member>
     </object>
     <object name="Event">
         <member name="ID">Z130101_597</member>
