@@ -1851,7 +1851,7 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D54_540101_5491004_D00</member>
-                                <member name="sourceContext">PARTY</member>
+                                <member name="sourceContext">NONE</member>
                             </object>
                         </element>
                     </member>
@@ -2028,12 +2028,12 @@
     </object>
     <!-- 540102 (5462004) -->
     <object name="EventPrompt">
-        <member name="ID">D54_540102_5462004_10001</member>
+        <member name="ID">D54_540102_5462004_BOSS</member>
         <member name="messageID">17</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">D54_540102_5462004_10001_00</member>
+                    <member name="next">D54_540102_5462004_BOSS_SC01</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
@@ -2045,13 +2045,13 @@
         </member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D54_540102_5462004_10001_00</member>
-        <member name="next">D54_540102_5462004_10001_02</member>
+        <member name="ID">D54_540102_5462004_BOSS_SC01</member>
+        <member name="next">D54_540102_5462004_BOSS_SC02</member>
         <member name="sceneID">101</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D54_540102_5462004_10001_01</member>
+                    <member name="next">D54_540102_5462004_BOSS_SP01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -2070,7 +2070,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D54_540102_5462004_10001_01a</member>
+                    <member name="next">D54_540102_5462004_BOSS_ZC01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -2078,7 +2078,7 @@
                                 <member name="compareMode">LT_OR_NAN</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>2</key>
+                                        <key>2000</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -2090,8 +2090,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D54_540102_5462004_10001_01</member>
-        <member name="next">D54_540102_5462004_10001_01a</member>
+        <member name="ID">D54_540102_5462004_BOSS_SP01</member>
+        <member name="next">D54_540102_5462004_BOSS_ZC01</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -2114,7 +2114,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D54_540102_5462004_10001_01a</member>
+        <member name="ID">D54_540102_5462004_BOSS_ZC01</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -2125,30 +2125,29 @@
         </member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D54_540102_5462004_10001_02</member>
-        <member name="next">D54_540102_5462004_10001_02a</member>
+        <member name="ID">D54_540102_5462004_BOSS_SC02</member>
+        <member name="next">D54_540102_5462004_BOSS_SC03</member>
         <member name="sceneID">102</member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D54_540102_5462004_10001_02a</member>
-        <member name="next">D54_540102_5462004_10001_02b</member>
+        <member name="ID">D54_540102_5462004_BOSS_SC03</member>
+        <member name="next">D54_540102_5462004_BOSS_ZC01</member>
         <member name="sceneID">103</member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D54_540102_5462004_10001_02b</member>
+        <member name="ID">D54_540102_5462004_BOSS_TR01</member>
         <member name="actions">
             <element>
-                <object name="ActionZoneChange">
-                    <member name="zoneID">0</member>
-                    <member name="spotID">50001</member>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D54_540102_5462004_D00</member>
-        <member name="next">D54_540102_5462004_D01</member>
-        <member name="actions">
             <element>
                 <object name="ActionSetNPCState">
                     <member name="actorID">3</member>
@@ -2162,30 +2161,119 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>2</key>
-                            <value>1</value>
-                        </pair>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000058</element>
+                        <element>40000059</element>
+                        <element>40000060</element>
+                        <element>40000061</element>
+                        <element>40000062</element>
+                        <element>5460</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000058</element>
+                        <element>40000059</element>
+                        <element>40000060</element>
+                        <element>40000061</element>
+                        <element>40000062</element>
+                        <element>5460</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000058</element>
+                        <element>40000059</element>
+                        <element>40000060</element>
+                        <element>40000061</element>
+                        <element>40000062</element>
+                        <element>5460</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000058</element>
+                        <element>40000059</element>
+                        <element>40000060</element>
+                        <element>40000061</element>
+                        <element>40000062</element>
+                        <element>5460</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionCreateLoot">
+                    <member name="isBossBox">true</member>
+                    <member name="dropSetIDs">
+                        <element>40000058</element>
+                        <element>40000059</element>
+                        <element>40000060</element>
+                        <element>40000061</element>
+                        <element>40000062</element>
+                        <element>5460</element>
+                    </member>
+                    <member name="locations">
+                        <element>
+                            <object>
+                                <member name="SpotID">2</member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D54_540102_5462004_D01</member>
-        <member name="next">D54_540102_5462004_D02</member>
+        <member name="ID">D54_540102_5462004_BOSS_SC04</member>
+        <member name="next">D54_540102_5462004_BOSS_SC05</member>
         <member name="sceneID">102</member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D54_540102_5462004_D02</member>
+        <member name="ID">D54_540102_5462004_BOSS_SC05</member>
         <member name="sceneID">103</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D54_540102_5462004_D03</member>
+                    <member name="next">D54_540102_5462004_Q309_UPDATE</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -2197,36 +2285,16 @@
                     </member>
                 </object>
             </element>
-            <element>
-                <object>
-                    <member name="next">D54_540102_5462004_D04</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">LT_OR_NAN</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>3</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D54_540102_5462004_D03</member>
-        <member name="next">D54_540102_5462004_D03a</member>
+        <member name="ID">D54_540102_5462004_Q309_UPDATE</member>
         <member name="actions">
             <element>
                 <object name="ActionGrantXP">
                     <member name="XP">200000</member>
                     <member name="targetType">CHARACTER_AND_PARTNER</member>
-                    <member name="sourceContext">PARTY</member>
+                    <member name="sourceContext">ALL</member>
                 </object>
             </element>
             <element>
@@ -2242,126 +2310,6 @@
                             <key>10</key>
                             <value>1</value>
                         </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D54_540102_5462004_D03a</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D54_540102_5462004_D04</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">LT_OR_NAN</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>3</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D54_540102_5462004_D04</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>3</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionCreateLoot">
-                    <member name="isBossBox">true</member>
-                    <member name="dropSetIDs">
-                        <element>40000058</element>
-                        <element>5460</element>
-                    </member>
-                    <member name="locations">
-                        <element>
-                            <object>
-                                <member name="SpotID">2</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionCreateLoot">
-                    <member name="isBossBox">true</member>
-                    <member name="dropSetIDs">
-                        <element>40000059</element>
-                        <element>5460</element>
-                    </member>
-                    <member name="locations">
-                        <element>
-                            <object>
-                                <member name="SpotID">2</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionCreateLoot">
-                    <member name="isBossBox">true</member>
-                    <member name="dropSetIDs">
-                        <element>40000060</element>
-                        <element>5460</element>
-                    </member>
-                    <member name="locations">
-                        <element>
-                            <object>
-                                <member name="SpotID">2</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionCreateLoot">
-                    <member name="isBossBox">true</member>
-                    <member name="dropSetIDs">
-                        <element>40000061</element>
-                        <element>5460</element>
-                    </member>
-                    <member name="locations">
-                        <element>
-                            <object>
-                                <member name="SpotID">2</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionCreateLoot">
-                    <member name="isBossBox">true</member>
-                    <member name="dropSetIDs">
-                        <element>40000062</element>
-                        <element>5460</element>
-                    </member>
-                    <member name="locations">
-                        <element>
-                            <object>
-                                <member name="SpotID">2</member>
-                            </object>
-                        </element>
                     </member>
                 </object>
             </element>
