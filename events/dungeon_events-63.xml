@@ -11362,13 +11362,13 @@
     </object>
     <object name="EventPlayScene">
         <member name="ID">D63_630404_SC003</member>
-        <member name="next">D63_630404_ZC001a</member>
+        <member name="next">D63_630404_ZC001</member>
         <member name="sceneID">2056</member>
         <member name="unknown">1</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D63_630404_ZC001</member>
+                    <member name="next">D63_630404_SP_BOSS_01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -11388,8 +11388,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D63_630404_ZC001</member>
-        <member name="next">D63_630404_ZC001a</member>
+        <member name="ID">D63_630404_SP_BOSS_01</member>
+        <member name="next">D63_630404_ZC001</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -11410,6 +11410,13 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
+                                <member name="eventID">D63_630404_TR001</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
                                 <member name="eventID">D63_630404_SC004</member>
                                 <member name="sourceContext">ALL</member>
                                 <member name="location">ZONE</member>
@@ -11423,37 +11430,16 @@
     <object name="EventPlayScene">
         <member name="ID">D63_630404_SC004</member>
         <member name="sceneID">12056</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D63_630404_TR001</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">LT_OR_NAN</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>2000</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
     </object>
     <object name="EventPlayScene">
         <member name="ID">D63_630404_SC001</member>
-        <member name="next">D63_630404_ZC001a</member>
+        <member name="next">D63_630404_ZC001</member>
         <member name="sceneID">2057</member>
         <member name="unknown">1</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D63_630404_ZC002</member>
+                    <member name="next">D63_630404_SP_BOSS_02</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -11473,8 +11459,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D63_630404_ZC002</member>
-        <member name="next">D63_630404_ZC001a</member>
+        <member name="ID">D63_630404_SP_BOSS_02</member>
+        <member name="next">D63_630404_ZC001</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -11506,8 +11492,8 @@
                         </element>
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D63_630404_TR002</member>
-                                <member name="sourceContext">ALL</member>
+                                <member name="eventID">D63_630404_BOSS_END_02</member>
+                                <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
                         </element>
@@ -11533,8 +11519,8 @@
                         </element>
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D63_630404_TR002</member>
-                                <member name="sourceContext">ALL</member>
+                                <member name="eventID">D63_630404_BOSS_END_02</member>
+                                <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
                         </element>
@@ -11567,8 +11553,8 @@
                         </element>
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D63_630404_TR002</member>
-                                <member name="sourceContext">ALL</member>
+                                <member name="eventID">D63_630404_BOSS_END_02</member>
+                                <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
                         </element>
@@ -11632,71 +11618,59 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D63_630404_TR002</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D63_630404_SC005</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>2</key>
-                                        <value>1</value>
-                                    </pair>
-                                    <pair>
-                                        <key>3</key>
-                                        <value>1</value>
-                                    </pair>
-                                    <pair>
-                                        <key>4</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
+    <object name="EventPerformActions">
+        <member name="ID">D63_630404_BOSS_END_02</member>
+		<member name="conditions">
+			<element>
+				<object name="EventFlagCondition">
+					<member name="type">ZONE_FLAGS</member>
+					<member name="flagStates">
+						<pair>
+							<key>2</key>
+							<value>1</value>
+						</pair>
+						<pair>
+							<key>3</key>
+							<value>1</value>
+						</pair>
+						<pair>
+							<key>4</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+		</member>
+        <member name="actions">
+			<element>
+				<object name="ActionStartEvent">
+					<member name="eventID">D63_630404_TR002</member>
+					<member name="sourceContext">NONE</member>
+					<member name="location">ZONE</member>
+				</object>
+			</element>
+			<element>
+				<object name="ActionStartEvent">
+					<member name="eventID">D63_630404_SC005</member>
+					<member name="sourceContext">ALL</member>
+					<member name="location">ZONE</member>
+				</object>
+			</element>
         </member>
     </object>
     <object name="EventPlayScene">
         <member name="ID">D63_630404_SC005</member>
         <member name="sceneID">12057</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D63_630404_TR002a</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">LT_OR_NAN</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>2000</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
     </object>
     <object name="EventPlayScene">
         <member name="ID">D63_630404_SC002</member>
-        <member name="next">D63_630404_ZC001a</member>
+        <member name="next">D63_630404_ZC001</member>
         <member name="sceneID">2058</member>
         <member name="unknown">1</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D63_630404_ZC003</member>
+                    <member name="next">D63_630404_SP_BOSS_03</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -11716,8 +11690,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D63_630404_ZC003</member>
-        <member name="next">D63_630404_ZC001a</member>
+        <member name="ID">D63_630404_SP_BOSS_03</member>
+        <member name="next">D63_630404_ZC001</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -11738,6 +11712,13 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
+                                <member name="eventID">D63_630404_TR003</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
                                 <member name="eventID">D63_630404_SC007</member>
                                 <member name="sourceContext">ALL</member>
                                 <member name="location">ZONE</member>
@@ -11751,30 +11732,9 @@
     <object name="EventPlayScene">
         <member name="ID">D63_630404_SC007</member>
         <member name="sceneID">12058</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D63_630404_TR003</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">LT_OR_NAN</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>2000</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D63_630404_ZC001a</member>
+        <member name="ID">D63_630404_ZC001</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -11850,7 +11810,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D63_630404_TR002a</member>
+        <member name="ID">D63_630404_TR002</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -11858,7 +11818,7 @@
                     <member name="flagStates">
                         <pair>
                             <key>2000</key>
-                            <value>1</value>
+                            <value>2</value>
                         </pair>
                     </member>
                 </object>
@@ -11923,7 +11883,7 @@
                     <member name="flagStates">
                         <pair>
                             <key>2000</key>
-                            <value>1</value>
+                            <value>3</value>
                         </pair>
                     </member>
                 </object>
@@ -11999,13 +11959,13 @@
     </object>
     <object name="EventPlayScene">
         <member name="ID">D63_630405_SC001</member>
-        <member name="next">D63_630405_ZC001a</member>
+        <member name="next">D63_630405_ZC001</member>
         <member name="sceneID">2059</member>
         <member name="unknown">1</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D63_630405_ZC003</member>
+                    <member name="next">D63_630405_SP_BOSS_01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -12025,8 +11985,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D63_630405_ZC003</member>
-        <member name="next">D63_630405_ZC001a</member>
+        <member name="ID">D63_630405_SP_BOSS_01</member>
+        <member name="next">D63_630405_ZC001</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -12047,6 +12007,13 @@
                     <member name="defeatActions">
                         <element>
                             <object name="ActionStartEvent">
+                                <member name="eventID">D63_630405_TR001</member>
+                                <member name="sourceContext">NONE</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
                                 <member name="eventID">D63_630405_SC002</member>
                                 <member name="sourceContext">ALL</member>
                                 <member name="location">ZONE</member>
@@ -12060,30 +12027,9 @@
     <object name="EventPlayScene">
         <member name="ID">D63_630405_SC002</member>
         <member name="sceneID">12059</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D63_630405_TR001</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">LT_OR_NAN</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>2000</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D63_630405_ZC001a</member>
+        <member name="ID">D63_630405_ZC001</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -12102,7 +12048,7 @@
                     <member name="flagStates">
                         <pair>
                             <key>2000</key>
-                            <value>1</value>
+                            <value>4</value>
                         </pair>
                     </member>
                 </object>
