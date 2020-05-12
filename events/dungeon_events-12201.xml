@@ -1175,59 +1175,9 @@
         </member>
     </object>
     <object name="Event">
-        <member name="ID">D12201_120010X</member>
+        <member name="ID">D12201_120010X_REWARD</member>
         <member name="next">D12201_120010X_SETUP</member>
         <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_1BOX</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>2</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12201_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="value1">1</member>
-                                <member name="compareMode">LT</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_END</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>1</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object>
                     <member name="next">D12201_EX201307_END</member>
@@ -1548,229 +1498,35 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12201_1BOX</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1157294</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12201_IF</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1157295</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_END</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>1880</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>21663</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>25617</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>25621</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>35604</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>35605</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38002</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="onFailureEvent">D12201_IF</member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>100</element>
-                        <element>0</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionSetNPCState">
-                    <member name="state">3</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>2</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_CLEAR_STATUS</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>334</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_CLEAR_STATUS</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveStatus">
-                    <member name="isReplace">true</member>
-                    <member name="statusStacks">
-                        <pair>
-                            <key>2465</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
         <member name="ID">D12201_EX201307_END</member>
         <member name="actions">
             <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>21351</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21352</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21353</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21354</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21355</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21356</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21357</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21358</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21359</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21360</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21361</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21362</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21363</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21364</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21365</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21366</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21367</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21368</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21369</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21370</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21371</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>21372</key>
-                            <value>1</value>
-                        </pair>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRandom</member>
+                    <member name="params">
+                        <element>2</element>
+                        <element>21351</element>
+                        <element>21372</element>
+                        <element>INSTANCE_CHARACTER</element>
                     </member>
-                    <member name="onFailureEvent">D12201_IF</member>
-                    <member name="transformScriptID">transforma_keepRandomKey</member>
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="state">3</member>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38106</element>
+                        <element>1</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>INSTANCE_CHARACTER</element>
+                        <element>2</element>
+                        <element>3</element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -1781,26 +1537,6 @@
                             <key>2</key>
                             <value>1</value>
                         </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_CLEAR_STATUS</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>334</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
                     </member>
                 </object>
             </element>
@@ -1813,21 +1549,10 @@
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>2</value>
                         </pair>
                         <pair>
@@ -1861,347 +1586,12 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_LTC</member>
-        <member name="next">D12201_120010X_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="setMode">INCREMENT</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>101</key>
-                            <value>3</value>
-                        </pair>
-                        <pair>
-                            <key>334</key>
-                            <value>-1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_ITEM1_LTC</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_CHARACTER_FLAGS</member>
-                                <member name="compareMode">GTE</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>334</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_LE</member>
-        <member name="next">D12201_120010X_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="setMode">INCREMENT</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>101</key>
-                            <value>4</value>
-                        </pair>
-                        <pair>
-                            <key>334</key>
-                            <value>-1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_ITEM1_LE</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_CHARACTER_FLAGS</member>
-                                <member name="compareMode">GTE</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>334</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_LETC</member>
-        <member name="next">D12201_120010X_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="setMode">INCREMENT</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>101</key>
-                            <value>6</value>
-                        </pair>
-                        <pair>
-                            <key>334</key>
-                            <value>-1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_ITEM1_LETC</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_CHARACTER_FLAGS</member>
-                                <member name="compareMode">GTE</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>334</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_M</member>
-        <member name="next">D12201_120010X_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="setMode">INCREMENT</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>334</key>
-                            <value>-1</value>
-                        </pair>
-                        <pair>
-                            <key>101</key>
-                            <value>10</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_ITEM1_M</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_CHARACTER_FLAGS</member>
-                                <member name="compareMode">GTE</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>334</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_MTC</member>
-        <member name="next">D12201_120010X_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="setMode">INCREMENT</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>334</key>
-                            <value>-1</value>
-                        </pair>
-                        <pair>
-                            <key>101</key>
-                            <value>15</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_ITEM1_MTC</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_CHARACTER_FLAGS</member>
-                                <member name="compareMode">GTE</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>334</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_ME</member>
-        <member name="next">D12201_120010X_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="setMode">INCREMENT</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>334</key>
-                            <value>-1</value>
-                        </pair>
-                        <pair>
-                            <key>101</key>
-                            <value>20</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12201_120010X_ITEM1_ME</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_CHARACTER_FLAGS</member>
-                                <member name="compareMode">GTE</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>334</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
         <member name="ID">D12201_120010X_ITEM1_METC</member>
         <member name="next">D12201_120010X_ITEM2</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
@@ -2209,7 +1599,7 @@
                             <value>-1</value>
                         </pair>
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>30</value>
                         </pair>
                     </member>
@@ -2239,33 +1629,22 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_H</member>
+        <member name="ID">D12201_120010X_ITEM1_ME</member>
         <member name="next">D12201_120010X_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
+                            <key>334</key>
+                            <value>-1</value>
+                        </pair>
+                        <pair>
+                            <key>100</key>
                             <value>20</value>
                         </pair>
-                        <pair>
-                            <key>334</key>
-                            <value>-1</value>
-                        </pair>
                     </member>
                 </object>
             </element>
@@ -2273,7 +1652,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12201_120010X_ITEM1_H</member>
+                    <member name="next">D12201_120010X_ITEM1_ME</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -2293,32 +1672,21 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_HTC</member>
+        <member name="ID">D12201_120010X_ITEM1_MTC</member>
         <member name="next">D12201_120010X_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
-                            <value>30</value>
-                        </pair>
-                        <pair>
                             <key>334</key>
                             <value>-1</value>
+                        </pair>
+                        <pair>
+                            <key>100</key>
+                            <value>15</value>
                         </pair>
                     </member>
                 </object>
@@ -2327,7 +1695,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12201_120010X_ITEM1_HTC</member>
+                    <member name="next">D12201_120010X_ITEM1_MTC</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -2347,32 +1715,21 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12201_120010X_ITEM1_HE</member>
+        <member name="ID">D12201_120010X_ITEM1_M</member>
         <member name="next">D12201_120010X_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
-                            <value>40</value>
-                        </pair>
-                        <pair>
                             <key>334</key>
                             <value>-1</value>
+                        </pair>
+                        <pair>
+                            <key>100</key>
+                            <value>10</value>
                         </pair>
                     </member>
                 </object>
@@ -2381,7 +1738,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12201_120010X_ITEM1_HE</member>
+                    <member name="next">D12201_120010X_ITEM1_M</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -2407,21 +1764,10 @@
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38002</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>60</value>
                         </pair>
                         <pair>
@@ -2455,6 +1801,264 @@
         </member>
     </object>
     <object name="EventPerformActions">
+        <member name="ID">D12201_120010X_ITEM1_HE</member>
+        <member name="next">D12201_120010X_ITEM2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>40</value>
+                        </pair>
+                        <pair>
+                            <key>334</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12201_120010X_ITEM1_HE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>334</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12201_120010X_ITEM1_HTC</member>
+        <member name="next">D12201_120010X_ITEM2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>30</value>
+                        </pair>
+                        <pair>
+                            <key>334</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12201_120010X_ITEM1_HTC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>334</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12201_120010X_ITEM1_H</member>
+        <member name="next">D12201_120010X_ITEM2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>20</value>
+                        </pair>
+                        <pair>
+                            <key>334</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12201_120010X_ITEM1_H</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>334</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12201_120010X_ITEM1_LETC</member>
+        <member name="next">D12201_120010X_ITEM2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>6</value>
+                        </pair>
+                        <pair>
+                            <key>334</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12201_120010X_ITEM1_LETC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>334</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12201_120010X_ITEM1_LE</member>
+        <member name="next">D12201_120010X_ITEM2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>4</value>
+                        </pair>
+                        <pair>
+                            <key>334</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12201_120010X_ITEM1_LE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>334</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12201_120010X_ITEM1_LTC</member>
+        <member name="next">D12201_120010X_ITEM2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="setMode">INCREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>3</value>
+                        </pair>
+                        <pair>
+                            <key>334</key>
+                            <value>-1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12201_120010X_ITEM1_LTC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>334</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
         <member name="ID">D12201_120010X_ITEM2</member>
         <member name="next">D12201_120010X_ITEM3</member>
         <member name="actions">
@@ -2462,7 +2066,36 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38002</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
                         <element>100</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>21663</element>
@@ -2496,7 +2129,7 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
-                        <element>100</element>
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>1880</element>
@@ -2536,7 +2169,7 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
-                        <element>100</element>
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>1669</element>
@@ -2563,6 +2196,22 @@
                                 </member>
                             </object>
                         </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12201_120010X_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2</key>
+                            <value>1</value>
+                        </pair>
                     </member>
                 </object>
             </element>
@@ -2614,7 +2263,7 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
-                        <element>100</element>
+                        <element>1200101</element>
                         <element>1</element>
                         <element>0</element>
                         <element>25617</element>
@@ -2632,7 +2281,7 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
-                        <element>100</element>
+                        <element>1200101</element>
                         <element>1</element>
                         <element>0</element>
                         <element>25621</element>
@@ -2650,7 +2299,7 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
-                        <element>100</element>
+                        <element>1200101</element>
                         <element>1</element>
                         <element>0</element>
                         <element>35604</element>
@@ -2668,12 +2317,52 @@
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
-                        <element>100</element>
+                        <element>1200101</element>
                         <element>1</element>
                         <element>0</element>
                         <element>35605</element>
                         <element>1</element>
                     </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">D12201_120010X_EXTRA</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12201_120010X_CLEAR_STATUS</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_INSTANCE_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>334</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12201_120010X_CLEAR_STATUS</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2465</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">CHARACTER</member>
                 </object>
             </element>
         </member>

@@ -33450,32 +33450,15 @@
             </element>
             <element>
                 <object>
-                    <member name="next">N3401_DONE</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>999999</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
                     <member name="next">N3401_READY</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
                                 <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>3400</key>
+                                        <key>340101</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -33543,17 +33526,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>999999</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionAddRemoveStatus">
                     <member name="statusStacks">
                         <pair>
@@ -33576,10 +33548,6 @@
                         <pair>
                             <key>340101</key>
                             <value>21941</value>
-                        </pair>
-                        <pair>
-                            <key>3400</key>
-                            <value>1</value>
                         </pair>
                     </member>
                 </object>
@@ -33633,10 +33601,6 @@
                         <pair>
                             <key>340101</key>
                             <value>21941</value>
-                        </pair>
-                        <pair>
-                            <key>3400</key>
-                            <value>1</value>
                         </pair>
                         <pair>
                             <key>340102</key>
@@ -33736,6 +33700,644 @@
             <element>
                 <object name="ActionStageEffect">
                     <member name="messageID">130758</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- oNPC 120010X 宝箱X (Purple Boxes) -->
+    <object name="Event">
+        <member name="ID">N120010X</member>
+        <member name="next">N120010X_SETUP</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N120010X_1BOX_SPLIT</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1200999</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_READY</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1200101</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_SETUP</member>
+        <member name="next">N120010X_READY</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1200100</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N120010X_1BOX_SPLIT</member>
+        <member name="next">N120010X_1BOX</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N120010X_1BOX_D12601</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>12601</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_1BOX_D12801</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>12801</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_1BOX_D11701</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>11701</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_1BOX_D11306</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>7301</element>
+                                    <element>7601</element>
+                                    <element>11306</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_1BOX_D1210X</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>12101</element>
+                                    <element>12102</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_READY</member>
+        <member name="next">N120010X_LOOT</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSize</member>
+                    <member name="params">
+                        <element>1200101</element>
+                        <element>1200998</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>1200998</element>
+                        <element>1200998</element>
+                        <element>DIV</element>
+                        <element>2</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_SPLIT</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="value1">1200998</member>
+                                <member name="negate">true</member>
+                                <member name="scriptID">bool_flagCompare</member>
+                                <member name="params">
+                                    <element>CHARACTER</element>
+                                    <element>INVENTORY</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_1BOX</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1157294</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_1BOX_D12601</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215018</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_1BOX_D12801</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">300023</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_1BOX_D11701</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1163481</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_1BOX_D11306</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1165053</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_1BOX_D1210X</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1200118</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_LOOT</member>
+        <member name="next">N120010X_LOCK</member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
+                    <member name="transformScriptID">transforma_addItemFlagRange</member>
+                    <member name="transformScriptParams">
+                        <element>1200101</element>
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="flagStates">
+                        <pair>
+                            <key>1200999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1200998</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N120010X_HIDE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>11311</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N120010X_IF_SPLIT</member>
+        <member name="next">N120010X_IF</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_D13001</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>13001</element>
+                                    <element>12701</element>
+                                    <element>12702</element>
+                                    <element>12703</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_D12601</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>12601</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_D12801</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>12801</element>
+                                    <element>11311</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_DM_SPLIT</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>10201</element>
+                                    <element>10202</element>
+                                    <element>10203</element>
+                                    <element>10204</element>
+                                    <element>10205</element>
+                                    <element>10206</element>
+                                    <element>10207</element>
+                                    <element>10208</element>
+                                    <element>10209</element>
+                                    <element>10210</element>
+                                    <element>10211</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_D11701</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>11701</element>
+                                    <element>11702</element>
+                                    <element>11801</element>
+                                    <element>11802</element>
+                                    <element>11901</element>
+                                    <element>11902</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_D11306</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>11306</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_D7301</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>7301</element>
+                                    <element>7601</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_D1210X</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>12101</element>
+                                    <element>12102</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_LOCK</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1200999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N120010X_HIDE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="negate">true</member>
+                                <member name="scriptID">bool_currentInstance</member>
+                                <member name="params">
+                                    <element>7301</element>
+                                    <element>7601</element>
+                                    <element>12301</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_HIDE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="state">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1157295</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_D13001</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">130758</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_D12601</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">215019</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_D12801</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">300020</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">N120010X_IF_DM_SPLIT</member>
+        <member name="next">N120010X_IF_DM</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">N120010X_IF_DM2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>1200998</key>
+                                        <value>2</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_D11701</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1163480</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_D11306</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1165052</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_D7301</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1166012</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_D1210X</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1200117</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_DM</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">1200117</member>
+                    <member name="includeMessage">true</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N120010X_IF_DM2</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">956095</member>
                     <member name="includeMessage">true</member>
                 </object>
             </element>

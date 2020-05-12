@@ -7310,7 +7310,7 @@
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="flagStates">
                         <pair>
-                            <key>100</key>
+                            <key>1200999</key>
                             <value>0</value>
                         </pair>
                     </member>
@@ -8822,44 +8822,12 @@
         </member>
     </object>
     <object name="Event">
-        <member name="ID">D12801_BOX</member>
-        <member name="next">D12801_BOX_LOOT</member>
+        <member name="ID">D12801_120010X_REWARD</member>
+        <member name="next">D12801_120010X_REWARD_NORMAL</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12801_BOX_1BOX</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>100</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12801_BOX_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="value1">2</member>
-                                <member name="compareMode">LT</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12801_BOSS1_BOX_LOOT</member>
+                    <member name="next">D12801_120010X_REWARD_BOSS1</member>
                     <member name="conditions">
                         <element>
                             <object name="EventScriptCondition">
@@ -8885,7 +8853,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12801_BOSS2_BOX_LOOT</member>
+                    <member name="next">D12801_120010X_REWARD_BOSS2</member>
                     <member name="conditions">
                         <element>
                             <object name="EventScriptCondition">
@@ -8911,7 +8879,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12801_BOSS3_BOX_LOOT</member>
+                    <member name="next">D12801_120010X_REWARD_BOSS3</member>
                     <member name="conditions">
                         <element>
                             <object name="EventScriptCondition">
@@ -8937,7 +8905,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12801_BOSS4_BOX_LOOT</member>
+                    <member name="next">D12801_120010X_REWARD_BOSS4</member>
                     <member name="conditions">
                         <element>
                             <object name="EventScriptCondition">
@@ -8963,7 +8931,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12801_BOSS5_BOX_LOOT</member>
+                    <member name="next">D12801_120010X_REWARD_BOSS5</member>
                     <member name="conditions">
                         <element>
                             <object name="EventScriptCondition">
@@ -8979,7 +8947,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12801_BOX_LOOT</member>
+        <member name="ID">D12801_120010X_REWARD_NORMAL</member>
+        <member name="next">D12801_120010X_REWARD_CLEANUP</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -8994,11 +8963,6 @@
                             <value>38155</value>
                         </pair>
                     </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionSetNPCState">
-                    <member name="state">3</member>
                 </object>
             </element>
             <element>
@@ -9099,62 +9063,51 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>38155</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38147</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>101</element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
+                        <element>0</element>
+                        <element>0</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
+                        <element>101</element>
+                        <element>3</element>
+                        <element>102</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12801_120010X_REWARD_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>104</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12801_BOX_1BOX</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">300023</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12801_BOX_IF</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">300020</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12801_BOSS1_BOX_LOOT</member>
+        <member name="ID">D12801_120010X_REWARD_BOSS1</member>
+        <member name="next">D12801_120010X_REWARD_CLEANUP</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -9180,11 +9133,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="state">3</member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagCopy</member>
                     <member name="params">
@@ -9220,17 +9168,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRandomWeighted</member>
                     <member name="params">
@@ -9244,29 +9181,51 @@
                 </object>
             </element>
             <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>38147</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38144</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>101</element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
+                        <element>0</element>
+                        <element>0</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
+                        <element>101</element>
+                        <element>3</element>
+                        <element>102</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12801_120010X_REWARD_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>104</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12801_BOSS2_BOX_LOOT</member>
+        <member name="ID">D12801_120010X_REWARD_BOSS2</member>
+        <member name="next">D12801_120010X_REWARD_CLEANUP</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -9292,11 +9251,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="state">3</member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagCopy</member>
                     <member name="params">
@@ -9332,17 +9286,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRandomWeighted</member>
                     <member name="params">
@@ -9356,29 +9299,51 @@
                 </object>
             </element>
             <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>38147</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38145</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>101</element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
+                        <element>0</element>
+                        <element>0</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
+                        <element>101</element>
+                        <element>3</element>
+                        <element>102</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12801_120010X_REWARD_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>104</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12801_BOSS3_BOX_LOOT</member>
+        <member name="ID">D12801_120010X_REWARD_BOSS3</member>
+        <member name="next">D12801_120010X_REWARD_CLEANUP</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -9404,11 +9369,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="state">3</member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagCopy</member>
                     <member name="params">
@@ -9444,17 +9404,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRandomWeighted</member>
                     <member name="params">
@@ -9468,29 +9417,51 @@
                 </object>
             </element>
             <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>38147</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>21840</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>101</element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
+                        <element>0</element>
+                        <element>0</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
+                        <element>101</element>
+                        <element>3</element>
+                        <element>102</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12801_120010X_REWARD_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>104</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12801_BOSS4_BOX_LOOT</member>
+        <member name="ID">D12801_120010X_REWARD_BOSS4</member>
+        <member name="next">D12801_120010X_REWARD_CLEANUP</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -9516,11 +9487,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="state">3</member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagCopy</member>
                     <member name="params">
@@ -9556,17 +9522,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRandomWeighted</member>
                     <member name="params">
@@ -9580,29 +9535,51 @@
                 </object>
             </element>
             <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>38147</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38098</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>101</element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
+                        <element>0</element>
+                        <element>0</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
+                        <element>101</element>
+                        <element>3</element>
+                        <element>102</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12801_120010X_REWARD_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>104</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12801_BOSS5_BOX_LOOT</member>
+        <member name="ID">D12801_120010X_REWARD_BOSS5</member>
+        <member name="next">D12801_120010X_REWARD_CLEANUP</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -9628,11 +9605,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="state">3</member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagCopy</member>
                     <member name="params">
@@ -9668,17 +9640,6 @@
                 </object>
             </element>
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRandomWeighted</member>
                     <member name="params">
@@ -9692,22 +9653,101 @@
                 </object>
             </element>
             <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>0</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
+                        <element>101</element>
+                        <element>3</element>
+                        <element>102</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12801_120010X_REWARD_EX</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>104</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12801_120010X_REWARD_CLEANUP</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
                         <pair>
-                            <key>38147</key>
+                            <key>100</key>
                             <value>0</value>
                         </pair>
                         <pair>
-                            <key>38146</key>
+                            <key>101</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>102</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>103</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>104</key>
                             <value>0</value>
                         </pair>
                     </member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>101</element>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12801_120010X_REWARD_EX</member>
+        <member name="next">D12801_120010X_REWARD_CLEANUP</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
+                        <element>0</element>
+                        <element>0</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
+                        <element>103</element>
+                        <element>3</element>
+                        <element>104</element>
+                        <element>4</element>
                     </member>
                 </object>
             </element>

@@ -984,19 +984,19 @@
         </member>
     </object>
     <object name="Event">
-        <member name="ID">D7301_1200101</member>
-        <member name="next">D7301_MS005</member>
+        <member name="ID">D7301_BOX</member>
+        <member name="next">N120010X</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D7301_MS007</member>
+                    <member name="next">N120010X_1BOX_SPLIT</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
+                                <member name="type">ZONE_CHARACTER_FLAGS</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>5</key>
+                                        <key>1200999</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -1007,26 +1007,13 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D7301_MS006b</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D7301_MS006</member>
+                    <member name="next">D7301_BOX_STATUS_ERR</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
                                 <member name="type">STATUS_ACTIVE</member>
                                 <member name="value1">1179</member>
+                                <member name="negate">true</member>
                             </object>
                         </element>
                     </member>
@@ -1035,7 +1022,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D7301_MS005</member>
+        <member name="ID">D7301_BOX_STATUS_ERR</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -1046,19 +1033,25 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D7301_MS006</member>
+        <member name="ID">D7301_120010X_REWARD</member>
         <member name="actions">
             <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>5</key>
-                            <value>1</value>
-                        </pair>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>12142</element>
+                        <element>3</element>
                     </member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D7301_120010X_EXTRA</member>
+        <member name="actions">
             <element>
                 <object name="ActionAddRemoveStatus">
                     <member name="isReplace">true</member>
@@ -1068,40 +1061,6 @@
                             <value>0</value>
                         </pair>
                     </member>
-                    <member name="targetType">CHARACTER</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>12142</key>
-                            <value>3</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D7301_MS006b</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1166012</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D7301_MS007</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">1165053</member>
-                    <member name="includeMessage">true</member>
                 </object>
             </element>
         </member>

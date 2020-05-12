@@ -1632,86 +1632,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_1BOX</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215018</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_IF</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215019</member>
-                    <member name="includeMessage">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D12601_REWARD_01</member>
-        <member name="next">D12601_REWARD_01_SETUP</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12601_1BOX</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>2</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12601_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="value1">1</member>
-                                <member name="compareMode">LT</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12601_REWARD_01_END</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>1</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_01_SETUP</member>
-        <member name="next">D12601_REWARD_01_ITEM1</member>
+        <member name="ID">D12601_120010X_REWARD_01</member>
+        <member name="next">D12601_120010X_REWARD_01_ITEM1</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -1740,7 +1662,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_01_SETUP</member>
+                    <member name="next">D12601_120010X_REWARD_01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -1769,7 +1691,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_01_ITEM1_E</member>
+                    <member name="next">D12601_120010X_REWARD_01_ITEM1_E</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -1783,61 +1705,9 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_01_END</member>
+        <member name="ID">D12601_120010X_REWARD_01_ITEM1</member>
+        <member name="next">D12601_120010X_REWARD_01_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>38106</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38107</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38111</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="onFailureEvent">D12601_IF</member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>100</element>
-                        <element>0</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>2</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_01_ITEM1</member>
-        <member name="next">D12601_REWARD_01_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38106</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
@@ -1848,7 +1718,7 @@
                             <value>-1</value>
                         </pair>
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>5</value>
                         </pair>
                     </member>
@@ -1858,7 +1728,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_01_ITEM1</member>
+                    <member name="next">D12601_120010X_REWARD_01_ITEM1</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -1878,27 +1748,16 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_01_ITEM1_E</member>
-        <member name="next">D12601_REWARD_01_ITEM2</member>
+        <member name="ID">D12601_120010X_REWARD_01_ITEM1_E</member>
+        <member name="next">D12601_120010X_REWARD_01_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38106</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>7</value>
                         </pair>
                         <pair>
@@ -1912,7 +1771,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_01_ITEM1_E</member>
+                    <member name="next">D12601_120010X_REWARD_01_ITEM1_E</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -1932,14 +1791,42 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_01_ITEM2</member>
-        <member name="next">D12601_REWARD_01_END</member>
+        <member name="ID">D12601_120010X_REWARD_01_ITEM2</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38106</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
                         <element>100</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>38107</element>
@@ -3655,65 +3542,9 @@
             <element>215037</element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D12601_REWARD_02</member>
-        <member name="next">D12601_REWARD_02_SETUP</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12601_1BOX</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>4</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12601_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="value1">1</member>
-                                <member name="compareMode">LT</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12601_REWARD_02_END</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>3</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_02_SETUP</member>
-        <member name="next">D12601_REWARD_02_ITEM1</member>
+        <member name="ID">D12601_120010X_REWARD_02</member>
+        <member name="next">D12601_120010X_REWARD_02_ITEM1</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -3742,7 +3573,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_02_SETUP</member>
+                    <member name="next">D12601_120010X_REWARD_02</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -3771,7 +3602,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_02_ITEM1_E</member>
+                    <member name="next">D12601_120010X_REWARD_02_ITEM1_E</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -3785,61 +3616,9 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_02_END</member>
+        <member name="ID">D12601_120010X_REWARD_02_ITEM1</member>
+        <member name="next">D12601_120010X_REWARD_02_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>21665</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38106</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38112</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="onFailureEvent">D12601_IF</member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>100</element>
-                        <element>0</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>4</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_02_ITEM1</member>
-        <member name="next">D12601_REWARD_02_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38106</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
@@ -3850,7 +3629,7 @@
                             <value>-1</value>
                         </pair>
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>10</value>
                         </pair>
                     </member>
@@ -3860,7 +3639,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_02_ITEM1</member>
+                    <member name="next">D12601_120010X_REWARD_02_ITEM1</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -3880,27 +3659,16 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_02_ITEM1_E</member>
-        <member name="next">D12601_REWARD_02_ITEM2</member>
+        <member name="ID">D12601_120010X_REWARD_02_ITEM1_E</member>
+        <member name="next">D12601_120010X_REWARD_02_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38106</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>14</value>
                         </pair>
                         <pair>
@@ -3914,7 +3682,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_02_ITEM1_E</member>
+                    <member name="next">D12601_120010X_REWARD_02_ITEM1_E</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -3934,14 +3702,42 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_02_ITEM2</member>
-        <member name="next">D12601_REWARD_02_END</member>
+        <member name="ID">D12601_120010X_REWARD_02_ITEM2</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38106</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
                         <element>100</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>38112</element>
@@ -4634,65 +4430,9 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D12601_REWARD_04</member>
-        <member name="next">D12601_REWARD_04_SETUP</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12601_1BOX</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>6</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12601_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="value1">1</member>
-                                <member name="compareMode">LT</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12601_REWARD_04_END</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>5</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_04_SETUP</member>
-        <member name="next">D12601_REWARD_04_ITEM1</member>
+        <member name="ID">D12601_120010X_REWARD_04</member>
+        <member name="next">D12601_120010X_REWARD_04_ITEM1</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -4721,7 +4461,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_04_SETUP</member>
+                    <member name="next">D12601_120010X_REWARD_04</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -4750,7 +4490,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_04_ITEM1_E</member>
+                    <member name="next">D12601_120010X_REWARD_04_ITEM1_E</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -4764,69 +4504,9 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_04_END</member>
+        <member name="ID">D12601_120010X_REWARD_04_ITEM1</member>
+        <member name="next">D12601_120010X_REWARD_04_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>38106</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38108</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38109</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38113</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38114</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="onFailureEvent">D12601_IF</member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>100</element>
-                        <element>0</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>6</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_04_ITEM1</member>
-        <member name="next">D12601_REWARD_04_ITEM2</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38106</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
@@ -4837,7 +4517,7 @@
                             <value>-1</value>
                         </pair>
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>25</value>
                         </pair>
                     </member>
@@ -4847,7 +4527,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_04_ITEM1</member>
+                    <member name="next">D12601_120010X_REWARD_04_ITEM1</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -4867,27 +4547,16 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_04_ITEM1_E</member>
-        <member name="next">D12601_REWARD_04_ITEM2</member>
+        <member name="ID">D12601_120010X_REWARD_04_ITEM1_E</member>
+        <member name="next">D12601_120010X_REWARD_04_ITEM2</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38106</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>35</value>
                         </pair>
                         <pair>
@@ -4901,7 +4570,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_04_ITEM1_E</member>
+                    <member name="next">D12601_120010X_REWARD_04_ITEM1_E</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -4921,14 +4590,43 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_04_ITEM2</member>
-        <member name="next">D12601_REWARD_04_ITEM3_SELECT</member>
+        <member name="ID">D12601_120010X_REWARD_04_ITEM2</member>
+        <member name="next">D12601_120010X_REWARD_04_ITEM3_SELECT</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38106</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
                         <element>100</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>38113</element>
@@ -4943,16 +4641,16 @@
         </member>
     </object>
     <object name="Event">
-        <member name="ID">D12601_REWARD_04_ITEM3_SELECT</member>
+        <member name="ID">D12601_120010X_REWARD_04_ITEM3_SELECT</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_04_ITEM3a</member>
+                    <member name="next">D12601_120010X_REWARD_04_ITEM3a</member>
                 </object>
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_04_ITEM3b</member>
+                    <member name="next">D12601_120010X_REWARD_04_ITEM3b</member>
                 </object>
             </element>
         </member>
@@ -4962,14 +4660,13 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_04_ITEM3a</member>
-        <member name="next">D12601_REWARD_04_END</member>
+        <member name="ID">D12601_120010X_REWARD_04_ITEM3a</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
-                        <element>100</element>
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>38108</element>
@@ -4981,14 +4678,13 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_04_ITEM3b</member>
-        <member name="next">D12601_REWARD_04_END</member>
+        <member name="ID">D12601_120010X_REWARD_04_ITEM3b</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
-                        <element>100</element>
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>38109</element>
@@ -9571,65 +9267,9 @@
             </element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D12601_REWARD_08</member>
-        <member name="next">D12601_REWARD_08_SETUP</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D12601_1BOX</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>8</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12601_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="value1">1</member>
-                                <member name="compareMode">LT</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12601_REWARD_08_END</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>7</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_08_SETUP</member>
-        <member name="next">D12601_REWARD_08_ITEM1</member>
+        <member name="ID">D12601_120010X_REWARD_08</member>
+        <member name="next">D12601_120010X_REWARD_08_ITEM1</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -9658,7 +9298,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_SETUP</member>
+                    <member name="next">D12601_120010X_REWARD_08</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -9687,7 +9327,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_ITEM1_E</member>
+                    <member name="next">D12601_120010X_REWARD_08_ITEM1_E</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -9701,69 +9341,9 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_08_END</member>
+        <member name="ID">D12601_120010X_REWARD_08_ITEM1</member>
+        <member name="next">D12601_120010X_REWARD_08_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>8121</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>27710</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>27711</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>27712</key>
-                            <value>0</value>
-                        </pair>
-                        <pair>
-                            <key>38106</key>
-                            <value>0</value>
-                        </pair>
-                    </member>
-                    <member name="onFailureEvent">D12601_IF</member>
-                    <member name="transformScriptID">transforma_addItemFlagRange</member>
-                    <member name="transformScriptParams">
-                        <element>100</element>
-                        <element>0</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>8</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_08_ITEM1</member>
-        <member name="next">D12601_REWARD_08_END</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38106</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
@@ -9774,7 +9354,7 @@
                             <value>-1</value>
                         </pair>
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>140</value>
                         </pair>
                     </member>
@@ -9784,7 +9364,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_ITEM1</member>
+                    <member name="next">D12601_120010X_REWARD_08_ITEM1</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -9803,7 +9383,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_ITEM2_SELECT</member>
+                    <member name="next">D12601_120010X_REWARD_08_ITEM2_SELECT</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -9823,27 +9403,16 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_08_ITEM1_E</member>
-        <member name="next">D12601_REWARD_08_END</member>
+        <member name="ID">D12601_120010X_REWARD_08_ITEM1_E</member>
+        <member name="next">D12601_120010X_REWARD_08_END</member>
         <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>100</key>
-                            <value>38106</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE_CHARACTER</member>
                     <member name="setMode">INCREMENT</member>
                     <member name="flagStates">
                         <pair>
-                            <key>101</key>
+                            <key>100</key>
                             <value>196</value>
                         </pair>
                         <pair>
@@ -9857,7 +9426,7 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_ITEM1_E</member>
+                    <member name="next">D12601_120010X_REWARD_08_ITEM1_E</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -9876,7 +9445,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_ITEM2_SELECT</member>
+                    <member name="next">D12601_120010X_REWARD_08_ITEM2_SELECT</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -9895,8 +9464,42 @@
             </element>
         </member>
     </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_120010X_REWARD_08_END</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38106</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
+                        <element>100</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="Event">
-        <member name="ID">D12601_REWARD_08_ITEM2_SELECT</member>
+        <member name="ID">D12601_120010X_REWARD_08_ITEM2_SELECT</member>
         <member name="branchScriptID">branch_randomSplit</member>
         <member name="branchScriptParams">
             <element>3</element>
@@ -9904,89 +9507,163 @@
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_ITEM2a</member>
+                    <member name="next">D12601_120010X_REWARD_08_ITEM2a</member>
                 </object>
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_ITEM2b</member>
+                    <member name="next">D12601_120010X_REWARD_08_ITEM2b</member>
                 </object>
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_REWARD_08_ITEM2c</member>
+                    <member name="next">D12601_120010X_REWARD_08_ITEM2c</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_08_ITEM2a</member>
-        <member name="next">D12601_REWARD_08_ITEM3</member>
+        <member name="ID">D12601_120010X_REWARD_08_ITEM2a</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38106</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
                         <element>100</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>27710</element>
                         <element>1</element>
                         <element>3</element>
+                        <element>8121</element>
+                        <element>1</element>
+                        <element>1</element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_08_ITEM2b</member>
-        <member name="next">D12601_REWARD_08_ITEM3</member>
+        <member name="ID">D12601_120010X_REWARD_08_ITEM2b</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38106</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
                         <element>100</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>27711</element>
                         <element>1</element>
                         <element>3</element>
+                        <element>8121</element>
+                        <element>1</element>
+                        <element>1</element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_08_ITEM2c</member>
-        <member name="next">D12601_REWARD_08_ITEM3</member>
+        <member name="ID">D12601_120010X_REWARD_08_ITEM2c</member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_flagRangeSet</member>
                     <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38106</element>
+                        <element>0</element>
+                    </member>
+                    <member name="transformScriptID">transforma_flagParams</member>
+                    <member name="transformScriptParams">
+                        <element>CHARACTER</element>
                         <element>100</element>
+                        <element>4</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>100</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
                         <element>1</element>
                         <element>1</element>
                         <element>27712</element>
                         <element>1</element>
                         <element>3</element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_REWARD_08_ITEM3</member>
-        <member name="next">D12601_REWARD_08_END</member>
-        <member name="actions">
-            <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_flagRangeSet</member>
-                    <member name="params">
-                        <element>100</element>
-                        <element>1</element>
-                        <element>1</element>
                         <element>8121</element>
                         <element>1</element>
                         <element>1</element>

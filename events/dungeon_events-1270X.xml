@@ -455,27 +455,26 @@
             <element>206197</element>
         </member>
     </object>
-    <object name="Event">
-        <member name="ID">D12702_1200101</member>
-        <member name="next">D12702_1200101_01</member>
-        <member name="branches">
+    <object name="EventPerformActions">
+        <member name="ID">D1270X_120010X_REWARD</member>
+        <member name="actions">
             <element>
-                <object>
-                    <member name="next">D1270X_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38125</element>
+                        <element>3</element>
                     </member>
                 </object>
             </element>
+        </member>
+        <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12702_1200101_02</member>
+                    <member name="next">D1270X_120010X_REWARD_EX</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -483,78 +482,11 @@
                                 <member name="value1">2102</member>
                             </object>
                         </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12702_1200101_01</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1200101</member>
-                    <member name="state">255</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38125</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12702_1200101_02</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1200101</member>
-                    <member name="state">255</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38125</key>
-                            <value>3</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next"/>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12702_1200101_02a</member>
-                    <member name="conditions">
                         <element>
                             <object name="EventScriptCondition">
-                                <member name="scriptID">bool_random</member>
                                 <member name="value1">15</member>
                                 <member name="value2">85</member>
+                                <member name="scriptID">bool_random</member>
                             </object>
                         </element>
                     </member>
@@ -563,28 +495,18 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12702_1200101_02a</member>
+        <member name="ID">D1270X_120010X_REWARD_EX</member>
         <member name="actions">
             <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38072</key>
-                            <value>1</value>
-                        </pair>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRangeSet</member>
+                    <member name="params">
+                        <element>1200101</element>
+                        <element>1</element>
+                        <element>0</element>
+                        <element>38072</element>
+                        <element>1</element>
                     </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1270X_IF</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">130758</member>
-                    <member name="includeMessage">true</member>
                 </object>
             </element>
         </member>
@@ -894,129 +816,6 @@
         <member name="ID">D12703_NM003</member>
         <member name="messageIDs">
             <element>209322</element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D12703_1200103</member>
-        <member name="next">D12703_1200103_01</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D1270X_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12703_1200103_02</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">STATUS_ACTIVE</member>
-                                <member name="value1">2102</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12703_1200103_01</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1200103</member>
-                    <member name="state">255</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38125</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12703_1200103_02</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1200103</member>
-                    <member name="state">255</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38125</key>
-                            <value>3</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next"/>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D12703_1200103_02a</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventScriptCondition">
-                                <member name="scriptID">bool_random</member>
-                                <member name="value1">15</member>
-                                <member name="value2">85</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12703_1200103_02a</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38072</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
         </member>
     </object>
     <object name="EventPerformActions">
