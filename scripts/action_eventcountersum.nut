@@ -34,7 +34,7 @@ function run(source, cState, dState, zone, server, params)
         return Result_t.SUCCESS;
     }
 
-    local counters = EventCounter.LoadEventCounterListByType(worldDB, type)
+    local counters = EventCounter.LoadEventCounterListByType(worldDB, type);
     foreach(counter in counters)
     {
         if(!counter.GetGroupCounter() && ((options & 1) == 0 ||
