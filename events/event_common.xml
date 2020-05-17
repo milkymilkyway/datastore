@@ -153,7 +153,290 @@
             </element>
         </member>
     </object>
-	<!-- Dungeon creation/join error messages -->
+    <!-- Daily Mission reminder messages -->
+    <object name="Event">
+        <member name="ID">event_daily_mission</member>
+        <member name="next">event_daily_mission_message_low</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_cooldown</member>
+                                <member name="params">
+                                    <element>-10</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next"/>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_cooldown</member>
+                                <member name="params">
+                                    <element>-16</element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_daily_mission_message</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">10</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message_low</member>
+        <member name="next">event_daily_mission_message_bonus</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201528</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-16</element>
+                        <element>4</element>
+                        <element>00</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message</member>
+        <member name="next">event_daily_mission_message_bonus</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201529</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_relativeCooldown</member>
+                    <member name="params">
+                        <element>-16</element>
+                        <element>4</element>
+                        <element>00</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">event_daily_mission_message_bonus</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">event_daily_mission_message_bonus_01</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">480</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_daily_mission_message_bonus_02</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">481</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_daily_mission_message_bonus_03</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">482</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_daily_mission_message_bonus_04</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">483</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_daily_mission_message_bonus_05</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">484</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_daily_mission_message_bonus_06</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">485</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_daily_mission_message_bonus_07</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">486</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message_bonus_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201530</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message_bonus_02</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201531</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message_bonus_03</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201532</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message_bonus_04</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201533</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message_bonus_05</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201534</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message_bonus_06</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201535</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">event_daily_mission_message_bonus_07</member>
+        <member name="actions">
+            <element>
+                <object name="ActionDisplayMessage">
+                    <member name="messageIDs">
+                        <element>1201536</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <!-- Dungeon creation/join error messages -->
     <object name="EventPerformActions">
         <member name="ID">event_dungeon_c_license</member>
         <member name="actions">
