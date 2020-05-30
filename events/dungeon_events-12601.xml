@@ -5891,6 +5891,14 @@
                     </member>
                 </object>
             </element>
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_currentZone</member>
+                    <member name="params">
+                        <element>1260107</element>
+                    </member>
+                </object>
+            </element>
         </member>
         <member name="actions">
             <element>
@@ -6947,8 +6955,6 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D12601_08_TENGIDO</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -6963,8 +6969,6 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D12601_08_PUNISHMENT1</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -6979,8 +6983,6 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D12601_08_TENGIDO</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -7011,8 +7013,6 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D12601_08_PUNISHMENT2</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -7027,8 +7027,6 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D12601_08_TENGIDO</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -7043,8 +7041,6 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D12601_08_TENGIDO</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -7059,8 +7055,6 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D12601_08_PUNISHMENT3</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -7075,8 +7069,6 @@
                         <element>
                             <object name="ActionStartEvent">
                                 <member name="eventID">D12601_08_TENGIDO</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -7106,9 +7098,7 @@
                     <member name="actions">
                         <element>
                             <object name="ActionStartEvent">
-                                <member name="eventID">D12601_08_FAILURE</member>
-                                <member name="sourceContext">NONE</member>
-                                <member name="location">ZONE</member>
+                                <member name="eventID">D12601_08_LOOP</member>
                             </object>
                         </element>
                     </member>
@@ -7274,6 +7264,23 @@
                                 <member name="targetType">CHARACTER</member>
                                 <member name="sourceContext">ALL</member>
                                 <member name="location">INSTANCE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionDisplayMessage">
+                                <member name="messageIDs">
+                                    <element>215134</element>
+                                </member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStageEffect">
+                                <member name="messageID">215129</member>
+                                <member name="effectType">3</member>
+                                <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
                             </object>
                         </element>
                     </member>
@@ -7782,39 +7789,10 @@
             </element>
         </member>
     </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_08_MS002</member>
-        <member name="actions">
-            <element>
-                <object name="ActionDisplayMessage">
-                    <member name="messageIDs">
-                        <element>215134</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215129</member>
-                    <member name="effectType">3</member>
-                </object>
-            </element>
-        </member>
-    </object>
     <object name="EventPlayScene">
         <member name="ID">D12601_08_SC001</member>
         <member name="sceneID">12105</member>
         <member name="eventLock">true</member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D12601_08_EF006</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">215118</member>
-                    <member name="effectType">4</member>
-                </object>
-            </element>
-        </member>
     </object>
     <object name="EventPerformActions">
         <member name="ID">D12601_08_SURVIVE</member>
@@ -7869,8 +7847,351 @@
             </element>
         </member>
     </object>
+    <object name="Event">
+        <member name="ID">D12601_08_LOOP</member>
+        <member name="next">D12601_08_FAILURE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_08_LOOP_CLEANUP</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3000</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>3001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D12601_08_LOOP_CLEANUP_INDEFINITE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">GTE</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3000</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_08_LOOP_CLEANUP_INDEFINITE</member>
+        <member name="next">D12601_08_TIMING</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>300</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_08_PUNISHMENT_CLEANUP</member>
+                    <member name="sourceContext">NONE</member>
+                    <member name="location">INSTANCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_08_LOOP_CLEANUP</member>
+        <member name="next">D12601_08_TIMING</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>300</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="setMode">DECREMENT</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3001</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_08_PUNISHMENT_CLEANUP</member>
+                    <member name="sourceContext">NONE</member>
+                    <member name="location">INSTANCE</member>
+                </object>
+            </element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D12601_08_LOOP_OFF</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+                                <member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>3001</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_08_LOOP_OFF</member>
+        <member name="next">D12601_08_TIMING</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>3000</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_08_PUNISHMENT_CLEANUP</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_currentZone</member>
+                    <member name="params">
+                        <element>1260109</element>
+                        <element>1260110</element>
+                        <element>1260111</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="stopOnFailure">false</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneChange">
+                    <member name="zoneID">1260108</member>
+                    <member name="spotID">50001</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                    <member name="stopOnFailure">false</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>2</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>3</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>4</key>
+                            <value>0</value>
+                        </pair>
+                        <pair>
+                            <key>5</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">1</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">2</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">3</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">4</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">5</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">6</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">7</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">8</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">9</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">10</member>
+                    <member name="state">0</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPerformActions">
         <member name="ID">D12601_08_FAILURE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -7918,48 +8239,15 @@
             </element>
             <element>
                 <object name="ActionStartEvent">
-                    <member name="eventID">D12601_08_PA001a</member>
+                    <member name="eventID">D12601_08_ZC02</member>
                     <member name="sourceContext">NONE</member>
-                    <member name="location">ZONE</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_startRemoteEvent</member>
-                    <member name="sourceContext">NONE</member>
-                    <member name="location">ZONE</member>
-                    <member name="params">
-                        <element>D12601_08_PA001a</element>
-                        <element>1260109</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_startRemoteEvent</member>
-                    <member name="sourceContext">NONE</member>
-                    <member name="location">ZONE</member>
-                    <member name="params">
-                        <element>D12601_08_PA001a</element>
-                        <element>1260110</element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionRunScript">
-                    <member name="scriptID">action_startRemoteEvent</member>
-                    <member name="sourceContext">NONE</member>
-                    <member name="location">ZONE</member>
-                    <member name="params">
-                        <element>D12601_08_PA001a</element>
-                        <element>1260111</element>
-                    </member>
+                    <member name="location">INSTANCE</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_08_PA001</member>
+        <member name="ID">D12601_08_REWARD</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdatePoints">
@@ -7982,7 +8270,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_08_PA001a</member>
+        <member name="ID">D12601_08_ZC02</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -8046,11 +8334,11 @@
     </object>
     <object name="Event">
         <member name="ID">D12601_08_CUTSCENE</member>
-        <member name="next">D12601_08_SC003</member>
+        <member name="next">D12601_08_NORMAL_END</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D12601_08_R2_ST014</member>
+                    <member name="next">D12601_08_ZC01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -8069,7 +8357,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D12601_08_SC004</member>
+                    <member name="next">D12601_08_TRUE_END</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -8104,20 +8392,20 @@
         </member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D12601_08_SC003</member>
-        <member name="next">D12601_08_PA001</member>
+        <member name="ID">D12601_08_NORMAL_END</member>
+        <member name="next">D12601_08_REWARD</member>
         <member name="sceneID">2105</member>
         <member name="eventLock">true</member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D12601_08_SC004</member>
-        <member name="next">D12601_08_PA002</member>
+        <member name="ID">D12601_08_TRUE_END</member>
+        <member name="next">D12601_08_PERFECT</member>
         <member name="sceneID">12105</member>
         <member name="eventLock">true</member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_08_PA002</member>
-        <member name="next">D12601_08_PA001</member>
+        <member name="ID">D12601_08_PERFECT</member>
+        <member name="next">D12601_08_REWARD</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
@@ -8133,7 +8421,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_08_R2_ST014</member>
+        <member name="ID">D12601_08_ZC01</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -8992,6 +9280,17 @@
     <object name="EventPerformActions">
         <member name="ID">D12601_09_PROTECT_OUT</member>
         <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>10</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionZoneChange">
                     <member name="zoneID">1260108</member>

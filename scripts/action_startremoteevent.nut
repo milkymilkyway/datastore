@@ -16,10 +16,22 @@ function run(source, cState, dState, zone, server, params)
     }
 
     local failed = false;
+    local instanceID = zone.GetInstanceID();
+
     for(local i = 1; i < (params.len() - 1);)
     {
-        local targetZone = server.GetZoneManager().GetGlobalZone(params[i].tointeger(), 
-            params[i + 1].tointeger());
+        local targetZone = null;
+        if(instanceID == 0)
+        {
+            targetZone = server.GetZoneManager().GetGlobalZone(params[i].tointeger(), 
+                params[i + 1].tointeger());        
+        }
+        else
+        {
+            targetZone = server.GetZoneManager().GetExistingZone(params[i].tointeger(), 
+                params[i + 1].tointeger(), instanceID);
+        }
+
         if(targetZone == null || !server.GetZoneManager().StartZoneEvent(targetZone, params[0]))
         {
             failed = true;
