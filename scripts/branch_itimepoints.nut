@@ -28,7 +28,7 @@ function check(source, cState, dState, zone, params)
         // Never spoken with
         if(handleFirst)
         {
-            return genderOffset ? 5 : 0;
+            return genderOffset ? 6 : 0;
         }
         else
         {
@@ -40,7 +40,7 @@ function check(source, cState, dState, zone, params)
         local offset = handleFirst ? 1 : 0;
         if(genderOffset)
         {
-            offset += 5;
+            offset += (handleFirst ? 6 : 5);
         }
 
         local points = progress.GetITimePointsByKey(params[0].tointeger());
