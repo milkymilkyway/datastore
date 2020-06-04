@@ -15,7 +15,7 @@ function transform(source, cState, dState, zone, params)
         local keep = [];
         for(local i = 0; i < params.len(); i++)
         {
-            keep.append(action.GetItemsByKey(params[i].toingeter()));
+            keep.append(action.GetItemsByKey(params[i].tointeger()));
             action.RemoveItems(params[i].tointeger());
         }
 
@@ -30,7 +30,7 @@ function transform(source, cState, dState, zone, params)
 
         for(local i = 0; i < params.len(); i++)
         {
-            action.SetItemsEntry(params[i].toingeter(), keep[i]);
+            action.SetItemsEntry(params[i].tointeger(), keep[i]);
         }
     }
     else if(action.ActionType == Action_actionType_t.ADD_REMOVE_STATUS)
@@ -38,7 +38,7 @@ function transform(source, cState, dState, zone, params)
         local keep = [];
         for(local i = 0; i < params.len(); i++)
         {
-            keep.append(action.GetStatusStacksByKey(params[i].toingeter()));
+            keep.append(action.GetStatusStacksByKey(params[i].tointeger()));
             action.RemoveStatusStacks(params[i].tointeger());
         }
 
@@ -53,7 +53,7 @@ function transform(source, cState, dState, zone, params)
 
         for(local i = 0; i < params.len(); i++)
         {
-            action.SetStatusStacksEntry(params[i].toingeter(), keep[i]);
+            action.SetStatusStacksEntry(params[i].tointeger(), keep[i]);
         }
     }
     else if(action.ActionType == Action_actionType_t.UPDATE_COMP)
@@ -61,7 +61,7 @@ function transform(source, cState, dState, zone, params)
         local keep = [];
         for(local i = 0; i < params.len(); i++)
         {
-            keep.append(action.GetAddDemonsByKey(params[i].toingeter()));
+            keep.append(action.GetAddDemonsByKey(params[i].tointeger()));
             action.RemoveAddDemons(params[i].tointeger());
         }
 
@@ -76,7 +76,7 @@ function transform(source, cState, dState, zone, params)
 
         for(local i = 0; i < params.len(); i++)
         {
-            action.SetAddDemonsEntry(params[i].toingeter(), keep[i]);
+            action.SetAddDemonsEntry(params[i].tointeger(), keep[i]);
         }
     }
     else

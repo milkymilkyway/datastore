@@ -23,6 +23,7 @@ function combatSkillHit(eState, manager, source, skillData)
     {
         local flagIncrements = aiState.GetActionOverridesByKey("ActionTypeIncrements");
         local actionIncrements = flagIncrements != "" ? split(flagIncrements, ",") : null;
+        //print(barrier);
         if(actionIncrements != null && actionIncrements.len() > 0)
         {
             // Set up barrier if we haven't already

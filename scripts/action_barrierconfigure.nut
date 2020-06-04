@@ -25,7 +25,7 @@ function run(source, cState, dState, zone, server, params)
         return Result_t.FAIL;
     }
 
-    aiState.SetActionOverridesEntry("ActionTypeIncrements", params[0].tointeger());
+    aiState.SetActionOverridesEntry("ActionTypeIncrements", params[0]);
     aiState.SetActionOverridesEntry("BarrierEffect", params[1].tointeger());
     aiState.SetActionOverridesEntry("BarrierDown", params[2]);
     return Result_t.SUCCESS;
