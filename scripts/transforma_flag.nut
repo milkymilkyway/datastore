@@ -77,13 +77,13 @@ function transform(source, cState, dState, zone, params)
         action.SetDirection(value);
         break;
     case Action_actionType_t.STAGE_EFFECT:
-        if(params.len() > 2 && params[2].tolowercase() == "value")
+        if(params.len() > 2 && params[2].tolowercase() == "message")
         {
-            action.SetMessageValue(value);
+            action.SetMessageID(value);
         }
         else
         {
-            action.SetMessageID(value);
+            action.SetMessageValue(value);
         }
         break;
     case Action_actionType_t.UPDATE_FLAG:
