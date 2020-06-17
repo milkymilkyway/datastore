@@ -6,8 +6,9 @@ function define(script)
 }
 
 // Send an item to a character's post.
-// - params[0]: shop productID
-// - params[1]: message ID
+// - params[0]: Shop productID
+// - params[1]: Message ID
+// - params[2]: Optional source type (from enum)
 function run(source, cState, dState, zone, server, params)
 {
     local character = cState != null ? cState.GetEntity() : null;
@@ -33,7 +34,33 @@ function run(source, cState, dState, zone, server, params)
 
     post.SetType(params[0].tointeger());
 
-    // todo: Set Source (post.Source = PostItem_Source_t.RECURRING etc);
+    if(params.len() >= 3)
+    {
+        if(params[2] == "EVENT")
+        {
+            post.Source = PostItem_Source_t.EVENT;
+        }
+        else if(params[2] == "COMPENSATION")
+        {
+            post.Source = PostItem_Source_t.COMPENSATION;
+        }
+        else if(params[2] == "CAMPAIGN")
+        {
+            post.Source = PostItem_Source_t.CAMPAIGN;
+        }
+        else if(params[2] == "RECURRING")
+        {
+            post.Source = PostItem_Source_t.RECURRING;
+        }
+        else if(params[2] == "PROMOTION")
+        {
+            post.Source = PostItem_Source_t.PROMOTION;
+        }
+        else if(params[2] == "GIFT")
+        {
+            post.Source = PostItem_Source_t.GIFT;
+        }
+    }
 
     if(!PersistentObject.Register(post, UUID()) || !post.Insert(lobbyDB))
     {

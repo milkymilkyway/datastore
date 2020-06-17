@@ -26,47 +26,11 @@ function run(source, cState, dState, zone, server, params)
         return Result_t.FAIL;
     }
 
-    // todo: comment this in and remove the temporary reposition
-    /*// Extend and rotate the point around the source 800 units out
+    // Extend and rotate the point around the source 800 units out
     local radians = Randomizer.RNG(-314159, 314159) * 0.00001;
 
     local xPos2 = (800.0 * cos(radians)) + xPos1;
-    local yPos2 = (800.0 * sin(radians)) + yPos1;*/
-
-    // Temporary solution: move to 8 points on square around the source
-    local xPos2 = xPos1;
-    local yPos2 = yPos1;
-    switch(Randomizer.RNG(1, 8))
-    {
-        case 1:
-            xPos2 = xPos1 + 800.0;
-            break;
-        case 2:
-            xPos2 = xPos1 + 800.0;
-            yPos2 = yPos1 + 800.0;
-            break;
-        case 3:
-            yPos2 = yPos1 + 800.0;
-            break;
-        case 4:
-            xPos2 = xPos1 - 800.0;
-            yPos2 = yPos1 + 800.0;
-            break;
-        case 5:
-            xPos2 = xPos1 - 800.0;
-            break;
-        case 6:
-            xPos2 = xPos1 - 800.0;
-            yPos2 = yPos1 - 800.0;
-            break;
-        case 7:
-            yPos2 = yPos1 - 800.0;
-            break;
-        case 8:
-            xPos2 = xPos1 + 800.0;
-            yPos2 = yPos1 - 800.0;
-            break;
-    }
+    local yPos2 = (800.0 * sin(radians)) + yPos1;
 
     zoneManager.LinearReposition(enemy, xPos2, yPos2);
 
