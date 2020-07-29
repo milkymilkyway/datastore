@@ -4828,24 +4828,24 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z230101_524</member>
-        <member name="next">Z230101_R2_PR141</member>
+        <member name="next">Z230101_524_MAIN</member>
         <member name="messageIDs">
             <element>106401</element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z230101_R2_PR141</member>
+        <member name="ID">Z230101_524_MAIN</member>
         <member name="messageID">106402</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z230101_R2_NM246</member>
+                    <member name="next">Z230101_524_PURCHASE</member>
                     <member name="messageID">106203</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z230101_R2_NM242</member>
+                    <member name="next">Z230101_524_TALK</member>
                     <member name="messageID">106204</member>
                 </object>
             </element>
@@ -4857,24 +4857,24 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z230101_R2_NM246</member>
-        <member name="next">Z230101_R2_PR142</member>
+        <member name="ID">Z230101_524_PURCHASE</member>
+        <member name="next">Z230101_524_PURCHASE_01</member>
         <member name="messageIDs">
             <element>106403</element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z230101_R2_PR142</member>
+        <member name="ID">Z230101_524_PURCHASE_01</member>
         <member name="messageID">106404</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z230101_R2_NM247</member>
+                    <member name="next">Z230101_524_PURCHASE_03</member>
                     <member name="messageID">101503</member>
                     <member name="branches">
                         <element>
                             <object>
-                                <member name="next">Z230101_NM020</member>
+                                <member name="next">Z230101_524_MI</member>
                                 <member name="conditions">
                                     <element>
                                         <object name="EventCondition">
@@ -4889,7 +4889,7 @@
                         </element>
                         <element>
                             <object>
-                                <member name="next">Z230101_NM021</member>
+                                <member name="next">Z230101_524_IF</member>
                                 <member name="conditions">
                                     <element>
                                         <object name="EventCondition">
@@ -4906,79 +4906,126 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z230101_NM025</member>
+                    <member name="next">Z230101_524_PURCHASE_02</member>
                     <member name="messageID">106216</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z230101_R2_NM247</member>
-        <member name="next">Z230101_R2_IT011</member>
+        <member name="ID">Z230101_524_PURCHASE_03</member>
+        <member name="next">Z230101_524_CLOTHING</member>
         <member name="messageIDs">
             <element>106409</element>
         </member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z230101_R2_IT010</member>
+                    <member name="next">Z230101_524_JEWELRY</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_random</member>
+                                <member name="value1">10</member>
+                                <member name="value2">90</member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
-            <element>
-                <object>
-                    <member name="next">Z230101_R2_IT011</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z230101_R2_IT012</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z230101_R2_IT013</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z230101_R2_IT014</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z230101_R2_IT017</member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">Z230101_R2_IT018</member>
-                </object>
-            </element>
-        </member>
-        <member name="branchScriptID">branch_randomSplit</member>
-        <member name="branchScriptParams">
-            <element>7</element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z230101_R2_IT011</member>
+        <member name="ID">Z230101_524_CLOTHING</member>
         <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRandomWeighted</member>
+                    <member name="params">
+                        <element>100</element>
+                        <element>CHARACTER</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>6096</element>
+                        <element>3117</element>
+                        <element>3118</element>
+                        <element>3124</element>
+                        <element>3127</element>
+                        <element>3133</element>
+                        <element>3134</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRandomWeighted</member>
+                    <member name="params">
+                        <element>102</element>
+                        <element>CHARACTER</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>3408</element>
+                        <element>3409</element>
+                        <element>3417</element>
+                        <element>3421</element>
+                        <element>3425</element>
+                        <element>3427</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRandomWeighted</member>
+                    <member name="params">
+                        <element>104</element>
+                        <element>CHARACTER</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>1</element>
+                        <element>3007</element>
+                        <element>3027</element>
+                        <element>3515</element>
+                        <element>3517</element>
+                        <element>3518</element>
+                        <element>3523</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>101</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>103</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>105</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="notify">true</member>
                     <member name="items">
-                        <pair>
-                            <key>3124</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3425</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3007</key>
-                            <value>1</value>
-                        </pair>
                         <pair>
                             <key>12198</key>
                             <value>-2</value>
@@ -4986,27 +5033,97 @@
                     </member>
                 </object>
             </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
+                    <member name="transformScriptID">transforma_addItemFlagRange</member>
+                    <member name="transformScriptParams">
+                        <element>100</element>
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
+                    <member name="transformScriptID">transforma_addItemFlagRange</member>
+                    <member name="transformScriptParams">
+                        <element>102</element>
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
+                    <member name="transformScriptID">transforma_addItemFlagRange</member>
+                    <member name="transformScriptParams">
+                        <element>104</element>
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z230101_R2_IT012</member>
+        <member name="ID">Z230101_524_JEWELRY</member>
         <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRandomWeighted</member>
+                    <member name="params">
+                        <element>100</element>
+                        <element>CHARACTER</element>
+                        <element>1</element>
+                        <element>3661</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRandomWeighted</member>
+                    <member name="params">
+                        <element>102</element>
+                        <element>CHARACTER</element>
+                        <element>1</element>
+                        <element>3704</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagRandomWeighted</member>
+                    <member name="params">
+                        <element>104</element>
+                        <element>CHARACTER</element>
+                        <element>1</element>
+                        <element>235</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>101</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>103</key>
+                            <value>1</value>
+                        </pair>
+                        <pair>
+                            <key>105</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="notify">true</member>
                     <member name="items">
-                        <pair>
-                            <key>3127</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3427</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3027</key>
-                            <value>1</value>
-                        </pair>
                         <pair>
                             <key>12198</key>
                             <value>-2</value>
@@ -5014,151 +5131,42 @@
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z230101_R2_IT013</member>
-        <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
                     <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>3661</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>12198</key>
-                            <value>-2</value>
-                        </pair>
-                        <pair>
-                            <key>3704</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>235</key>
-                            <value>1</value>
-                        </pair>
+                    <member name="transformScriptID">transforma_addItemFlagRange</member>
+                    <member name="transformScriptParams">
+                        <element>100</element>
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
+                    <member name="transformScriptID">transforma_addItemFlagRange</member>
+                    <member name="transformScriptParams">
+                        <element>102</element>
+                        <element>1</element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
+                    <member name="transformScriptID">transforma_addItemFlagRange</member>
+                    <member name="transformScriptParams">
+                        <element>104</element>
+                        <element>1</element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z230101_R2_IT014</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>3134</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3409</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3515</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>12198</key>
-                            <value>-2</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z230101_R2_IT017</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>3117</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3417</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3517</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>12198</key>
-                            <value>-2</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z230101_R2_IT018</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>3133</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3408</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3523</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>12198</key>
-                            <value>-2</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z230101_R2_IT010</member>
-        <member name="actions">
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="notify">true</member>
-                    <member name="items">
-                        <pair>
-                            <key>3421</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3118</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>3518</key>
-                            <value>1</value>
-                        </pair>
-                        <pair>
-                            <key>12198</key>
-                            <value>-2</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
+
     <object name="EventNPCMessage">
-        <member name="ID">Z230101_R2_NM242</member>
-        <member name="next">Z230101_R2_PR141</member>
+        <member name="ID">Z230101_524_TALK</member>
+        <member name="next">Z230101_524_MAIN</member>
         <member name="messageIDs">
             <element>106405</element>
         </member>
@@ -6096,19 +6104,19 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z230101_NM020</member>
+        <member name="ID">Z230101_524_MI</member>
         <member name="messageIDs">
             <element>106406</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z230101_NM021</member>
+        <member name="ID">Z230101_524_IF</member>
         <member name="messageIDs">
             <element>106407</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z230101_NM025</member>
+        <member name="ID">Z230101_524_PURCHASE_02</member>
         <member name="messageIDs">
             <element>106408</element>
         </member>
