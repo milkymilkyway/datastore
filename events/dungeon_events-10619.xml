@@ -596,7 +596,32 @@ flag 400+: Status effects to apply
     </object>
     <object name="EventPerformActions">
         <member name="ID">D10619_FAIL</member>
+        <member name="conditions">
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>2000</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
         <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1999</key>
+                            <value>1</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object name="ActionRunScript">
                     <member name="scriptID">action_disableSpawnGroup</member>
@@ -2569,6 +2594,18 @@ flag 400+: Status effects to apply
                         <pair>
                             <key>100</key>
                             <value>5</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventFlagCondition">
+                    <member name="type">ZONE_FLAGS</member>
+                    <member name="compareMode">LT_OR_NAN</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>1999</key>
+                            <value>1</value>
                         </pair>
                     </member>
                 </object>
