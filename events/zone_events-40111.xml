@@ -2,11 +2,11 @@
     <!-- Ａ級デビルバスター -->
     <object name="Event">
         <member name="ID">Z40111_593</member>
-        <member name="next">Z40111_NM001</member>
+        <member name="next">Z40111_593_GREETING</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">Z40111_593_01</member>
+                    <member name="next">Z40111_593_INSTANCE_ACCESS</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -19,7 +19,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z40111_NM001a</member>
+                    <member name="next">Z40111_593_LL01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -33,7 +33,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z40111_NM001a</member>
+                    <member name="next">Z40111_593_LL01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -73,9 +73,179 @@
             </element>
         </member>
     </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_GREETING</member>
+        <member name="next">Z40111_593_MAIN_PROMPT</member>
+        <member name="messageIDs">
+            <element>1207039</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_LL01</member>
+        <member name="next">Z40111_593_MAIN_PROMPT</member>
+        <member name="messageIDs">
+            <element>1207041</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z40111_593_MAIN_PROMPT</member>
+        <member name="messageID">1207039</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40111_593_INSTANCE</member>
+                    <member name="messageID">1207042</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z40111_593_LL02</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">VALUABLE</member>
+                                            <member name="value1">55</member>
+                                            <member name="value2">0</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z40111_593_LL02</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">LEVEL</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">70</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40111_593_EXPLANATION</member>
+                    <member name="messageID">1207043</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40111_593_PLUGIN_84</member>
+                    <member name="messageID">1207044</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">530</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">1207045</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_LL02</member>
+        <member name="messageIDs">
+            <element>1207048</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_INSTANCE</member>
+        <member name="next">Z40111_593_INSTANCE_01</member>
+        <member name="messageIDs">
+            <element>1207049</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z40111_593_INSTANCE_01</member>
+        <member name="messageID">1207050</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40111_593_INSTANCE_02</member>
+                    <member name="messageID">1</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">Z40111_593_INSTANCE_02a</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">ITEM</member>
+                                            <member name="value1">12980</member>
+                                            <member name="value2">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                        <element>
+                            <object>
+                                <member name="next">Z40111_593_IF01</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventCondition">
+                                            <member name="type">INVENTORY_FREE</member>
+                                            <member name="compareMode">LT</member>
+                                            <member name="value1">1</member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40111_593_INSTANCE_END</member>
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_INSTANCE_END</member>
+        <member name="messageIDs">
+            <element>1207051</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_INSTANCE_02</member>
+        <member name="next">Z40111_593_INSTANCE_03</member>
+        <member name="messageIDs">
+            <element>1207053</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_INSTANCE_02a</member>
+        <member name="next">Z40111_593_UNSUMMON</member>
+        <member name="messageIDs">
+            <element>1207052</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_IF01</member>
+        <member name="next">Z40111_593_INSTANCE_03b</member>
+        <member name="messageIDs">
+            <element>1207058</element>
+        </member>
+    </object>
     <object name="Event">
-        <member name="ID">Z40111_593_01</member>
-        <member name="next">Z40111_593_02</member>
+        <member name="ID">Z40111_593_INSTANCE_ACCESS</member>
+        <member name="next">Z40111_593_INSTANCE_04</member>
         <member name="messageIDs">
             <element>1207062</element>
         </member>
@@ -136,7 +306,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z40111_593_02a</member>
+                    <member name="next">Z40111_593_INSTANCE_04a</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -150,7 +320,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z40111_593_02b</member>
+                    <member name="next">Z40111_593_INSTANCE_04b</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -183,40 +353,40 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_02</member>
-        <member name="next">Z40111_593_03</member>
+        <member name="ID">Z40111_593_INSTANCE_04</member>
+        <member name="next">Z40111_593_INSTANCE_03</member>
         <member name="messageIDs">
             <element>1207064</element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z40111_593_03</member>
+        <member name="ID">Z40111_593_INSTANCE_03</member>
         <member name="messageID">1207054</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z40111_593_04</member>
+                    <member name="next">Z40111_593_LONDON_BOOTS</member>
                     <member name="messageID">1207055</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z40111_593_06</member>
+                    <member name="next">Z40111_593_UNSUMMON</member>
                     <member name="messageID">1207056</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_04</member>
-        <member name="next">Z40111_593_05</member>
+        <member name="ID">Z40111_593_LONDON_BOOTS</member>
+        <member name="next">Z40111_593_LONDON_BOOTS_01</member>
         <member name="messageIDs">
             <element>1207057</element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z40111_593_05</member>
-        <member name="next">Z40111_593_06</member>
+        <member name="ID">Z40111_593_LONDON_BOOTS_01</member>
+        <member name="next">Z40111_593_UNSUMMON</member>
         <member name="actions">
             <element>
                 <object name="ActionAddRemoveItems">
@@ -232,8 +402,8 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z40111_593_06</member>
-        <member name="next">Z40111_I10800</member>
+        <member name="ID">Z40111_593_UNSUMMON</member>
+        <member name="next">Z40111_593_CREATE_I10800</member>
         <member name="actions">
             <element>
                 <object name="ActionUpdateCOMP">
@@ -264,7 +434,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z40111_I10800</member>
+        <member name="ID">Z40111_593_CREATE_I10800</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneInstance">
@@ -282,123 +452,71 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_07</member>
-        <member name="next">Z40111_593_06</member>
-        <member name="messageIDs">
-            <element>1207061</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_02a</member>
-        <member name="next">Z40111_593_06</member>
+        <member name="ID">Z40111_593_INSTANCE_04a</member>
+        <member name="next">Z40111_593_UNSUMMON</member>
         <member name="messageIDs">
             <element>1207063</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_02b</member>
-        <member name="next">Z40111_593_03b</member>
+        <member name="ID">Z40111_593_INSTANCE_04b</member>
+        <member name="next">Z40111_593_INSTANCE_03b</member>
         <member name="messageIDs">
             <element>1207058</element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z40111_593_03b</member>
+        <member name="ID">Z40111_593_INSTANCE_03b</member>
         <member name="messageID">1207059</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z40111_593_IF</member>
+                    <member name="next">Z40111_593_IF02</member>
                     <member name="messageID">1207055</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z40111_593_07</member>
+                    <member name="next">Z40111_593_INSTANCE_05</member>
                     <member name="messageID">1207056</member>
                 </object>
             </element>
         </member>
-    </object>
+    </object>	
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_IF</member>
+        <member name="ID">Z40111_593_IF02</member>
         <member name="messageIDs">
             <element>1207060</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_NM001</member>
-        <member name="next">Z40111_PR001</member>
+        <member name="ID">Z40111_593_INSTANCE_05</member>
+        <member name="next">Z40111_593_UNSUMMON</member>
         <member name="messageIDs">
-            <element>1207039</element>
+            <element>1207061</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_NM001a</member>
-        <member name="next">Z40111_PR001</member>
+        <member name="ID">Z40111_593_EXPLANATION</member>
+        <member name="next">Z40111_593_EXPLANATION_PROMPT</member>
         <member name="messageIDs">
-            <element>1207041</element>
+            <element>1207096</element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z40111_PR001</member>
-        <member name="messageID">1207039</member>
+        <member name="ID">Z40111_593_EXPLANATION_PROMPT</member>
+        <member name="messageID">1207096</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z40111_R2_NM009</member>
-                    <member name="messageID">1207042</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z40111_NM009a</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">VALUABLE</member>
-                                            <member name="value1">55</member>
-                                            <member name="value2">0</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z40111_NM009a</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">LEVEL</member>
-                                            <member name="compareMode">LT</member>
-                                            <member name="value1">70</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
+                    <member name="next">Z40111_593_EXPLANATION_01</member>
+                    <member name="messageID">1207066</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z40111_R2_NM006</member>
-                    <member name="messageID">1207043</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z40111_NM003</member>
-                    <member name="messageID">1207044</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">VALUABLE</member>
-                                <member name="value1">530</member>
-                                <member name="value2">1</member>
-                            </object>
-                        </element>
-                    </member>
+                    <member name="next">Z40111_593_EXPLANATION_02</member>
+                    <member name="messageID">1207067</member>
                 </object>
             </element>
             <element>
@@ -409,20 +527,50 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_NM009a</member>
+        <member name="ID">Z40111_593_EXPLANATION_01</member>
         <member name="messageIDs">
-            <element>1207048</element>
+            <element>1207068</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z40111_NM003</member>
-        <member name="next">Z40111_EF001</member>
+        <member name="ID">Z40111_593_EXPLANATION_02</member>
+        <member name="next">Z40111_593_EXPLANATION_03</member>
+        <member name="messageIDs">
+            <element>1207069</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z40111_593_EXPLANATION_03</member>
+        <member name="messageID">1207070</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z40111_593_EXPLANATION_04</member>
+                    <member name="messageID">1207071</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">1207072</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_EXPLANATION_04</member>
+        <member name="messageIDs">
+            <element>1209186</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z40111_593_PLUGIN_84</member>
+        <member name="next">Z40111_593_PLUGIN_84_01</member>
         <member name="messageIDs">
             <element>1207073</element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z40111_EF001</member>
+        <member name="ID">Z40111_593_PLUGIN_84_01</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -443,154 +591,6 @@
                     <member name="ID">84</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_R2_NM006</member>
-        <member name="next">Z40111_R2_PR005</member>
-        <member name="messageIDs">
-            <element>1207096</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z40111_R2_PR005</member>
-        <member name="messageID">1207096</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z40111_R2_NM007</member>
-                    <member name="messageID">1207066</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z40111_R2_NM003</member>
-                    <member name="messageID">1207067</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">1207045</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_R2_NM007</member>
-        <member name="messageIDs">
-            <element>1207068</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_R2_NM009</member>
-        <member name="next">Z40111_R2_PR007</member>
-        <member name="messageIDs">
-            <element>1207049</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z40111_R2_PR007</member>
-        <member name="messageID">1207050</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z40111_593_08</member>
-                    <member name="messageID">1</member>
-                    <member name="branches">
-                        <element>
-                            <object>
-                                <member name="next">Z40111_593_08a</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">ITEM</member>
-                                            <member name="value1">12980</member>
-                                            <member name="value2">1</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                        <element>
-                            <object>
-                                <member name="next">Z40111_593_08b</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">INVENTORY_FREE</member>
-                                            <member name="compareMode">LT</member>
-                                            <member name="value1">1</member>
-                                        </object>
-                                    </element>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z40111_R2_NM010</member>
-                    <member name="messageID">2</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_R2_NM010</member>
-        <member name="messageIDs">
-            <element>1207051</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_08</member>
-        <member name="next">Z40111_593_03</member>
-        <member name="messageIDs">
-            <element>1207053</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_08a</member>
-        <member name="next">Z40111_593_06</member>
-        <member name="messageIDs">
-            <element>1207052</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_593_08b</member>
-        <member name="next">Z40111_593_03b</member>
-        <member name="messageIDs">
-            <element>1207058</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_R2_NM003</member>
-        <member name="next">Z40111_R2_PR003</member>
-        <member name="messageIDs">
-            <element>1207069</element>
-        </member>
-    </object>
-    <object name="EventPrompt">
-        <member name="ID">Z40111_R2_PR003</member>
-        <member name="messageID">1207070</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z40111_R2_NM004</member>
-                    <member name="messageID">1207071</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">1207072</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z40111_R2_NM004</member>
-        <member name="messageIDs">
-            <element>1209186</element>
         </member>
     </object>
     <!-- Homepoint -->
