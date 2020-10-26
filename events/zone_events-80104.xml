@@ -294,8 +294,273 @@
     </object>
     <object name="Event">
         <member name="ID">Z80104_2003A</member>
-        <member name="next">Z80104_2003A_MAIN_PROMPT</member>
+        <member name="next">Z80104_2003A_MAIN</member>
         <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z80104_JOIN_WC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="compareMode">EXISTS</member>
+                                <member name="value1">3</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z80104_JOIN_BC</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="compareMode">EXISTS</member>
+                                <member name="value1">7</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z80104_2003A_JOIN_BRONZE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">6301</member>
+                                <member name="value2">6303</member>
+                                <member name="compareMode">BETWEEN</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_instanceJoin</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">6304</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">65</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">55</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z80104_2003A_NORMAL_PROMPT</member>
+                    <member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">LT_OR_NAN</member>
+								<member name="flagStates">
+									<pair>
+										<key>80104</key>
+										<value>1</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z80104_JOIN_WC</member>
+        <member name="next">Z80104_2003A_MAIN</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">event_wildcat_missing_demon</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">SUMMONED</member>
+                                <member name="negate">true</member>
+                                <member name="compareMode">EXISTS</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_wildcat_mounted</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">801</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_wildcat_mounted</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">1183</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_wildcat_dead_demon</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTNER_ALIVE</member>
+                                <member name="negate">true</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_wildcat_low_familiarity</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTNER_FAMILIARITY</member>
+                                <member name="negate">true</member>
+                                <member name="value1">8001</member>
+                                <member name="value2">10000</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z80104_2003A_MAIN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">222</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z80104_2003A_JOIN_BRONZE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">6301</member>
+                                <member name="value2">6303</member>
+                                <member name="compareMode">BETWEEN</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_instanceJoin</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">INSTANCE_ACCESS</member>
+                                <member name="value1">6304</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">LEVEL</member>
+                                <member name="value1">65</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">55</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="Event">
+        <member name="ID">Z80104_JOIN_BC</member>
+        <member name="next">Z80104_2003A_MAIN</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z80104_2003A_MAIN</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">700</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_bearcat_digitalize_active</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">905</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">event_bearcat_digitalize_active</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">907</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
             <element>
                 <object>
                     <member name="next">Z80104_2003A_JOIN_BRONZE</member>
@@ -385,7 +650,56 @@
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">Z80104_2003A_MAIN_PROMPT</member>
+        <member name="ID">Z80104_2003A_MAIN</member>
+        <member name="messageID">157133</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z80104_2003A_NORMAL_PROMPT</member>
+                    <member name="messageID">157135</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z80104_2003A_WC_PROMPT</member>
+                    <member name="skipInvalid">true</member>
+                    <member name="messageID">157138</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">222</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z80104_2003A_BC_PROMPT</member>
+                    <member name="skipInvalid">true</member>
+                    <member name="messageID">157146</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">700</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">157139</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z80104_2003A_NORMAL_PROMPT</member>
         <member name="messageID">157140</member>
         <member name="choices">
             <element>
