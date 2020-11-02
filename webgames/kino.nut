@@ -227,6 +227,10 @@ function draw(api, session, params, out)
     local type1 = (card1 / 10).tointeger();
     local type2 = (card2 / 10).tointeger();
     local type3 = (card3 / 10).tointeger();
+	
+	local card1v = card1 % 10;
+	local card2v = card2 % 10;
+	local card3v = card3 % 10;
 
     local turnResult = 0;
     local hits = [];
@@ -326,9 +330,9 @@ function draw(api, session, params, out)
                 break;
         }
 
-        if(card1 == card2 && card1 == card3)
+        if(card1v == card2v && card1v == card3v)
         {
-            switch(card1)
+            switch(card1v)
             {
                 case 1:
                     hits.append(ALL_1);
