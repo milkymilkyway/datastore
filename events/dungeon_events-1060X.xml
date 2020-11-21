@@ -10914,6 +10914,55 @@
         </member>
     </object>
     <object name="EventPerformActions">
+        <member name="ID">D10609_ABADDON_STEALTH_CONFIGURE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">3976</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_counterConfigure</member>
+                    <member name="params">
+                        <element>30</element>
+                        <element>D10609_ABADDON_UNSTEALTH</element>
+                        <element>901</element>
+                        <element>true</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D10609_ABADDON_UNSTEALTH</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_enemyFilter</member>
+                    <member name="value1">3976</member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>901</key>
+                            <value>0</value>
+                        </pair>
+                    </member>
+                    <member name="targetType">SOURCE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
         <member name="ID">D10609_SP01a</member>
         <member name="next">D10609_SC001</member>
         <member name="actions">
@@ -10961,6 +11010,13 @@
                             </object>
                         </element>
                     </member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D10609_ABADDON_STEALTH_CONFIGURE</member>
+                    <member name="sourceContext">ENEMIES</member>
+                    <member name="location">ZONE</member>
                 </object>
             </element>
             <element>
