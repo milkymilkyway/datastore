@@ -26,7 +26,9 @@ function run(source, cState, dState, zone, server, params)
 
     if(previous)
     {
-        match.SetPrevious(previous.GetUUID());
+        if(PentalphaEntry.LoadPentalphaEntryListByMatch(worldDB, previous.GetUUID()).len() > 0) {
+            match.SetPrevious(previous.GetUUID());
+        }
         previous.SetEndTime(worldClock.SystemTime);
     }
 

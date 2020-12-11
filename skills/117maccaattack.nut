@@ -70,7 +70,7 @@ function adjustCost(source, cState, dState, skill, zone)
     return 0;
 }
 
-function preAction(source, cState, dState, skill, zone, server)
+function preAction(source, cState, dState, skill, zone, targetStates, server)
 {
     // Transform modifiers based on cost as it can only execute or fizzle past
     // this point

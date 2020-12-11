@@ -6,15 +6,12 @@ function define(script)
 }
 
 // Enable the supplied spawn groups in the current zone
-// - params[0]: Spawn group IDs
+// - params[0+]: Spawn group IDs
 function run(source, cState, dState, zone, server, params)
 {
-    if(zone != null)
+    if(zone != null && params.len() > 0)
     {
-        for(local i = 0; i < params.len(); i++)
-        {
-            zone.EnableDisableSpawnGroup(params[i].tointeger(), true);
-        }
+        zone.EnableDisableSpawnGroup(params, true, server.GetWorldClockTime());
 
         return Result_t.SUCCESS;
     }
