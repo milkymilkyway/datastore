@@ -20,7 +20,7 @@ function run(source, cState, dState, zone, server, params)
     local zoneManager = server.GetZoneManager();
     local spawnID = params[Randomizer.RNG(0, params.len() - 1)].tointeger();
     local enemy = zoneManager.CreateEnemy(zone, 0, spawnID, 0,
-        xPos1, yPos1, Randomizer.RNG(-314159, 314159) * 0.00001);
+        xPos1, yPos1, Randomizer.RNG(-314159, 314159) * 0.00001, UUID());
     if(enemy == null)
     {
         return Result_t.FAIL;
