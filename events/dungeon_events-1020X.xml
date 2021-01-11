@@ -948,10 +948,600 @@
     <object name="EventPerformActions">
         <member name="ID">D1020X_SP_02_95</member>
         <member name="actions">
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>1</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_01</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>2</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_02</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>3</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_03</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_01</member>
+        <member name="actions">
+			<element>
+				<object name="ActionUpdateZoneFlags">
+					<member name="type">ZONE</member>
+					<member name="setMode">INCREMENT</member>
+					<member name="flagStates">
+						<pair>
+							<key>100</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+        </member>
+		<member name="branches">
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_01a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">LT_OR_NAN</member>
+								<member name="flagStates">
+									<pair>
+										<key>100</key>
+										<value>9</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object>
+					<member name="next">D1020X_SP_02_95a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">GTE</member>
+								<member name="flagStates">
+									<pair>
+										<key>100</key>
+										<value>9</value>
+									</pair>
+									<pair>
+										<key>101</key>
+										<value>9</value>
+									</pair>
+									<pair>
+										<key>102</key>
+										<value>5</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_01a</member>
+        <member name="actions">
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>1</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_01</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_02</member>
+        <member name="actions">
+			<element>
+				<object name="ActionUpdateZoneFlags">
+					<member name="type">ZONE</member>
+					<member name="setMode">INCREMENT</member>
+					<member name="flagStates">
+						<pair>
+							<key>101</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+        </member>
+		<member name="branches">
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_02a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">LT_OR_NAN</member>
+								<member name="flagStates">
+									<pair>
+										<key>101</key>
+										<value>9</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object>
+					<member name="next">D1020X_SP_02_95a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">GTE</member>
+								<member name="flagStates">
+									<pair>
+										<key>100</key>
+										<value>9</value>
+									</pair>
+									<pair>
+										<key>101</key>
+										<value>9</value>
+									</pair>
+									<pair>
+										<key>102</key>
+										<value>5</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_02a</member>
+        <member name="actions">
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>2</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_02</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_03</member>
+        <member name="actions">
+			<element>
+				<object name="ActionUpdateZoneFlags">
+					<member name="type">ZONE</member>
+					<member name="setMode">INCREMENT</member>
+					<member name="flagStates">
+						<pair>
+							<key>102</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+        </member>
+		<member name="branches">
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_03a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">LT_OR_NAN</member>
+								<member name="flagStates">
+									<pair>
+										<key>102</key>
+										<value>5</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object>
+					<member name="next">D1020X_SP_02_95a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">GTE</member>
+								<member name="flagStates">
+									<pair>
+										<key>100</key>
+										<value>9</value>
+									</pair>
+									<pair>
+										<key>101</key>
+										<value>9</value>
+									</pair>
+									<pair>
+										<key>102</key>
+										<value>5</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_03a</member>
+        <member name="actions">
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>3</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_03</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP_02_95a</member>
+        <member name="actions">
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>4</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_04</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>5</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_05</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_04</member>
+        <member name="actions">
+			<element>
+				<object name="ActionUpdateZoneFlags">
+					<member name="type">ZONE</member>
+					<member name="setMode">INCREMENT</member>
+					<member name="flagStates">
+						<pair>
+							<key>103</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+        </member>
+		<member name="branches">
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_04a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">LT_OR_NAN</member>
+								<member name="flagStates">
+									<pair>
+										<key>103</key>
+										<value>13</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_06</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">GTE</member>
+								<member name="flagStates">
+									<pair>
+										<key>103</key>
+										<value>13</value>
+									</pair>
+									<pair>
+										<key>104</key>
+										<value>13</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_04a</member>
+        <member name="actions">
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>4</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_04</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_05</member>
+        <member name="actions">
+			<element>
+				<object name="ActionUpdateZoneFlags">
+					<member name="type">ZONE</member>
+					<member name="setMode">INCREMENT</member>
+					<member name="flagStates">
+						<pair>
+							<key>104</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+        </member>
+		<member name="branches">
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_05a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">LT_OR_NAN</member>
+								<member name="flagStates">
+									<pair>
+										<key>104</key>
+										<value>13</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_06</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">GTE</member>
+								<member name="flagStates">
+									<pair>
+										<key>103</key>
+										<value>13</value>
+									</pair>
+									<pair>
+										<key>104</key>
+										<value>13</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_05a</member>
+        <member name="actions">
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>5</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_05</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_06</member>
+        <member name="actions">
+			<element>
+				<object name="ActionUpdateZoneFlags">
+					<member name="type">ZONE</member>
+					<member name="setMode">INCREMENT</member>
+					<member name="flagStates">
+						<pair>
+							<key>105</key>
+							<value>1</value>
+						</pair>
+					</member>
+				</object>
+			</element>
+        </member>
+		<member name="branches">
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_06a</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">LT_OR_NAN</member>
+								<member name="flagStates">
+									<pair>
+										<key>105</key>
+										<value>3</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+			<element>
+				<object>
+					<member name="next">D1020X_SP95_07</member>
+					<member name="conditions">
+						<element>
+							<object name="EventFlagCondition">
+								<member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">GTE</member>
+								<member name="flagStates">
+									<pair>
+										<key>105</key>
+										<value>3</value>
+									</pair>
+								</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+		</member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_06a</member>
+        <member name="actions">
+			<element>
+				<object name="ActionSpawn">
+					<member name="spawnLocationGroupIDs">
+						<element>6</element>
+					</member>
+                    <member name="defeatActions">
+						<element>
+							<object name="ActionStartEvent">
+								<member name="eventID">D1020X_SP95_06</member>
+								<member name="sourceContext">NONE</member>
+								<member name="location">ZONE</member>
+							</object>
+						</element>
+					</member>
+				</object>
+			</element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1020X_SP95_07</member>
+        <member name="actions">
             <element>
                 <object name="ActionSpawn">
                     <member name="spawnLocationGroupIDs">
-                        <element>6</element>
+                        <element>7</element>
                     </member>
                     <member name="defeatActions">
                         <element>

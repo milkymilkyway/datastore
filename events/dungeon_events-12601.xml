@@ -1,4 +1,42 @@
-﻿<objects>
+<objects>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_BEARCAT_CONFIGURE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventScriptCondition">
+                    <member name="scriptID">bool_dungeonVariant</member>
+                    <member name="params">
+                        <element>DIGITALIZE</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_INSTANCE</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>5000</key>
+                            <value>50000</value>
+                        </pair>
+                        <pair>
+                            <key>5001</key>
+                            <value>70000</value>
+                        </pair>
+                        <pair>
+                            <key>5002</key>
+                            <value>80000</value>
+                        </pair>
+                        <pair>
+                            <key>5003</key>
+                            <value>600000</value>
+                        </pair>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPerformActions">
         <member name="ID">D12601_0X_INVISIBLE_IGNORE</member>
         <member name="conditions">
@@ -5949,7 +5987,7 @@
             </element>
             <element>
                 <object name="ActionRunScript">
-                    <member name="scriptID">action_enableSpawnGroup</member>
+                    <member name="scriptID">action_respawnSpawnGroup</member>
                     <member name="params">
                         <element>6</element>
                         <element>7</element>
@@ -6760,7 +6798,7 @@
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">D12601_08_R2_MS005</member>
+                    <member name="next">D12601_08_2061A_START</member>
                     <member name="messageID">1</member>
                 </object>
             </element>
@@ -6772,7 +6810,27 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D12601_08_R2_MS005</member>
+        <member name="ID">D12601_08_2061A_START</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStartEvent">
+                    <member name="eventID">D12601_08_2061A_ACTIVATE</member>
+                    <member name="sourceContext">ALL</member>
+                    <member name="location">ZONE</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D12601_08_2061A_ACTIVATE</member>
+        <member name="conditions">
+            <element>
+                <object name="EventCondition">
+                    <member name="type">STATUS_ACTIVE</member>
+                    <member name="value1">2534</member>
+                </object>
+            </element>
+        </member>
         <member name="actions">
             <element>
                 <object name="ActionRunScript">
@@ -6901,7 +6959,7 @@
             </element>
             <element>
                 <object name="ActionRunScript">
-                    <member name="scriptID">action_enableSpawnGroup</member>
+                    <member name="scriptID">action_respawnSpawnGroup</member>
                     <member name="params">
                         <element>4</element>
                         <element>5</element>
