@@ -133,6 +133,30 @@
                 <object name="EventChoice">
                     <member name="next">D11301_LEAVE</member>
                     <member name="messageID">1160216</member>
+                    <member name="branches">
+                        <element>
+                            <object>
+                                <member name="next">D11301_UPDATE_COUNTER</member>
+                                <member name="conditions">
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="value1">20140101</member>
+                                            <member name="value2">0</member>
+                                            <member name="scriptID">bool_counterValue</member>
+                                        </object>
+                                    </element>
+                                    <element>
+                                        <object name="EventScriptCondition">
+                                            <member name="scriptID">bool_currentZone</member>
+                                            <member name="params">
+                                                <element>1130105</element>
+                                            </member>
+                                        </object>
+                                    </element>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
                 </object>
             </element>
             <element>
@@ -218,6 +242,22 @@
                     <member name="transformScriptParams">
                         <element>CHARACTER</element>
                         <element>1</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D11301_UPDATE_COUNTER</member>
+        <member name="next">D11301_LEAVE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_eventCounter</member>
+                    <member name="params">
+                        <element>20140101</element>
+                        <element>1</element>
+                        <element>3</element>
                     </member>
                 </object>
             </element>
