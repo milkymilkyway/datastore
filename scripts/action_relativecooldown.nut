@@ -44,8 +44,16 @@ function run(source, cState, dState, zone, server, params)
         // Add day offset
         timeDelta = timeDelta + 86400 * params[3].tointeger();
     }
-
-    character.SetActionCooldownsEntry(cooldownID, now + timeDelta);
+    if(params.len() >= 5)
+    {
+        local client = ClientState.GetEntityClientState(cState.GetWorldCID(), true);
+        local account = client.GetAccountWorldData().Get();
+        account.SetActionCooldownsEntry(cooldownID, now + timeDelta);
+    }
+    else
+    {
+        character.SetActionCooldownsEntry(cooldownID, now + timeDelta);
+    }
 
     return Result_t.SUCCESS;
 }
