@@ -15,14 +15,14 @@ function prepare(eState, manager)
 
 function theater(eState, possibleTargets, manager, now)
 {
-	local valid = [];
+    local valid = [];
     for(local i = 0; i < possibleTargets.len(); i++)
     {
         local enemyState = AllyState.Cast(possibleTargets[i]);
         local enemy = enemyState != null ? enemyState.GetEntity() : null;
         if(enemy == null || enemy.GetType() != 5435)
         {
-			valid.append(possibleTargets[i].GetEntityID());
+            valid.append(possibleTargets[i].GetEntityID());
         }
     }
     return valid.len() > 0 ? valid[Randomizer.RNG(0, valid.len() - 1)] : 0;
@@ -36,5 +36,5 @@ function combatSkillHit(eState, manager, source, skillData)
         {
             return 1;
         }
-		return 0;
+        return 0;
 }
