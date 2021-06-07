@@ -3063,13 +3063,12 @@
         </member>
     </object>
     <object name="Event">
-        <member name="ID">D1131X_1131307_1200101</member>
-        <member name="next">D1131X_1131307_1200101_01</member>
+        <member name="ID">D1131X_1131307_120010X</member>
+        <member name="next">D1131X_1131307_SETUP</member>
         <member name="conditions">
             <element>
                 <object name="EventCondition">
                     <member name="type">NPC_STATE</member>
-                    <member name="value1">1200101</member>
                     <member name="value2">1</member>
                 </object>
             </element>
@@ -3107,105 +3106,90 @@
                     </member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_1200101_01</member>
-        <member name="next">D1131X_1131307_LOOT</member>
-        <member name="actions">
-            <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1200101</member>
-                    <member name="state">255</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D1131X_1131307_1200102</member>
-        <member name="next">D1131X_1131307_1200102_01</member>
-        <member name="conditions">
-            <element>
-                <object name="EventCondition">
-                    <member name="type">NPC_STATE</member>
-                    <member name="value1">1200102</member>
-                    <member name="value2">1</member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
             <element>
                 <object>
-                    <member name="next">D1131X_1131307_LOOTED</member>
+                    <member name="next">D1131X_1131307_HIGH_SETUP</member>
                     <member name="conditions">
                         <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>10</key>
-                                        <value>1</value>
-                                    </pair>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_currentInstanceVariant</member>
+                                <member name="params">
+                                    <element>20012</element>
                                 </member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1131X_1131307_SETUP</member>
+        <member name="next">D1131X_1131307_SETUP_PARTY</member>
+        <member name="actions">
             <element>
-                <object>
-                    <member name="next">D1131X_1131307_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
+                <object name="ActionSetNPCState">
+                    <member name="actorID">-1</member>
+                    <member name="state">255</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>381590</key>
+                            <value>38159</value>
+                        </pair>
+                        <pair>
+                            <key>381591</key>
+                            <value>20</value>
+                        </pair>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_1200102_01</member>
-        <member name="next">D1131X_1131307_LOOT</member>
+        <member name="ID">D1131X_1131307_HIGH_SETUP</member>
+        <member name="next">D1131X_1131307_SETUP_PARTY</member>
         <member name="actions">
             <element>
                 <object name="ActionSetNPCState">
-                    <member name="actorID">1200102</member>
+                    <member name="actorID">-1</member>
                     <member name="state">255</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionUpdateZoneFlags">
+                    <member name="type">ZONE_CHARACTER</member>
+                    <member name="flagStates">
+                        <pair>
+                            <key>381590</key>
+                            <value>38159</value>
+                        </pair>
+                        <pair>
+                            <key>381591</key>
+                            <value>80</value>
+                        </pair>
+                    </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="Event">
-        <member name="ID">D1131X_1131307_1200103</member>
-        <member name="next">D1131X_1131307_1200103_01</member>
-        <member name="conditions">
-            <element>
-                <object name="EventCondition">
-                    <member name="type">NPC_STATE</member>
-                    <member name="value1">1200103</member>
-                    <member name="value2">1</member>
-                </object>
-            </element>
-        </member>
+        <member name="ID">D1131X_1131307_SETUP_PARTY</member>
+        <member name="next">D1131X_1131307_SETUP_FINALIZE</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D1131X_1131307_LOOTED</member>
+                    <member name="next">D1131X_1131307_SETUP_PARTY_2</member>
                     <member name="conditions">
                         <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>10</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
+                            <object name="EventCondition">
+                                <member name="type">PARTY_SIZE</member>
+                                <member name="value1">2</member>
+                                <member name="value2">2</member>
                             </object>
                         </element>
                     </member>
@@ -3213,13 +3197,41 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D1131X_1131307_IF</member>
+                    <member name="next">D1131X_1131307_SETUP_PARTY_3</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
+                                <member name="type">PARTY_SIZE</member>
+                                <member name="value1">3</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1131X_1131307_SETUP_PARTY_4</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTY_SIZE</member>
+                                <member name="value1">4</member>
+                                <member name="value2">4</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">D1131X_1131307_SETUP_PARTY_5</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">PARTY_SIZE</member>
+                                <member name="value1">5</member>
+                                <member name="value2">5</member>
                             </object>
                         </element>
                     </member>
@@ -3228,296 +3240,122 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_1200103_01</member>
-        <member name="next">D1131X_1131307_LOOT</member>
+        <member name="ID">D1131X_1131307_SETUP_PARTY_2</member>
+        <member name="next">D1131X_1131307_SETUP_FINALIZE</member>
         <member name="actions">
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1200103</member>
-                    <member name="state">255</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D1131X_1131307_1200104</member>
-        <member name="next">D1131X_1131307_1200104_01</member>
-        <member name="conditions">
-            <element>
-                <object name="EventCondition">
-                    <member name="type">NPC_STATE</member>
-                    <member name="value1">1200104</member>
-                    <member name="value2">1</member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOTED</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>10</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>381591</element>
+                        <element>381591</element>
+                        <element>MULT</element>
+                        <element>1.1</element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_1200104_01</member>
-        <member name="next">D1131X_1131307_LOOT</member>
+        <member name="ID">D1131X_1131307_SETUP_PARTY_3</member>
+        <member name="next">D1131X_1131307_SETUP_FINALIZE</member>
         <member name="actions">
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1200104</member>
-                    <member name="state">255</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="Event">
-        <member name="ID">D1131X_1131307_1200105</member>
-        <member name="next">D1131X_1131307_1200105_01</member>
-        <member name="conditions">
-            <element>
-                <object name="EventCondition">
-                    <member name="type">NPC_STATE</member>
-                    <member name="value1">1200105</member>
-                    <member name="value2">1</member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOTED</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_INSTANCE_CHARACTER_FLAGS</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>10</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_IF</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">INVENTORY_FREE</member>
-                                <member name="compareMode">LT</member>
-                                <member name="value1">1</member>
-                            </object>
-                        </element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>381591</element>
+                        <element>381591</element>
+                        <element>MULT</element>
+                        <element>1.3</element>
                     </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_1200105_01</member>
-        <member name="next">D1131X_1131307_LOOT</member>
+        <member name="ID">D1131X_1131307_SETUP_PARTY_4</member>
+        <member name="next">D1131X_1131307_SETUP_FINALIZE</member>
         <member name="actions">
             <element>
-                <object name="ActionSetNPCState">
-                    <member name="actorID">1200105</member>
-                    <member name="state">255</member>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>381591</element>
+                        <element>381591</element>
+                        <element>MULT</element>
+                        <element>1.6</element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1131X_1131307_SETUP_PARTY_5</member>
+        <member name="next">D1131X_1131307_SETUP_FINALIZE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>381591</element>
+                        <element>381591</element>
+                        <element>MULT</element>
+                        <element>2.0</element>
+                    </member>
                 </object>
             </element>
         </member>
     </object>
     <object name="Event">
-        <member name="ID">D1131X_1131307_LOOT</member>
+        <member name="ID">D1131X_1131307_SETUP_FINALIZE</member>
         <member name="next">D1131X_1131307_LOOT_01</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D1131X_1131307_LOOT_02H</member>
+                    <member name="next">D1131X_1131307_SETUP_STATUS</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
-                                <member name="type">PARTY_SIZE</member>
-                                <member name="value1">2</member>
-                                <member name="value2">2</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object name="EventScriptCondition">
-                                <member name="scriptID">bool_currentInstanceVariant</member>
-                                <member name="params">
-                                    <element>20012</element>
-                                </member>
+                                <member name="type">STATUS_ACTIVE</member>
+                                <member name="value1">2552</member>
                             </object>
                         </element>
                     </member>
                 </object>
             </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D1131X_1131307_SETUP_STATUS</member>
+        <member name="next">D1131X_1131307_LOOT_01</member>
+        <member name="actions">
             <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOT_02</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTY_SIZE</member>
-                                <member name="value1">2</member>
-                                <member name="value2">2</member>
-                            </object>
-                        </element>
+                <object name="ActionRunScript">
+                    <member name="scriptID">action_flagMath</member>
+                    <member name="params">
+                        <element>CHARACTER</element>
+                        <element>381591</element>
+                        <element>381591</element>
+                        <element>MULT</element>
+                        <element>1.5</element>
                     </member>
                 </object>
             </element>
             <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOT_03H</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTY_SIZE</member>
-                                <member name="value1">3</member>
-                                <member name="value2">3</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object name="EventScriptCondition">
-                                <member name="scriptID">bool_currentInstanceVariant</member>
-                                <member name="params">
-                                    <element>20012</element>
-                                </member>
-                            </object>
-                        </element>
+                <object name="ActionAddRemoveStatus">
+                    <member name="isReplace">true</member>
+                    <member name="statusStacks">
+                        <pair>
+                            <key>2552</key>
+                            <value>0</value>
+                        </pair>
                     </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOT_03</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTY_SIZE</member>
-                                <member name="value1">3</member>
-                                <member name="value2">3</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOT_04H</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTY_SIZE</member>
-                                <member name="value1">4</member>
-                                <member name="value2">4</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object name="EventScriptCondition">
-                                <member name="scriptID">bool_currentInstanceVariant</member>
-                                <member name="params">
-                                    <element>20012</element>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOT_04</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTY_SIZE</member>
-                                <member name="value1">4</member>
-                                <member name="value2">4</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOT_05H</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTY_SIZE</member>
-                                <member name="value1">5</member>
-                                <member name="value2">5</member>
-                            </object>
-                        </element>
-                        <element>
-                            <object name="EventScriptCondition">
-                                <member name="scriptID">bool_currentInstanceVariant</member>
-                                <member name="params">
-                                    <element>20012</element>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOT_05</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">PARTY_SIZE</member>
-                                <member name="value1">5</member>
-                                <member name="value2">5</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object>
-                    <member name="next">D1131X_1131307_LOOT_01H</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventScriptCondition">
-                                <member name="scriptID">bool_currentInstanceVariant</member>
-                                <member name="params">
-                                    <element>20012</element>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
+                    <member name="targetType">CHARACTER</member>
                 </object>
             </element>
         </member>
@@ -3538,256 +3376,18 @@
             </element>
             <element>
                 <object name="ActionAddRemoveItems">
+                    <member name="notify">true</member>
                     <member name="items">
                         <pair>
                             <key>38159</key>
-                            <value>20</value>
+                            <value>0</value>
                         </pair>
                     </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_01H</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
+                    <member name="transformScriptID">transforma_addItemFlagRange</member>
+                    <member name="transformScriptParams">
+                        <element>381590</element>
+                        <element>1</element>
                     </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>80</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_02</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>22</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_02H</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>88</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_03</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>26</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_03H</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>104</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_04</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>32</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_04H</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>128</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_05</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>40</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D1131X_1131307_LOOT_05H</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateZoneFlags">
-                    <member name="type">ZONE_INSTANCE_CHARACTER</member>
-                    <member name="flagStates">
-                        <pair>
-                            <key>10</key>
-                            <value>1</value>
-                        </pair>
-                    </member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionAddRemoveItems">
-                    <member name="items">
-                        <pair>
-                            <key>38159</key>
-                            <value>160</value>
-                        </pair>
-                    </member>
-                    <member name="notify">true</member>
                 </object>
             </element>
         </member>
@@ -3839,6 +3439,13 @@
                             <object name="ActionStartEvent">
                                 <member name="eventID">D1131X_1131307_SC001</member>
                                 <member name="sourceContext">ALL</member>
+                                <member name="location">ZONE</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="ActionStartEvent">
+                                <member name="eventID">D1131X_1131307_END</member>
+                                <member name="sourceContext">NONE</member>
                                 <member name="location">ZONE</member>
                             </object>
                         </element>
@@ -4276,7 +3883,6 @@
     </object>
     <object name="EventPlayScene">
         <member name="ID">D1131X_1131307_SC001</member>
-        <member name="next">D1131X_1131307_END</member>
         <member name="sceneID">12107</member>
     </object>
     <object name="EventPerformActions">
