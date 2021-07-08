@@ -30279,7 +30279,7 @@
     </object>
     <object name="Event">
         <member name="ID">N587_D11308</member>
-        <member name="next">N587_D11308_CREATE</member>
+        <member name="next">N587_D11308_CREATE_PARTY</member>
         <member name="branches">
             <element>
                 <object>
@@ -30294,6 +30294,33 @@
                     </member>
                 </object>
             </element>
+            <element>
+                <object>
+                    <member name="next">N587_D11308_CREATE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">ZONE_FLAGS</member>
+								<member name="compareMode">LT_OR_NAN</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>20160497</key>
+                                        <value>1</value>
+                                    </pair>
+                                    <pair>
+                                        <key>201408</key>
+                                        <value>1</value>
+                                    </pair>
+									<pair>
+                                        <key>201507</key>
+                                        <value>1</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
         </member>
     </object>
     <object name="EventPerformActions">
@@ -30303,6 +30330,22 @@
                 <object name="ActionZoneInstance">
                     <member name="instanceID">11308</member>
                     <member name="mode">SOLO_CREATE</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">11308</member>
+                    <member name="mode">JOIN</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">N587_D11308_CREATE_PARTY</member>
+        <member name="actions">
+            <element>
+                <object name="ActionZoneInstance">
+                    <member name="instanceID">11308</member>
                 </object>
             </element>
             <element>
