@@ -3536,11 +3536,11 @@
     <!-- NPC 115A -->
     <object name="Event">
         <member name="ID">D55_550102_115A</member>
-        <member name="next">D55_550102_115A_001</member>
+        <member name="next">D55_550102_115A_PRE_BOSS</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D55_550102_115A_002</member>
+                    <member name="next">D55_550102_115A_BOSS_PROMPT</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -3614,54 +3614,50 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">D55_550102_115A_001</member>
+        <member name="ID">D55_550102_115A_PRE_BOSS</member>
         <member name="messageIDs">
             <element>160320</element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">D55_550102_115A_002</member>
-        <member name="next">D55_550102_115A_003</member>
+        <member name="ID">D55_550102_115A_BOSS_PROMPT</member>
+        <member name="next">D55_550102_115A_BOSS_PROMPT_01</member>
         <member name="messageIDs">
             <element>160321</element>
         </member>
     </object>
     <object name="EventPrompt">
-        <member name="ID">D55_550102_115A_003</member>
+        <member name="ID">D55_550102_115A_BOSS_PROMPT_01</member>
         <member name="messageID">160331</member>
         <member name="choices">
             <element>
                 <object name="EventChoice">
-                    <member name="next">D55_550102_115A_005</member>
+                    <member name="next">D55_550102_115A_BOSS_SCENE</member>
                     <member name="messageID">160332</member>
                 </object>
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">D55_550102_115A_004</member>
+                    <member name="next">D55_550102_115A_BOSS_PROMPT_END</member>
                     <member name="messageID">160333</member>
                 </object>
             </element>
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">D55_550102_115A_004</member>
+        <member name="ID">D55_550102_115A_BOSS_PROMPT_END</member>
         <member name="messageIDs">
             <element>160322</element>
         </member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D55_550102_115A_005</member>
-        <member name="next">D55_550102_115A_006</member>
+        <member name="ID">D55_550102_115A_BOSS_SCENE</member>
+        <member name="next">D55_550102_115A_BOSS_ENTER</member>
         <member name="sceneID">93</member>
-    </object>
-    <object name="Event">
-        <member name="ID">D55_550102_115A_006</member>
-        <member name="next">D55_550102_115A_007</member>
         <member name="branches">
             <element>
                 <object>
-                    <member name="next">D55_550102_115A_008</member>
+                    <member name="next">D55_550102_115A_BOSS_SPAWN</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
@@ -3680,14 +3676,14 @@
             </element>
             <element>
                 <object>
-                    <member name="next">D55_550102_115A_009</member>
+                    <member name="next">D55_550102_115A_BOSS_SCENE2</member>
                     <member name="conditions">
                         <element>
                             <object name="EventFlagCondition">
                                 <member name="type">ZONE_FLAGS</member>
                                 <member name="flagStates">
                                     <pair>
-                                        <key>2</key>
+                                        <key>2000</key>
                                         <value>1</value>
                                     </pair>
                                 </member>
@@ -3699,12 +3695,12 @@
         </member>
     </object>
     <object name="EventPlayScene">
-        <member name="ID">D55_550102_115A_007</member>
-        <member name="next">D55_550102_115A_009</member>
+        <member name="ID">D55_550102_115A_BOSS_SCENE2</member>
+        <member name="next">D55_550102_115A_BOSS_ENTER</member>
         <member name="sceneID">96</member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D55_550102_115A_008</member>
+        <member name="ID">D55_550102_115A_BOSS_SPAWN</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3733,7 +3729,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D55_550102_115A_009</member>
+        <member name="ID">D55_550102_115A_BOSS_ENTER</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneChange">
@@ -3744,8 +3740,7 @@
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">D55_550102_5561XX_SG1_01</member>
-        <member name="next">D55_550102_5561XX_SG1_02</member>
+        <member name="ID">D55_550102_5561XX_BOSS_DF</member>
         <member name="actions">
             <element>
                 <object name="ActionSetNPCState">
@@ -3759,86 +3754,12 @@
                     <member name="state">1</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventPlayScene">
-        <member name="ID">D55_550102_5561XX_SG1_02</member>
-        <member name="next">D55_550102_5561XX_SG1_03</member>
-        <member name="sceneID">96</member>
-    </object>
-    <object name="Event">
-        <member name="ID">D55_550102_5561XX_SG1_03</member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D55_550102_5561XX_SG1_04</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventCondition">
-                                <member name="type">QUEST_PHASE</member>
-                                <member name="value1">308</member>
-                                <member name="value2">0</member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D55_550102_5561XX_SG1_04</member>
-        <member name="next">D55_550102_5561XX_SG1_05</member>
-        <member name="actions">
-            <element>
-                <object name="ActionUpdateQuest">
-                    <member name="questID">308</member>
-                    <member name="phase">1</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionGrantXP">
-                    <member name="XP">200000</member>
-                    <member name="targetType">CHARACTER_AND_PARTNER</member>
-                    <member name="sourceContext">ALL</member>
-                </object>
-            </element>
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">160347</member>
-                </object>
-            </element>
-        </member>
-        <member name="branches">
-            <element>
-                <object>
-                    <member name="next">D55_550102_5561XX_SG1_05</member>
-                    <member name="conditions">
-                        <element>
-                            <object name="EventFlagCondition">
-                                <member name="type">ZONE_FLAGS</member>
-                                <member name="compareMode">LT_OR_NAN</member>
-                                <member name="flagStates">
-                                    <pair>
-                                        <key>2</key>
-                                        <value>1</value>
-                                    </pair>
-                                </member>
-                            </object>
-                        </element>
-                    </member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">D55_550102_5561XX_SG1_05</member>
-        <member name="actions">
             <element>
                 <object name="ActionUpdateZoneFlags">
                     <member name="type">ZONE</member>
                     <member name="flagStates">
                         <pair>
-                            <key>2</key>
+                            <key>2000</key>
                             <value>1</value>
                         </pair>
                     </member>
@@ -3882,6 +3803,49 @@
                             </object>
                         </element>
                     </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPlayScene">
+        <member name="ID">D55_550102_5561XX_BOSS_DF_SCENE</member>
+        <member name="sceneID">96</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">D55_550102_5561XX_Q308_UPDATE</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">308</member>
+                                <member name="value2">0</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">D55_550102_5561XX_Q308_UPDATE</member>
+        <member name="actions">
+            <element>
+                <object name="ActionUpdateQuest">
+                    <member name="questID">308</member>
+                    <member name="phase">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionGrantXP">
+                    <member name="XP">200000</member>
+                    <member name="targetType">CHARACTER_AND_PARTNER</member>
+                    <member name="sourceContext">ALL</member>
+                </object>
+            </element>
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">160347</member>
                 </object>
             </element>
         </member>
