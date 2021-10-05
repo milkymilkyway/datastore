@@ -10,9 +10,9 @@ function define(script)
 // - params[1]: value to change/set counter by
 // - params[2]: counter should be decreased if 1, set to params[1] if 2, flag
 //   mask (add) if 3, floored at value if 4
-// - params[3]: Option flags, if 1 set the world counter instead, if 2 set
+// - params[3]: Option flags, if 1 set a world group counter instead, if 2 set
 //   current clan on RelatedTo field, if 4 retrieve value from zone character
-//   flag matching param 1 instead
+//   flag matching param 1 instead, if 8 set a standalone world counter
 function run(source, cState, dState, zone, server, params)
 {
     local syncManager = server.GetChannelSyncManager();
@@ -32,7 +32,7 @@ function run(source, cState, dState, zone, server, params)
         counterValue = zone.GetFlagState(counterValue, 0, cState.GetWorldCID());
     }
 
-    if(params.len() >= 4 && (params[3].tointeger() & 1) != 0)
+    if(params.len() >= 4 && (((params[3].tointeger() & 1) != 0) || ((params[3].tointeger() & 8) != 0)))
     {
         // Use world counter
         eCounter = syncManager.GetWorldEventCounter(params[0].tointeger());
@@ -88,6 +88,20 @@ function run(source, cState, dState, zone, server, params)
 
         eCounter.SetCounter(counterValue);
         eCounter.SetRelatedTo(relatedTo);
+		if(params.len() >= 4 && (params[3].tointeger() & 1) != 0)
+		{
+			// Using a world group counter
+			eCounter.SetGroupCounter(true);
+		} 
+		else if(params.len() >= 4 && (params[3].tointeger() & 8) != 0)
+		{
+			// Using a standalone world counter
+			eCounter.SetStandaloneWorldCounter(true);
+		}
+		
+        local clock = server.GetWorldClockTime();
+        local now = clock.SystemTime;
+        eCounter.SetTimestamp(now);
 
         if(!PersistentObject.Register(eCounter, UUID()) || !eCounter.Insert(worldDB))
         {
@@ -96,16 +110,16 @@ function run(source, cState, dState, zone, server, params)
     }
     else
     {
-        if(params.len() == 3 && params[2].tointeger() == 2)
+        if(params.len() >= 3 && params[2].tointeger() == 2)
         {
             // Setting
         }
-        else if(params.len() == 3 && params[2].tointeger() == 3)
+        else if(params.len() >= 3 && params[2].tointeger() == 3)
         {
             // Flag mask (add)
             counterValue = eCounter.GetCounter() | counterValue;
         }
-        else if(params.len() == 3 && params[2].tointeger() == 4)
+        else if(params.len() >= 3 && params[2].tointeger() == 4)
         {
             // Flooring
             counterValue = eCounter.GetCounter() > counterValue
@@ -126,6 +140,9 @@ function run(source, cState, dState, zone, server, params)
 
         eCounter.SetCounter(counterValue);
         eCounter.SetRelatedTo(relatedTo);
+        local clock = server.GetWorldClockTime();
+        local now = clock.SystemTime;
+        eCounter.SetTimestamp(now);
 
         if(!eCounter.Update(worldDB))
         {

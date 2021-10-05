@@ -161,6 +161,33 @@
         <member name="branches">
             <element>
                 <object>
+                    <member name="next">Z110110_598_Q845_SUSPICIOUS</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventCondition">
+                                <member name="type">QUEST_PHASE</member>
+                                <member name="value1">845</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                        <element>
+                            <object name="EventFlagCondition">
+                                <member name="type">QUEST_FLAGS</member>
+                                <member name="compareMode">EQUAL</member>
+                                <member name="value1">845</member>
+                                <member name="flagStates">
+                                    <pair>
+                                        <key>10</key>
+                                        <value>0</value>
+                                    </pair>
+                                </member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
                     <member name="next">Z110110_598_Q845_P2</member>
                     <member name="conditions">
                         <element>
@@ -189,7 +216,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z110110_598_Q845_GREETING</member>
+                    <member name="next">Z110110_598_NEW_GREETING</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -282,14 +309,14 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z110110_598_Q845_P2_04a</member>
-        <member name="next">Z110110_598_Q845_P2_05</member>
+        <member name="next">Z110110_598_Q845_P2_ITEMS</member>
         <member name="messageIDs">
             <element>1210838</element>
         </member>
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z110110_598_Q845_P2_04b</member>
-        <member name="next">Z110110_598_Q845_P2_05</member>
+        <member name="next">Z110110_598_Q845_P2_ITEMS</member>
         <member name="messageIDs">
             <element>1210947</element>
         </member>
@@ -432,9 +459,9 @@
             </element>
         </member>
     </object>
-	<!-- Rewards. -->
+    <!-- Rewards. -->
     <object name="Event">
-        <member name="ID">Z110110_598_Q845_P2_05</member>
+        <member name="ID">Z110110_598_Q845_P2_ITEMS</member>
         <member name="branchScriptID">branch_randomWeighted</member>
         <member name="branchScriptParams">
             <element>15</element>
@@ -3785,7 +3812,7 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z110110_598_Q845_GREETING</member>
+        <member name="ID">Z110110_598_NEW_GREETING</member>
         <member name="next">Z110110_598_NEW_PROMPT</member>
         <member name="messageIDs">
             <element>1210827</element>
@@ -3836,7 +3863,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z110110_598_Q845_05</member>
+                    <member name="next">Z110110_598_Q845_05_ALT</member>
                     <member name="messageID">1210830</member>
                     <member name="conditions">
                         <element>
@@ -3874,7 +3901,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z110110_598_02</member>
+                    <member name="next">Z110110_598_Q845_COUNT</member>
                     <member name="messageID">1210831</member>
                 </object>
             </element>
@@ -3887,13 +3914,37 @@
     </object>
     <object name="EventNPCMessage">
         <member name="ID">Z110110_598_Q845_05</member>
-        <member name="next">Z110110_598_Q845_06</member>
+        <member name="next">Z110110_598_Q845_ACCEPT_REPEAT</member>
         <member name="messageIDs">
             <element>1210833</element>
         </member>
     </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z110110_598_Q845_05_ALT</member>
+        <member name="next">Z110110_598_Q845_06_ALT</member>
+        <member name="messageIDs">
+            <element>1210939</element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z110110_598_Q845_06_ALT</member>
+        <member name="messageID">1210940</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z110110_598_Q845_05</member>
+                    <member name="messageID">1</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">2</member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventPerformActions">
-        <member name="ID">Z110110_598_Q845_06</member>
+        <member name="ID">Z110110_598_Q845_ACCEPT_REPEAT</member>
         <member name="branches">
             <element>
                 <object>
@@ -3949,13 +4000,125 @@
         </member>
     </object>
     <object name="EventNPCMessage">
+        <member name="ID">Z110110_598_Q845_SUSPICIOUS</member>
+        <member name="messageIDs">
+            <element>1210825</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
         <member name="ID">Z110110_598_MQ2</member>
         <member name="messageIDs">
             <element>1210834</element>
         </member>
     </object>
+    <object name="Event">
+        <member name="ID">Z110110_598_Q845_COUNT</member>
+        <member name="next">Z110110_598_Q845_COUNT_0</member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z110110_598_Q845_COUNT_5</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_counterValue</member>
+                                <member name="value1">845</member>
+                                <member name="value2">5</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z110110_598_Q845_COUNT_4</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_counterValue</member>
+                                <member name="value1">845</member>
+                                <member name="value2">4</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z110110_598_Q845_COUNT_3</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_counterValue</member>
+                                <member name="value1">845</member>
+                                <member name="value2">3</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z110110_598_Q845_COUNT_2</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_counterValue</member>
+                                <member name="value1">845</member>
+                                <member name="value2">2</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z110110_598_Q845_COUNT_1</member>
+                    <member name="conditions">
+                        <element>
+                            <object name="EventScriptCondition">
+                                <member name="scriptID">bool_counterValue</member>
+                                <member name="value1">845</member>
+                                <member name="value2">1</member>
+                            </object>
+                        </element>
+                    </member>
+                </object>
+            </element>
+        </member>
+    </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z110110_598_02</member>
+        <member name="ID">Z110110_598_Q845_COUNT_0</member>
+        <member name="messageIDs">
+            <element>1210941</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z110110_598_Q845_COUNT_1</member>
+        <member name="messageIDs">
+            <element>1210942</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z110110_598_Q845_COUNT_2</member>
+        <member name="messageIDs">
+            <element>1210943</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z110110_598_Q845_COUNT_3</member>
+        <member name="messageIDs">
+            <element>1210944</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z110110_598_Q845_COUNT_4</member>
+        <member name="messageIDs">
+            <element>1210945</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
+        <member name="ID">Z110110_598_Q845_COUNT_5</member>
         <member name="messageIDs">
             <element>1210835</element>
         </member>
@@ -3979,21 +4142,14 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z110110_598_DBC</member>
+                    <member name="next">Z110110_598_Q845</member>
                     <member name="messageID">1210813</member>
-                    <member name="branches">
+                    <member name="conditions">
                         <element>
-                            <object>
-                                <member name="next">Z110110_598_Q845</member>
-                                <member name="conditions">
-                                    <element>
-                                        <object name="EventCondition">
-                                            <member name="type">VALUABLE</member>
-                                            <member name="value1">15</member>
-                                            <member name="value2">1</member>
-                                        </object>
-                                    </element>
-                                </member>
+                            <object name="EventCondition">
+                                <member name="type">VALUABLE</member>
+                                <member name="value1">15</member>
+                                <member name="value2">1</member>
                             </object>
                         </element>
                     </member>
@@ -4004,12 +4160,6 @@
                     <member name="messageID">1210814</member>
                 </object>
             </element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z110110_598_DBC</member>
-        <member name="messageIDs">
-            <element>1210825</element>
         </member>
     </object>
     <object name="EventNPCMessage">
@@ -4053,7 +4203,7 @@
             </element>
             <element>
                 <object name="EventChoice">
-                    <member name="next">Z110110_598_001</member>
+                    <member name="next">Z110110_598_DECLINE</member>
                     <member name="messageID">1210819</member>
                 </object>
             </element>
@@ -4067,24 +4217,24 @@
     <object name="EventNPCMessage">
         <member name="ID">Z110110_598_MQ</member>
         <member name="messageIDs">
-            <element>1210823</element>
-        </member>
-    </object>
-    <object name="EventNPCMessage">
-        <member name="ID">Z110110_598_001</member>
-        <member name="messageIDs">
             <element>1210822</element>
         </member>
     </object>
     <object name="EventNPCMessage">
+        <member name="ID">Z110110_598_DECLINE</member>
+        <member name="messageIDs">
+            <element>1210823</element>
+        </member>
+    </object>
+    <object name="EventNPCMessage">
         <member name="ID">Z110110_598_Q845_02</member>
-        <member name="next">Z110110_598_Q845_03</member>
+        <member name="next">Z110110_598_Q845_ACCEPT_INITIAL</member>
         <member name="messageIDs">
             <element>1210821</element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z110110_598_Q845_03</member>
+        <member name="ID">Z110110_598_Q845_ACCEPT_INITIAL</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">

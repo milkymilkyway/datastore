@@ -20,7 +20,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z90105_Q299_P2_01</member>
+                    <member name="next">Z90105_Q299_P1_01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -34,7 +34,7 @@
             </element>
             <element>
                 <object>
-                    <member name="next">Z90105_Q299_P2_05</member>
+                    <member name="next">Z90105_Q299_P2_01</member>
                     <member name="conditions">
                         <element>
                             <object name="EventCondition">
@@ -301,15 +301,14 @@
         </member>
     </object>
     <object name="EventNPCMessage">
-        <member name="ID">Z90105_Q299_P2_01</member>
-        <member name="next">Z90105_Q299_P2_02</member>
+        <member name="ID">Z90105_Q299_P1_01</member>
+        <member name="next">Z90105_Q299_P1_02</member>
         <member name="messageIDs">
             <element>162016</element>
         </member>
     </object>
     <object name="EventPerformActions">
-        <member name="ID">Z90105_Q299_P2_02</member>
-        <member name="next">Z90105_Q299_P2_05</member>
+        <member name="ID">Z90105_Q299_P1_02</member>
         <member name="actions">
             <element>
                 <object name="ActionStageEffect">
@@ -325,21 +324,10 @@
             </element>
         </member>
     </object>
-    <object name="EventPrompt">
-        <member name="ID">Z90105_Q299_P2_05</member>
-        <member name="messageID">162070</member>
-        <member name="choices">
-            <element>
-                <object name="EventChoice">
-                    <member name="next">Z90105_S10002</member>
-                    <member name="messageID">162071</member>
-                </object>
-            </element>
-            <element>
-                <object name="EventChoice">
-                    <member name="messageID">162003</member>
-                </object>
-            </element>
+    <object name="EventNPCMessage">
+        <member name="ID">Z90105_Q299_P2_01</member>
+        <member name="messageIDs">
+            <element>162016</element>
         </member>
     </object>
     <!-- NPC 125 -->
@@ -378,8 +366,61 @@
             </element>
         </member>
     </object>
-    <object name="EventPerformActions">
+    <object name="Event">
         <member name="ID">Z90105_S10002</member>
+		<member name="next">Z90105_S10002_I5301</member>
+        <member name="branchScriptID">branch_questPhase</member>
+        <member name="branchScriptParams">
+            <element>299</element>
+        </member>
+        <member name="branches">
+            <element>
+                <object>
+                    <member name="next">Z90105_S10002_01</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z90105_S10002_01</member>
+                </object>
+            </element>
+            <element>
+                <object>
+                    <member name="next">Z90105_S10002_I5301</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z90105_S10002_01</member>
+        <member name="actions">
+            <element>
+                <object name="ActionStageEffect">
+                    <member name="messageID">162006</member>
+                    <member name="effectType">3</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPrompt">
+        <member name="ID">Z90105_S10002_I5301</member>
+        <member name="messageID">162070</member>
+        <member name="choices">
+            <element>
+                <object name="EventChoice">
+                    <member name="next">Z90105_S10002_I5301_CREATE</member>
+                    <member name="messageID">162071</member>
+                </object>
+            </element>
+            <element>
+                <object name="EventChoice">
+                    <member name="messageID">162003</member>
+                </object>
+            </element>
+        </member>
+    </object>
+    <object name="EventPerformActions">
+        <member name="ID">Z90105_S10002_I5301_CREATE</member>
         <member name="actions">
             <element>
                 <object name="ActionZoneInstance">
@@ -394,20 +435,9 @@
                 </object>
             </element>
         </member>
-        <member name="conditions">
-            <element>
-                <object name="EventCondition">
-                    <member name="type">QUEST_PHASE</member>
-                    <member name="compareMode">GTE</member>
-                    <member name="value1">299</member>
-                    <member name="value2">2</member>
-                </object>
-            </element>
-        </member>
     </object>
     <object name="Event">
         <member name="ID">Z90105_S10003</member>
-        <member name="next">Z90105_S10003_01</member>
         <member name="branches">
             <element>
                 <object>
@@ -437,17 +467,6 @@
                 <object name="ActionUpdateQuest">
                     <member name="questID">299</member>
                     <member name="phase">1</member>
-                </object>
-            </element>
-        </member>
-    </object>
-    <object name="EventPerformActions">
-        <member name="ID">Z90105_S10003_01</member>
-        <member name="actions">
-            <element>
-                <object name="ActionStageEffect">
-                    <member name="messageID">162006</member>
-                    <member name="effectType">3</member>
                 </object>
             </element>
         </member>
